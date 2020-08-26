@@ -9,8 +9,8 @@
 
 ### 原始类型与引用类型的区别
 
--   基础数据以栈的形式存储，用 typeof 来判断类型，存储空间固定
--   引用类型以堆的形式存储，用 instanceof 来判断类型，存储空间固定
+-   基础数据以栈的形式存储，常用 typeof 来判断类型
+-   引用类型以堆的形式存储，常用 instanceof 来判断类型
 -   原始类型存储的是值，对象类型存储的是地址(指针)
     ![原始类型存储.png](./img/1.png '原始类型存储')
     ![引用类型存储.png](./img/2.png '引用类型存储')
@@ -44,7 +44,7 @@
 -   bind : fn.bind(this 指向(默认 window),参数 1，参数 2，...)，返回一个新的函数
 -   无论 bind 绑定几次，this 永远由第一次决定
 
-### === 的判断流程
+### == 的判断流程
 
 -   判断两者的类型是否相同，相同的话就是比大小了，类型不同的话就进行类型转换
 -   判断是否在比较 null 和 undefined，是的话返回 true
@@ -76,13 +76,14 @@
 -   Object.prototype 是所有对象的爸爸，所有的对象都可以通过**proto**找到它
 -   Function.prototype 是所有函数的爸爸，所有函数都可以通过**proto**找到它
 -   函数的 prototype 是一个对象
+-   实例.__proto__===构造函数.prototype
 -   对象的**proto**属性指向原型**proto**将对象和原型连接起来组成了原型链
     ![原型链.png](./img/prototype.png '原型链')
 
 ### var(variable)、let、const(constant)的区别
 
 -   var 会有提升概念(hoisting)
--   函数提升优先于变量提升，函数的提升会把整个函数拿到作用域顶部，便便提升只会把声明挪到作用域顶部
+-   函数提升优先于变量提升，函数的提升会把整个函数拿到作用域顶部，变量提升只会把声明挪到作用域顶部
 -   var 在全局作用域下声明的变量会挂载在 window 上，let、const 不会
 -   let、const 存在暂时性死区，不能在声明前使用
 -   const 用来声明常量
@@ -109,7 +110,7 @@
 -   当执行完所有同步代码后，执行栈为空， 查询是否有异步代码需要执行
 -   执行所有的微任务
 -   执行完所有的微任务之后，检查是否需要渲染页面，需要的话去渲染页面
--   然后开始下一轮的 Event Loop, 执行宏任务中的异步代码
+-   执行宏任务中的异步代码
 -   微任务包括：process.nextTick, promise,
 -   宏任务包括：script, setTimeout, setInterval, setImmediate, I/O, UI rending
 
@@ -119,26 +120,27 @@
 
 ### 什么是跨域？
 
--   浏览器出于安全考虑，有同源策略，如果协议、域名或者端口号有一个不同就是跨域
--   只要是用来防止 CSRF 攻击的(利用用户的登录状态发起恶意请求)
+-    为了安全，浏览器有同源策略，只要协议、域名、端口号有一个不一样就会产生跨域
+-   主要是用来防止 CSRF 攻击的(利用用户的登录状态发起恶意请求)
 -   请求其实已经发出去了，但是浏览器拦截了响应
 
 ### 解决跨域的方法？
 
 -   jsonp:利用 script 标签没有跨域限制的特性,通过回调函数来接收数据，只支持 get 请求
     ```
-        <script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
-        <script>
-            function jsonp(data) {
-                console.log(data)
-            }
-        </script>
+    <script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
+    <script>
+        function jsonp(data) {
+            console.log(data)
+        }
+    </script>
     ```
 -   服务端设置 Access-Control-Allow-Origin CORS
+-   img 标签和 link 标签也没有跨域的限制
 
 ### 存储的几种方式
 
--   ![存储.png](./img/storage.jpg '存储')
+![存储.png](./img/storage.jpg '存储')
 
 ### 什么是 service work ?
 
@@ -202,16 +204,16 @@
 
     -   强缓存
         -   Expires
-            1.  HTTP/1 的产物
+            1.  HTTP/1.0 的产物
             2.  表示资源会在某一时间节点后过期
-            3.  受限于本地时间，可修改本地时间造成缓存失效
+            3.  受限于本地时间，可修改本地时间会造成缓存失效
         -   Cache-Control
             1.  出现于 HTTP/1.1 优先级高于 Expires
                 ![cacheControl.jpg](./img/cacheControl.jpg)
     -   协商缓存
-        -   Last-Modified
+        -   Last-Modified 
             1. 表示本地文件最后修改日期
-            2. If-Modified-Since 会将 Last-Modified 值发送给服务器，询问服务器在改时间节点后资源是否有更新，有则返回最新资源，否则返回 304
+            2. If-Modified-Since 会将 Last-Modified 值发送给服务器，询问服务器在该时间节点后资源是否有更新，有则返回最新资源，否则返回 304
         -   ETag
             1. ETag 的优先级高于 Last-Modified
             2. If-None-Match 会将当前的 ETag 发送给服务器，询问该资源的 ETag 是否有变动，有变动则将最新的资源返回
@@ -229,3 +231,10 @@
     -   get 方法不对数据进行修改
     -   不让第三方网站访问到用户 cookie
     -   请求附带验证信息，比如 token
+
+### session 和 cookie 的区别
+
+-   cookie 数据是存储在浏览器上面的，每次请求都会携带，session 是存储在服务器上的
+-   cookie 不是很安全，别人可以分析存放在本地的 cookie 并进行 cookie 欺骗，考虑到安全应当使用 session。
+-   session 会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用 cookie。
+-   可以考虑将登陆信息等重要信息存放为 session，其他信息如果需要保留，可以放在 cookie 中。

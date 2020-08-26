@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="test"></div>
+        <input id="input" type="text" />
+    </body>
+    <script>
+        var data = [
+            { element: '图片', id: '1', pid: '0' }, //count=1
+            { element: '大图片', id: '2', pid: '1' },
+            { element: 'png', id: '3', pid: '2' },
+            { element: 'jpeg', id: '4', pid: '2' },
+            { element: 'gif', id: '5', pid: '2' },
+            { element: 'gif11', id: '6', pid: '5' },
+            { element: 'gif111', id: '7', pid: '6' },
+            { element: 'gif222', id: '8', pid: '6' },
+            { element: '文字', id: '9', pid: '0' },
+            { element: '宋体', id: '10', pid: '9' },
+            { element: '宋体111', id: '11', pid: '10' },
+            { element: '宋体222', id: '12', pid: '10' },
+            { element: '黑体', id: '13', pid: '9' },
+        ];
+        function transTreeData(arr, rootid) {
+            if (arr.length > 0) {
+                var curPid = rootid; 
+                var parent = findChild(arr, curPid); //数组
+                return parent;
+            } else {
+                return [];
+            }
+        }
+        //找子节点
+        function findChild(arr, curPid) {
+            var _arr = [];
+            var length = arr.length;
+            for (var i = 0; i < length; i++) {
+                if (arr[i].pid == curPid) {
+                    var _obj = arr[i];
+                    _obj.children = findChild(arr, _obj.id);
+                    _arr.push(_obj);
+                }
+            }
+            return _arr;
+        }
+        console.log(transTreeData(data, 0));
+    </script>
+</html>
