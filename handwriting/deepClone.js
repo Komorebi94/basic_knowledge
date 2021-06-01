@@ -1,11 +1,14 @@
+const isArray = data =>  Object.prototype.toString.call(data) === "[object Array]";
+const isObject = data => Object.prototype.toString.call(data) === "[object Object]";
+
 function deepClone(data) {
-    if (data instanceof Array) {
+    if (isArray(data)) {
         const res = [];
         data.forEach((el) => {
             res.push(deepClone(el));
         });
         return res;
-    } else if (data instanceof Object) {
+    } else if (isObject(data)) {
         const res = {};
         for (let key in data) {
             res[key] = deepClone(data[key]);
@@ -73,4 +76,4 @@ const obj = {
     ],
 };
 
-console.log(JSON.stringify(deepClone(obj)));
+// console.log(JSON.stringify(deepClone(obj), null, 4));
