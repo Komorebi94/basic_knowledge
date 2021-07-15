@@ -1,5 +1,4 @@
-Function.prototype._call = function (context, ...args) {
-    !context && (context = window);
+Function.prototype._call = function (context = window, ...args) {
     context.fn = this;
     const result = context.fn(...args);
     delete context.fn;

@@ -480,3 +480,79 @@ console.log(binarySearch(arr, 4));
 console.log(binarySearch(arr, 13));
 ```
 
+
+
+### 冒泡排序
+
+```js
+function bubbleSort(arr) {
+    let count = 0;
+    let length = arr.length;
+    for(let i = length - 1; i > 0; i--) {
+        for(let j = 0; j < i; j++) {
+            count++;
+            if(arr[j] > arr[j+1]) {
+                [arr[j], arr[j+1]] = [arr[j+1], arr[j]]
+            }
+        }
+    }
+    console.log(`执行了${count}次`)
+    return arr;
+}
+
+const arrData = [5,3,7,9,2,4,0];
+console.log(bubbleSort(arrData));
+```
+
+
+
+### 选择排序
+
+```js
+function selectionSort(arr) {
+    let count = 0;
+    let length = arr.length;
+    for(let i = 0; i < length - 1; i++) {
+        let minIndex = i;
+        for(let j = i + 1; j < length - 1; j++) {
+            count++;
+            if(arr[minIndex] > arr[j]) {
+                minIndex = j
+            }
+        }
+        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+    }
+    console.log(`执行了${count}次`)
+    return arr;
+}
+
+const arrData = [5,3,7,9,2,4,0];
+console.log(selectionSort(arrData));
+```
+
+
+
+### 插入排序
+
+```js
+function insertSort(arr) {
+    let count = 0;
+    let length = arr.length;
+    for(let i = 1; i <= length - 1; i++) {
+        let temp = arr[i];
+        let j = i;
+        while(arr[j-1] > temp && j > 0){
+            count++;
+            arr[j] = arr[j-1];
+            j--;
+        }
+        arr[j] = temp;
+    }
+    console.log(`执行了${count}次`);
+    return arr;
+}
+
+const arrData = [5,3,7,9,2,4,0];
+console.log(insertSort(arrData));
+```
+
