@@ -10,10 +10,9 @@ function throttle(fn, delay) {
     }
 }
 
-
 const log = (data) => console.log(data);
 
-const throttleLog = throttle(log, 1000, true);
+const throttleLog = throttle(log, 1000);
 
 let count = 0;
 let timer = setInterval(() => {

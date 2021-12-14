@@ -11,7 +11,6 @@ Array.prototype._reduce = function(fn, init) {
     return pre;
 }
 
-
 const arr = [1,3,6,7];
 
 let result = arr._reduce((acc, cur) => {

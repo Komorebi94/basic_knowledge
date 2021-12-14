@@ -6,6 +6,7 @@
 -   在 mounted 里面 VDOM 渲染为真实 DOM 并渲染数据，如果组件中存在子组件，会递归挂载子组件，最后执行根组件的挂载钩子
 -   在 beforeDestroy 里面移除事件、定时器等
 -   keep-alive 有独特的生命周期，activated、deactivated
+
     !['vue生命周期.jpg'](./img/vue_circle.jpg)
 
 ### 组件通信
@@ -76,6 +77,7 @@
 -   Dep 类是用于解耦属性的依赖收集和派发更新的操作，它内部实现了依赖的存储，依赖的收集方法和派发更新的方法，它还有一个全局的 target 属性
 -   Watcher 类在创建实例时，将 Dep 类中的全局属性 target 指向自身，然后触发属性的 getter 添加监听，最后将 Dep.targer 置空
 -   当compiler解析到{{name}}时，就会实例化一个 watcher，从而收集到依赖，在派发更新的时候，取出对应的 watcher 然后执行 update 函数
+-   当执行 new Vue() 时，Vue 就进入了初始化阶段，一方面Vue 会遍历 data 选项中的属性，并用 Object.defineProperty 将它们转为 getter/setter，实现数据变化监听功能；另一方面，Vue 的指令编译器Compile 对元素节点的指令进行解析，初始化视图，并订阅Watcher 来更新视图， 此时Wather 会将自己添加到消息订阅器中(Dep),初始化完毕。当数据发生变化时，Observer 中的 setter 方法被触发，setter 会立即调用Dep.notify()，Dep 开始遍历所有的订阅者，并调用订阅者的 update 方法，订阅者收到通知后对视图进行相应的更新。
 
 ### Object.defineProperty 的缺陷
 
@@ -135,3 +137,29 @@ directives: {
     ```
 -   组件内的守卫 beforeRouteUpdate
 -   组件内的守卫 beforeRouteLeave
+
+### 导航守卫完整解析流程
+
+-   导航被触发。
+-   在失活的组件里调用 beforeRouteLeave 守卫。
+-   调用全局的 beforeEach 守卫。
+-   在重用的组件里调用 beforeRouteUpdate 守卫 (2.2+)。
+-   在路由配置里调用 beforeEnter。
+-   解析异步路由组件。
+-   在被激活的组件里调用 beforeRouteEnter。
+-   调用全局的 beforeResolve 守卫 (2.5+)。
+-   导航被确认。
+-   调用全局的 afterEach 钩子。
+-   触发 DOM 更新。
+-   调用 beforeRouteEnter 守卫中传给 next 的回调函数，创建好的组件实例会作为回调函数的参数传入。
+
+### vuex 
+
+-   state、getter、actions、mutations、modules
+-   mutation 是同步操作：this.$store.commit('add');
+-   actions 是异步操作：不直接操作state，而是操作mutations里面的方法：this.$store.dispatch('mutation_add',{age:15})
+
+
+### nextTick
+
+-   Vue在内部尝试对异步队列使用原生的Promise.then和MessageChannel 方法，如果执行环境不支持，会采用 setTimeout(fn, 0) 代替。

@@ -12,6 +12,7 @@
 -   基础数据以栈的形式存储，常用 typeof 来判断类型
 -   引用类型以堆的形式存储，常用 instanceof 来判断类型
 -   原始类型存储的是值，对象类型存储的是地址(指针)
+
     ![原始类型存储.png](./img/1.png '原始类型存储')
     ![引用类型存储.png](./img/2.png '引用类型存储')
 
@@ -23,7 +24,7 @@
 -   null ==> boolean false
 -   引用类型 ==> boolean true
 -   array ==> string [1,2] ==> '1,2'
--   object ==> string '[object, object]'
+-   object ==> string '[object Object]'
 -   string ==> number '1'==> 1 , 'a'==> NaN
 -   array ==> number []==>0,[1]=>>1,[1,3]=>>NaN
 -   null ==> number 0
@@ -73,12 +74,16 @@
 
 ### 原型与原型链
 
--   Object.prototype 是所有对象的爸爸，所有的对象都可以通过**proto**找到它
--   Function.prototype 是所有函数的爸爸，所有函数都可以通过**proto**找到它
+-   Object.prototype 是所有对象的爸爸，所有的对象都可以通过 __proto__找到它
+-   Function.prototype 是所有函数的爸爸，所有函数都可以通过 __proto__找到它
 -   函数的 prototype 是一个对象
--   实例.__proto__===构造函数.prototype
--   对象的**proto**属性指向原型**proto**将对象和原型连接起来组成了原型链
+-   实例.\__proto__  ===  构造函数.prototype
+-   对象的 \__proto__ 属性指向原型 \__proto__将对象和原型连接起来组成了原型链
     ![原型链.png](./img/prototype.png '原型链')
+
+### 作用域和作用域链
+
+-   作用域就是变量与函数的可访问范围，它控制着变量和函数的可见性和生命周期。在 ES6 之前，作用域只有两种：全局作用域和函数作用域。全局作用域中的对象在代码中的任何地方都能访问，其生命周期伴随着页面的生命周期。函数作用域就是在函数内部定义的变量或者函数，并且定义的变量或者函数只能在函数内部被访问。函数执行结束之后，函数内部定义的变量会被销毁。
 
 ### var(variable)、let、const(constant)的区别
 
@@ -88,153 +93,84 @@
 -   let、const 存在暂时性死区，不能在声明前使用
 -   const 用来声明常量
 
-### 并发(concurrency) 和 并行(parallelism) 的区别
+### 原型继承和class继承
 
--   并发是宏观概念，在一段时间内通过任务间的切换完成了 A、B 两个任务
--   并行是微观概念，cpu 中有两个核心，可以同时完成 A、B 任务
-
-### 进程与线程的区别
-
--   线程是进程中更小的单位，一个进程中可以有多个线程
--   打开一个 Tab 页就是创建一个进程，进程里有渲染线程、js 引擎线程、HTTP 请求线程
--   js 是单线程执行的，单线程节省内存，节约上下文切换时间
-
-### 什么是执行栈？
-
--   执行栈是一个存储函数调用的栈结构，遵循先进后出的原则
--   栈可存放的函数是有限制的，一但存放了过多的函数而且没有得到释放就会出现爆栈的问题
-
-### 浏览器中的 Event Loop 问题
-
--   首先会执行同步代码，这属于宏任务
--   当执行完所有同步代码后，执行栈为空， 查询是否有异步代码需要执行
--   执行所有的微任务
--   执行完所有的微任务之后，检查是否需要渲染页面，需要的话去渲染页面
--   执行宏任务中的异步代码
--   微任务包括：process.nextTick, promise,
--   宏任务包括：script, setTimeout, setInterval, setImmediate, I/O, UI rending
-
-### 垃圾回收机制
-
--   待补充。。。
-
-### 什么是跨域？
-
--    为了安全，浏览器有同源策略，只要协议、域名、端口号有一个不一样就会产生跨域
--   主要是用来防止 CSRF 攻击的(利用用户的登录状态发起恶意请求)
--   请求其实已经发出去了，但是浏览器拦截了响应
-
-### 解决跨域的方法？
-
--   jsonp:利用 script 标签没有跨域限制的特性,通过回调函数来接收数据，只支持 get 请求
-    ```
-    <script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
-    <script>
-        function jsonp(data) {
-            console.log(data)
+-   原型链继承
+    -   多个实例对引用类型的属性操作会被篡改
+    -   创建子类型实例时无法向父类型的构造函数传参
+    -   子类型的原型上的 constructor 属性被重写了
+    -   给子类型原型添加属性和方法必须在替换原型之后
+-   构造函数继承
+    -   只能继承父类的实例属性和方法，不能继承原型上面的属性/方法
+-   组合继承
+    -   创建的实例和原型上存在两份相同的属性
+-   寄生组合继承
+    -  ```js
+        function Parent(name) {
+            this.name = name;
+            this.colors = ['red', 'yellow'];
         }
-    </script>
-    ```
--   服务端设置 Access-Control-Allow-Origin CORS
--   img 标签和 link 标签也没有跨域的限制
 
-### 存储的几种方式
+        Parent.prototype.getColors = function () {
+            return this.colors;
+        };
 
-![存储.png](./img/storage.jpg '存储')
+        function Child(name) {
+            Parent.call(this, name);
+        }
 
-### 什么是 service work ?
+        Child.prototype = Object.create(Parent.prototype, {
+            constructor: {
+                value: Child,
+                enumerable: false,
+                configurable: true,
+                writable: true,
+            },
+        });
+        ```
+-   class 继承
+    -   static声明的属性方法无法被子类继承，只能是声明者自己调用
 
--   它是运行在浏览器背后的独立线程，用来实现缓存功能
--   若想使用 service work 传输协议必须为 HTTPS
--   首先需要注册 Service Work
-    ```
-    if (navigator.serviceWorker) {
-        navigator.serviceWorker
-            .register('sw.js')
-            .then(function(registration) {
-                console.log('service worker 注册成功')
-            })
-            .catch(function(err) {
-                console.log('servcie worker 注册失败')
-            })
+### Commonjs与EsModule
+
+-   CommonJs 是动态语法可以写在判断里，ES6 Module 静态语法只能写在顶层
+-   CommonJs 导出时是值得拷贝，import导出的是同一个地址指针
+-   CommonJs 是单个值导出，ES6 Module可以导出多个
+-   EsModule会编译成require/exports来执行
+
+### Proxy实现监听值得改变读取
+
+```js
+let onWatch = (obj, setBind, getLogger) => {
+  let handler = {
+    get(target, property, receiver) {
+      getLogger(target, property)
+      return Reflect.get(target, property, receiver)
+    },
+    set(target, property, value, receiver) {
+      setBind(value, property, receiver)
+      return Reflect.set(target, property, value)
     }
-    ```
--   监听到 install 事件以后就可以缓存需要存储的文件
-    ```
-    self.addEventListener('install', e => {
-        e.waitUntil(
-            caches.open('my-cache').then(function(cache) {
-                return cache.addAll(['./index.html', './index.js'])
-            })
-        )
-    })
-    ```
--   下次访问通过拦截请求的方式查询是否存在缓存，存在直接读取缓存文件，否则发起请求
-    ```
-    self.addEventListener('fetch', e => {
-        e.respondWith(
-            caches.match(e.request).then(function(response) {
-                if (response) {
-                    return response
-                }
-                console.log('fetch source')
-            })
-        )
-    })
-    ```
+  }
+  return new Proxy(obj, handler)
+}
+```
 
-### 浏览器的缓存机制
+### 为什么 0.1 + 0.2 != 0.3 ?
 
--   缓存位置
+-   因为 JS 采用 IEEE 754(二进制浮点数算术标准) 双精度版本（64位），并且只要采用 IEEE 754 的语言都有该问题。
+-   计算机是通过二进制来存储东西的, 0.1 在二进制中是无限循环的一些数字,但是 JS 采用的浮点数标准却会裁剪掉我们的数字, 就会出现精度丢失的问题,也就造成了 0.1 不再是 0.1 了
 
-    -   Service Work
-        -   可以自由控制缓存文件
-        -   缓存是持续性的
-    -   Memory Cache
-        -   内存缓存读取高效
-        -   持续性很短，随着进程的释放而释放
-    -   Disk Cache
-        -   硬盘缓存的容量大
-        -   存储时效长
-    -   Push Cache
-        -   缓存时间短，只在会话(Session)中存在
-    -   网络请求
+### async 和 defer
 
--   缓存策略
+-   有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）
+-   有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。
 
-    -   强缓存
-        -   Expires
-            1.  HTTP/1.0 的产物
-            2.  表示资源会在某一时间节点后过期
-            3.  受限于本地时间，可修改本地时间会造成缓存失效
-        -   Cache-Control
-            1.  出现于 HTTP/1.1 优先级高于 Expires
-                ![cacheControl.jpg](./img/cacheControl.jpg)
-    -   协商缓存
-        -   Last-Modified 
-            1. 表示本地文件最后修改日期
-            2. If-Modified-Since 会将 Last-Modified 值发送给服务器，询问服务器在该时间节点后资源是否有更新，有则返回最新资源，否则返回 304
-        -   ETag
-            1. ETag 的优先级高于 Last-Modified
-            2. If-None-Match 会将当前的 ETag 发送给服务器，询问该资源的 ETag 是否有变动，有变动则将最新的资源返回
+### for in 和 for of 的区别
 
--   实际场景应用
-    -   对于频繁变动的资源，首先需要使用 Cache-Control:no-cache 使浏览器每次都请求服务器，然后配合 ETag 或者 Last-Modified 来验证资源是否有效
+-   for of 循环用来获取一对键值对中的值,而 for in 获取的是 键名
+-   一个数据结构只要部署了 Symbol.iterator 属性, 就被视为具有 iterator接口, 就可以使用 for of循环。对象没有 Symbol.iterator这个属性,所以使用 for of会报 obj is not iterable
 
-### 安全防范知识点
+### 哪些数据结构部署了 Symbol.iteratoer属性了呢?
 
--   XSS(Cross Site Scripting): 跨站脚本攻击
-    -   XSS 就是攻击者想尽一切办法将可执行的代码注入到网页中
-    -   将用户的输入进行转义
--   CSRF(Cross Site Request Forgery): 跨站请求伪造
-    -   攻击者构造出一个后端请求地址，诱导用户点击或者自动发起请求
-    -   get 方法不对数据进行修改
-    -   不让第三方网站访问到用户 cookie
-    -   请求附带验证信息，比如 token
-
-### session 和 cookie 的区别
-
--   cookie 数据是存储在浏览器上面的，每次请求都会携带，session 是存储在服务器上的
--   cookie 不是很安全，别人可以分析存放在本地的 cookie 并进行 cookie 欺骗，考虑到安全应当使用 session。
--   session 会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用 cookie。
--   可以考虑将登陆信息等重要信息存放为 session，其他信息如果需要保留，可以放在 cookie 中。
+-   Array、Map、Set、string、NodeList、arguments

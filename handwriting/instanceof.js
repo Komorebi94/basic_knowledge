@@ -16,3 +16,5 @@ function _instanceof(left, right) {
         left = left.__proto__;
     }
 }
+
+console.log(_instanceof([], Array));

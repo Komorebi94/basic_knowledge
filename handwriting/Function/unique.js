@@ -9,12 +9,12 @@ function unique(arr) {
 };
 
 function unique2(arr) {
-    const obj = {};
+    let map = {};
     return arr.reduce((acc, cur) => {
-        if(obj[cur]){
+        if(map[cur]) {
             return acc
-        }else {
-            obj[cur] = true;
+        } else {
+            map[cur] = true;
             return [...acc, cur]
         }
     }, [])

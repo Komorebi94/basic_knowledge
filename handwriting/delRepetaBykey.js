@@ -1,7 +1,12 @@
 function delRepetaBykey(arr, key) {
-    let obj = {};
+    const map = {};
     return arr.reduce((acc, cur) => {
-        return obj[cur[key]] ? acc : (obj[cur[key]] = true && [...acc, cur]);
+        if(map[cur[key]]) {
+            return acc;
+        } else {
+            map[cur[key]] = true;
+            return [...acc, cur]
+        }
     },[]);
 }
 const arr = [

@@ -1,5 +1,6 @@
-const isArray = data =>  Object.prototype.toString.call(data) === "[object Array]";
-const isObject = data => Object.prototype.toString.call(data) === "[object Object]";
+const _toString = arg => Object.prototype.toString.call(arg);
+const isArray = data => _toString(data) === '[object Array]';
+const isObject = data => _toString(data) === '[object Object]';
 
 function deepClone(data) {
     if (isArray(data)) {
@@ -76,4 +77,4 @@ const obj = {
     ],
 };
 
-// console.log(JSON.stringify(deepClone(obj), null, 4));
+console.log(JSON.stringify(deepClone(obj), null, 4));
