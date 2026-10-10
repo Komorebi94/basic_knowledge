@@ -1,0 +1,56 @@
+{
+  "verifiedAt": "2026-10-09T08:38:39.404Z",
+  "browser": "154.0.8037.99",
+  "origin": "http://127.0.0.1:5173",
+  "articles": [
+    {
+      "id": "AI13",
+      "href": "/ai/retrieval-freshness",
+      "cards": 3,
+      "checks": [
+        "search and route",
+        "focused reader",
+        "recall source focus",
+        "subscription and refresh",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "AI14",
+      "href": "/ai/streaming-experience",
+      "cards": 3,
+      "checks": [
+        "search and route",
+        "focused reader",
+        "recall source focus",
+        "subscription and refresh",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "AI17",
+      "href": "/ai/multi-agent-conflicts",
+      "cards": 4,
+      "checks": [
+        "search and route",
+        "focused reader",
+        "recall source focus",
+        "subscription and refresh",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "AI18",
+      "href": "/ai/cost-latency-model-choice",
+      "cards": 4,
+      "checks": [
+        "search and route",
+        "focused reader",
+        "recall source focus",
+        "subscription and refresh",
+        "1440/390/320px reflow"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

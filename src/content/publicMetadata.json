@@ -1,0 +1,858 @@
+{
+  "articles": [
+    {
+      "id": "K01-01",
+      "catalogId": "K01-01",
+      "kind": "knowledge",
+      "title": "值、引用与相等性",
+      "summary": "赋值时复制的是原始值还是对象引用；严格相等、Object.is 和集合去重对 NaN、正负零的处理并不相同。",
+      "domainSlug": "javascript",
+      "slug": "values-and-equality",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/javascript/values-and-equality"
+    },
+    {
+      "id": "K01-02",
+      "catalogId": "K01-02",
+      "kind": "knowledge",
+      "title": "作用域、闭包与生命周期",
+      "summary": "沿着变量查找与函数执行的过程，理解闭包为何成立、状态如何共享，以及回调为什么会延长数据的生命周期。",
+      "domainSlug": "javascript",
+      "slug": "closures",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/javascript/closures"
+    },
+    {
+      "id": "K01-03",
+      "catalogId": "K01-03",
+      "kind": "knowledge",
+      "title": "this、调用方式与绑定",
+      "summary": "this 由调用发生时的接收者决定；把方法拆出来、换成箭头函数或用 new 调用，都会改变这次调用看到的对象。",
+      "domainSlug": "javascript",
+      "slug": "this-binding",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/javascript/this-binding"
+    },
+    {
+      "id": "K01-04",
+      "catalogId": "K01-04",
+      "kind": "knowledge",
+      "title": "原型、类与对象模型",
+      "summary": "属性先查对象自身，再沿原型链查找；类把共享方法放在原型上，字段相同的另一个对象不会因此变成子类。",
+      "domainSlug": "javascript",
+      "slug": "prototypes",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/javascript/prototypes"
+    },
+    {
+      "id": "K01-05",
+      "catalogId": "K01-05",
+      "kind": "knowledge",
+      "title": "属性描述符与对象操作",
+      "summary": "复制对象时，可枚举性、自身属性、Symbol 和 getter 会决定哪些字段被带上，以及带上的是取值还是读取行为。",
+      "domainSlug": "javascript",
+      "slug": "property-descriptors",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/javascript/property-descriptors"
+    },
+    {
+      "id": "K01-06",
+      "catalogId": "K01-06",
+      "kind": "knowledge",
+      "title": "迭代器与生成器",
+      "summary": "迭代器按需给出下一项；生成器把计算停在 yield。提前结束时要调用 return，否则清理代码不会因为循环停了就自动执行。",
+      "domainSlug": "javascript",
+      "slug": "iterators",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/javascript/iterators"
+    },
+    {
+      "id": "K01-07",
+      "catalogId": "K01-07",
+      "kind": "knowledge",
+      "title": "模块与执行时机",
+      "summary": "ES 模块把求值推迟到依赖准备好之后，并且只执行一次；导出的 let 是活绑定，循环依赖若在初始化完成前读取会抛出 ReferenceError。",
+      "domainSlug": "javascript",
+      "slug": "modules",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/javascript/modules"
+    },
+    {
+      "id": "K01-08",
+      "catalogId": "K01-08",
+      "kind": "knowledge",
+      "title": "内存与垃圾回收",
+      "summary": "对象能否回收取决于还有没有可达引用。Map 会保住键和值；WeakMap 不阻止键被回收，但示例不能把某一次回收时刻写成必然发生。",
+      "domainSlug": "javascript",
+      "slug": "memory",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/javascript/memory"
+    },
+    {
+      "id": "K02-01",
+      "catalogId": "K02-01",
+      "kind": "knowledge",
+      "title": "任务、微任务与渲染时机",
+      "summary": "从一段异步输出逐步追踪调用栈和队列，理解 Promise、await 与定时器的执行顺序，再解释 DOM 更新为什么不等于立即绘制。",
+      "domainSlug": "async",
+      "slug": "tasks-and-microtasks",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/async/tasks-and-microtasks"
+    },
+    {
+      "id": "K02-02",
+      "catalogId": "K02-02",
+      "kind": "knowledge",
+      "title": "Promise、错误传播与组合",
+      "summary": "每次 then 都返回新的 Promise。拒绝会沿着这条链传递；all、allSettled、race 和 any 对失败的处理并不相同。",
+      "domainSlug": "async",
+      "slug": "promises",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/async/promises"
+    },
+    {
+      "id": "K02-03",
+      "catalogId": "K02-03",
+      "kind": "knowledge",
+      "title": "async/await 与资源清理",
+      "summary": "await 暂停的是当前异步函数，不是整段脚本。连续 await 是串行；同时创建多个 Promise 才是并行。finally 里的 return 会盖掉原来的结果。",
+      "domainSlug": "async",
+      "slug": "async-await",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/async/async-await"
+    },
+    {
+      "id": "K02-04",
+      "catalogId": "K02-04",
+      "kind": "knowledge",
+      "title": "并发限制与背压",
+      "summary": "先创建全部 Promise 会让工作同时开始。限制在途数量要让多余任务等待；队列过长时要拒绝新工作，而不是无限堆积。",
+      "domainSlug": "async",
+      "slug": "concurrency",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/async/concurrency"
+    },
+    {
+      "id": "K02-05",
+      "catalogId": "K02-05",
+      "kind": "knowledge",
+      "title": "取消、过期结果与竞态",
+      "summary": "AbortSignal 用来阻止还没做完的工作。请求序号用来丢掉已经过期的结果。取消成功，并不自动保证页面不会留下旧数据。",
+      "domainSlug": "async",
+      "slug": "cancellation",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/async/cancellation"
+    },
+    {
+      "id": "K02-06",
+      "catalogId": "K02-06",
+      "kind": "knowledge",
+      "title": "重试、退避与幂等",
+      "summary": "只有标明可重试的失败才应该再试。退避是计划中的等待时间。同一次操作要用同一个幂等键，避免重试把副作用做两遍。",
+      "domainSlug": "async",
+      "slug": "retry",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/async/retry"
+    },
+    {
+      "id": "K02-07",
+      "catalogId": "K02-07",
+      "kind": "knowledge",
+      "title": "Worker 与消息传递",
+      "summary": "专用 Worker 有自己的全局环境，没有页面文档。postMessage 默认复制数据；转移 ArrayBuffer 后，发送方的那份缓冲长度变为 0。",
+      "domainSlug": "async",
+      "slug": "workers",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/async/workers"
+    },
+    {
+      "id": "K02-08",
+      "catalogId": "K02-08",
+      "kind": "knowledge",
+      "title": "可观测异步流程",
+      "summary": "同一次操作用同一个标识记下开始、成功和失败。只在成功时打印，就无法把这次超时和另一次操作分开。",
+      "domainSlug": "async",
+      "slug": "traces",
+      "estimatedMinutes": 18,
+      "href": "/knowledge/async/traces"
+    },
+    {
+      "id": "K03-01",
+      "catalogId": "K03-01",
+      "kind": "knowledge",
+      "title": "unknown、收窄与边界校验",
+      "summary": "用一份任务数据走完接收、形状检查、字段校验和领域转换，区分编译器知道的类型与运行时真正可信的数据。",
+      "domainSlug": "typescript",
+      "slug": "unknown-and-boundaries",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/typescript/unknown-and-boundaries"
+    },
+    {
+      "id": "AI01",
+      "catalogId": "AI02",
+      "kind": "ai",
+      "title": "让 AI 写代码：先约定任务合同",
+      "summary": "以搜索请求乱序为例，走完目标描述、仓库上下文、修改约束、代码审阅和独立验收，学会把一次 AI 改动变成可以检查的交付。",
+      "slug": "task-contract",
+      "estimatedMinutes": 22,
+      "href": "/ai/task-contract"
+    },
+    {
+      "id": "K11-02",
+      "catalogId": "K11-02",
+      "kind": "knowledge",
+      "title": "认证、授权与 CSRF",
+      "summary": "沿一次修改记录的请求分清身份识别、资源权限和请求来源，解释隐藏按钮为何不能保护接口，以及 Cookie 会话下跨站请求的防御边界。",
+      "domainSlug": "security",
+      "slug": "auth-authorization-csrf",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/security/auth-authorization-csrf"
+    },
+    {
+      "id": "K12-02",
+      "catalogId": "K12-02",
+      "kind": "knowledge",
+      "title": "行为断言与边界用例",
+      "summary": "从请求乱序与有效空值出发，构造能击败错误实现的用例，分别检查返回值、状态、副作用、取消及失败恢复。",
+      "domainSlug": "testing",
+      "slug": "behavior-boundary-tests",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/testing/behavior-boundary-tests"
+    },
+    {
+      "id": "K05-02",
+      "catalogId": "K05-02",
+      "kind": "knowledge",
+      "title": "盒模型、格式化上下文与层叠",
+      "summary": "margin、overflow、z-index 为什么产生意外结果。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "html-css",
+      "slug": "boxes-and-stacking",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/html-css/boxes-and-stacking"
+    },
+    {
+      "id": "K14-01",
+      "catalogId": "K14-01",
+      "kind": "knowledge",
+      "title": "浏览器与 Node 运行边界",
+      "summary": "把 JavaScript 语言、宿主 API、模块解析和调度分开，解释为何共享代码中的 document、文件读取与环境配置会在另一端失效。",
+      "domainSlug": "server",
+      "slug": "browser-node-boundaries",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/server/browser-node-boundaries"
+    },
+    {
+      "id": "K16-01",
+      "catalogId": "K16-01",
+      "kind": "knowledge",
+      "title": "复杂度、规模与权衡",
+      "summary": "用列表关联与重复查找推导工作量，区分渐近复杂度、真实耗时和额外空间，解释为何索引、预处理与清晰实现需要结合规模选择。",
+      "domainSlug": "algorithms",
+      "slug": "complexity-scale",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/algorithms/complexity-scale"
+    },
+    {
+      "id": "K08-02",
+      "catalogId": "K08-02",
+      "kind": "knowledge",
+      "title": "computed、watch 与副作用",
+      "summary": "缓存、触发、清理和执行时机如何选择。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "vue",
+      "slug": "computed-and-watch",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/vue/computed-and-watch"
+    },
+    {
+      "id": "K09-02",
+      "catalogId": "K09-02",
+      "kind": "knowledge",
+      "title": "依赖、锁文件与供应链",
+      "summary": "可重复安装、依赖升级、脚本权限如何控制。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "tooling",
+      "slug": "dependencies-and-lockfiles",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/tooling/dependencies-and-lockfiles"
+    },
+    {
+      "id": "K03-02",
+      "catalogId": "K03-02",
+      "kind": "knowledge",
+      "title": "联合类型与状态建模",
+      "summary": "怎样让 loading/success/error 不出现无效组合。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "typescript",
+      "slug": "discriminated-state",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/typescript/discriminated-state"
+    },
+    {
+      "id": "K07-02",
+      "catalogId": "K07-02",
+      "kind": "knowledge",
+      "title": "Effect 与外部系统同步",
+      "summary": "哪些逻辑不需要 Effect；依赖和清理怎么验证。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "react",
+      "slug": "effects-and-synchronization",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/react/effects-and-synchronization"
+    },
+    {
+      "id": "K10-01",
+      "catalogId": "K10-01",
+      "kind": "knowledge",
+      "title": "体验指标与测量方法",
+      "summary": "实验室/真实用户数据怎样互补；LCP、INP、CLS 衡量什么。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "performance",
+      "slug": "experience-metrics",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/performance/experience-metrics"
+    },
+    {
+      "id": "K06-01",
+      "catalogId": "K06-01",
+      "kind": "knowledge",
+      "title": "HTTP 缓存与条件请求",
+      "summary": "新鲜度、验证、缓存键、Vary 的作用与误区。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "networking",
+      "slug": "http-cache-validation",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/networking/http-cache-validation"
+    },
+    {
+      "id": "K15-01",
+      "catalogId": "K15-01",
+      "kind": "knowledge",
+      "title": "键盘导航与焦点管理",
+      "summary": "沿打开弹层、操作表单和返回页面的路径，解释焦点、Tab 顺序与组件内部导航的不同职责，避免键盘陷阱和焦点丢失。",
+      "domainSlug": "accessibility",
+      "slug": "keyboard-focus",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/accessibility/keyboard-focus"
+    },
+    {
+      "id": "K10-02",
+      "catalogId": "K10-02",
+      "kind": "knowledge",
+      "title": "主线程、长任务与交互响应",
+      "summary": "如何找出耗时工作并验证拆分效果。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "performance",
+      "slug": "main-thread-long-tasks",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/performance/main-thread-long-tasks"
+    },
+    {
+      "id": "K16-02",
+      "catalogId": "K16-02",
+      "kind": "knowledge",
+      "title": "Map、Set、队列与缓存",
+      "summary": "从成员判断、FIFO 调度和 LRU 淘汰三个场景选择结构，解释相等规则、缺失值、队列头指针及缓存生命周期。",
+      "domainSlug": "algorithms",
+      "slug": "maps-sets-queues-cache",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/algorithms/maps-sets-queues-cache"
+    },
+    {
+      "id": "K13-01",
+      "catalogId": "K13-01",
+      "kind": "knowledge",
+      "title": "模块边界与依赖方向",
+      "summary": "以笔记保存为例，将业务决策、外部存储和界面反馈分到清晰的所有权边界，理解什么时候需要适配器，什么时候简单函数已经足够。",
+      "domainSlug": "architecture",
+      "slug": "module-boundaries",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/architecture/module-boundaries"
+    },
+    {
+      "id": "K09-01",
+      "catalogId": "K09-01",
+      "kind": "knowledge",
+      "title": "模块图、构建与按需加载",
+      "summary": "开发服务器和生产构建有什么不同。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "tooling",
+      "slug": "module-graphs-and-loading",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/tooling/module-graphs-and-loading"
+    },
+    {
+      "id": "K04-01",
+      "catalogId": "K04-01",
+      "kind": "knowledge",
+      "title": "从导航到页面呈现",
+      "summary": "DNS、连接、响应、解析、样式与绘制分别做什么。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "browser",
+      "slug": "navigation-to-pixels",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/browser/navigation-to-pixels"
+    },
+    {
+      "id": "K08-01",
+      "catalogId": "K08-01",
+      "kind": "knowledge",
+      "title": "响应式依赖追踪",
+      "summary": "Proxy、ref、解构为什么有不同影响。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "vue",
+      "slug": "reactivity-tracking",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/vue/reactivity-tracking"
+    },
+    {
+      "id": "K07-01",
+      "catalogId": "K07-01",
+      "kind": "knowledge",
+      "title": "渲染、状态快照与更新",
+      "summary": "为什么本次回调看到旧值；更新如何排队。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "react",
+      "slug": "render-state-snapshots",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/react/render-state-snapshots"
+    },
+    {
+      "id": "K14-02",
+      "catalogId": "K14-02",
+      "kind": "knowledge",
+      "title": "CSR、SSR、SSG 与水合",
+      "summary": "沿 HTML 生成、数据获取与交互接续的时间线比较渲染方案，解释首屏有文字却不能点击、首次状态不一致及跨用户缓存风险。",
+      "domainSlug": "server",
+      "slug": "rendering-and-hydration",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/server/rendering-and-hydration"
+    },
+    {
+      "id": "K04-02",
+      "catalogId": "K04-02",
+      "kind": "knowledge",
+      "title": "渲染流水线与布局成本",
+      "summary": "样式、布局、绘制、合成如何验证；何时避免布局抖动。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "browser",
+      "slug": "rendering-and-layout",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/browser/rendering-and-layout"
+    },
+    {
+      "id": "K06-02",
+      "catalogId": "K06-02",
+      "kind": "knowledge",
+      "title": "请求状态、错误与幂等",
+      "summary": "网络错误和业务错误怎么区分；何时重试。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "networking",
+      "slug": "requests-and-idempotency",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/networking/requests-and-idempotency"
+    },
+    {
+      "id": "K05-01",
+      "catalogId": "K05-01",
+      "kind": "knowledge",
+      "title": "语义结构与原生交互",
+      "summary": "button、link、form、label 如何选择与组合。通过独立样例推导机制，并检查失败路径、工程取舍和适用边界。",
+      "domainSlug": "html-css",
+      "slug": "semantic-interactions",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/html-css/semantic-interactions"
+    },
+    {
+      "id": "K15-02",
+      "catalogId": "K15-02",
+      "kind": "knowledge",
+      "title": "语义、名称与状态反馈",
+      "summary": "从一个只有图标的保存按钮与校验失败表单出发，区分可访问角色、名称、说明与动态状态，理解 ARIA 为什么不能替代原生交互。",
+      "domainSlug": "accessibility",
+      "slug": "semantics-names-feedback",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/accessibility/semantics-names-feedback"
+    },
+    {
+      "id": "K13-02",
+      "catalogId": "K13-02",
+      "kind": "knowledge",
+      "title": "状态归属与数据流",
+      "summary": "区分源数据、派生值、远端缓存和编辑草稿，沿筛选与保存过程解释双写、旧响应覆盖以及冲突恢复的根因。",
+      "domainSlug": "architecture",
+      "slug": "state-ownership",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/architecture/state-ownership"
+    },
+    {
+      "id": "K12-01",
+      "catalogId": "K12-01",
+      "kind": "knowledge",
+      "title": "单元、集成与端到端的边界",
+      "summary": "以笔记保存为贯穿案例，把业务规则、存储协作与用户流程分到能提供真实证据的层次，识别 Mock 掩盖的集成缺陷。",
+      "domainSlug": "testing",
+      "slug": "testing-levels",
+      "estimatedMinutes": 20,
+      "href": "/knowledge/testing/testing-levels"
+    },
+    {
+      "id": "K11-01",
+      "catalogId": "K11-01",
+      "kind": "knowledge",
+      "title": "XSS、输出上下文与内容净化",
+      "summary": "从一条评论进入页面的路径出发，区分文本、HTML、URL 和脚本上下文，解释为什么输入检查、输出编码与内容净化不能互相替代。",
+      "domainSlug": "security",
+      "slug": "xss-output-context",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/security/xss-output-context"
+    },
+    {
+      "id": "AI08",
+      "catalogId": "AI08",
+      "kind": "ai",
+      "title": "让 AI 排查缺陷",
+      "summary": "通过请求乱序案例建立复现、假设、证据和回归记录，提供诊断模板，避免在没有定位状态写入者时盲目修改代码。",
+      "slug": "ai-bug-investigation",
+      "estimatedMinutes": 20,
+      "href": "/ai/ai-bug-investigation"
+    },
+    {
+      "id": "AI07",
+      "catalogId": "AI07",
+      "kind": "ai",
+      "title": "让 AI 新增功能",
+      "summary": "以商品列表筛选串联需求、数据入口、状态设计、最小实现和验收，提供可填写的任务模板与独立行为反例。",
+      "slug": "ai-feature-development",
+      "estimatedMinutes": 20,
+      "href": "/ai/ai-feature-development"
+    },
+    {
+      "id": "AI03",
+      "catalogId": "AI03",
+      "kind": "ai",
+      "title": "上下文工程与资料组织",
+      "summary": "以修复订单取消流程为例，追踪必要资料、来源版本和摘要损失，建立能回到原始代码核验的最小上下文包。",
+      "slug": "context-engineering",
+      "estimatedMinutes": 20,
+      "href": "/ai/context-engineering"
+    },
+    {
+      "id": "AI05",
+      "catalogId": "AI05",
+      "kind": "ai",
+      "title": "先设计、再拆分、再实现",
+      "summary": "从购物清单导入功能推导行为合同与任务边界，练习按可验证结果拆分工作，避免把文件数量误当成独立任务。",
+      "slug": "design-and-task-splitting",
+      "estimatedMinutes": 20,
+      "href": "/ai/design-and-task-splitting"
+    },
+    {
+      "id": "AI16",
+      "catalogId": "AI16",
+      "kind": "ai",
+      "title": "Evals、回归样本与执行轨迹",
+      "summary": "用十个订单助手任务建立评估表，区分最终答案、工具选择与过程约束，计算分组结果并保留失败轨迹，避免平均分掩盖越权。",
+      "slug": "evals-and-traces",
+      "estimatedMinutes": 20,
+      "href": "/ai/evals-and-traces"
+    },
+    {
+      "id": "AI19",
+      "catalogId": "AI19",
+      "kind": "ai",
+      "title": "Harness：把可靠性写进环境",
+      "summary": "以文章示例发布为工程案例，将规则转成隔离执行、输出比较、阶段产物和恢复记录，理解 Harness 如何提供反馈而非替代理解。",
+      "slug": "harness-reliability",
+      "estimatedMinutes": 20,
+      "href": "/ai/harness-reliability"
+    },
+    {
+      "id": "AI01-foundations",
+      "catalogId": "AI01",
+      "kind": "ai",
+      "title": "LLM 能力、限制与不确定性",
+      "summary": "从金额计算助手的错误回答出发，区分语言生成、工具计算和行为证据，学会发现未经验证的假设并为不确定输出设置边界。",
+      "slug": "llm-foundations",
+      "estimatedMinutes": 20,
+      "href": "/ai/llm-foundations"
+    },
+    {
+      "id": "AI12",
+      "catalogId": "AI12",
+      "kind": "ai",
+      "title": "MCP、Skills 与项目指令",
+      "summary": "用资料检索与审阅工作流区分协议连接、可复用流程和仓库规则，验证工具参数与流程步骤，避免把能力接入误当成权限授权。",
+      "slug": "mcp-skills-instructions",
+      "estimatedMinutes": 20,
+      "href": "/ai/mcp-skills-instructions"
+    },
+    {
+      "id": "AI15",
+      "catalogId": "AI15",
+      "kind": "ai",
+      "title": "权限、提示注入与数据边界",
+      "summary": "通过文档中的伪造操作指令识别提示注入，构建来源、动作允许集合与数据最小化边界，并练习判断只读任务中的越权提议。",
+      "slug": "prompt-injection-boundaries",
+      "estimatedMinutes": 20,
+      "href": "/ai/prompt-injection-boundaries"
+    },
+    {
+      "id": "AI11",
+      "catalogId": "AI11",
+      "kind": "ai",
+      "title": "重构、迁移与依赖变更",
+      "summary": "通过计数器模块的行为保持与持久化迁移，建立基线、兼容转换、回滚条件和任务模板，避免用新结构掩盖旧行为丢失。",
+      "slug": "refactor-and-migrate",
+      "estimatedMinutes": 20,
+      "href": "/ai/refactor-and-migrate"
+    },
+    {
+      "id": "AI06",
+      "catalogId": "AI06",
+      "kind": "ai",
+      "title": "仓库规则与可执行约束",
+      "summary": "以防止越界改动为例，把仓库文字规则映射到差异审阅与运行门禁，说明规则文件、检查程序和权限控制分别能保证什么。",
+      "slug": "repository-rules",
+      "estimatedMinutes": 20,
+      "href": "/ai/repository-rules"
+    },
+    {
+      "id": "AI09",
+      "catalogId": "AI09",
+      "kind": "ai",
+      "title": "审阅 AI 写的代码",
+      "summary": "用缓存键缺陷演示从合同、调用方与反例审阅代码，提供审阅模板与可人工判断的案例，避免把解释流畅当作正确性证明。",
+      "slug": "review-ai-code",
+      "estimatedMinutes": 20,
+      "href": "/ai/review-ai-code"
+    },
+    {
+      "id": "AI10",
+      "catalogId": "AI10",
+      "kind": "ai",
+      "title": "用测试验证 AI 输出",
+      "summary": "以金额转换的同源错误演示独立用例、边界断言与错误实现验证，理解测试通过为何仍可能掩盖共同假设错误。",
+      "slug": "test-ai-output",
+      "estimatedMinutes": 20,
+      "href": "/ai/test-ai-output"
+    },
+    {
+      "id": "AI04",
+      "catalogId": "AI04",
+      "kind": "ai",
+      "title": "工具调用、结构化输出与 Agent",
+      "summary": "用订单查询助手拆解提议、参数校验、授权、执行与反馈，说明合法 JSON 为什么不能证明工具动作符合用户目标。",
+      "slug": "tool-calling-and-agents",
+      "estimatedMinutes": 20,
+      "href": "/ai/tool-calling-and-agents"
+    },
+    {
+      "id": "AI20",
+      "catalogId": "AI20",
+      "kind": "ai",
+      "title": "模型升级后重新评估工作流",
+      "summary": "以订单助手升级为例固定环境、对照任务与硬边界，逐条评估旧指令是否仍有收益，避免升级后凭印象删规则或宣称效果提升。",
+      "slug": "workflow-upgrade-evaluation",
+      "estimatedMinutes": 20,
+      "href": "/ai/workflow-upgrade-evaluation"
+    },
+    {
+      "id": "AI13",
+      "catalogId": "AI13",
+      "kind": "ai",
+      "title": "检索增强与知识新鲜度",
+      "summary": "从退款政策更新案例理解分块、权限与版本过滤、重排、引用失效和独立检索评估；区分找到资料与回答正确。",
+      "slug": "retrieval-freshness",
+      "estimatedMinutes": 25,
+      "href": "/ai/retrieval-freshness"
+    },
+    {
+      "id": "AI14",
+      "catalogId": "AI14",
+      "kind": "ai",
+      "title": "AI 应用中的流式体验",
+      "summary": "通过本地字节流和交错请求理解UTF-8、SSE事件边界、取消、断流与结构化完成；设计不会混合新旧草稿的恢复行为。",
+      "slug": "streaming-experience",
+      "estimatedMinutes": 25,
+      "href": "/ai/streaming-experience"
+    },
+    {
+      "id": "AI17",
+      "catalogId": "AI17",
+      "kind": "ai",
+      "title": "多 Agent 协作与冲突控制",
+      "summary": "以清单导入改造为完整案例，推导依赖图、文件所有权、基线冲突与交接验收，判断哪些任务适合并行，以及怎样避免汇总出一个错误系统。",
+      "slug": "multi-agent-conflicts",
+      "estimatedMinutes": 24,
+      "href": "/ai/multi-agent-conflicts"
+    },
+    {
+      "id": "AI18",
+      "catalogId": "AI18",
+      "kind": "ai",
+      "title": "成本、延迟与模型选择",
+      "summary": "以清单导入代码助手的固定任务集为例，计算包含重试、工具和人工修复的任务成本，区分冷暖缓存、首个 token 与完成延迟，并在质量门槛内比较方案。",
+      "slug": "cost-latency-model-choice",
+      "estimatedMinutes": 25,
+      "href": "/ai/cost-latency-model-choice"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "E01",
+      "title": "防抖与取消",
+      "slug": "debounce-cancel",
+      "revision": 1,
+      "href": "/practice/debounce-cancel"
+    },
+    {
+      "id": "E02",
+      "title": "节流与尾调用",
+      "slug": "throttle-trailing",
+      "revision": 1,
+      "href": "/practice/throttle-trailing"
+    },
+    {
+      "id": "E03",
+      "title": "Promise.all 语义",
+      "slug": "promise-all",
+      "revision": 1,
+      "href": "/practice/promise-all"
+    },
+    {
+      "id": "E04",
+      "title": "并发任务池",
+      "slug": "task-pool",
+      "revision": 1,
+      "href": "/practice/task-pool"
+    },
+    {
+      "id": "E05",
+      "title": "Promise.allSettled 语义",
+      "slug": "all-settled",
+      "revision": 1,
+      "href": "/practice/all-settled"
+    },
+    {
+      "id": "E06",
+      "title": "受限数据域深拷贝",
+      "slug": "restricted-deep-clone",
+      "revision": 1,
+      "href": "/practice/restricted-deep-clone"
+    },
+    {
+      "id": "E07",
+      "title": "事件订阅器",
+      "slug": "event-emitter",
+      "revision": 1,
+      "href": "/practice/event-emitter"
+    },
+    {
+      "id": "E08",
+      "title": "参数化柯里化",
+      "slug": "curry-arity",
+      "revision": 1,
+      "href": "/practice/curry-arity"
+    },
+    {
+      "id": "E09",
+      "title": "组合与管道",
+      "slug": "compose-pipe",
+      "revision": 1,
+      "href": "/practice/compose-pipe"
+    },
+    {
+      "id": "E10",
+      "title": "可取消延时",
+      "slug": "cancelable-delay",
+      "revision": 1,
+      "href": "/practice/cancelable-delay"
+    },
+    {
+      "id": "E11",
+      "title": "重试与退避",
+      "slug": "retry-backoff",
+      "revision": 1,
+      "href": "/practice/retry-backoff"
+    },
+    {
+      "id": "E12",
+      "title": "请求去重",
+      "slug": "inflight-deduplication",
+      "revision": 1,
+      "href": "/practice/inflight-deduplication"
+    },
+    {
+      "id": "E13",
+      "title": "最近一次请求生效",
+      "slug": "latest-request",
+      "revision": 1,
+      "href": "/practice/latest-request"
+    },
+    {
+      "id": "E14",
+      "title": "LRU 缓存",
+      "slug": "lru-cache",
+      "revision": 1,
+      "href": "/practice/lru-cache"
+    },
+    {
+      "id": "E15",
+      "title": "数组转森林",
+      "slug": "array-to-forest",
+      "revision": 1,
+      "href": "/practice/array-to-forest"
+    },
+    {
+      "id": "E16",
+      "title": "树遍历与查找",
+      "slug": "tree-traversal",
+      "revision": 1,
+      "href": "/practice/tree-traversal"
+    },
+    {
+      "id": "E17",
+      "title": "路径读取",
+      "slug": "own-property-path",
+      "revision": 1,
+      "href": "/practice/own-property-path"
+    },
+    {
+      "id": "E18",
+      "title": "深度扁平化",
+      "slug": "flatten-depth",
+      "revision": 1,
+      "href": "/practice/flatten-depth"
+    },
+    {
+      "id": "E19",
+      "title": "稳定去重",
+      "slug": "stable-unique",
+      "revision": 1,
+      "href": "/practice/stable-unique"
+    },
+    {
+      "id": "E20",
+      "title": "二分查找下界",
+      "slug": "lower-bound",
+      "revision": 1,
+      "href": "/practice/lower-bound"
+    },
+    {
+      "id": "E21",
+      "title": "括号匹配",
+      "slug": "balanced-brackets",
+      "revision": 1,
+      "href": "/practice/balanced-brackets"
+    },
+    {
+      "id": "E22",
+      "title": "多参数记忆化",
+      "slug": "tuple-memoization",
+      "revision": 1,
+      "href": "/practice/tuple-memoization"
+    },
+    {
+      "id": "E23",
+      "title": "带超时的任务",
+      "slug": "task-timeout",
+      "revision": 1,
+      "href": "/practice/task-timeout"
+    },
+    {
+      "id": "E24",
+      "title": "异步串行队列",
+      "slug": "serial-queue",
+      "revision": 1,
+      "href": "/practice/serial-queue"
+    }
+  ]
+}

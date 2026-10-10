@@ -1,0 +1,1870 @@
+{
+  "verifierSha256": "03358e6154b75e228ff1a1d3d235b16be0e3258dedf51abc6358e4934b96f74f",
+  "verifiedAt": "2026-10-09T02:04:09.961Z",
+  "runtime": "v22.22.3",
+  "exerciseCount": 24,
+  "passedCases": 182,
+  "verifiedExamples": 72,
+  "rejectedWrongImplementations": 48,
+  "exercises": [
+    {
+      "id": "E01",
+      "revision": 1,
+      "contentSha256": "61e6406b456d50e6e096e0d1f65bf6554a30b2355a8fb683caa148918a53610a",
+      "cases": [
+        {
+          "id": "E01-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T08",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T09",
+          "result": "pass"
+        },
+        {
+          "id": "E01-T10",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "B",
+          "actualLogs": [
+            "B"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "无输出",
+          "actualLogs": [],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "6",
+          "actualLogs": [
+            "6"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "旧定时器未取消",
+          "testId": "E01-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   'B'\n+ ]\n- []\n",
+          "result": "rejected"
+        },
+        {
+          "name": "flush 未取消计时器",
+          "testId": "E01-T04",
+          "error": "Expected values to be strictly deep-equal:\n\n2 !== undefined\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "revision": 1,
+      "contentSha256": "21362c689ff726e6f9f66abd88218b9c1baf7d9f25d51efb298384d4301cc7b9",
+      "cases": [
+        {
+          "id": "E02-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E02-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E02-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E02-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E02-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E02-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E02-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E02-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "A、B",
+          "actualLogs": [
+            "A",
+            "B"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "A",
+          "actualLogs": [
+            "A"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "A",
+          "actualLogs": [
+            "A"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "额外调用被丢弃",
+          "testId": "E02-T02",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n-   2\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "单次调用重复尾执行",
+          "testId": "E02-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n+   1\n  ]\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "revision": 1,
+      "contentSha256": "3ae5404bf23c6acd782ed3fbdb4109a998709ee1a843b3fdcc6a711e88a15da3",
+      "cases": [
+        {
+          "id": "E03-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T08",
+          "result": "pass"
+        },
+        {
+          "id": "E03-T09",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "[1, 2]",
+          "actualLogs": [
+            "[ 1, 2 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[]",
+          "actualLogs": [
+            "[]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "失败",
+          "actualLogs": [
+            "失败"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "按完成顺序收集",
+          "testId": "E03-T03",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   2,\n    1,\n-   2\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "遗漏空输入结算",
+          "testId": "E03-T01",
+          "error": "Unsettled test promise",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "revision": 1,
+      "contentSha256": "8a3594495b7930054e949478e8778133406c88fec8f7cd753cdb3ea2f72163c6",
+      "cases": [
+        {
+          "id": "E04-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T08",
+          "result": "pass"
+        },
+        {
+          "id": "E04-T09",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "[1, 2]",
+          "actualLogs": [
+            "[ 1, 2 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[]",
+          "actualLogs": [
+            "[]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "失败",
+          "actualLogs": [
+            "失败"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "忽略并发上限",
+          "testId": "E04-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    0,\n    1,\n+   2\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "失败后仍补位",
+          "testId": "E04-T03",
+          "error": "Expected values to be strictly deep-equal:\n\n1 !== 0\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "revision": 1,
+      "contentSha256": "22dfaa78fcf2e3c97dbd3fa2fd7ce66bea097052ba60ced1d92946d6922676de",
+      "cases": [
+        {
+          "id": "E05-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E05-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E05-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E05-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E05-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E05-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E05-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E05-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "[{status:\"fulfilled\", value:1}, {status:\"rejected\", reason:\"失败\"}]",
+          "actualLogs": [
+            "[ { status: 'fulfilled', value: 1 }, { status: 'rejected', reason: '失败' } ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[]",
+          "actualLogs": [
+            "[]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "两个 fulfilled 记录，值依次为 2、3",
+          "actualLogs": [
+            "[ { status: 'fulfilled', value: 2 }, { status: 'fulfilled', value: 3 } ]"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "按完成顺序收集",
+          "testId": "E05-T04",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    {\n      status: 'fulfilled',\n+     value: 2\n-     value: 1\n    },\n    {\n      status: 'fulfilled',\n+     value: 1\n-     value: 2\n    }\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "失败拒绝整体",
+          "testId": "E05-T03",
+          "error": "x",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "revision": 1,
+      "contentSha256": "f65d2fcbeeef54231e802e33ad2a417ba55678afacc030f770fee712b687fd5d",
+      "cases": [
+        {
+          "id": "E06-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T08",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T09",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T10",
+          "result": "pass"
+        },
+        {
+          "id": "E06-T11",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "true true",
+          "actualLogs": [
+            "true true"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "true",
+          "actualLogs": [
+            "true"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "TypeError",
+          "actualLogs": [
+            "TypeError"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "丢失 Symbol",
+          "testId": "E06-T04",
+          "error": "Cannot read properties of undefined (reading 'n')",
+          "result": "rejected"
+        },
+        {
+          "name": "拆散共享引用",
+          "testId": "E06-T02",
+          "error": "cycle",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "revision": 1,
+      "contentSha256": "32d41d9b155aefd9584f0ae5ce09bdc566cfed1c398832535d33668bb1291e11",
+      "cases": [
+        {
+          "id": "E07-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E07-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E07-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E07-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E07-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E07-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E07-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E07-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "1 2",
+          "actualLogs": [
+            "1 2"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "once",
+          "actualLogs": [
+            "once"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "1",
+          "actualLogs": [
+            "1"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "删除首次匹配",
+          "testId": "E07-T02",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'mid',\n    'f',\n-   'mid'\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "没有快照",
+          "testId": "E07-T04",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n-   2\n  ]\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "revision": 1,
+      "contentSha256": "4ab98bd823d742bd7af1b7d3f41b63ee6499036a5a2743cf880e6a5b8a52f168",
+      "cases": [
+        {
+          "id": "E08-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E08-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E08-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E08-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E08-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E08-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "6",
+          "actualLogs": [
+            "6"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[1,2] [1,3]",
+          "actualLogs": [
+            "[ 1, 2 ] [ 1, 3 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "[4]",
+          "actualLogs": [
+            "[ 4 ]"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "污染分支",
+          "testId": "E08-T03",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n+   2\n-   3\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "丢弃多余参数",
+          "testId": "E08-T02",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n    2,\n-   3\n  ]\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E09",
+      "revision": 1,
+      "contentSha256": "de5a22e32dc846595eea1a0bf8814f0fcb530bdb05c137930b83641b1cacadad",
+      "cases": [
+        {
+          "id": "E09-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E09-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E09-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E09-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E09-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E09-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "8",
+          "actualLogs": [
+            "8"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "7",
+          "actualLogs": [
+            "7"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "true",
+          "actualLogs": [
+            "true"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "compose 方向错",
+          "testId": "E09-T01",
+          "error": "Expected values to be strictly deep-equal:\n\n8 !== 7\n",
+          "result": "rejected"
+        },
+        {
+          "name": "空组合丢身份",
+          "testId": "E09-T02",
+          "error": "identity",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "revision": 1,
+      "contentSha256": "0f24f74f8c9b3c9a016497550e8c9e04d9ed3de5195a5c00b875be7598546048",
+      "cases": [
+        {
+          "id": "E10-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E10-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E10-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E10-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E10-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E10-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "undefined",
+          "actualLogs": [
+            "undefined"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "AbortError",
+          "actualLogs": [
+            "AbortError"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "开始、结束",
+          "actualLogs": [
+            "开始",
+            "结束"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "预取消漏检",
+          "testId": "E10-T03",
+          "error": "Unsettled test promise",
+          "result": "rejected"
+        },
+        {
+          "name": "取消错误变成功",
+          "testId": "E10-T04",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ undefined\n- 'AbortError'\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E11",
+      "revision": 1,
+      "contentSha256": "75bc8192bf13e47e23b3aa0ba2cfcc6f3174387b75e0135c134213721849a93c",
+      "cases": [
+        {
+          "id": "E11-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E11-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E11-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E11-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E11-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E11-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E11-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E11-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "1",
+          "actualLogs": [
+            "1"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "ok",
+          "actualLogs": [
+            "ok"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "永久",
+          "actualLogs": [
+            "永久"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "预算多一次",
+          "testId": "E11-T02",
+          "error": "Unsettled test promise",
+          "result": "rejected"
+        },
+        {
+          "name": "退避不翻倍",
+          "testId": "E11-T03",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    0,\n    2,\n+   4,\n    6,\n-   11\n  ]\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "revision": 1,
+      "contentSha256": "2bc3a43235e2db74a8598f3b5baa8954340e8a24ac2417c9e260be8470e7adf3",
+      "cases": [
+        {
+          "id": "E12-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E12-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E12-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E12-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E12-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E12-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E12-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E12-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "true 1",
+          "actualLogs": [
+            "true 1"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "1、2",
+          "actualLogs": [
+            "1",
+            "2"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "失败",
+          "actualLogs": [
+            "失败"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "包装 Promise 改身份",
+          "testId": "E12-T01",
+          "error": "same promise",
+          "result": "rejected"
+        },
+        {
+          "name": "失败不清 key",
+          "testId": "E12-T04",
+          "error": "x",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E13",
+      "revision": 1,
+      "contentSha256": "bfece62d4b07e4a472c5cd274757260ab9d44d339bc5d7e31ad9c37c754514a5",
+      "cases": [
+        {
+          "id": "E13-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E13-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E13-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E13-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E13-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E13-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E13-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E13-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "[2]",
+          "actualLogs": [
+            "[ 2 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[]",
+          "actualLogs": [
+            "[]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "失败",
+          "actualLogs": [
+            "失败"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "旧成功仍提交",
+          "testId": "E13-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    'new',\n+   'old'\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "旧失败仍提交",
+          "testId": "E13-T02",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   Error: old\n+       at evalmachine.<anonymous>:1:171\n+       at async runCase (file:///Users/lujuxiao/Desktop/lujx/basic_knowledge/scripts/verify-exercises.mjs:65:5)\n+       at async file:///Users/lujuxiao/Desktop/lujx/basic_knowledge/scripts/verify-exercises.mjs:100:13\n+ ]\n- []\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E14",
+      "revision": 1,
+      "contentSha256": "a9b717a69cb83d577afde2a5db5536c57ae9a1936a5750a7ca17f92e8572955e",
+      "cases": [
+        {
+          "id": "E14-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E14-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E14-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E14-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E14-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E14-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E14-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E14-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "{found:true,value:undefined} {found:false}",
+          "actualLogs": [
+            "{ found: true, value: undefined } { found: false }"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "false",
+          "actualLogs": [
+            "false"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "0",
+          "actualLogs": [
+            "0"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "undefined 当缺失",
+          "testId": "E14-T03",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n+   found: false\n-   found: true,\n-   value: undefined\n  }\n",
+          "result": "rejected"
+        },
+        {
+          "name": "get 不提升",
+          "testId": "E14-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n+   found: true,\n+   value: 2\n-   found: false\n  }\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E15",
+      "revision": 1,
+      "contentSha256": "ea35b6683f56845156da4cc3013ed0a8789bce4f44b78426343e1a8cf6195480",
+      "cases": [
+        {
+          "id": "E15-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E15-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E15-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E15-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E15-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E15-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E15-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E15-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "2",
+          "actualLogs": [
+            "2"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[1]",
+          "actualLogs": [
+            "[ 1 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "Cycle",
+          "actualLogs": [
+            "Cycle"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "忽略重复",
+          "testId": "E15-T05",
+          "error": "Expected throw Error",
+          "result": "rejected"
+        },
+        {
+          "name": "0 parent 当根",
+          "testId": "E15-T08",
+          "error": "Cannot read properties of undefined (reading 'id')",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E16",
+      "revision": 1,
+      "contentSha256": "6835ec6b1fffbb212a6c09cc1c52a873bc3b16136b6361e8cbe8651cc41d85f1",
+      "cases": [
+        {
+          "id": "E16-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E16-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E16-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E16-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E16-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E16-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "[1,2]",
+          "actualLogs": [
+            "[ 1, 2 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[1,3,2]",
+          "actualLogs": [
+            "[ 1, 3, 2 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "undefined",
+          "actualLogs": [
+            "undefined"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "DFS 兄弟反转",
+          "testId": "E16-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n+   3,\n    2,\n    4,\n-   3\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "find 返回最后项",
+          "testId": "E16-T04",
+          "error": "first",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E17",
+      "revision": 1,
+      "contentSha256": "d82ccb93d79677dd868e6aed64a20a9fea6980d3c71db2e729fb3ad7ebdf0a72",
+      "cases": [
+        {
+          "id": "E17-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E17-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E17-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E17-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E17-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E17-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "false",
+          "actualLogs": [
+            "false"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "undefined",
+          "actualLogs": [
+            "undefined"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "默认",
+          "actualLogs": [
+            "默认"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "假值替换",
+          "testId": "E17-T04",
+          "error": "Expected values to be strictly deep-equal:\n\n9 !== 0\n",
+          "result": "rejected"
+        },
+        {
+          "name": "读取继承属性",
+          "testId": "E17-T05",
+          "error": "Expected values to be strictly deep-equal:\n\n2 !== 9\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E18",
+      "revision": 1,
+      "contentSha256": "fabdbdff50f7bbb8842451c8ebae0736947830404913e9e8bcf248953de014d0",
+      "cases": [
+        {
+          "id": "E18-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E18-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E18-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E18-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E18-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E18-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "[1,2,[3]]",
+          "actualLogs": [
+            "[ 1, 2, [ 3 ] ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "[1,2]",
+          "actualLogs": [
+            "[ 1, 2 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "TypeError",
+          "actualLogs": [
+            "TypeError"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "深度忽略",
+          "testId": "E18-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n    2,\n+   3\n-   [\n-     3\n-   ]\n  ]\n",
+          "result": "rejected"
+        },
+        {
+          "name": "空槽保留 undefined",
+          "testId": "E18-T03",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   undefined,\n    1,\n+   undefined,\n    2\n  ]\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E19",
+      "revision": 1,
+      "contentSha256": "bb3e7c028edf99950a3e2ba03305947cad808bde0ccf66d4d16d00c1673ee1fc",
+      "cases": [
+        {
+          "id": "E19-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E19-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E19-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E19-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E19-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E19-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "[1,2,3]",
+          "actualLogs": [
+            "[ 1, 2, 3 ]"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "2",
+          "actualLogs": [
+            "2"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "true",
+          "actualLogs": [
+            "true"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "NaN 没去重",
+          "testId": "E19-T02",
+          "error": "Expected values to be strictly deep-equal:\n\n3 !== 2\n",
+          "result": "rejected"
+        },
+        {
+          "name": "对象按 JSON 比较",
+          "testId": "E19-T03",
+          "error": "identity keys",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E20",
+      "revision": 1,
+      "contentSha256": "11634757796d18c6361906362af1c6ae4e50defaa31bbe7b6030600dbfb6469c",
+      "cases": [
+        {
+          "id": "E20-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E20-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E20-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E20-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E20-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E20-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "1",
+          "actualLogs": [
+            "1"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "2",
+          "actualLogs": [
+            "2"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "2",
+          "actualLogs": [
+            "2"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "返回上界",
+          "testId": "E20-T01",
+          "error": "Expected values to be strictly deep-equal:\n\n4 !== 1\n",
+          "result": "rejected"
+        },
+        {
+          "name": "丢失 length 哨兵",
+          "testId": "E20-T03",
+          "error": "Expected values to be strictly deep-equal:\n\n1 !== 2\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E21",
+      "revision": 1,
+      "contentSha256": "79fa2bad3c38b24a20009499178116bf3b4b4ee216c43919bbef38eec607b5cc",
+      "cases": [
+        {
+          "id": "E21-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E21-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E21-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E21-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E21-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E21-T06",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "true",
+          "actualLogs": [
+            "true"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "false",
+          "actualLogs": [
+            "false"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "true",
+          "actualLogs": [
+            "true"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "遗漏结束检查",
+          "testId": "E21-T04",
+          "error": "unclosed",
+          "result": "rejected"
+        },
+        {
+          "name": "允许空栈关闭",
+          "testId": "E21-T05",
+          "error": "extra closing",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E22",
+      "revision": 1,
+      "contentSha256": "ce07edfce3ebb60449e8e1be6e4cb038ed6f7c51d79d36d0bd6abf6e95523d34",
+      "cases": [
+        {
+          "id": "E22-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E22-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E22-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E22-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E22-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E22-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E22-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E22-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "1",
+          "actualLogs": [
+            "1"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "1",
+          "actualLogs": [
+            "1"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "1、2",
+          "actualLogs": [
+            "1",
+            "2"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "this 未入键",
+          "testId": "E22-T06",
+          "error": "Expected values to be strictly deep-equal:\n\n4 !== 5\n",
+          "result": "rejected"
+        },
+        {
+          "name": "undefined 不缓存",
+          "testId": "E22-T03",
+          "error": "Expected values to be strictly deep-equal:\n\n2 !== 1\n",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E23",
+      "revision": 1,
+      "contentSha256": "2f29794feb562692ef3a7d11f2c5ae737ecc981d963ee0102a8cb50ac79c5692",
+      "cases": [
+        {
+          "id": "E23-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T08",
+          "result": "pass"
+        },
+        {
+          "id": "E23-T09",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "7",
+          "actualLogs": [
+            "7"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "TimeoutError",
+          "actualLogs": [
+            "TimeoutError"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "AbortError",
+          "actualLogs": [
+            "AbortError"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "超时不通知任务",
+          "testId": "E23-T02",
+          "error": "internal abort",
+          "result": "rejected"
+        },
+        {
+          "name": "预取消仍启动",
+          "testId": "E23-T03",
+          "error": "Expected reject AbortError",
+          "result": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "E24",
+      "revision": 1,
+      "contentSha256": "7c4fd1ece28c028a76e645261cac99f641a6e679a738aa7d09189a2d89abcfbf",
+      "cases": [
+        {
+          "id": "E24-T01",
+          "result": "pass"
+        },
+        {
+          "id": "E24-T02",
+          "result": "pass"
+        },
+        {
+          "id": "E24-T03",
+          "result": "pass"
+        },
+        {
+          "id": "E24-T04",
+          "result": "pass"
+        },
+        {
+          "id": "E24-T05",
+          "result": "pass"
+        },
+        {
+          "id": "E24-T06",
+          "result": "pass"
+        },
+        {
+          "id": "E24-T07",
+          "result": "pass"
+        },
+        {
+          "id": "E24-T08",
+          "result": "pass"
+        }
+      ],
+      "examples": [
+        {
+          "index": 1,
+          "expectedOutput": "1 2",
+          "actualLogs": [
+            "1 2"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 2,
+          "expectedOutput": "3",
+          "actualLogs": [
+            "3"
+          ],
+          "result": "executed"
+        },
+        {
+          "index": 3,
+          "expectedOutput": "1、2",
+          "actualLogs": [
+            "1",
+            "2"
+          ],
+          "result": "executed"
+        }
+      ],
+      "wrongImplementations": [
+        {
+          "name": "拒绝阻断后序",
+          "testId": "E24-T03",
+          "error": "x",
+          "result": "rejected"
+        },
+        {
+          "name": "提前启动工厂",
+          "testId": "E24-T01",
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n+   2\n  ]\n",
+          "result": "rejected"
+        }
+      ]
+    }
+  ]
+}

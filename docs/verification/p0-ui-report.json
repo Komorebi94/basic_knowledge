@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-10-09T08:09:52.586Z",
+  "browser": "154.0.8037.99",
+  "origin": "http://127.0.0.1:5173",
+  "checkedRoutes": 88,
+  "mobileRoutes": 88,
+  "checks": [
+    "64 articles (20 AI), 24 exercises, no missing P0/P1 AI, 134 cards including 96 P0, valid card anchors, 204 unique search IDs, no hint/answer indexing",
+    "88 routes and titles, article recall disclosure/source focus, 24 exercise three-layer hints and reference solutions",
+    "AI09/AI10/AI15 case reference findings hidden initially, expanded with rubric",
+    "K03-02/AI01/AI13/AI14/AI17/AI18/AI20/E01 ID search opens readable content; E35 opens planned catalog anchor",
+    "Unavailable article/exercise and unknown route have working recovery links",
+    "All 88 pages at 390px have no document overflow, including expanded exercise answers"
+  ],
+  "screenshots": [
+    "p0-knowledge-desktop.png",
+    "p0-ai-desktop.png",
+    "p0-practice-desktop.png",
+    "p0-knowledge-mobile.png",
+    "p0-ai-mobile.png",
+    "p0-practice-mobile.png"
+  ],
+  "errors": []
+}

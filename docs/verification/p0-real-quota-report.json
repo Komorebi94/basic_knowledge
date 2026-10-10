@@ -1,0 +1,123 @@
+{
+  "checkedAt": "2026-10-09T02:06:12.836Z",
+  "origin": "http://127.0.0.1:5173",
+  "chromeVersion": "154.0.8037.99",
+  "scope": "Temporary isolated browser context; CDP origin quota, not physical disk exhaustion or a user device.",
+  "maximumFixtureTextBytes": 1600000,
+  "sources": [
+    "https://chromedevtools.github.io/devtools-protocol/tot/Storage/#method-overrideQuotaForOrigin",
+    "https://chromium.googlesource.com/chromium/src/+/1ef1c1e6d3d38a1f19cb1c21c65c62364c4c60af/content/browser/indexed_db/instance/bucket_context.h"
+  ],
+  "initialUsage": {
+    "usage": 73728,
+    "quota": 869419322,
+    "overrideActive": false,
+    "usageBreakdown": [
+      {
+        "storageType": "file_systems",
+        "usage": 0
+      },
+      {
+        "storageType": "indexeddb",
+        "usage": 73728
+      },
+      {
+        "storageType": "cache_storage",
+        "usage": 0
+      },
+      {
+        "storageType": "service_workers",
+        "usage": 0
+      }
+    ]
+  },
+  "overrideMethod": "Storage.overrideQuotaForOrigin",
+  "controlledQuota": {
+    "usage": 73728,
+    "quota": 204800,
+    "overrideActive": true,
+    "usageBreakdown": [
+      {
+        "storageType": "file_systems",
+        "usage": 0
+      },
+      {
+        "storageType": "indexeddb",
+        "usage": 73728
+      },
+      {
+        "storageType": "cache_storage",
+        "usage": 0
+      },
+      {
+        "storageType": "service_workers",
+        "usage": 0
+      }
+    ]
+  },
+  "quotaCacheWaitMs": 32000,
+  "realImport": {
+    "errorCode": "quota",
+    "errorMessage": "本地存储空间不足，请先保留备份；原数据仍然有效",
+    "nativeRequestErrors": [],
+    "nativeTransactionErrors": [
+      "QuotaExceededError"
+    ],
+    "allDatasetsUnchanged": true,
+    "readablePrivateText": "<b>保留原文</b>"
+  },
+  "afterAttemptUsage": {
+    "usage": 73728,
+    "quota": 204800,
+    "overrideActive": true,
+    "usageBreakdown": [
+      {
+        "storageType": "file_systems",
+        "usage": 0
+      },
+      {
+        "storageType": "indexeddb",
+        "usage": 73728
+      },
+      {
+        "storageType": "cache_storage",
+        "usage": 0
+      },
+      {
+        "storageType": "service_workers",
+        "usage": 0
+      }
+    ]
+  },
+  "recovery": {
+    "importedRecords": 19,
+    "restoredDatasetId": "f97afde8-16b4-40c3-9788-6acb09ac6b53",
+    "baselineDatasetId": "f97afde8-16b4-40c3-9788-6acb09ac6b53",
+    "restoredRecordsExact": true,
+    "recoveryRetained": true
+  },
+  "injectedFailures": {
+    "restore": {
+      "errorCode": "quota",
+      "allDatasetsUnchanged": true,
+      "method": "Injected transaction abort with QuotaExceededError getter; not native quota exhaustion."
+    },
+    "discard": {
+      "errorCode": "quota",
+      "allDatasetsUnchanged": true,
+      "method": "Injected transaction abort with QuotaExceededError getter; not native quota exhaustion."
+    },
+    "delete": {
+      "errorCode": "quota",
+      "allDatasetsUnchanged": true,
+      "method": "Injected transaction abort with QuotaExceededError getter; not native quota exhaustion."
+    },
+    "clear": {
+      "errorCode": "quota",
+      "allDatasetsUnchanged": true,
+      "method": "Injected transaction abort with QuotaExceededError getter; not native quota exhaustion."
+    }
+  },
+  "pageErrors": [],
+  "status": "passed"
+}

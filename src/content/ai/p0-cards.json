@@ -1,0 +1,391 @@
+[
+  {
+    "catalogId": "AI01",
+    "question": "候选金额字段是整数，为什么仍不能直接用于报价？",
+    "answerPoints": [
+      "类型正确不保证业务计算正确",
+      "需要单位、订单身份和独立计算依据"
+    ],
+    "pitfalls": [
+      "把流畅说明当成执行证据"
+    ],
+    "sourceHeadingId": "wrong"
+  },
+  {
+    "catalogId": "AI01",
+    "question": "金额助手怎样分开处理语言的不确定性？",
+    "answerPoints": [
+      "确定性函数计算并校验金额",
+      "语言引用结果并暴露缺失规则",
+      "分别验收计算与说明"
+    ],
+    "pitfalls": [
+      "让同一个候选输出证明自己"
+    ],
+    "sourceHeadingId": "workflow"
+  },
+  {
+    "catalogId": "AI03",
+    "question": "取消流程的最小上下文包要覆盖哪些角色？",
+    "answerPoints": [
+      "触发入口",
+      "结果及错误写入者",
+      "行为合同与受影响调用方"
+    ],
+    "pitfalls": [
+      "只读按钮组件"
+    ],
+    "sourceHeadingId": "selection"
+  },
+  {
+    "catalogId": "AI03",
+    "question": "怎样防止摘要把假设变成事实？",
+    "answerPoints": [
+      "分开事实与假设",
+      "保留来源、版本及例外",
+      "修改前重读关键原文"
+    ],
+    "pitfalls": [
+      "删去否定词和失败条件"
+    ],
+    "sourceHeadingId": "summary"
+  },
+  {
+    "catalogId": "AI04",
+    "question": "合法 JSON 为什么不代表安全工具调用？",
+    "answerPoints": [
+      "结构不验证对象归属",
+      "需要宿主确定身份与允许动作",
+      "执行前核对业务前置条件"
+    ],
+    "pitfalls": [
+      "把 owner 参数当认证身份"
+    ],
+    "sourceHeadingId": "host"
+  },
+  {
+    "catalogId": "AI04",
+    "question": "工具失败反馈应该区分什么？",
+    "answerPoints": [
+      "无效参数",
+      "权限拒绝",
+      "业务无结果",
+      "系统故障"
+    ],
+    "pitfalls": [
+      "对权限拒绝不断改参数重试"
+    ],
+    "sourceHeadingId": "loop"
+  },
+  {
+    "catalogId": "AI05",
+    "question": "清单导入怎样保证全有或全无？",
+    "answerPoints": [
+      "先解析与完整校验候选",
+      "校验无副作用",
+      "一次提交且处理写入失败"
+    ],
+    "pitfalls": [
+      "边校验边替换当前数据"
+    ],
+    "sourceHeadingId": "design"
+  },
+  {
+    "catalogId": "AI05",
+    "question": "一个任务是否值得拆分，要看什么？",
+    "answerPoints": [
+      "是否拥有明确边界",
+      "是否有独立可验收产物",
+      "是否能减少共享状态与交接成本"
+    ],
+    "pitfalls": [
+      "按文件数量机械拆分"
+    ],
+    "sourceHeadingId": "handoff"
+  },
+  {
+    "catalogId": "AI06",
+    "question": "仓库文字规则为什么不能代替权限限制？",
+    "answerPoints": [
+      "文字表达期望但不阻止访问",
+      "权限限制实际能力",
+      "仍需检查差异是否符合任务授权"
+    ],
+    "pitfalls": [
+      "认为写在规则里就自动隔离"
+    ],
+    "sourceHeadingId": "layers"
+  },
+  {
+    "catalogId": "AI06",
+    "question": "怎样判断一个门禁有用？",
+    "answerPoints": [
+      "典型错误能被拒绝",
+      "合法输入能通过",
+      "反馈指向具体规则与输入"
+    ],
+    "pitfalls": [
+      "只检查正常样本"
+    ],
+    "sourceHeadingId": "acceptance"
+  },
+  {
+    "catalogId": "AI07",
+    "question": "列表筛选为什么适合用派生结果？",
+    "answerPoints": [
+      "来源与查询共同决定结果",
+      "避免独立结果状态过期",
+      "不破坏原始数据"
+    ],
+    "pitfalls": [
+      "覆盖原始列表再筛选"
+    ],
+    "sourceHeadingId": "context"
+  },
+  {
+    "catalogId": "AI07",
+    "question": "筛选功能必须区分哪两种空展示？",
+    "answerPoints": [
+      "无匹配属于成功查询结果",
+      "请求失败属于错误状态并有恢复入口"
+    ],
+    "pitfalls": [
+      "用暂无数据吞掉网络错误"
+    ],
+    "sourceHeadingId": "template"
+  },
+  {
+    "catalogId": "AI08",
+    "question": "请求竞态排查怎样避免依赖网络运气？",
+    "answerPoints": [
+      "控制发出和完成顺序",
+      "记录各写入点与身份",
+      "用同一序列比较错误和修复实现"
+    ],
+    "pitfalls": [
+      "固定 sleep 猜测谁先完成"
+    ],
+    "sourceHeadingId": "reproduction"
+  },
+  {
+    "catalogId": "AI08",
+    "question": "为什么取消请求不等于避免旧状态写入？",
+    "answerPoints": [
+      "取消用于资源管理",
+      "响应后的异步处理仍可能继续",
+      "每个写入点需要有效身份"
+    ],
+    "pitfalls": [
+      "只检查 success 忽略失败与 finally"
+    ],
+    "sourceHeadingId": "hypothesis"
+  },
+  {
+    "catalogId": "AI09",
+    "question": "缓存审阅为什么要看命中路径的权限？",
+    "answerPoints": [
+      "命中会跳过后端调用",
+      "旧身份数据可能被直接返回",
+      "身份与失效必须覆盖短路路径"
+    ],
+    "pitfalls": [
+      "以后台鉴权代替前端缓存隔离"
+    ],
+    "sourceHeadingId": "contract"
+  },
+  {
+    "catalogId": "AI09",
+    "question": "一条有效审阅发现需要什么？",
+    "answerPoints": [
+      "具体触发与代码位置",
+      "违规合同及影响",
+      "可复现证据与修复方向"
+    ],
+    "pitfalls": [
+      "只说不够安全而没有路径"
+    ],
+    "sourceHeadingId": "template"
+  },
+  {
+    "catalogId": "AI10",
+    "question": "实现和测试为什么会共享错误？",
+    "answerPoints": [
+      "期望复制了实现公式",
+      "两者依赖同一未核实假设",
+      "缺少从业务合同固定的样本"
+    ],
+    "pitfalls": [
+      "以两个模型生成作为独立证明"
+    ],
+    "sourceHeadingId": "independence"
+  },
+  {
+    "catalogId": "AI10",
+    "question": "怎样验证测试能发现目标缺陷？",
+    "answerPoints": [
+      "构造典型错误版本",
+      "确认相关样本因目标差异失败",
+      "正确实现通过相同样本"
+    ],
+    "pitfalls": [
+      "只看测试总数与绿色结果"
+    ],
+    "sourceHeadingId": "test-quality"
+  },
+  {
+    "catalogId": "AI11",
+    "question": "持久化迁移为什么不能用默认值处理未知版本？",
+    "answerPoints": [
+      "未知不等于空数据",
+      "默认写入可能覆盖可恢复记录",
+      "需要显式版本与失败路径"
+    ],
+    "pitfalls": [
+      "把读取失败当新用户"
+    ],
+    "sourceHeadingId": "wrong"
+  },
+  {
+    "catalogId": "AI11",
+    "question": "回滚计划至少要考虑什么？",
+    "answerPoints": [
+      "具体触发条件",
+      "恢复程序与数据路径",
+      "新写格式对旧程序的兼容"
+    ],
+    "pitfalls": [
+      "只写失败就回滚"
+    ],
+    "sourceHeadingId": "template"
+  },
+  {
+    "catalogId": "AI12",
+    "question": "MCP、Skill 与项目指令分别负责什么？",
+    "answerPoints": [
+      "协议连接能力",
+      "复用任务流程",
+      "仓库共同约束"
+    ],
+    "pitfalls": [
+      "把三层混成一个永久提示词"
+    ],
+    "sourceHeadingId": "layers"
+  },
+  {
+    "catalogId": "AI12",
+    "question": "工具已注册为什么仍要检查任务授权？",
+    "answerPoints": [
+      "注册表达能力存在",
+      "任务决定此次允许动作",
+      "宿主在执行前落实允许集合"
+    ],
+    "pitfalls": [
+      "把连接权限当业务授权"
+    ],
+    "sourceHeadingId": "boundary"
+  },
+  {
+    "catalogId": "AI15",
+    "question": "外部文档中的操作要求怎样处理？",
+    "answerPoints": [
+      "保留为资料内容",
+      "核对是否改变任务或范围",
+      "宿主按可信授权拒绝越权动作"
+    ],
+    "pitfalls": [
+      "工具返回成功就把内容当指令"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "AI15",
+    "question": "只限制工具名为什么还不够？",
+    "answerPoints": [
+      "同工具可读取不同对象",
+      "需要对象与数据字段范围",
+      "多步组合也要核对最终目的"
+    ],
+    "pitfalls": [
+      "readDoc 允许就读取任意文档"
+    ],
+    "sourceHeadingId": "host"
+  },
+  {
+    "catalogId": "AI16",
+    "question": "为什么评估不能只看平均成功率？",
+    "answerPoints": [
+      "严重失败可能被普通成功稀释",
+      "硬边界应独立判定",
+      "需要类别与样本数"
+    ],
+    "pitfalls": [
+      "高均分就忽略权限越界"
+    ],
+    "sourceHeadingId": "wrong"
+  },
+  {
+    "catalogId": "AI16",
+    "question": "执行轨迹与最终回答各证明什么？",
+    "answerPoints": [
+      "轨迹证明工具路径与过程约束",
+      "回答证明面向用户结果",
+      "两者不能互相替代"
+    ],
+    "pitfalls": [
+      "答案正确就假定过程安全"
+    ],
+    "sourceHeadingId": "traces"
+  },
+  {
+    "catalogId": "AI19",
+    "question": "Harness 与一条“先验证”指令有什么区别？",
+    "answerPoints": [
+      "Harness 实际执行和收集结果",
+      "失败给明确反馈",
+      "保留版本与恢复证据"
+    ],
+    "pitfalls": [
+      "只运行不比较输出"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "AI19",
+    "question": "为什么不能自动把预期改成实际输出？",
+    "answerPoints": [
+      "可能是实现有错",
+      "会降低检查的独立性",
+      "需要机制解释与独立证据"
+    ],
+    "pitfalls": [
+      "用改裁判换通过"
+    ],
+    "sourceHeadingId": "recovery"
+  },
+  {
+    "catalogId": "AI20",
+    "question": "模型升级对照应先固定哪些条件？",
+    "answerPoints": [
+      "任务样本与数据",
+      "工具和宿主权限",
+      "提示配置与评判规则"
+    ],
+    "pitfalls": [
+      "同时改所有配置再归因模型"
+    ],
+    "sourceHeadingId": "baseline"
+  },
+  {
+    "catalogId": "AI20",
+    "question": "哪些边界不能因为模型更好而删除？",
+    "answerPoints": [
+      "认证与业务授权",
+      "输入及数据范围校验",
+      "独立验收与恢复保护"
+    ],
+    "pitfalls": [
+      "把减少提示等同取消权限"
+    ],
+    "sourceHeadingId": "experiment"
+  }
+]

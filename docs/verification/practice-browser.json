@@ -1,0 +1,530 @@
+{
+  "verifiedAt": "2026-10-09T02:13:38.320Z",
+  "browser": "154.0.8037.99",
+  "references": [
+    {
+      "id": "E01",
+      "status": "passed",
+      "passed": 10,
+      "total": 10,
+      "failures": []
+    },
+    {
+      "id": "E02",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E03",
+      "status": "passed",
+      "passed": 9,
+      "total": 9,
+      "failures": []
+    },
+    {
+      "id": "E04",
+      "status": "passed",
+      "passed": 9,
+      "total": 9,
+      "failures": []
+    },
+    {
+      "id": "E05",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E06",
+      "status": "passed",
+      "passed": 11,
+      "total": 11,
+      "failures": []
+    },
+    {
+      "id": "E07",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E08",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E09",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E10",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E11",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E12",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E13",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E14",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E15",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E16",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E17",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E18",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E19",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E20",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E21",
+      "status": "passed",
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    {
+      "id": "E22",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E23",
+      "status": "passed",
+      "passed": 9,
+      "total": 9,
+      "failures": []
+    },
+    {
+      "id": "E24",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    }
+  ],
+  "mutations": [
+    {
+      "id": "E01",
+      "name": "旧定时器未取消",
+      "status": "failed",
+      "passed": 9,
+      "total": 10
+    },
+    {
+      "id": "E01",
+      "name": "flush 未取消计时器",
+      "status": "failed",
+      "passed": 7,
+      "total": 10
+    },
+    {
+      "id": "E02",
+      "name": "额外调用被丢弃",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E02",
+      "name": "单次调用重复尾执行",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E03",
+      "name": "按完成顺序收集",
+      "status": "failed",
+      "passed": 8,
+      "total": 9
+    },
+    {
+      "id": "E03",
+      "name": "遗漏空输入结算",
+      "status": "timeout",
+      "passed": 0,
+      "total": 9
+    },
+    {
+      "id": "E04",
+      "name": "忽略并发上限",
+      "status": "failed",
+      "passed": 7,
+      "total": 9
+    },
+    {
+      "id": "E04",
+      "name": "失败后仍补位",
+      "status": "failed",
+      "passed": 8,
+      "total": 9
+    },
+    {
+      "id": "E05",
+      "name": "按完成顺序收集",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E05",
+      "name": "失败拒绝整体",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E06",
+      "name": "丢失 Symbol",
+      "status": "failed",
+      "passed": 10,
+      "total": 11
+    },
+    {
+      "id": "E06",
+      "name": "拆散共享引用",
+      "status": "failed",
+      "passed": 8,
+      "total": 11
+    },
+    {
+      "id": "E07",
+      "name": "删除首次匹配",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E07",
+      "name": "没有快照",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E08",
+      "name": "污染分支",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E08",
+      "name": "丢弃多余参数",
+      "status": "failed",
+      "passed": 4,
+      "total": 6
+    },
+    {
+      "id": "E09",
+      "name": "compose 方向错",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E09",
+      "name": "空组合丢身份",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E10",
+      "name": "预取消漏检",
+      "status": "timeout",
+      "passed": 2,
+      "total": 6
+    },
+    {
+      "id": "E10",
+      "name": "取消错误变成功",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E11",
+      "name": "预算多一次",
+      "status": "timeout",
+      "passed": 1,
+      "total": 8
+    },
+    {
+      "id": "E11",
+      "name": "退避不翻倍",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E12",
+      "name": "包装 Promise 改身份",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E12",
+      "name": "失败不清 key",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E13",
+      "name": "旧成功仍提交",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E13",
+      "name": "旧失败仍提交",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E14",
+      "name": "undefined 当缺失",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E14",
+      "name": "get 不提升",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E15",
+      "name": "忽略重复",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E15",
+      "name": "0 parent 当根",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E16",
+      "name": "DFS 兄弟反转",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E16",
+      "name": "find 返回最后项",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E17",
+      "name": "假值替换",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E17",
+      "name": "读取继承属性",
+      "status": "failed",
+      "passed": 4,
+      "total": 6
+    },
+    {
+      "id": "E18",
+      "name": "深度忽略",
+      "status": "failed",
+      "passed": 4,
+      "total": 6
+    },
+    {
+      "id": "E18",
+      "name": "空槽保留 undefined",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E19",
+      "name": "NaN 没去重",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E19",
+      "name": "对象按 JSON 比较",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E20",
+      "name": "返回上界",
+      "status": "failed",
+      "passed": 4,
+      "total": 6
+    },
+    {
+      "id": "E20",
+      "name": "丢失 length 哨兵",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E21",
+      "name": "遗漏结束检查",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E21",
+      "name": "允许空栈关闭",
+      "status": "failed",
+      "passed": 5,
+      "total": 6
+    },
+    {
+      "id": "E22",
+      "name": "this 未入键",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E22",
+      "name": "undefined 不缓存",
+      "status": "failed",
+      "passed": 7,
+      "total": 8
+    },
+    {
+      "id": "E23",
+      "name": "超时不通知任务",
+      "status": "failed",
+      "passed": 7,
+      "total": 9
+    },
+    {
+      "id": "E23",
+      "name": "预取消仍启动",
+      "status": "failed",
+      "passed": 8,
+      "total": 9
+    },
+    {
+      "id": "E24",
+      "name": "拒绝阻断后序",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E24",
+      "name": "提前启动工厂",
+      "status": "failed",
+      "passed": 4,
+      "total": 8
+    }
+  ],
+  "guards": [
+    {
+      "name": "infinite-loop",
+      "status": "timeout"
+    },
+    {
+      "name": "stop",
+      "status": "stopped"
+    },
+    {
+      "name": "unhandled-rejection",
+      "status": "failed"
+    },
+    {
+      "name": "iframes-cleaned",
+      "value": 0
+    }
+  ]
+}

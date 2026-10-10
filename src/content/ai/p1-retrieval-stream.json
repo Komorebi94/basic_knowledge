@@ -1,0 +1,150 @@
+{
+  "cards": [
+    {
+      "catalogId": "AI13",
+      "question": "为什么检索结果带引用，答案仍可能过时？",
+      "answerPoints": [
+        "引用需绑定文档版本与生效规则",
+        "索引及缓存可能尚未同步更新",
+        "来源存在不证明生成断言受支持"
+      ],
+      "pitfalls": [
+        "把可打开链接等同于当前有效依据"
+      ],
+      "sourceHeadingId": "citations"
+    },
+    {
+      "catalogId": "AI13",
+      "question": "为什么重排之前就应限制资料权限？",
+      "answerPoints": [
+        "非法候选送入重排器已经可能泄露",
+        "全局top-k后过滤会丢失合法候选",
+        "身份和权限来自可信系统而非提示词"
+      ],
+      "pitfalls": [
+        "只在最终显示时删掉非法引用"
+      ],
+      "sourceHeadingId": "wrong"
+    },
+    {
+      "catalogId": "AI13",
+      "question": "检索与生成评估为什么要分开？",
+      "answerPoints": [
+        "人工标注相关证据衡量召回",
+        "生成另测断言、例外和拒答",
+        "轨迹能区分漏检与误读"
+      ],
+      "pitfalls": [
+        "让同一答案证明检索充分"
+      ],
+      "sourceHeadingId": "verification"
+    },
+    {
+      "catalogId": "AI14",
+      "question": "为什么一个read得到的字节块不能当作一个SSE事件？",
+      "answerPoints": [
+        "UTF-8字符可能跨字节块",
+        "行与CRLF也可能跨块",
+        "空行才形成事件且一块可能包含多个事件"
+      ],
+      "pitfalls": [
+        "每次单独解码后立即JSON.parse"
+      ],
+      "sourceHeadingId": "decoder"
+    },
+    {
+      "catalogId": "AI14",
+      "question": "流在delta之后关闭但没有final时应该怎样处理？",
+      "answerPoints": [
+        "保留带中断标记的草稿",
+        "不提交稳定结果",
+        "重试用新身份与空缓冲，除非有明确续传合同"
+      ],
+      "pitfalls": [
+        "将EOF直接标为业务完成"
+      ],
+      "sourceHeadingId": "retry"
+    },
+    {
+      "catalogId": "AI14",
+      "question": "为什么abort之后仍需要请求身份检查？",
+      "answerPoints": [
+        "取消与已派发事件可能交错",
+        "旧成功和错误都不能覆盖新请求",
+        "旧finally也不能结束新请求的loading"
+      ],
+      "pitfalls": [
+        "以已取消作为所有迟到写入的保证"
+      ],
+      "sourceHeadingId": "identity"
+    }
+  ],
+  "evidence": [
+    {
+      "catalogId": "AI13",
+      "checkedAt": "2026-10-09",
+      "applicableVersions": [
+        "现代浏览器的标准Web API；检索算法为本地模拟"
+      ],
+      "claims": "协议与检索机制已核对官方资料；案例合同、评估和用户体验取舍为原创建议，不宣称模型或在线服务实测。",
+      "sources": [
+        {
+          "title": "Microsoft：RAG文档分块",
+          "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents",
+          "checkedAt": "2026-10-09",
+          "claimScope": "分块、过滤或重排机制；本地退款案例与评分为原创模拟"
+        },
+        {
+          "title": "Microsoft：向量检索过滤",
+          "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-filters",
+          "checkedAt": "2026-10-09",
+          "claimScope": "分块、过滤或重排机制；本地退款案例与评分为原创模拟"
+        },
+        {
+          "title": "Microsoft：语义重排",
+          "url": "https://learn.microsoft.com/en-us/azure/search/semantic-search-overview",
+          "checkedAt": "2026-10-09",
+          "claimScope": "分块、过滤或重排机制；本地退款案例与评分为原创模拟"
+        }
+      ]
+    },
+    {
+      "catalogId": "AI14",
+      "checkedAt": "2026-10-09",
+      "applicableVersions": [
+        "现代浏览器的标准Web API；UTF-8/SSE本地字节流与会话模拟"
+      ],
+      "claims": "协议与检索机制已核对官方资料；案例合同、评估和用户体验取舍为原创建议，不宣称模型或在线服务实测。",
+      "sources": [
+        {
+          "title": "WHATWG：SSE事件流解析",
+          "url": "https://html.spec.whatwg.org/multipage/server-sent-events.html#parsing-an-event-stream",
+          "checkedAt": "2026-10-09",
+          "claimScope": "SSE按行和空行派发、UTF-8流式解码；身份与final合同为原创设计"
+        },
+        {
+          "title": "WHATWG：TextDecoder与流式解码",
+          "url": "https://encoding.spec.whatwg.org/#interface-textdecoder",
+          "checkedAt": "2026-10-09",
+          "claimScope": "SSE按行和空行派发、UTF-8流式解码；身份与final合同为原创设计"
+        }
+      ]
+    }
+  ],
+  "authorExamples": [
+    {
+      "catalogId": "AI13",
+      "examples": 2,
+      "result": "4+6行输出与expectedOutput精确匹配",
+      "environment": "本地Node.js，独立VM context；未调用真实检索或模型服务",
+      "checkedAt": "2026-10-09"
+    },
+    {
+      "catalogId": "AI14",
+      "examples": 2,
+      "result": "4+6行输出与expectedOutput精确匹配，UTF-8与CRLF逐字节切分、用户取消与迟到事件隔离",
+      "environment": "本地Node.js标准Web API，独立VM context；浏览器检查由统一发布验收完成",
+      "checkedAt": "2026-10-09"
+    }
+  ]
+}

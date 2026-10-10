@@ -1,0 +1,149 @@
+{
+  "verifiedAt": "2026-10-09T08:08:22.530Z",
+  "browser": "154.0.8037.99",
+  "articleIds": [
+    "AI18",
+    "AI17",
+    "AI13",
+    "AI14"
+  ],
+  "examples": 10,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "AI18",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "91f61f474bff280a4adadaa20f904f0b601fc03e32e97eb16c1acbfdeadc6817",
+      "output": [
+        "0.032 0.064",
+        "2.249 0.364"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI18",
+      "sectionId": "latency",
+      "language": "javascript",
+      "codeSha256": "4c03a595d336cf68ad8862e8dbff06a50b1009274e54bb5d237d1ba6884c0322",
+      "output": [
+        "cold 3 900 5000",
+        "warm 3 300 2400",
+        "null"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI18",
+      "sectionId": "budget",
+      "language": "javascript",
+      "codeSha256": "f31baa12fed8ad29d87faa4d0f8c34dc205103e3fa91e0b9af840ea523ff8e29",
+      "output": [
+        "started",
+        "budget",
+        "settled",
+        "unknown",
+        "duplicate",
+        "budget",
+        "timeout"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI17",
+      "sectionId": "dependency",
+      "language": "javascript",
+      "codeSha256": "289be3232348122893aca245c4a873b45f26b3f45c556e4f0d1d91e8014de403",
+      "output": [
+        "contract",
+        "validator,storage",
+        "storage",
+        "integration"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI17",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "49c902e2c6dd9ee57f80f411f1026ee79c3a63c8b4e2cfd75008fb932b33aec5",
+      "output": [
+        "false true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI17",
+      "sectionId": "implementation",
+      "language": "javascript",
+      "codeSha256": "d00c6ad4b9a1706b138c29335559d49e63d373879b0dea37c9fdec4d564f465c",
+      "output": [
+        "saved",
+        "conflict",
+        "true false",
+        "saved",
+        "3 true true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI13",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "39fc0f4d81c6ba49afbc3f83f41e2dc347ee003a29e62dc8eb16fe8834b309fd",
+      "output": [
+        "refund-v1",
+        "shipping-v2,refund-v2",
+        "refund-v2",
+        "标准订单可在14日退款，定制订单除外。"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI13",
+      "sectionId": "citations",
+      "language": "javascript",
+      "codeSha256": "a6fa89a3a9bae71f634998c21cf939c4f856f7153d741377efae73febd46318b",
+      "output": [
+        "located",
+        "stale",
+        "unavailable",
+        "recall=1",
+        "recall=0",
+        "abstain-ready"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI14",
+      "sectionId": "decoder",
+      "language": "module",
+      "codeSha256": "a8a2c882fb3db176a7a5cfad19ea6861caa5b3ea3c8537b4ab78df29fd552f62",
+      "output": [
+        "2",
+        "delta",
+        "\"中\\n文\"",
+        "true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI14",
+      "sectionId": "identity",
+      "language": "javascript",
+      "codeSha256": "b2a5e64e4251caaeeb9a46e9edb02ff538b76aa6175d73390b5003f7f5bf90f8",
+      "output": [
+        "cancelled:true",
+        "interrupted:true",
+        "新稿",
+        "completed:标准订单14日，定制订单除外",
+        "failed:true",
+        "cancelled:true:true"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

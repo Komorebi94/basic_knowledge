@@ -1,0 +1,178 @@
+{
+  "cards": [
+    {
+      "catalogId": "AI17",
+      "question": "前置接口尚未稳定时，怎样判断哪些子任务能并行？",
+      "answerPoints": [
+        "按产物依赖建立任务图",
+        "只启动前置产物已完成的任务",
+        "独立读取与用例设计可先并行，集成等待真实接口"
+      ],
+      "pitfalls": [
+        "把已派发当成已完成"
+      ],
+      "sourceHeadingId": "dependency"
+    },
+    {
+      "catalogId": "AI17",
+      "question": "两个 Agent 基于同一旧版本交付，怎样避免无声覆盖？",
+      "answerPoints": [
+        "提交时原子比较读取基线与当前版本",
+        "不匹配时保留当前数据并报告冲突",
+        "重读并审阅语义后再生成候选"
+      ],
+      "pitfalls": [
+        "只递增版本号，不在提交时比较"
+      ],
+      "sourceHeadingId": "implementation"
+    },
+    {
+      "catalogId": "AI17",
+      "question": "交接中的“检查通过”要带什么才能被整合者复核？",
+      "answerPoints": [
+        "产物基线与改动范围",
+        "实际命令、环境和观察结果",
+        "失败样本与未覆盖边界"
+      ],
+      "pitfalls": [
+        "用旧分支结果证明当前合并代码"
+      ],
+      "sourceHeadingId": "handoff"
+    },
+    {
+      "catalogId": "AI17",
+      "question": "哪些条件会让多 Agent 协作比串行更贵？",
+      "answerPoints": [
+        "共享状态多和依赖链长",
+        "重复上下文与交接整合开销高",
+        "任务很小而质量收益未经证实"
+      ],
+      "pitfalls": [
+        "把并行分支耗时简单相加或忽略最慢分支"
+      ],
+      "sourceHeadingId": "boundaries"
+    },
+    {
+      "catalogId": "AI18",
+      "question": "为什么单次模型调用费不能代表任务完成成本？",
+      "answerPoints": [
+        "失败与重试调用也已消耗费用",
+        "工具费和人工审核修复需单列",
+        "结合最终验收结果统计每个成功任务成本"
+      ],
+      "pitfalls": [
+        "删去未成功或未收到结果的调用"
+      ],
+      "sourceHeadingId": "accounting"
+    },
+    {
+      "catalogId": "AI18",
+      "question": "比较延迟时为什么要分冷暖缓存并同时记录 TTFT 与完成时间？",
+      "answerPoints": [
+        "缓存状态影响输入处理需实际观测",
+        "TTFT 仅表示开始输出",
+        "完成时间还包括生成、工具、重试与验收"
+      ],
+      "pitfalls": [
+        "少量暖样本平均值代表所有请求"
+      ],
+      "sourceHeadingId": "latency"
+    },
+    {
+      "catalogId": "AI18",
+      "question": "并发任务开始前，预算账本为什么要计入在途预留？",
+      "answerPoints": [
+        "多个任务可能同时读取同一剩余额度",
+        "已用加在途预留加新预估共同决定准入",
+        "实际结算仍须记录超预估与幂等"
+      ],
+      "pitfalls": [
+        "把预估额度当最终费用或把取消当免费"
+      ],
+      "sourceHeadingId": "budget"
+    },
+    {
+      "catalogId": "AI18",
+      "question": "选择模型工作流之前为什么先设质量门槛？",
+      "answerPoints": [
+        "不可接受的失败应先淘汰",
+        "在相同任务与条件下比较达标方案",
+        "版本或任务分布变化触发重测"
+      ],
+      "pitfalls": [
+        "用低价抵消数据丢失或发布永久排名"
+      ],
+      "sourceHeadingId": "experiment"
+    }
+  ],
+  "evidence": [
+    {
+      "catalogId": "AI17",
+      "checkedAt": "2026-10-09",
+      "applicableVersions": [
+        "原创机制示例：现代 JavaScript / Node.js 22；真实模型与工具以实际合同为准"
+      ],
+      "claims": "示例与实验数字为原创人工演示。协作建议和质量门槛为作者针对案例设计；未连接模型、未观测真实模型价格或性能。",
+      "sources": [
+        {
+          "title": "Anthropic：多 Agent 研究系统的工程经验",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+          "checkedAt": "2026-10-09",
+          "claimScope": "多 Agent 协调与开销的一般工程经验；不引用性能收益数字"
+        }
+      ]
+    },
+    {
+      "catalogId": "AI18",
+      "checkedAt": "2026-10-09",
+      "applicableVersions": [
+        "原创机制示例：现代 JavaScript / Node.js 22；真实模型与工具以实际合同为准"
+      ],
+      "claims": "示例与实验数字为原创人工演示。协作建议和质量门槛为作者针对案例设计；未连接模型、未观测真实模型价格或性能。",
+      "sources": [
+        {
+          "title": "OpenAI：延迟优化",
+          "url": "https://developers.openai.com/api/docs/guides/latency-optimization",
+          "checkedAt": "2026-10-09",
+          "claimScope": "计量、延迟、缓存和评估方法背景；示例数字不来自供应商实测"
+        },
+        {
+          "title": "OpenAI：提示缓存",
+          "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+          "checkedAt": "2026-10-09",
+          "claimScope": "计量、延迟、缓存和评估方法背景；示例数字不来自供应商实测"
+        },
+        {
+          "title": "OpenAI：评估实践",
+          "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+          "checkedAt": "2026-10-09",
+          "claimScope": "计量、延迟、缓存和评估方法背景；示例数字不来自供应商实测"
+        }
+      ]
+    }
+  ],
+  "authorReview": {
+    "checkedAt": "2026-10-09",
+    "status": "author-reviewed",
+    "notes": [
+      "第二轮核对接口基线、未知依赖与事务边界、费用单位、缓存子集、样本量、预算结算与权限边界",
+      "本地 6 个原创 JS 示例实际执行，输出精确匹配；无模型价格或性能实测"
+    ],
+    "authorExamples": [
+      {
+        "catalogId": "AI17",
+        "examples": 3,
+        "chineseCharacters": 2710,
+        "environment": "v22.22.3 VM 独立上下文",
+        "result": "所有输出精确匹配 expectedOutput；未连接模型 API"
+      },
+      {
+        "catalogId": "AI18",
+        "examples": 3,
+        "chineseCharacters": 3092,
+        "environment": "v22.22.3 VM 独立上下文",
+        "result": "所有输出精确匹配 expectedOutput；未连接模型 API"
+      }
+    ]
+  }
+}

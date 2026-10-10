@@ -1,0 +1,460 @@
+[
+  {
+    "id": "E01",
+    "title": "防抖与取消",
+    "slug": "debounce-cancel",
+    "summary": "搜索框每次输入都请求会产生无效工作。实现 trailing 防抖：连续调用只保留最后一次参数与 this，安静 waitMs 后执行，并允许取消或提前执行。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-02",
+      "K02-01",
+      "K12-02"
+    ],
+    "problem": [
+      "搜索框每次输入都请求会产生无效工作。实现 trailing 防抖：连续调用只保留最后一次参数与 this，安静 waitMs 后执行，并允许取消或提前执行。",
+      "执行前先清空本轮待执行状态；fn 内重入 wrapped 时必须留下下一轮。flush 同步透传异常，定时器异常交给宿主；不修改参数对象。"
+    ],
+    "entryContract": "debounce(fn, waitMs) → wrapped；wrapped(...args) 返回 undefined，cancel() 返回 undefined，flush() 返回本次 fn 的结果或 undefined。fn 非函数、wait 非数字抛 TypeError；wait 非有限整数或不在 0—2147483647 抛 RangeError。"
+  },
+  {
+    "id": "E02",
+    "title": "节流与尾调用",
+    "slug": "throttle-trailing",
+    "summary": "鼠标移动触发过密时，希望立即响应首次操作，并在固定时间窗口结束时保留最后一次输入。实现固定窗口节流，窗口内调用不延长截止时间。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-02",
+      "K02-01"
+    ],
+    "problem": [
+      "鼠标移动触发过密时，希望立即响应首次操作，并在固定时间窗口结束时保留最后一次输入。实现固定窗口节流，窗口内调用不延长截止时间。",
+      "尾调用启动下一窗口，若新窗口没有额外调用则结束时不再重复执行。边界时间先执行已到期计时器，再发起新调用；保留 this，不修改参数。"
+    ],
+    "entryContract": "throttle(fn, waitMs) → wrapped；wait 为 0—2147483647 整数。首次 leading 同步执行，窗口内记录最后调用，窗口结束 trailing；cancel() 关闭当前窗口。wrapped 返回 undefined；fn 的同步异常透传。"
+  },
+  {
+    "id": "E03",
+    "title": "Promise.all 语义",
+    "slug": "promise-all",
+    "summary": "多个异步任务完成顺序通常不等于输入顺序。实现 all，使调用方拿到与输入位置对应的值；普通值和 thenable 也按 Promise 同化规则处理。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-02",
+      "K01-06"
+    ],
+    "problem": [
+      "多个异步任务完成顺序通常不等于输入顺序。实现 all，使调用方拿到与输入位置对应的值；普通值和 thenable 也按 Promise 同化规则处理。",
+      "空输入得到 []。不取消已启动任务，也不改动输入；元素拒绝后仍需为所有已观察元素安装拒绝处理。接口不使用 this。"
+    ],
+    "entryContract": "all(iterable) → Promise<Array>；接受同步可迭代对象，按输入位置保存结果；元素采用 Promise.resolve 吸收，首个被观察到的拒绝使整体拒绝，迭代过程异常也拒绝。"
+  },
+  {
+    "id": "E04",
+    "title": "并发任务池",
+    "slug": "task-pool",
+    "summary": "需要批量处理数据，又不能一次启动所有工作。编写任务池，让任务工厂在获得空位时才执行；在途计数包含尚未结算的同步或异步返回值。",
+    "revision": 1,
+    "estimatedMinutes": 40,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-04",
+      "K02-05",
+      "K02-02"
+    ],
+    "problem": [
+      "需要批量处理数据，又不能一次启动所有工作。编写任务池，让任务工厂在获得空位时才执行；在途计数包含尚未结算的同步或异步返回值。",
+      "同步抛错等同异步拒绝。失败后停止补位，但已经启动的任务不被自动取消，其后续拒绝要被处理。不修改任务数组，不为工厂传入 this。"
+    ],
+    "entryContract": "pool(tasks, limit) → Promise<Array>；tasks 为函数数组，limit 为正整数。参数无效拒绝 TypeError 或 RangeError；最多 limit 个任务在途，首次失败后停止启动新任务，按输入索引返回。"
+  },
+  {
+    "id": "E05",
+    "title": "Promise.allSettled 语义",
+    "slug": "all-settled",
+    "summary": "批量探测多个独立任务时，一个失败不应遮住其余任务的结果。实现 allSettled，保留成功与失败各自的状态和原值，并保持输入顺序。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-02"
+    ],
+    "problem": [
+      "批量探测多个独立任务时，一个失败不应遮住其余任务的结果。实现 allSettled，保留成功与失败各自的状态和原值，并保持输入顺序。",
+      "空输入为 []，支持普通值、Set、thenable；不修改输入或取消任务。不使用 this，不实现 Promise 子类静态方法泛化。"
+    ],
+    "entryContract": "allSettled(iterable) → Promise<Array>；同步可迭代输入按位置返回 {status:\"fulfilled\",value} 或 {status:\"rejected\",reason}。元素拒绝不会拒绝整体，迭代异常仍拒绝整体。"
+  },
+  {
+    "id": "E06",
+    "title": "受限数据域深拷贝",
+    "slug": "restricted-deep-clone",
+    "summary": "缓存或编辑数据时需要隔离可变结构，但 JSON 拷贝会丢失 Map、Date、稀疏数组和循环。实现受限图拷贝，准确保留对象之间的身份关系，遇到无法可靠处理的数据明确报错。",
+    "revision": 1,
+    "estimatedMinutes": 40,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-01",
+      "K01-04",
+      "K01-05",
+      "K01-06"
+    ],
+    "problem": [
+      "缓存或编辑数据时需要隔离可变结构，但 JSON 拷贝会丢失 Map、Date、稀疏数组和循环。实现受限图拷贝，准确保留对象之间的身份关系，遇到无法可靠处理的数据明确报错。",
+      "不调用 getter，枚举访问器直接拒绝；非枚举属性忽略。Date 复制时间值，Map 的键和值递归，Set 元素递归。原对象不变，属性值复制后使用可写/可配置普通数据描述符；数组长度与空槽保留。"
+    ],
+    "entryContract": "clone(value) → 副本；支持 Object.prototype/null 原型普通对象、Array、Date、Map、Set，函数保持身份。保留图中的共享/循环引用，只复制自有可枚举数据属性（含 Symbol）；枚举访问器、未知原型抛 TypeError。"
+  },
+  {
+    "id": "E07",
+    "title": "事件订阅器",
+    "slug": "event-emitter",
+    "summary": "事件系统需要保证监听顺序，同时允许回调在执行过程中增删监听。实现订阅器：emit 使用启动时快照，同一函数可以重复订阅，异常收集后继续调用其余监听。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-02",
+      "K01-03"
+    ],
+    "problem": [
+      "事件系统需要保证监听顺序，同时允许回调在执行过程中增删监听。实现订阅器：emit 使用启动时快照，同一函数可以重复订阅，异常收集后继续调用其余监听。",
+      "监听 this 固定为 undefined（严格模式），按注册顺序传入全部参数。once 必须在调用前解绑；即使旧快照仍含该记录，也不能因重入触发第二次。解绑函数幂等，不修改参数。"
+    ],
+    "entryContract": "createEmitter() → {on,off,once,emit}；on/once(name, fn) 返回精确解绑函数；off(name, fn) 移除最近一次同函数订阅；emit(name,...args) 返回异常数组。name 为 string/Symbol，fn 为函数，否则 TypeError。"
+  },
+  {
+    "id": "E08",
+    "title": "参数化柯里化",
+    "slug": "curry-arity",
+    "summary": "希望把一个多参数函数拆成若干次调用，但函数 length 可能受默认参数影响。实现显式 arity 的柯里化，让独立调用分支各自保存参数并在收集足够时执行一次。",
+    "revision": 1,
+    "estimatedMinutes": 20,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-02",
+      "K01-03"
+    ],
+    "problem": [
+      "希望把一个多参数函数拆成若干次调用，但函数 length 可能受默认参数影响。实现显式 arity 的柯里化，让独立调用分支各自保存参数并在收集足够时执行一次。",
+      "arity=0 的 curried 在第一次调用时执行；允许一次传多个或零个参数。不支持占位符、构造调用、无限参数链或异步结果聚合。"
+    ],
+    "entryContract": "curry(fn, arity) → curried；arity 为非负整数，fn 非函数抛 TypeError，非法 arity 抛 RangeError。累积参数达到 arity 即执行，多余参数保留；this 来自最后一次调用，不修改已有分支。"
+  },
+  {
+    "id": "E09",
+    "title": "组合与管道",
+    "slug": "compose-pipe",
+    "summary": "数据需要经过几个同步变换时，嵌套调用难以读清顺序。实现组合和管道，明确右到左与左到右的执行方向，保持传入函数列表不变。",
+    "revision": 1,
+    "estimatedMinutes": 20,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-03"
+    ],
+    "problem": [
+      "数据需要经过几个同步变换时，嵌套调用难以读清顺序。实现组合和管道，明确右到左与左到右的执行方向，保持传入函数列表不变。",
+      "只约定一元函数；函数以 undefined 作为 this，不自动等待 Promise。输出可以是任意值，每一步把上一步结果作为唯一参数。"
+    ],
+    "entryContract": "compose(functions) / pipe(functions) → (value) => result；functions 为一元同步函数数组，非法输入抛 TypeError；空数组为 identity。compose 从右向左，pipe 从左向右，异常原样透传。"
+  },
+  {
+    "id": "E10",
+    "title": "可取消延时",
+    "slug": "cancelable-delay",
+    "summary": "异步任务需要等待一段时间，但页面离开时应及时结束等待。实现支持 AbortSignal 的 delay，正常完成或取消都释放计时器和监听，不把取消吞成成功。",
+    "revision": 1,
+    "estimatedMinutes": 20,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-05"
+    ],
+    "problem": [
+      "异步任务需要等待一段时间，但页面离开时应及时结束等待。实现支持 AbortSignal 的 delay，正常完成或取消都释放计时器和监听，不把取消吞成成功。",
+      "ms=0 仍经计时器异步完成；signal 必须是 AbortSignal，否则拒绝 TypeError。预取消不启动计时器，完成后再取消不会改变结果；不使用 this。"
+    ],
+    "entryContract": "delay(ms, signal?) → Promise<void>；ms 为 0—2147483647 整数，非法数字抛 RangeError、非数字抛 TypeError（以 Promise 拒绝）。取消拒绝 signal.reason，reason 缺失时为 name=\"AbortError\" 的 Error。"
+  },
+  {
+    "id": "E11",
+    "title": "重试与退避",
+    "slug": "retry-backoff",
+    "summary": "暂时性错误可以重试，但无限重试或把业务错误当作暂时故障会重复副作用。实现带上限、错误谓词与取消的重试，attempts 包含首次调用，成功后立即结束。",
+    "revision": 1,
+    "estimatedMinutes": 35,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-06",
+      "K02-05"
+    ],
+    "problem": [
+      "暂时性错误可以重试，但无限重试或把业务错误当作暂时故障会重复副作用。实现带上限、错误谓词与取消的重试，attempts 包含首次调用，成功后立即结束。",
+      "task/shouldRetry 非函数或 signal 非信号拒绝 TypeError，数字约束失败拒绝 RangeError。任务同步抛错也进入谓词；谓词抛错直接拒绝。预取消、等待中取消、任务在途取消都立即拒绝且不再重试；无法强制停止不响应 signal 的任务。"
+    ],
+    "entryContract": "retry(task, {attempts=3, baseMs=100, maxMs=2147483647, shouldRetry=()=>true, signal}={}) → Promise；task(attempt, signal) 的 attempt 从 1 开始。attempts 为正整数，baseMs/maxMs 为合法计时整数；失败后等待 min(maxMs, baseMs×2^(attempt−1))。"
+  },
+  {
+    "id": "E12",
+    "title": "请求去重",
+    "slug": "inflight-deduplication",
+    "summary": "同一资源被多个调用方同时请求时，希望共享这次工作而不是重复启动。实现按 key 去重的运行器，仅复用在途 Promise，不缓存成功值或失败结果。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-02",
+      "K02-05"
+    ],
+    "problem": [
+      "同一资源被多个调用方同时请求时，希望共享这次工作而不是重复启动。实现按 key 去重的运行器，仅复用在途 Promise，不缓存成功值或失败结果。",
+      "task 在下一个微任务启动，保证首次 run 返回前 key 已登记，工厂内部重入也能找到同一个 Promise。任务不得等待自己所属 key 的 Promise（自依赖会永久等待）。不使用调用 this，不修改 key。"
+    ],
+    "entryContract": "createDeduper() → run(key, task)；key 使用 Map 相等规则，task 为无参数函数；相同 key 在途期间返回严格同一个 Promise，结算后删除。任务工厂非函数返回拒绝 TypeError；任务同步抛错转换成拒绝。"
+  },
+  {
+    "id": "E13",
+    "title": "最近一次请求生效",
+    "slug": "latest-request",
+    "summary": "搜索请求 A 先发后到，B 后发先到，直接显示每次响应会回退到旧数据。实现序号守卫：工厂可以并发，但只有最新身份能提交，无论成功还是失败。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-03",
+      "K02-05"
+    ],
+    "problem": [
+      "搜索请求 A 先发后到，B 后发先到，直接显示每次响应会回退到旧数据。实现序号守卫：工厂可以并发，但只有最新身份能提交，无论成功还是失败。",
+      "run 无 this、工厂在微任务启动并以 task(sequence) 调用；非函数 task 同步 TypeError，回调非函数创建时 TypeError。run 返回 Promise 的成功/失败仍反映原任务，过期只抑制提交，不把旧失败变成成功。"
+    ],
+    "entryContract": "createLatest(onSuccess,onError) → {run, cancel, sequence}；run(task) 返回任务原结果 Promise，并向最新未取消序号提交成功/失败；cancel() 使当前序号失效，不停止底层任务；sequence 只增不减。回调必须不抛错。"
+  },
+  {
+    "id": "E14",
+    "title": "LRU 缓存",
+    "slug": "lru-cache",
+    "summary": "缓存需要在容量有限时淘汰最久未用项，但 undefined 也可能是合法缓存值。实现 LRU，用显式 found 区分缺失，读取和更新都会提升该 key 的最近使用顺序。",
+    "revision": 1,
+    "estimatedMinutes": 35,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K16-02",
+      "K01-01"
+    ],
+    "problem": [
+      "缓存需要在容量有限时淘汰最久未用项，但 undefined 也可能是合法缓存值。实现 LRU，用显式 found 区分缺失，读取和更新都会提升该 key 的最近使用顺序。",
+      "key 遵循 Map 相等规则；容量 0 不存储。缓存不复制键值对象，也不修改它们；size 只读。目标为每个操作摊还 O(1)，不依赖全数组扫描。"
+    ],
+    "entryContract": "createLRU(capacity) → {get,set,has,size}；capacity 非负整数，否则 RangeError。get 返回 {found:true,value} 或 {found:false}，命中提升最近使用；set 返回 undefined，更新同样提升；has 只查询不提升。"
+  },
+  {
+    "id": "E15",
+    "title": "数组转森林",
+    "slug": "array-to-forest",
+    "summary": "接口经常返回平铺的 id/parentId 节点。转换为森林时必须支持父节点晚出现、孤儿作为根，并保持根和兄弟的输入顺序；不能把非法环静默丢弃。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K16-01",
+      "K16-02",
+      "K01-01"
+    ],
+    "problem": [
+      "接口经常返回平铺的 id/parentId 节点。转换为森林时必须支持父节点晚出现、孤儿作为根，并保持根和兄弟的输入顺序；不能把非法环静默丢弃。",
+      "新节点浅复制输入其他自有可枚举字段，并生成 children 数组；输入节点不改动，其他嵌套字段按引用保留。parentId 缺失/null/undefined 表示根，不存在父亲也为根。仅支持普通对象，不使用 this。"
+    ],
+    "entryContract": "toForest(nodes) → Array<新节点>；nodes 为节点数组，每项自有 id 为 string/number 且非 NaN，parentId 为同域或 null/undefined。重复 id、环、保留字段 children 冲突抛 Error；无效结构抛 TypeError。"
+  },
+  {
+    "id": "E16",
+    "title": "树遍历与查找",
+    "slug": "tree-traversal",
+    "summary": "树菜单中的搜索和展示需要不同顺序。实现广度优先与先序深度优先，并用对应顺序返回首个匹配节点；多根树视为一个森林，BFS 先访问所有根。",
+    "revision": 1,
+    "estimatedMinutes": 20,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K16-01",
+      "K16-02"
+    ],
+    "problem": [
+      "树菜单中的搜索和展示需要不同顺序。实现广度优先与先序深度优先，并用对应顺序返回首个匹配节点；多根树视为一个森林，BFS 先访问所有根。",
+      "不修改 roots/children，不复制节点身份，predicate 抛错原样透传。不支持环与共享节点图；节点必须为非 null 对象，children 非数组抛 TypeError。"
+    ],
+    "entryContract": "traverse(roots, mode=\"bfs\") → 节点引用数组；findNode(roots,predicate,mode=\"bfs\") → 首个匹配节点或 undefined。roots 为树数组，节点 children 缺失或数组，mode 仅 bfs/dfs，否则 TypeError。"
+  },
+  {
+    "id": "E17",
+    "title": "路径读取",
+    "slug": "own-property-path",
+    "summary": "配置读取需要区分路径不存在与值恰好为 false、0 或 undefined。实现自有属性路径读取，不沿原型链查找，不执行访问器，并在入口拒绝危险片段。",
+    "revision": 1,
+    "estimatedMinutes": 20,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-04",
+      "K01-05"
+    ],
+    "problem": [
+      "配置读取需要区分路径不存在与值恰好为 false、0 或 undefined。实现自有属性路径读取，不沿原型链查找，不执行访问器，并在入口拒绝危险片段。",
+      "空路径返回 value 身份；缺失或中间层为 null/undefined/原始值返回 defaultValue，存在且值为 undefined 仍返回 undefined。先校验整条路径，不因前段缺失而跳过后段危险片段。输入不变，不使用 this。"
+    ],
+    "entryContract": "getPath(value, path, defaultValue) → 属性值或默认值；path 为 string/非负安全整数片段数组。仅访问自有数据属性，禁止 __proto__/prototype/constructor 片段；访问器、非法片段抛 TypeError。"
+  },
+  {
+    "id": "E18",
+    "title": "深度扁平化",
+    "slug": "flatten-depth",
+    "summary": "一层与深层数组扁平化有不同边界：只展开数组、保留对象身份、跳过空槽。实现可控深度的 flatten，并在操作前拒绝输入数组图中的循环，避免 Infinity 递归失控。",
+    "revision": 1,
+    "estimatedMinutes": 20,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K16-01",
+      "K16-02",
+      "K01-01"
+    ],
+    "problem": [
+      "一层与深层数组扁平化有不同边界：只展开数组、保留对象身份、跳过空槽。实现可控深度的 flatten，并在操作前拒绝输入数组图中的循环，避免 Infinity 递归失控。",
+      "depth=0 仍返回新数组并跳过顶层空槽；嵌套但不展开的数组按原引用保留。共享的无环数组合法，每次出现都按位置展开，不修改输入，不使用 this。"
+    ],
+    "entryContract": "flatten(array, depth=1) → 新数组；array 为数组，depth 为非负整数或 Infinity，否则 TypeError/RangeError。只展开数组，跳过各遍历层空槽；输入中任何可经数组元素抵达的环都抛 TypeError，包括 depth=0。"
+  },
+  {
+    "id": "E19",
+    "title": "稳定去重",
+    "slug": "stable-unique",
+    "summary": "列表需要按业务键去重，而不是把对象序列化后比较。实现稳定去重：相同键只保留首次项，NaN 视为同键，正负零同键，对象键按身份区分。",
+    "revision": 1,
+    "estimatedMinutes": 15,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-01"
+    ],
+    "problem": [
+      "列表需要按业务键去重，而不是把对象序列化后比较。实现稳定去重：相同键只保留首次项，NaN 视为同键，正负零同键，对象键按身份区分。",
+      "不修改输入，不复制保留对象，不使用 keyFn 的 this。数组要求稠密，空槽不在题面数据域；keyFn 的副作用由调用方负责。"
+    ],
+    "entryContract": "uniqueBy(items, keyFn=x=>x) → 新数组；items 为数组，keyFn 为函数，否则 TypeError。keyFn(item,index) 的键按 Map/Set SameValueZero 规则判断重复，保留首次项与输入顺序，异常透传。"
+  },
+  {
+    "id": "E20",
+    "title": "二分查找下界",
+    "slug": "lower-bound",
+    "summary": "排序列表中重复值的第一个位置不能靠随便一个命中点代表。实现下界查找，返回首个大于等于 target 的索引；没有候选时返回数组长度，可用于插入位置。",
+    "revision": 1,
+    "estimatedMinutes": 20,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K16-01"
+    ],
+    "problem": [
+      "排序列表中重复值的第一个位置不能靠随便一个命中点代表。实现下界查找，返回首个大于等于 target 的索引；没有候选时返回数组长度，可用于插入位置。",
+      "不修改数组、不使用 this。允许 Infinity/-Infinity 和重复值，不支持 NaN、稀疏数组或未排序输入；不承诺替调用方检查排序。"
+    ],
+    "entryContract": "lowerBound(sorted, target) → 0—sorted.length 索引；sorted 为升序稠密数字数组，target 为非 NaN 数字；数组非数组或 target 非数字/NaN 抛 TypeError。数组元素和排序性由调用方保证，不做 O(n) 验证。"
+  },
+  {
+    "id": "E21",
+    "title": "括号匹配",
+    "slug": "balanced-brackets",
+    "summary": "括号计数相等仍可能存在交叉嵌套。实现三种括号匹配，用栈保留每个未闭合位置的预期关闭类型，普通字符跳过，空字符串合法。",
+    "revision": 1,
+    "estimatedMinutes": 15,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K16-01",
+      "K16-02"
+    ],
+    "problem": [
+      "括号计数相等仍可能存在交叉嵌套。实现三种括号匹配，用栈保留每个未闭合位置的预期关闭类型，普通字符跳过，空字符串合法。",
+      "输入不修改，不使用 this。它只检查字符序列，不是 JavaScript 语法解析器；引号中的括号也按普通括号处理。"
+    ],
+    "entryContract": "isBalanced(text) → boolean；text 必须为字符串，否则 TypeError。仅处理 () [] {}，其他字符忽略；按最近未闭合的括号匹配，不解析字符串字面量或代码注释。"
+  },
+  {
+    "id": "E22",
+    "title": "多参数记忆化",
+    "slug": "tuple-memoization",
+    "summary": "昂贵的同步计算可缓存，但把参数拼成字符串会碰撞，也会丢失对象身份与 this。实现多参数记忆化，用参数前缀树记录完整元组，并显式保存命中标志。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K01-01",
+      "K01-02"
+    ],
+    "problem": [
+      "昂贵的同步计算可缓存，但把参数拼成字符串会碰撞，也会丢失对象身份与 this。实现多参数记忆化，用参数前缀树记录完整元组，并显式保存命中标志。",
+      "结果 undefined 仍缓存；clear 后下次重新计算。fn 的 this 原样转交，输入不修改，缓存持有对象强引用。本题不聚合异步 Promise，也不支持递归同键在途去重。"
+    ],
+    "entryContract": "memoize(fn) → wrapped，wrapped.clear() 清空缓存；fn 必须为函数，否则 TypeError。同步结果按 [this,...args] 元组缓存，位置、参数个数与对象身份有意义；键比较为 Map SameValueZero，抛出的异常不缓存。"
+  },
+  {
+    "id": "E23",
+    "title": "带超时的任务",
+    "slug": "task-timeout",
+    "summary": "任务可能永久等待，或忽略调用方取消。实现截止时间包装器，让外层在到期或取消时结束，同时把内部 signal 通知任务；不能假设通知会强制停止任务。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-05",
+      "K02-02"
+    ],
+    "problem": [
+      "任务可能永久等待，或忽略调用方取消。实现截止时间包装器，让外层在到期或取消时结束，同时把内部 signal 通知任务；不能假设通知会强制停止任务。",
+      "先完成则清 timer/外部监听；先超时则内部 abort 且外层 TimeoutError 不被任务因 abort 引发的错误覆盖。预取消不启动任务；迟到结果被忽略但拒绝必须处理。不使用 this，不修改外部 signal。"
+    ],
+    "entryContract": "withTimeout(task, ms, externalSignal?) → Promise；task(internalSignal) 在微任务开始。ms 为合法计时整数；超时先以 name=\"TimeoutError\" 拒绝并 abort 内部信号，外部取消拒绝其 reason 并 abort。task 非函数/signal 非信号拒绝 TypeError，非法 ms 拒绝 RangeError。"
+  },
+  {
+    "id": "E24",
+    "title": "异步串行队列",
+    "slug": "serial-queue",
+    "summary": "多个操作依赖前一项结束，但任务会动态加入，且失败不能把整条链变成永久拒绝。实现串行队列，每次 enqueue 返回属于该项的结果，队列空闲后可再次启动。",
+    "revision": 1,
+    "estimatedMinutes": 35,
+    "updatedAt": "2026-10-08",
+    "verifiedAt": "2026-10-08",
+    "knowledgeIds": [
+      "K02-02",
+      "K02-04",
+      "K16-02"
+    ],
+    "problem": [
+      "多个操作依赖前一项结束，但任务会动态加入，且失败不能把整条链变成永久拒绝。实现串行队列，每次 enqueue 返回属于该项的结果，队列空闲后可再次启动。",
+      "入队不立即同步调用工厂，而在微任务开始。队列保证执行顺序，不强制撤销失败项副作用；任务若等待排在自己后面的项会自依赖，不在支持范围。不修改任务，不支持 this 或取消。"
+    ],
+    "entryContract": "createQueue() → {enqueue}；enqueue(task) 返回每项独立 Promise，task 无参数、无 this，在轮到时调用。始终只有一个任务在途，单项同步/异步失败不阻断后续；非函数任务返回拒绝 TypeError。"
+  }
+]

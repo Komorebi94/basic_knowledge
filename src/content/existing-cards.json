@@ -1,0 +1,782 @@
+[
+  {
+    "catalogId": "K01-01",
+    "sourceHeadingId": "shallow-copy",
+    "question": "浅拷贝之后修改嵌套对象，为什么原对象也变化？",
+    "answerPoints": [
+      "展开只创建第一层新对象",
+      "嵌套字段复制的是原引用",
+      "应按数据域克隆或沿修改路径创建新对象"
+    ],
+    "pitfalls": [
+      "把新容器误认为所有后代都已复制"
+    ]
+  },
+  {
+    "catalogId": "K01-01",
+    "sourceHeadingId": "collections",
+    "question": "Set 对 NaN、正负零和两个同字段对象怎样去重？",
+    "answerPoints": [
+      "NaN 合并，正负零合并",
+      "对象按引用身份比较",
+      "字段相同的不同对象仍是不同键"
+    ],
+    "pitfalls": [
+      "误用 Object.is 推断所有集合行为"
+    ]
+  },
+  {
+    "catalogId": "K01-02",
+    "sourceHeadingId": "problem",
+    "question": "函数返回之后，闭包为什么仍能使用局部绑定？",
+    "answerPoints": [
+      "函数保留对词法环境的访问",
+      "调用结束不等于绑定不可达",
+      "可达的回调可能延长关联资源寿命"
+    ],
+    "pitfalls": [
+      "把闭包理解为创建时复制数值"
+    ]
+  },
+  {
+    "catalogId": "K01-02",
+    "sourceHeadingId": "application",
+    "question": "两次调用同一个工厂得到的计数函数会共享计数吗？",
+    "answerPoints": [
+      "每次工厂调用创建独立局部环境",
+      "同次调用返回的函数可共享绑定",
+      "共享取决于绑定来源，不取决于函数源码相同"
+    ],
+    "pitfalls": [
+      "忽略同一次调用与不同调用的区别"
+    ]
+  },
+  {
+    "catalogId": "K01-03",
+    "sourceHeadingId": "call-site",
+    "question": "提取 obj.method 后调用，普通函数的 this 为什么变了？",
+    "answerPoints": [
+      "this 由本次调用方式决定",
+      "单独函数调用不再携带 obj 接收者",
+      "用 bind 或明确包装固定接收者"
+    ],
+    "pitfalls": [
+      "以定义位置推断普通函数 this"
+    ]
+  },
+  {
+    "catalogId": "K01-03",
+    "sourceHeadingId": "arrow",
+    "question": "为什么 call 不能改变箭头函数的 this？",
+    "answerPoints": [
+      "箭头函数没有自己的 this 绑定",
+      "它沿词法外层读取 this",
+      "call 传递参数但不能替换该词法来源"
+    ],
+    "pitfalls": [
+      "把箭头函数当成所有方法的替代品"
+    ]
+  },
+  {
+    "catalogId": "K01-04",
+    "sourceHeadingId": "lookup",
+    "question": "自身与原型都有同名属性时读哪个？删除自身属性后呢？",
+    "answerPoints": [
+      "先找到自身属性就停止查找",
+      "自身属性遮蔽原型属性",
+      "删除自身属性后可能重新读到原型值"
+    ],
+    "pitfalls": [
+      "把删除自身属性理解为删除原型属性"
+    ]
+  },
+  {
+    "catalogId": "K01-04",
+    "sourceHeadingId": "class",
+    "question": "类的实例字段和原型方法分别放在哪里？",
+    "answerPoints": [
+      "实例字段属于实例自身",
+      "普通实例方法放在类的 prototype 上",
+      "多个实例可共享同一个方法函数"
+    ],
+    "pitfalls": [
+      "误把方法共享推断成实例字段共享"
+    ]
+  },
+  {
+    "catalogId": "K01-05",
+    "sourceHeadingId": "getter",
+    "question": "对象展开遇到 getter 会保留 getter 吗？",
+    "answerPoints": [
+      "展开读取自身可枚举属性的值",
+      "读取时执行 getter",
+      "结果通常是普通数据属性，不保留访问器描述符"
+    ],
+    "pitfalls": [
+      "忽略 getter 的副作用或异常"
+    ]
+  },
+  {
+    "catalogId": "K01-05",
+    "sourceHeadingId": "symbols",
+    "question": "Object.keys 与对象展开对 Symbol 键有什么差别？",
+    "answerPoints": [
+      "Object.keys 只列自身可枚举字符串键",
+      "展开也复制自身可枚举 Symbol 键",
+      "枚举、读取和描述符是不同维度"
+    ],
+    "pitfalls": [
+      "把 keys 的结果当作所有属性"
+    ]
+  },
+  {
+    "catalogId": "K01-06",
+    "sourceHeadingId": "problem",
+    "question": "为什么生成器创建后函数体还没有执行？",
+    "answerPoints": [
+      "调用生成器函数得到迭代器",
+      "next 才恢复执行到 yield 或结束",
+      "每次恢复延续先前局部状态"
+    ],
+    "pitfalls": [
+      "把创建迭代器当成已处理所有输入"
+    ]
+  },
+  {
+    "catalogId": "K01-06",
+    "sourceHeadingId": "recall",
+    "question": "消费者提前结束迭代时，资源释放为什么需要 finally？",
+    "answerPoints": [
+      "提前退出可触发迭代器 return",
+      "生成器 finally 用来释放已取得资源",
+      "异常与正常结束都应有明确清理路径"
+    ],
+    "pitfalls": [
+      "只在遍历全部完成之后释放资源"
+    ]
+  },
+  {
+    "catalogId": "K01-07",
+    "sourceHeadingId": "problem",
+    "question": "为什么导入的绑定能看见导出模块后来修改的值？",
+    "answerPoints": [
+      "ESM 导入关联导出绑定",
+      "不是初次导入时保存的一份值快照",
+      "导入方不能直接重新赋值该绑定"
+    ],
+    "pitfalls": [
+      "把活绑定误认为克隆对象"
+    ]
+  },
+  {
+    "catalogId": "K01-07",
+    "sourceHeadingId": "recall",
+    "question": "循环依赖为什么可能在模块初始化时失败？",
+    "answerPoints": [
+      "依赖关系不保证所有绑定已初始化",
+      "过早读取仍在 TDZ 的绑定会抛错",
+      "拆共享模块或延迟读取需保持调用合同"
+    ],
+    "pitfalls": [
+      "用模块执行顺序猜测替代依赖分析"
+    ]
+  },
+  {
+    "catalogId": "K01-08",
+    "sourceHeadingId": "problem",
+    "question": "对象不再被业务使用，为什么仍可能无法回收？",
+    "answerPoints": [
+      "回收依据可达性而非业务用途",
+      "监听器或长寿命容器可能保留引用链",
+      "应从根到资源追踪并清理所有权"
+    ],
+    "pitfalls": [
+      "仅把一个局部变量设 null 就认定已释放"
+    ]
+  },
+  {
+    "catalogId": "K01-08",
+    "sourceHeadingId": "recall",
+    "question": "WeakMap 能不能用来保证某个对象立即回收？",
+    "answerPoints": [
+      "弱键避免单独阻止键对象回收",
+      "其它强引用仍会保留对象",
+      "回收时机不能作为业务控制信号"
+    ],
+    "pitfalls": [
+      "用 GC 时机实现确定性资源关闭"
+    ]
+  },
+  {
+    "catalogId": "K02-01",
+    "sourceHeadingId": "mechanism",
+    "question": "同步任务结束后，微任务与后续任务怎样安排？",
+    "answerPoints": [
+      "先完成当前调用栈",
+      "微任务检查点会处理排队微任务",
+      "新入队微任务可能继续扩展检查点"
+    ],
+    "pitfalls": [
+      "以代码书写位置代替入队时序"
+    ]
+  },
+  {
+    "catalogId": "K02-01",
+    "sourceHeadingId": "rendering",
+    "question": "await 一个已解决的 Promise 能保证浏览器绘制吗？",
+    "answerPoints": [
+      "后续逻辑进入微任务",
+      "微任务不等于绘制机会",
+      "需要区分 DOM 更新、布局读取与用户实际看到"
+    ],
+    "pitfalls": [
+      "把异步语法当成让出一帧"
+    ]
+  },
+  {
+    "catalogId": "K02-02",
+    "sourceHeadingId": "problem",
+    "question": "then 回调忘了返回 Promise，会失去什么关系？",
+    "answerPoints": [
+      "后续链不能等待该工作",
+      "异步失败可能不进入原来的 catch",
+      "显式返回才能传播完成值或拒绝"
+    ],
+    "pitfalls": [
+      "认为调用了异步函数就自动接入链"
+    ]
+  },
+  {
+    "catalogId": "K02-02",
+    "sourceHeadingId": "recall",
+    "question": "Promise.all 某项拒绝后，其余任务会自动停止吗？",
+    "answerPoints": [
+      "聚合结果拒绝不代表其它工作取消",
+      "已启动任务通常继续进行",
+      "需要底层信号及清理设计减少无效工作"
+    ],
+    "pitfalls": [
+      "把快速失败等同事务回滚"
+    ]
+  },
+  {
+    "catalogId": "K02-03",
+    "sourceHeadingId": "problem",
+    "question": "为什么循环中逐项 await 会让可并行任务串行？",
+    "answerPoints": [
+      "下一项在上一项完成后才发起",
+      "发起时机决定并发，不由 async 关键字决定",
+      "并行需先启动独立工作再聚合结果"
+    ],
+    "pitfalls": [
+      "把依赖任务也无条件改为并行"
+    ]
+  },
+  {
+    "catalogId": "K02-03",
+    "sourceHeadingId": "recall",
+    "question": "finally 里 return 为什么可能掩盖原来的失败？",
+    "answerPoints": [
+      "finally 在成功或失败之后执行",
+      "新的 return 或 throw 可替换原完成结果",
+      "清理逻辑应避免无意覆盖原异常"
+    ],
+    "pitfalls": [
+      "把 finally 视为不会影响结果的旁路"
+    ]
+  },
+  {
+    "catalogId": "K02-04",
+    "sourceHeadingId": "problem",
+    "question": "限制 Promise 数量为什么可能没有限制实际任务启动？",
+    "answerPoints": [
+      "Promise 可能在加入列表前已经开始工作",
+      "池应接收延迟启动的任务工厂",
+      "启动前检查在途数并预留名额"
+    ],
+    "pitfalls": [
+      "先调用全部工厂再分批等待"
+    ]
+  },
+  {
+    "catalogId": "K02-04",
+    "sourceHeadingId": "recall",
+    "question": "限制在途任务之后，排队内存仍可能增长吗？",
+    "answerPoints": [
+      "并发限制只控制同时执行数",
+      "生产速度持续大于消费速度会积压队列",
+      "需要队列容量、拒绝或生产端背压"
+    ],
+    "pitfalls": [
+      "把并发上限当成总工作量上限"
+    ]
+  },
+  {
+    "catalogId": "K02-05",
+    "sourceHeadingId": "both",
+    "question": "取消请求与核对请求编号分别解决什么问题？",
+    "answerPoints": [
+      "取消减少愿意响应信号的底层工作",
+      "编号阻止过期成功或失败写入",
+      "所有状态写入都应遵守当前身份"
+    ],
+    "pitfalls": [
+      "只保护成功分支，遗漏错误或 finally"
+    ]
+  },
+  {
+    "catalogId": "K02-05",
+    "sourceHeadingId": "abort",
+    "question": "已经 abort 的控制器能用于下一次正常操作吗？",
+    "answerPoints": [
+      "信号保持已中止状态",
+      "新的操作需要新的控制器",
+      "开始前检查预取消并在结束时清理监听"
+    ],
+    "pitfalls": [
+      "把同一控制器当可重置开关"
+    ]
+  },
+  {
+    "catalogId": "K02-06",
+    "sourceHeadingId": "idempotent",
+    "question": "为什么请求超时不能直接证明服务端没有提交？",
+    "answerPoints": [
+      "响应丢失与操作没发生是不同事实",
+      "重试可能重复副作用",
+      "使用服务端去重的同一幂等键或查询确认"
+    ],
+    "pitfalls": [
+      "每次重试生成新幂等键"
+    ]
+  },
+  {
+    "catalogId": "K02-06",
+    "sourceHeadingId": "backoff",
+    "question": "attempts 包含首次时，attempts=3 最多能执行几次？",
+    "answerPoints": [
+      "最多三次执行、两次等待",
+      "成功或不可重试错误会提前停止",
+      "取消与等待上限也属于合同"
+    ],
+    "pitfalls": [
+      "把 attempts 解释成失败后的额外次数"
+    ]
+  },
+  {
+    "catalogId": "K02-07",
+    "sourceHeadingId": "clone",
+    "question": "普通对象发送到 Worker 后，两边会共享字段吗？",
+    "answerPoints": [
+      "消息使用结构化克隆复制数据",
+      "发送后主线程修改不直接更新副本",
+      "结果需要通过消息传回主线程"
+    ],
+    "pitfalls": [
+      "把 Worker 当共享页面对象的回调"
+    ]
+  },
+  {
+    "catalogId": "K02-07",
+    "sourceHeadingId": "choices",
+    "question": "转移 ArrayBuffer 之后为什么发送方不能继续使用原缓冲？",
+    "answerPoints": [
+      "transfer 转移底层资源所有权",
+      "发送方缓冲被分离",
+      "应只转移之后不再需要的资源"
+    ],
+    "pitfalls": [
+      "既要求零复制又继续读取原缓冲"
+    ]
+  },
+  {
+    "catalogId": "K02-08",
+    "sourceHeadingId": "problem",
+    "question": "为什么日志只有时间没有操作身份时难以诊断并发？",
+    "answerPoints": [
+      "不同操作的日志会交错",
+      "稳定操作 ID 连接发起、步骤与结束",
+      "还需阶段、错误与耗时才能还原流程"
+    ],
+    "pitfalls": [
+      "用最近一行日志代替当前请求证据"
+    ]
+  },
+  {
+    "catalogId": "K02-08",
+    "sourceHeadingId": "recall",
+    "question": "记录异步轨迹时如何兼顾诊断与隐私？",
+    "answerPoints": [
+      "记录任务身份、阶段和必要错误类别",
+      "避免记录令牌及完整个人输入",
+      "限定采样、保留期限和访问范围"
+    ],
+    "pitfalls": [
+      "以方便诊断为由无限记录载荷"
+    ]
+  },
+  {
+    "catalogId": "K03-01",
+    "sourceHeadingId": "mechanism",
+    "question": "类型守卫返回 true 为什么不自动证明实现正确？",
+    "answerPoints": [
+      "类型谓词是作者向编译器提供的承诺",
+      "运行时检查必须逐字段实现",
+      "需要非法输入用例验证守卫不会误放行"
+    ],
+    "pitfalls": [
+      "以类型检查通过代替接口返回校验"
+    ]
+  },
+  {
+    "catalogId": "K03-01",
+    "sourceHeadingId": "json",
+    "question": "JSON.parse 成功之后为什么仍需要业务校验？",
+    "answerPoints": [
+      "解析只保证 JSON 语法可读取",
+      "字段类型、必需项及业务不变量可能不满足",
+      "校验转换后才把值交给领域层"
+    ],
+    "pitfalls": [
+      "直接断言解析结果为领域对象"
+    ]
+  },
+  {
+    "catalogId": "AI02",
+    "sourceHeadingId": "contract",
+    "question": "任务验收为什么应写行为而不是指定某个 API？",
+    "answerPoints": [
+      "工具存在不代表用户问题解决",
+      "成功、失败和边界需要可观察预期",
+      "根据调用方与环境选择实现并验证合同"
+    ],
+    "pitfalls": [
+      "把使用 AbortController 当竞态已修复"
+    ]
+  },
+  {
+    "catalogId": "AI02",
+    "sourceHeadingId": "verification",
+    "question": "如何证明测试能发现一种典型错误实现？",
+    "answerPoints": [
+      "先冻结独立预期行为",
+      "用相反响应顺序或其它反例驱动错误实现",
+      "确认错误实现失败而参考实现通过"
+    ],
+    "pitfalls": [
+      "实现与测试共同复制同一个错误假设"
+    ]
+  },
+  {
+    "catalogId": "K11-01",
+    "sourceHeadingId": "text",
+    "question": "为什么同一字符串用 textContent 与 innerHTML 会产生不同节点？",
+    "answerPoints": [
+      "textContent 将输入当文字",
+      "innerHTML 进入 HTML 解析器",
+      "需求只要文本时不应增加解释能力"
+    ],
+    "pitfalls": [
+      "只修改输入而不检查输出上下文"
+    ]
+  },
+  {
+    "catalogId": "K11-01",
+    "sourceHeadingId": "url",
+    "question": "setAttribute 设置 href 后，还需要什么安全检查？",
+    "answerPoints": [
+      "属性语法安全不决定 URL 许可",
+      "解析后检查允许协议和目标范围",
+      "站内跳转与外部资料有不同政策"
+    ],
+    "pitfalls": [
+      "把字符串前缀看起来相同误当同源"
+    ]
+  },
+  {
+    "catalogId": "K11-02",
+    "sourceHeadingId": "identity",
+    "question": "认证通过为什么不意味着有权修改目标记录？",
+    "answerPoints": [
+      "认证得到可信主体身份",
+      "授权检查主体、操作与资源关系",
+      "客户端隐藏按钮不能约束直接请求"
+    ],
+    "pitfalls": [
+      "信任请求 JSON 自报角色"
+    ]
+  },
+  {
+    "catalogId": "K11-02",
+    "sourceHeadingId": "csrf",
+    "question": "为什么 CORS 不能单独作为 Cookie 写接口的 CSRF 防护？",
+    "answerPoints": [
+      "阻止跨域读取不等于阻止请求发送",
+      "浏览器可能自动携带会话 Cookie",
+      "写操作需要系统一致的来源和 CSRF 防护"
+    ],
+    "pitfalls": [
+      "把有效会话当作用户操作意图证据"
+    ]
+  },
+  {
+    "catalogId": "K12-01",
+    "sourceHeadingId": "mock",
+    "question": "Mock 保存成功的界面测试不能证明什么？",
+    "answerPoints": [
+      "不能证明真实数据库完成事务",
+      "不能证明记录键与恢复入口一致",
+      "需要真实存储集成和刷新恢复证据"
+    ],
+    "pitfalls": [
+      "把替身成功当成持久化成功"
+    ]
+  },
+  {
+    "catalogId": "K12-01",
+    "sourceHeadingId": "tradeoffs",
+    "question": "如何决定一条验收放在单元、集成还是端到端？",
+    "answerPoints": [
+      "先确定目标事实跨越哪些边界",
+      "纯规则用低成本隔离用例",
+      "真实依赖协作和用户路径分别检查"
+    ],
+    "pitfalls": [
+      "为了比例在三层重复同一实现细节"
+    ]
+  },
+  {
+    "catalogId": "K12-02",
+    "sourceHeadingId": "identity",
+    "question": "为什么只测旧成功不能发现旧失败覆盖当前结果？",
+    "answerPoints": [
+      "成功与失败可能走不同写入路径",
+      "构造新成功后旧失败的响应顺序",
+      "所有状态写入都应校验身份"
+    ],
+    "pitfalls": [
+      "用单一 happy path 代替异步矩阵"
+    ]
+  },
+  {
+    "catalogId": "K12-02",
+    "sourceHeadingId": "independence",
+    "question": "测试如何避免与实现共享错误公式？",
+    "answerPoints": [
+      "用人工可推导的具体预期",
+      "用结构不同的参考推导",
+      "让典型错误版本实际失败"
+    ],
+    "pitfalls": [
+      "调用同一 helper 生成 expected"
+    ]
+  },
+  {
+    "catalogId": "K13-01",
+    "sourceHeadingId": "direction",
+    "question": "笔记的校验、事务和错误文案分别由谁负责？",
+    "answerPoints": [
+      "业务规则拥有合法域",
+      "存储适配器实现真实写入与事务",
+      "界面解释状态并提供恢复操作"
+    ],
+    "pitfalls": [
+      "把业务公式复制到多个页面"
+    ]
+  },
+  {
+    "catalogId": "K13-01",
+    "sourceHeadingId": "boundaries",
+    "question": "统一 write 接口为什么不自动提供跨记录原子性？",
+    "answerPoints": [
+      "接口形状不等于事务语义",
+      "需要实际存储原子提交合同",
+      "集成验证失败时没有半份状态"
+    ],
+    "pitfalls": [
+      "把各表 repository 都成功当成整体成功"
+    ]
+  },
+  {
+    "catalogId": "K13-02",
+    "sourceHeadingId": "draft",
+    "question": "为什么编辑基线、草稿和远端刷新副本可以同时存在？",
+    "answerPoints": [
+      "三者表达不同事实及生命周期",
+      "刷新不能默默覆盖未提交用户意图",
+      "保存时仍需原子版本检查"
+    ],
+    "pitfalls": [
+      "把单一事实源理解为只允许一个对象"
+    ]
+  },
+  {
+    "catalogId": "K13-02",
+    "sourceHeadingId": "categories",
+    "question": "什么时候应删除一个独立状态字段？",
+    "answerPoints": [
+      "它可由当前源状态纯推导",
+      "双写要求多个事件同步容易遗漏",
+      "服务端总量与当前页长度等不同事实应保留"
+    ],
+    "pitfalls": [
+      "为了去重删除实际不同含义的状态"
+    ]
+  },
+  {
+    "catalogId": "K14-01",
+    "sourceHeadingId": "modules",
+    "question": "构建成功为什么不能证明代码能在浏览器和 Node 都运行？",
+    "answerPoints": [
+      "语法转换不等于宿主 API 支持",
+      "模块解析和条件导出有环境差异",
+      "需要目标入口与真实运行检查"
+    ],
+    "pitfalls": [
+      "把 process 替换常量当浏览器真实进程"
+    ]
+  },
+  {
+    "catalogId": "K14-01",
+    "sourceHeadingId": "pure",
+    "question": "怎样让共享业务函数不依赖 document 或文件系统？",
+    "answerPoints": [
+      "由宿主入口取得数据",
+      "共享函数只接收明确领域输入",
+      "把宿主副作用放在实际适配器"
+    ],
+    "pitfalls": [
+      "为所有平台先造庞大万能环境"
+    ]
+  },
+  {
+    "catalogId": "K14-02",
+    "sourceHeadingId": "first-state",
+    "question": "水合首次不一致常由什么数据问题造成？",
+    "answerPoints": [
+      "两端首次呈现用了不同快照",
+      "时间随机或浏览器状态可能改变输出",
+      "安全传递必要初始数据并保持确定性"
+    ],
+    "pitfalls": [
+      "压掉警告而不修复来源合同"
+    ]
+  },
+  {
+    "catalogId": "K14-02",
+    "sourceHeadingId": "cache",
+    "question": "SSR HTML 只按路径缓存为何可能泄露数据？",
+    "answerPoints": [
+      "同路径结果可能依赖用户身份",
+      "共享缓存命中绕过当前用户生成",
+      "公开与私有缓存及失效策略要分别确定"
+    ],
+    "pitfalls": [
+      "把 SSR 当自动用户隔离"
+    ]
+  },
+  {
+    "catalogId": "K15-01",
+    "sourceHeadingId": "dialog",
+    "question": "关闭弹层后焦点如何恢复？",
+    "answerPoints": [
+      "记录真实触发者身份",
+      "确认它仍连接文档且可操作",
+      "若已删除，选择合理替代位置"
+    ],
+    "pitfalls": [
+      "只关闭视觉层却丢掉键盘位置"
+    ]
+  },
+  {
+    "catalogId": "K15-01",
+    "sourceHeadingId": "boundaries",
+    "question": "tabindex 与 ARIA role 能各自实现完整按钮吗？",
+    "answerPoints": [
+      "tabindex 只控制导航及聚焦意图",
+      "role 描述语义但不实现键盘行为",
+      "普通按钮优先使用原生 button"
+    ],
+    "pitfalls": [
+      "把可聚焦当作完整可操作"
+    ]
+  },
+  {
+    "catalogId": "K15-02",
+    "sourceHeadingId": "errors",
+    "question": "表单错误除了红色边框还需要什么？",
+    "answerPoints": [
+      "具体原因及恢复方法",
+      "字段与错误描述建立结构关联",
+      "修复后清除旧无效状态"
+    ],
+    "pitfalls": [
+      "错误已修复但 aria-invalid 仍 true"
+    ]
+  },
+  {
+    "catalogId": "K15-02",
+    "sourceHeadingId": "status",
+    "question": "role=status 的 DOM 检查能证明实际读屏播报了吗？",
+    "answerPoints": [
+      "只能证明角色与更新结构",
+      "实际播报受浏览器和辅助技术影响",
+      "需目标读屏工具沿任务人工走查"
+    ],
+    "pitfalls": [
+      "把控制台属性输出当读屏验收"
+    ]
+  },
+  {
+    "catalogId": "K16-01",
+    "sourceHeadingId": "index",
+    "question": "建 Map 索引减少扫描时需要同时考虑什么？",
+    "answerPoints": [
+      "建表成本与额外空间",
+      "键唯一与覆盖规则",
+      "数据变更后的重建或失效"
+    ],
+    "pitfalls": [
+      "性能变化悄悄改变重复键合同"
+    ]
+  },
+  {
+    "catalogId": "K16-01",
+    "sourceHeadingId": "search",
+    "question": "二分步骤少为什么不能保证任意数组上的结果正确？",
+    "answerPoints": [
+      "需要明确升序及比较合同",
+      "每步保持候选区间不变量",
+      "未排序或 NaN 可能破坏前提"
+    ],
+    "pitfalls": [
+      "把低耗时当正确性证据"
+    ]
+  },
+  {
+    "catalogId": "K16-02",
+    "sourceHeadingId": "missing",
+    "question": "Map.get 返回 undefined 为什么不能确定未命中？",
+    "answerPoints": [
+      "undefined 可以是合法缓存值",
+      "未命中也返回 undefined",
+      "用 has 或带 hit 标记的结果区分"
+    ],
+    "pitfalls": [
+      "用真假判断忽略 0 false 空字符串"
+    ]
+  },
+  {
+    "catalogId": "K16-02",
+    "sourceHeadingId": "queue",
+    "question": "队列用头指针之后为什么仍需空间回收？",
+    "answerPoints": [
+      "旧槽位可能继续保留对象引用",
+      "持续生产可能让数组索引增长",
+      "清槽及适当压缩或环形结构控制空间"
+    ],
+    "pitfalls": [
+      "只优化出队时间而不考虑生命周期"
+    ]
+  }
+]

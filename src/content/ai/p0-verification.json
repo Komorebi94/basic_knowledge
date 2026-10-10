@@ -1,0 +1,122 @@
+{
+  "checkedAt": "2026-10-08",
+  "authorExamples": [
+    {
+      "catalogId": "AI01",
+      "examples": 2,
+      "chineseCharacters": 2443,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI03",
+      "examples": 2,
+      "chineseCharacters": 1953,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI04",
+      "examples": 2,
+      "chineseCharacters": 1906,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI05",
+      "examples": 2,
+      "chineseCharacters": 1897,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI06",
+      "examples": 2,
+      "chineseCharacters": 1881,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI07",
+      "examples": 2,
+      "chineseCharacters": 1802,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI08",
+      "examples": 2,
+      "chineseCharacters": 1837,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI09",
+      "examples": 2,
+      "chineseCharacters": 1899,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI10",
+      "examples": 2,
+      "chineseCharacters": 1877,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI11",
+      "examples": 2,
+      "chineseCharacters": 1828,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI12",
+      "examples": 2,
+      "chineseCharacters": 1886,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI15",
+      "examples": 2,
+      "chineseCharacters": 1883,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI16",
+      "examples": 3,
+      "chineseCharacters": 2061,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI19",
+      "examples": 2,
+      "chineseCharacters": 1988,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    },
+    {
+      "catalogId": "AI20",
+      "examples": 2,
+      "chineseCharacters": 1839,
+      "environment": "Node.js v22.22.3 新 VM context；另通过 npm run verify:articles 的独立 Chrome 空白页面检查",
+      "result": "输出精确匹配 expectedOutput；未在真实订单服务或模型 API 运行"
+    }
+  ],
+  "typecheck": "npm run typecheck 二轮修正后重新运行通过",
+  "limits": [
+    "作者样例检查不代表用户代码沙箱安全",
+    "未连接真实订单服务或模型 API；演示评估数字均为人工数据"
+  ],
+  "browserVerification": {
+    "command": "npm run verify:articles",
+    "checkedAt": "2026-10-08",
+    "result": "通过：60 篇文章 / 207 个浏览器示例 / 9 个严格 TypeScript 示例",
+    "aiP0Examples": 31,
+    "isolation": "作者维护的例子逐个创建空白 Chrome 页面；非用户代码执行器"
+  }
+}

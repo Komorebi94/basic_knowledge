@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-labelledby="title desc"><title id="title">知序：防抖练习工作台设计</title><desc id="desc">知序浅色技术手册静态设计稿，示例数据，仅用于视觉交接。</desc>
+<rect x="0" y="0" width="1440" height="1000" rx="0" fill="#F5F6F3"/>
+<rect x="0" y="0" width="1440" height="72" rx="0" fill="#FFFFFF"/>
+<line x1="0" y1="72" x2="1440" y2="72" stroke="#D9E1DC"/>
+<text x="24" y="44" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#176B57">‹  返回练习</text>
+<text x="183" y="45" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="21" font-weight="600" fill="#172B27">防抖与取消</text>
+<rect x="334" y="25" width="54" height="25" rx="6" fill="#E6F2EC"/>
+<text x="344" y="42" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="500" fill="#176B57">进阶</text>
+<text x="1087" y="43" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="400" fill="#52635D">● 草稿已保存  10:32</text>
+<rect x="1280" y="16" width="128" height="40" rx="8" fill="#FFFFFF" stroke="#D9E1DC"/>
+<text x="1296" y="42" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="550" fill="#172B27">☆ 收藏题目</text>
+<rect x="20" y="92" width="514" height="884" rx="12" fill="#FFFFFF" stroke="#D9E1DC"/>
+<rect x="550" y="92" width="870" height="884" rx="12" fill="#FFFFFF" stroke="#D9E1DC"/>
+<text x="42" y="128" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="600" fill="#176B57">题目</text>
+<text x="124" y="128" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">提示</text>
+<text x="206" y="128" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">解析</text>
+<text x="288" y="128" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">历史</text>
+<line x1="20" y1="145" x2="534" y2="145" stroke="#D9E1DC"/>
+<rect x="42" y="143" width="29" height="3" rx="1" fill="#176B57"/>
+<text x="44" y="184" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="21" font-weight="600" fill="#172B27">实现一个可以取消的防抖函数</text>
+<text x="44" y="219" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="15" font-weight="400" fill="#52635D">在频繁调用结束后执行最后一次操作。</text>
+<text x="44" y="246" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="15" font-weight="400" fill="#52635D">重点不是记忆模板，而是控制时间与资源。</text>
+<text x="44" y="303" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="17" font-weight="600" fill="#172B27">接口约定</text>
+<rect x="44" y="322" width="466" height="122" rx="8" fill="#F5F6F3"/>
+<text x="60" y="351" font-family="SFMono-Regular, Menlo, monospace" font-size="13" font-weight="400" fill="#172B27">debounce(fn, waitMs) → wrapped</text>
+<text x="60" y="383" font-family="SFMono-Regular, Menlo, monospace" font-size="13" font-weight="400" fill="#172B27">wrapped.cancel()  /  wrapped.flush()</text>
+<text x="60" y="419" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="13" font-weight="400" fill="#52635D">仅 trailing · 保存最后一次参数与 this</text>
+<text x="44" y="488" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="17" font-weight="600" fill="#172B27">样例：连续调用</text>
+<text x="44" y="522" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">t = 0 ms：调用 A</text>
+<text x="44" y="551" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">t = 50 ms：调用 B</text>
+<text x="44" y="580" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">wait = 100 ms：应在 t = 150 ms 仅执行 B</text>
+<line x1="60" y1="643" x2="484" y2="643" stroke="#D9E1DC"/>
+<rect x="57" y="640" width="6" height="6" rx="3" fill="#176B57"/>
+<text x="52" y="669" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#52635D">0</text>
+<rect x="190" y="640" width="6" height="6" rx="3" fill="#176B57"/>
+<text x="185" y="669" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#52635D">50</text>
+<rect x="324" y="640" width="6" height="6" rx="3" fill="#176B57"/>
+<text x="319" y="669" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#52635D">100</text>
+<rect x="475" y="640" width="6" height="6" rx="3" fill="#176B57"/>
+<text x="470" y="669" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#52635D">150</text>
+<text x="52" y="620" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="13" font-weight="400" fill="#176B57">A</text>
+<text x="186" y="620" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="13" font-weight="400" fill="#176B57">B</text>
+<text x="419" y="620" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="13" font-weight="400" fill="#176B57">仅执行 B</text>
+<text x="44" y="718" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="17" font-weight="600" fill="#172B27">需要覆盖的边界</text>
+<text x="44" y="750" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">• cancel 后不再执行；重复取消不报错</text>
+<text x="44" y="780" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">• flush 立即执行，原定时器不能再次触发</text>
+<text x="44" y="810" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">• fn 内再次调用时，不误清下一轮状态</text>
+<text x="44" y="840" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">• 两个包装器实例互不影响</text>
+<rect x="44" y="882" width="466" height="64" rx="8" fill="#FFF4DF"/>
+<text x="60" y="909" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="550" fill="#8A4B0F">需要一点提示？</text>
+<text x="60" y="932" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="13" font-weight="400" fill="#52635D">按层展开；本次通过将记为参考完成。</text>
+<text x="574" y="128" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="550" fill="#172B27">JavaScript</text>
+<text x="1258" y="128" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="13" font-weight="400" fill="#52635D">重置骨架</text>
+<line x1="550" y1="145" x2="1420" y2="145" stroke="#D9E1DC"/>
+<rect x="551" y="146" width="868" height="475" rx="0" fill="#FAFCF9"/>
+<text x="574" y="179" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">01</text>
+<text x="622" y="179" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#52635D">// 依据题面约定编写实现</text>
+<text x="574" y="208" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">02</text>
+<text x="622" y="208" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27"></text>
+<text x="574" y="237" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">03</text>
+<text x="622" y="237" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27">debounce(fn, waitMs)</text>
+<text x="574" y="266" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">04</text>
+<text x="622" y="266" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27"></text>
+<text x="574" y="295" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">05</text>
+<text x="622" y="295" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27">    维护本轮的计时器与调用上下文</text>
+<text x="574" y="324" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">06</text>
+<text x="622" y="324" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27">    连续调用时，替换最后一次参数</text>
+<text x="574" y="353" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">07</text>
+<text x="622" y="353" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27">    cancel 清理待执行项</text>
+<text x="574" y="382" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">08</text>
+<text x="622" y="382" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27">    flush 立即执行且避免重复</text>
+<text x="574" y="411" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">09</text>
+<text x="622" y="411" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#172B27"></text>
+<text x="574" y="440" font-family="SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#76827C">10</text>
+<text x="622" y="440" font-family="SFMono-Regular, Menlo, monospace" font-size="14" font-weight="400" fill="#52635D">// 此区域是设计占位，未提供答案代码</text>
+<text x="574" y="592" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="400" fill="#52635D">静态设计示意 · 实际编辑器支持键盘退出与纯文本模式</text>
+<rect x="551" y="621" width="868" height="66" rx="0" fill="#FFFFFF"/>
+<line x1="550" y1="621" x2="1420" y2="621" stroke="#D9E1DC"/>
+<text x="574" y="662" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="13" font-weight="400" fill="#52635D">结果对应：上一次运行的代码</text>
+<rect x="1218" y="634" width="178" height="40" rx="8" fill="#176B57"/>
+<text x="1234" y="660" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="550" fill="#FFFFFF">运行用例  ⌘ ↵</text>
+<line x1="550" y1="687" x2="1420" y2="687" stroke="#D9E1DC"/>
+<text x="574" y="723" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="600" fill="#176B57">测试结果</text>
+<text x="685" y="723" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#52635D">控制台</text>
+<rect x="1280" y="703" width="116" height="25" rx="6" fill="#FFF4DF"/>
+<text x="1290" y="720" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="500" fill="#8A4B0F">12 / 14 通过</text>
+<line x1="550" y1="744" x2="1420" y2="744" stroke="#D9E1DC"/>
+<text x="574" y="776" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="16" font-weight="600" fill="#176B57">✓</text>
+<text x="602" y="776" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#172B27">连续调用，仅执行最后一次</text>
+<text x="1150" y="776" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="400" fill="#52635D">通过</text>
+<text x="574" y="822" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="16" font-weight="600" fill="#176B57">✓</text>
+<text x="602" y="822" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#172B27">取消后不再执行</text>
+<text x="1150" y="822" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="400" fill="#52635D">通过</text>
+<text x="574" y="868" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="16" font-weight="600" fill="#B42332">!</text>
+<text x="602" y="868" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#172B27">flush 后不应再次执行</text>
+<text x="1150" y="868" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="400" fill="#52635D">期望 1 次 · 实际 2 次</text>
+<text x="574" y="914" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="16" font-weight="600" fill="#B42332">!</text>
+<text x="602" y="914" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="14" font-weight="400" fill="#172B27">回调重入保留下一轮</text>
+<text x="1150" y="914" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="12" font-weight="400" fill="#52635D">下一轮任务未执行</text>
+</svg>

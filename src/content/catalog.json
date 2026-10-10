@@ -1,0 +1,1256 @@
+{
+  "knowledge": [
+    {
+      "id": "K01-01",
+      "domainId": "K01",
+      "title": "值、引用与相等性",
+      "summary": "复制的是什么；Object.is、严格相等、集合相等规则有什么边界"
+    },
+    {
+      "id": "K01-02",
+      "domainId": "K01",
+      "title": "作用域、闭包与生命周期",
+      "summary": "变量何时被捕获；闭包如何影响事件回调与资源释放"
+    },
+    {
+      "id": "K01-03",
+      "domainId": "K01",
+      "title": "this、调用方式与绑定",
+      "summary": "方法提取、箭头函数、构造调用如何改变语义"
+    },
+    {
+      "id": "K01-04",
+      "domainId": "K01",
+      "title": "原型、类与对象模型",
+      "summary": "属性查找、遮蔽、继承和组合如何选择"
+    },
+    {
+      "id": "K01-05",
+      "domainId": "K01",
+      "title": "属性描述符与对象操作",
+      "summary": "可枚举、自有属性、Symbol、getter 对复制有什么影响"
+    },
+    {
+      "id": "K01-06",
+      "domainId": "K01",
+      "title": "迭代器与生成器",
+      "summary": "惰性计算、提前退出与资源清理怎么配合"
+    },
+    {
+      "id": "K01-07",
+      "domainId": "K01",
+      "title": "模块与执行时机",
+      "summary": "ESM 活绑定、循环依赖、动态加载如何理解"
+    },
+    {
+      "id": "K01-08",
+      "domainId": "K01",
+      "title": "内存与垃圾回收",
+      "summary": "可达性、弱引用、泄漏证据与排查步骤"
+    },
+    {
+      "id": "K02-01",
+      "domainId": "K02",
+      "title": "任务、微任务与渲染时机",
+      "summary": "为什么微任务并不等于“更快的定时器”；环境差异如何说明"
+    },
+    {
+      "id": "K02-02",
+      "domainId": "K02",
+      "title": "Promise、错误传播与组合",
+      "summary": "链式返回、异常、all/settled/race/any 的语义与失败边界"
+    },
+    {
+      "id": "K02-03",
+      "domainId": "K02",
+      "title": "async/await 与资源清理",
+      "summary": "串行与并行如何区分；finally 怎么避免覆盖结果"
+    },
+    {
+      "id": "K02-04",
+      "domainId": "K02",
+      "title": "并发限制与背压",
+      "summary": "怎么限制在途任务；排队过长如何处理"
+    },
+    {
+      "id": "K02-05",
+      "domainId": "K02",
+      "title": "取消、过期结果与竞态",
+      "summary": "AbortSignal 和请求序号分别能保证什么"
+    },
+    {
+      "id": "K02-06",
+      "domainId": "K02",
+      "title": "重试、退避与幂等",
+      "summary": "哪些失败能重试；重试会不会重复副作用"
+    },
+    {
+      "id": "K02-07",
+      "domainId": "K02",
+      "title": "Worker 与消息传递",
+      "summary": "复制、转移、线程隔离和主线程成本"
+    },
+    {
+      "id": "K02-08",
+      "domainId": "K02",
+      "title": "可观测异步流程",
+      "summary": "如何关联一次操作的日志、错误与性能轨迹"
+    },
+    {
+      "id": "K03-01",
+      "domainId": "K03",
+      "title": "unknown、收窄与边界校验",
+      "summary": "为什么接口声明不能验证服务端真实返回"
+    },
+    {
+      "id": "K03-02",
+      "domainId": "K03",
+      "title": "联合类型与状态建模",
+      "summary": "怎样让 loading/success/error 不出现无效组合"
+    },
+    {
+      "id": "K03-03",
+      "domainId": "K03",
+      "title": "泛型与约束",
+      "summary": "泛型何时保留关系，何时只是装饰"
+    },
+    {
+      "id": "K03-04",
+      "domainId": "K03",
+      "title": "条件类型与映射类型",
+      "summary": "分布式行为、infer 和修饰符如何控制"
+    },
+    {
+      "id": "K03-05",
+      "domainId": "K03",
+      "title": "函数类型与变型",
+      "summary": "回调、可选参数和重载为什么不总能互换"
+    },
+    {
+      "id": "K03-06",
+      "domainId": "K03",
+      "title": "工具类型与领域类型",
+      "summary": "Pick/Omit 何时泄露了不该共享的模型"
+    },
+    {
+      "id": "K03-07",
+      "domainId": "K03",
+      "title": "声明文件与公共库",
+      "summary": "消费方兼容、类型测试、模块解析怎么验证"
+    },
+    {
+      "id": "K03-08",
+      "domainId": "K03",
+      "title": "复杂类型的可维护性",
+      "summary": "类型性能、错误可读性和抽象边界如何权衡"
+    },
+    {
+      "id": "K04-01",
+      "domainId": "K04",
+      "title": "从导航到页面呈现",
+      "summary": "DNS、连接、响应、解析、样式与绘制分别做什么"
+    },
+    {
+      "id": "K04-02",
+      "domainId": "K04",
+      "title": "渲染流水线与布局成本",
+      "summary": "样式、布局、绘制、合成如何验证；何时避免布局抖动"
+    },
+    {
+      "id": "K04-03",
+      "domainId": "K04",
+      "title": "事件传播与默认行为",
+      "summary": "捕获、冒泡、委托、passive 的边界"
+    },
+    {
+      "id": "K04-04",
+      "domainId": "K04",
+      "title": "浏览器存储与配额",
+      "summary": "Cookie、Web Storage、IndexedDB 的生命周期与失败"
+    },
+    {
+      "id": "K04-05",
+      "domainId": "K04",
+      "title": "观察器与视口",
+      "summary": "Intersection/Resize/Mutation 的触发模型与清理"
+    },
+    {
+      "id": "K04-06",
+      "domainId": "K04",
+      "title": "导航、历史与恢复",
+      "summary": "路由、滚动、bfcache 与未保存状态如何共存"
+    },
+    {
+      "id": "K04-07",
+      "domainId": "K04",
+      "title": "Service Worker 与离线",
+      "summary": "缓存更新、版本不一致与失效策略"
+    },
+    {
+      "id": "K04-08",
+      "domainId": "K04",
+      "title": "Web 平台能力与渐进增强",
+      "summary": "权限、特性检测、降级和浏览器兼容如何决策"
+    },
+    {
+      "id": "K05-01",
+      "domainId": "K05",
+      "title": "语义结构与原生交互",
+      "summary": "button、link、form、label 如何选择与组合"
+    },
+    {
+      "id": "K05-02",
+      "domainId": "K05",
+      "title": "盒模型、格式化上下文与层叠",
+      "summary": "margin、overflow、z-index 为什么产生意外结果"
+    },
+    {
+      "id": "K05-03",
+      "domainId": "K05",
+      "title": "Flex 与 Grid 的约束",
+      "summary": "内容最小宽度、轨道、伸缩和溢出如何分析"
+    },
+    {
+      "id": "K05-04",
+      "domainId": "K05",
+      "title": "响应式与容器查询",
+      "summary": "用内容还是设备决定断点；渐进增强怎么做"
+    },
+    {
+      "id": "K05-05",
+      "domainId": "K05",
+      "title": "层叠层、选择器与样式组织",
+      "summary": "避免特异性竞赛，如何管理主题和覆盖"
+    },
+    {
+      "id": "K05-06",
+      "domainId": "K05",
+      "title": "动画与交互反馈",
+      "summary": "什么能交给合成；如何尊重减少动态效果"
+    },
+    {
+      "id": "K05-07",
+      "domainId": "K05",
+      "title": "国际化排版与逻辑属性",
+      "summary": "RTL、多语言长度、字体回退怎样影响布局"
+    },
+    {
+      "id": "K05-08",
+      "domainId": "K05",
+      "title": "复杂布局诊断",
+      "summary": "sticky、滚动容器、弹层定位的检查顺序"
+    },
+    {
+      "id": "K06-01",
+      "domainId": "K06",
+      "title": "HTTP 缓存与条件请求",
+      "summary": "新鲜度、验证、缓存键、Vary 的作用与误区"
+    },
+    {
+      "id": "K06-02",
+      "domainId": "K06",
+      "title": "请求状态、错误与幂等",
+      "summary": "网络错误和业务错误怎么区分；何时重试"
+    },
+    {
+      "id": "K06-03",
+      "domainId": "K06",
+      "title": "连接、TLS 与协议演进",
+      "summary": "HTTP/1.1、2、3 解决什么问题，有哪些前提"
+    },
+    {
+      "id": "K06-04",
+      "domainId": "K06",
+      "title": "Cookie、认证与会话",
+      "summary": "token 存在哪，过期刷新如何避免并发风暴"
+    },
+    {
+      "id": "K06-05",
+      "domainId": "K06",
+      "title": "同源策略与 CORS",
+      "summary": "预检、凭据、响应暴露和服务端权限有何区别"
+    },
+    {
+      "id": "K06-06",
+      "domainId": "K06",
+      "title": "SSE、WebSocket 与实时流",
+      "summary": "单双向、重连、顺序、背压如何选择"
+    },
+    {
+      "id": "K06-07",
+      "domainId": "K06",
+      "title": "上传下载与大文件",
+      "summary": "分片、恢复、校验、过期与用户取消"
+    },
+    {
+      "id": "K06-08",
+      "domainId": "K06",
+      "title": "接口契约与演进",
+      "summary": "兼容变更、分页、日期、可空字段与版本策略"
+    },
+    {
+      "id": "K07-01",
+      "domainId": "K07",
+      "title": "渲染、状态快照与更新",
+      "summary": "为什么本次回调看到旧值；更新如何排队"
+    },
+    {
+      "id": "K07-02",
+      "domainId": "K07",
+      "title": "Effect 与外部系统同步",
+      "summary": "哪些逻辑不需要 Effect；依赖和清理怎么验证"
+    },
+    {
+      "id": "K07-03",
+      "domainId": "K07",
+      "title": "组件身份、key 与协调",
+      "summary": "身份变化为何重置状态；列表 key 怎么影响行为"
+    },
+    {
+      "id": "K07-04",
+      "domainId": "K07",
+      "title": "状态所有权与数据流",
+      "summary": "局部、共享、服务端状态应该放在哪里"
+    },
+    {
+      "id": "K07-05",
+      "domainId": "K07",
+      "title": "并发体验与 Suspense",
+      "summary": "优先级、过渡、加载边界的适用前提"
+    },
+    {
+      "id": "K07-06",
+      "domainId": "K07",
+      "title": "Hooks 与复用边界",
+      "summary": "自定义 Hook 如何保持生命周期与类型契约"
+    },
+    {
+      "id": "K07-07",
+      "domainId": "K07",
+      "title": "服务端组件与边界",
+      "summary": "构建/服务器/客户端执行能力怎么区分，必须标版本"
+    },
+    {
+      "id": "K07-08",
+      "domainId": "K07",
+      "title": "性能诊断与优化",
+      "summary": "何时 memo、分片、虚拟化；如何用测量证明收益"
+    },
+    {
+      "id": "K08-01",
+      "domainId": "K08",
+      "title": "响应式依赖追踪",
+      "summary": "Proxy、ref、解构为什么有不同影响"
+    },
+    {
+      "id": "K08-02",
+      "domainId": "K08",
+      "title": "computed、watch 与副作用",
+      "summary": "缓存、触发、清理和执行时机如何选择"
+    },
+    {
+      "id": "K08-03",
+      "domainId": "K08",
+      "title": "组件通信与状态所有权",
+      "summary": "props/emits、注入、共享状态各自边界"
+    },
+    {
+      "id": "K08-04",
+      "domainId": "K08",
+      "title": "生命周期与组合式函数",
+      "summary": "订阅释放、复用与调用位置约束"
+    },
+    {
+      "id": "K08-05",
+      "domainId": "K08",
+      "title": "模板编译与更新优化",
+      "summary": "编译期信息如何帮助运行时更新"
+    },
+    {
+      "id": "K08-06",
+      "domainId": "K08",
+      "title": "路由、表单与状态管理",
+      "summary": "如何避免路由状态和业务状态重复"
+    },
+    {
+      "id": "K08-07",
+      "domainId": "K08",
+      "title": "SSR 与水合",
+      "summary": "服务端/客户端差异、序列化与副作用隔离"
+    },
+    {
+      "id": "K08-08",
+      "domainId": "K08",
+      "title": "复杂页面性能与调试",
+      "summary": "追踪依赖、长列表、浅响应式与测量"
+    },
+    {
+      "id": "K09-01",
+      "domainId": "K09",
+      "title": "模块图、构建与按需加载",
+      "summary": "开发服务器和生产构建有什么不同"
+    },
+    {
+      "id": "K09-02",
+      "domainId": "K09",
+      "title": "依赖、锁文件与供应链",
+      "summary": "可重复安装、依赖升级、脚本权限如何控制"
+    },
+    {
+      "id": "K09-03",
+      "domainId": "K09",
+      "title": "Tree shaking 与副作用",
+      "summary": "为什么导入形式正确也可能无法消除代码"
+    },
+    {
+      "id": "K09-04",
+      "domainId": "K09",
+      "title": "转译、polyfill 与目标环境",
+      "summary": "语法兼容与运行时 API 兼容如何分开"
+    },
+    {
+      "id": "K09-05",
+      "domainId": "K09",
+      "title": "代码分割与资源缓存",
+      "summary": "chunk 划分、hash、预加载、旧版本如何相容"
+    },
+    {
+      "id": "K09-06",
+      "domainId": "K09",
+      "title": "Monorepo 与包边界",
+      "summary": "增量构建、任务依赖、发布与共享规范"
+    },
+    {
+      "id": "K09-07",
+      "domainId": "K09",
+      "title": "Source map 与线上排查",
+      "summary": "定位、隐私暴露、产物上传如何取舍"
+    },
+    {
+      "id": "K09-08",
+      "domainId": "K09",
+      "title": "CI/CD 与发布策略",
+      "summary": "门禁、灰度、回滚、配置管理怎么闭环"
+    },
+    {
+      "id": "K10-01",
+      "domainId": "K10",
+      "title": "体验指标与测量方法",
+      "summary": "实验室/真实用户数据怎样互补；LCP、INP、CLS 衡量什么"
+    },
+    {
+      "id": "K10-02",
+      "domainId": "K10",
+      "title": "主线程、长任务与交互响应",
+      "summary": "如何找出耗时工作并验证拆分效果"
+    },
+    {
+      "id": "K10-03",
+      "domainId": "K10",
+      "title": "首屏与关键资源",
+      "summary": "字体、图片、脚本、发现时机怎样影响首屏"
+    },
+    {
+      "id": "K10-04",
+      "domainId": "K10",
+      "title": "列表、渲染与内存",
+      "summary": "虚拟化何时值得；如何避免把 DOM 成本转成 JS 成本"
+    },
+    {
+      "id": "K10-05",
+      "domainId": "K10",
+      "title": "缓存与预取策略",
+      "summary": "什么值得缓存；失效和过度预取有什么代价"
+    },
+    {
+      "id": "K10-06",
+      "domainId": "K10",
+      "title": "包体分析与依赖治理",
+      "summary": "如何找大头并衡量实际网络/解析收益"
+    },
+    {
+      "id": "K10-07",
+      "domainId": "K10",
+      "title": "性能预算与回归",
+      "summary": "如何在 CI 中降低噪声并阻止退化"
+    },
+    {
+      "id": "K10-08",
+      "domainId": "K10",
+      "title": "大型页面诊断案例",
+      "summary": "从用户症状到证据、假设、修复与复测"
+    },
+    {
+      "id": "K11-01",
+      "domainId": "K11",
+      "title": "XSS、输出上下文与内容净化",
+      "summary": "文本、HTML、URL、脚本上下文有什么不同"
+    },
+    {
+      "id": "K11-02",
+      "domainId": "K11",
+      "title": "认证、授权与 CSRF",
+      "summary": "用户身份、操作权限、跨站请求分别在哪里防御"
+    },
+    {
+      "id": "K11-03",
+      "domainId": "K11",
+      "title": "CSP 与可信资源",
+      "summary": "nonce/hash、第三方脚本和报告如何部署"
+    },
+    {
+      "id": "K11-04",
+      "domainId": "K11",
+      "title": "依赖与第三方脚本风险",
+      "summary": "如何限制供应链、CDN、埋点的权限"
+    },
+    {
+      "id": "K11-05",
+      "domainId": "K11",
+      "title": "敏感数据与日志",
+      "summary": "token、个人信息、调试日志怎么最小化"
+    },
+    {
+      "id": "K11-06",
+      "domainId": "K11",
+      "title": "URL 与跳转边界",
+      "summary": "开放重定向、协议白名单和解析风险"
+    },
+    {
+      "id": "K11-07",
+      "domainId": "K11",
+      "title": "客户端隔离与沙箱",
+      "summary": "iframe、Worker、origin 分别隔离什么"
+    },
+    {
+      "id": "K11-08",
+      "domainId": "K11",
+      "title": "安全设计与验证",
+      "summary": "从威胁模型推导测试，而不是只勾检查清单"
+    },
+    {
+      "id": "K12-01",
+      "domainId": "K12",
+      "title": "单元、集成与端到端的边界",
+      "summary": "哪一层能最低成本证明目标行为"
+    },
+    {
+      "id": "K12-02",
+      "domainId": "K12",
+      "title": "行为断言与边界用例",
+      "summary": "空值、失败、取消、时间和并发怎么覆盖"
+    },
+    {
+      "id": "K12-03",
+      "domainId": "K12",
+      "title": "Mock、替身与契约",
+      "summary": "mock 什么时候掩盖了真实集成错误"
+    },
+    {
+      "id": "K12-04",
+      "domainId": "K12",
+      "title": "异步测试与可控时间",
+      "summary": "不能靠真实 sleep 时如何模拟调度"
+    },
+    {
+      "id": "K12-05",
+      "domainId": "K12",
+      "title": "组件交互与可访问性测试",
+      "summary": "用用户行为查询控件而不是内部实现"
+    },
+    {
+      "id": "K12-06",
+      "domainId": "K12",
+      "title": "E2E 稳定性与环境",
+      "summary": "测试数据、隔离、重试和 flaky 的根因"
+    },
+    {
+      "id": "K12-07",
+      "domainId": "K12",
+      "title": "属性测试与变异测试",
+      "summary": "如何发现样例覆盖之外的错误"
+    },
+    {
+      "id": "K12-08",
+      "domainId": "K12",
+      "title": "质量门禁与测试诊断",
+      "summary": "类型、lint、构建、测试各自证明什么"
+    },
+    {
+      "id": "K13-01",
+      "domainId": "K13",
+      "title": "模块边界与依赖方向",
+      "summary": "业务、存储、UI 如何分开而不过度抽象"
+    },
+    {
+      "id": "K13-02",
+      "domainId": "K13",
+      "title": "状态归属与数据流",
+      "summary": "来源、派生、缓存、临时状态怎样避免双写"
+    },
+    {
+      "id": "K13-03",
+      "domainId": "K13",
+      "title": "复杂表单与工作流",
+      "summary": "校验、联动、撤销、异步提交怎样建模"
+    },
+    {
+      "id": "K13-04",
+      "domainId": "K13",
+      "title": "权限、路由与菜单",
+      "summary": "展示权限和真实访问控制怎么分开"
+    },
+    {
+      "id": "K13-05",
+      "domainId": "K13",
+      "title": "设计系统与组件契约",
+      "summary": "通用组件怎样控制扩展面与破坏性变更"
+    },
+    {
+      "id": "K13-06",
+      "domainId": "K13",
+      "title": "微前端与渐进迁移",
+      "summary": "隔离、共享依赖、通信的成本何时合理"
+    },
+    {
+      "id": "K13-07",
+      "domainId": "K13",
+      "title": "国际化与多租户配置",
+      "summary": "配置、数据和布局如何避免条件爆炸"
+    },
+    {
+      "id": "K13-08",
+      "domainId": "K13",
+      "title": "系统设计与容量推演",
+      "summary": "从约束、数据规模、失败方式推导方案"
+    },
+    {
+      "id": "K14-01",
+      "domainId": "K14",
+      "title": "浏览器与 Node 运行边界",
+      "summary": "全局对象、模块、I/O 与事件调度有哪些差异"
+    },
+    {
+      "id": "K14-02",
+      "domainId": "K14",
+      "title": "CSR、SSR、SSG 与水合",
+      "summary": "数据新鲜度、交互、缓存、成本如何取舍"
+    },
+    {
+      "id": "K14-03",
+      "domainId": "K14",
+      "title": "流、背压与资源释放",
+      "summary": "为什么不能把大文件全部读入内存"
+    },
+    {
+      "id": "K14-04",
+      "domainId": "K14",
+      "title": "BFF 与接口聚合",
+      "summary": "职责、认证、超时和数据整形如何界定"
+    },
+    {
+      "id": "K14-05",
+      "domainId": "K14",
+      "title": "流式渲染与加载边界",
+      "summary": "如何处理部分失败与客户端接续"
+    },
+    {
+      "id": "K14-06",
+      "domainId": "K14",
+      "title": "服务端缓存与隔离",
+      "summary": "如何避免跨用户缓存泄露"
+    },
+    {
+      "id": "K14-07",
+      "domainId": "K14",
+      "title": "部署运行时与边缘计算",
+      "summary": "API 支持、冷启动、连接与地区限制"
+    },
+    {
+      "id": "K14-08",
+      "domainId": "K14",
+      "title": "全链路可观测性",
+      "summary": "请求 ID、日志、指标和追踪如何联动"
+    },
+    {
+      "id": "K15-01",
+      "domainId": "K15",
+      "title": "键盘导航与焦点管理",
+      "summary": "Tab 顺序、弹层、路由切换如何保持可操作"
+    },
+    {
+      "id": "K15-02",
+      "domainId": "K15",
+      "title": "语义、名称与状态反馈",
+      "summary": "label、ARIA、错误提示如何让辅助技术理解"
+    },
+    {
+      "id": "K15-03",
+      "domainId": "K15",
+      "title": "表单验证与恢复",
+      "summary": "错误发生后用户能否找到并修正"
+    },
+    {
+      "id": "K15-04",
+      "domainId": "K15",
+      "title": "异步交互与乐观更新",
+      "summary": "反馈、撤销、回滚和重复提交如何设计"
+    },
+    {
+      "id": "K15-05",
+      "domainId": "K15",
+      "title": "触控、缩放与响应式",
+      "summary": "点击目标、软键盘、200% 缩放如何验收"
+    },
+    {
+      "id": "K15-06",
+      "domainId": "K15",
+      "title": "对比度与动态效果",
+      "summary": "如何避免颜色独占信息与动画不适"
+    },
+    {
+      "id": "K15-07",
+      "domainId": "K15",
+      "title": "编辑器、表格与复杂控件",
+      "summary": "何时复用原生语义，何时需要额外键盘规则"
+    },
+    {
+      "id": "K15-08",
+      "domainId": "K15",
+      "title": "可用性验证与取舍",
+      "summary": "自动检查之外如何做人工任务测试"
+    },
+    {
+      "id": "K16-01",
+      "domainId": "K16",
+      "title": "复杂度、规模与权衡",
+      "summary": "什么输入规模值得优化；如何分析平均/最坏情况"
+    },
+    {
+      "id": "K16-02",
+      "domainId": "K16",
+      "title": "Map、Set、队列与缓存",
+      "summary": "为什么数组不总适合查找和删除"
+    },
+    {
+      "id": "K16-03",
+      "domainId": "K16",
+      "title": "树与图的遍历",
+      "summary": "树形 UI、权限树、依赖图如何检测环"
+    },
+    {
+      "id": "K16-04",
+      "domainId": "K16",
+      "title": "排序、二分与稳定性",
+      "summary": "已排序前提、比较器和重复值怎样影响正确性"
+    },
+    {
+      "id": "K16-05",
+      "domainId": "K16",
+      "title": "滑动窗口与双指针",
+      "summary": "边界何时推进；怎么证明不会漏解"
+    },
+    {
+      "id": "K16-06",
+      "domainId": "K16",
+      "title": "栈与表达式处理",
+      "summary": "嵌套结构、匹配、撤销场景如何建模"
+    },
+    {
+      "id": "K16-07",
+      "domainId": "K16",
+      "title": "动态规划与状态定义",
+      "summary": "转移与边界是否可解释，不背套路"
+    },
+    {
+      "id": "K16-08",
+      "domainId": "K16",
+      "title": "前端场景的算法设计",
+      "summary": "虚拟列表、diff、搜索索引与调度怎样取舍"
+    }
+  ],
+  "practice": [
+    {
+      "id": "E01",
+      "title": "防抖与取消",
+      "summary": "trailing 模式，保留最后参数与 this；提供 cancel/flush；不含 leading/maxWait",
+      "boundaries": "连续调用、独立实例、取消、flush 后不重复、异常、wait=0",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 25
+    },
+    {
+      "id": "E02",
+      "title": "节流与尾调用",
+      "summary": "固定窗口，首次 leading，窗口内最后调用 trailing；提供 cancel",
+      "boundaries": "边界时刻、只有一次调用、尾调用参数、取消、this",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 25
+    },
+    {
+      "id": "E03",
+      "title": "Promise.all 语义",
+      "summary": "接受可迭代对象，吸收 thenable，结果保持输入顺序，首次拒绝后拒绝",
+      "boundaries": "空输入、普通值、乱序完成、拒绝、迭代错误、then getter 抛错",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 30
+    },
+    {
+      "id": "E04",
+      "title": "并发任务池",
+      "summary": "输入任务工厂和正整数 limit，最多 limit 在途，按输入顺序返回；遇拒绝停止启动新任务",
+      "boundaries": "同步抛错、异步拒绝、空数组、limit 无效、已经启动任务的拒绝处理",
+      "environment": "JavaScript",
+      "difficulty": "挑战",
+      "minutes": 40
+    },
+    {
+      "id": "E05",
+      "title": "Promise.allSettled 语义",
+      "summary": "可迭代输入，按位置输出 fulfilled/rejected；元素失败不使整体拒绝",
+      "boundaries": "空输入、普通值、同步 thenable、输入迭代本身抛错使整体拒绝",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 25
+    },
+    {
+      "id": "E06",
+      "title": "受限数据域深拷贝",
+      "summary": "普通对象/数组/Date/Map/Set/循环引用；函数按原引用；只复制自有可枚举数据属性",
+      "boundaries": "共享引用不拆散、循环、Symbol 键、稀疏数组；访问器和未知原型显式报错",
+      "environment": "JavaScript",
+      "difficulty": "挑战",
+      "minutes": 40
+    },
+    {
+      "id": "E07",
+      "title": "事件订阅器",
+      "summary": "on/off/once/emit；同一回调可多次订阅；off 移除最近一次；emit 遍历启动时快照",
+      "boundaries": "once 重入前解绑、监听中增删、异常继续执行并收集、顺序稳定",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 30
+    },
+    {
+      "id": "E08",
+      "title": "参数化柯里化",
+      "summary": "明确 arity，攒够参数一次调用，多余参数原样传入；不做占位符",
+      "boundaries": "arity=0、分批多参数、独立分支、this 取最终调用",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 20
+    },
+    {
+      "id": "E09",
+      "title": "组合与管道",
+      "summary": "compose 从右往左，pipe 从左往右；函数均一元同步",
+      "boundaries": "空组合返回原值、单函数、异常透传、不修改输入列表",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 20
+    },
+    {
+      "id": "E10",
+      "title": "可取消延时",
+      "summary": "delay(ms, signal)，完成 resolve；取消 reject；及时释放监听",
+      "boundaries": "提前已取消、等待中取消、完成后取消、ms=0、无效毫秒参数",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 20
+    },
+    {
+      "id": "E11",
+      "title": "重试与退避",
+      "summary": "attempts 包含首次；只重试 predicate 允许的错误；间隔基数乘 2 的尝试次幂",
+      "boundaries": "attempts=1、成功即停、不重试错误、取消、上限、任务同步抛错",
+      "environment": "JavaScript",
+      "difficulty": "挑战",
+      "minutes": 35
+    },
+    {
+      "id": "E12",
+      "title": "请求去重",
+      "summary": "相同 key 共享在途 Promise；settle 后清除，不缓存结果",
+      "boundaries": "key 隔离、失败后重试、同步抛错、执行期间再次调用、无处理拒绝",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 30
+    },
+    {
+      "id": "E13",
+      "title": "最近一次请求生效",
+      "summary": "工厂可并发，只有最新序号的成功/失败提交；旧请求仍可结束",
+      "boundaries": "旧慢新快、旧失败、新失败、取消时不提交、计数单调",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 30
+    },
+    {
+      "id": "E14",
+      "title": "LRU 缓存",
+      "summary": "容量非负整数；get 命中更新最近；set 更新也提升；容量 0 不存储",
+      "boundaries": "容量 1、重复键、undefined 值与未命中区分、淘汰顺序、O(1) 目标",
+      "environment": "JavaScript",
+      "difficulty": "挑战",
+      "minutes": 35
+    },
+    {
+      "id": "E15",
+      "title": "数组转森林",
+      "summary": "节点 id 唯一、parentId 可空；保持兄弟输入顺序；不存在父亲作为根",
+      "boundaries": "重复 ID 报错、自环/跨节点环报错、不修改输入、乱序父子",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 30
+    },
+    {
+      "id": "E16",
+      "title": "树遍历与查找",
+      "summary": "树数据，BFS/DFS 两种输出顺序；匹配返回首个节点",
+      "boundaries": "空树、多根、深层、顺序；循环不在题目数据域",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 20
+    },
+    {
+      "id": "E17",
+      "title": "路径读取",
+      "summary": "路径是字符串/整数片段数组；仅允许自有属性；缺失返回默认值",
+      "boundaries": "null 中间层、0/false/undefined、数组下标、危险原型片段拒绝",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 20
+    },
+    {
+      "id": "E18",
+      "title": "深度扁平化",
+      "summary": "有限 depth 或 Infinity；只展开数组，跳过空槽；不改输入",
+      "boundaries": "depth=0、空数组、混合值、无效深度、输入环明确拒绝",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 20
+    },
+    {
+      "id": "E19",
+      "title": "稳定去重",
+      "summary": "按 keyFn 的 Map 键相等规则保留首次项与顺序",
+      "boundaries": "NaN、±0、对象身份、重复 key、空输入、keyFn 抛错",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 15
+    },
+    {
+      "id": "E20",
+      "title": "二分查找下界",
+      "summary": "升序数字数组，返回首个 ≥target 的位置；不存在返回 length",
+      "boundaries": "空输入、重复值、全小/全大、不修改数组；NaN 不在数据域",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 20
+    },
+    {
+      "id": "E21",
+      "title": "括号匹配",
+      "summary": "输入仅三种括号及普通字符；普通字符忽略；返回布尔",
+      "boundaries": "空文本、交叉嵌套、未闭合、多余闭合、大输入",
+      "environment": "JavaScript",
+      "difficulty": "基础",
+      "minutes": 15
+    },
+    {
+      "id": "E22",
+      "title": "多参数记忆化",
+      "summary": "参数元组按位置和身份作 key；同步函数；暴露 clear；this 作为键的一部分",
+      "boundaries": "多参数碰撞、undefined 结果、异常不缓存、对象身份、清理",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 30
+    },
+    {
+      "id": "E23",
+      "title": "带超时的任务",
+      "summary": "task 接收内部 signal，超时拒绝并 abort；外部 signal 可取消",
+      "boundaries": "先完成、先超时、预取消、迟到拒绝、资源释放；不可假设任务会响应 abort",
+      "environment": "JavaScript",
+      "difficulty": "进阶",
+      "minutes": 25
+    },
+    {
+      "id": "E24",
+      "title": "异步串行队列",
+      "summary": "动态 enqueue，严格一个在途；每项返回独立 Promise；单项失败不阻断后续",
+      "boundaries": "同步异常、空闲重启、执行中入队、顺序、失败恢复",
+      "environment": "JavaScript",
+      "difficulty": "挑战",
+      "minutes": 35
+    },
+    {
+      "id": "E25",
+      "title": "图片懒加载",
+      "summary": "观察器、占位和清理",
+      "boundaries": "重复触发、失败、卸载、无观察器降级",
+      "environment": "DOM",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E26",
+      "title": "事件委托",
+      "summary": "事件路径与目标匹配",
+      "boundaries": "子元素点击、越界匹配、取消订阅、动态节点",
+      "environment": "DOM",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E27",
+      "title": "可访问 Tabs",
+      "summary": "角色、焦点、键盘",
+      "boundaries": "左右/首尾键、禁用项、内容关联",
+      "environment": "DOM",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E28",
+      "title": "对话框",
+      "summary": "焦点约束与恢复",
+      "boundaries": "Esc、遮罩、多个触发器、背景不可交互",
+      "environment": "DOM",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E29",
+      "title": "表单校验器",
+      "summary": "校验状态与错误恢复",
+      "boundaries": "提交、异步校验竞态、失焦策略、读屏反馈",
+      "environment": "DOM",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E30",
+      "title": "固定高度虚拟列表",
+      "summary": "可视范围与 overscan",
+      "boundaries": "空列表、滚动边界、容器变化、条目身份",
+      "environment": "DOM",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E31",
+      "title": "useAsyncResource",
+      "summary": "请求生命周期与状态联合",
+      "boundaries": "参数变化、卸载、旧结果、重试、开发模式重复执行",
+      "environment": "React",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E32",
+      "title": "简化响应式依赖系统",
+      "summary": "track/trigger、effect、cleanup",
+      "boundaries": "条件依赖、嵌套、重复依赖、停止；明确不等于 Vue 完整实现",
+      "environment": "JS",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E33",
+      "title": "基础工具类型",
+      "summary": "Pick、Readonly、Awaited 的受限模型",
+      "boundaries": "可选项、union、never、thenable；各自限制写入题面",
+      "environment": "TypeScript",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E34",
+      "title": "类型安全事件映射",
+      "summary": "事件名与参数关联",
+      "boundaries": "无参数、多参数、错误名称、错误载荷的负向类型断言",
+      "environment": "TypeScript",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E35",
+      "title": "依赖图拓扑排序",
+      "summary": "入度、循环检测",
+      "boundaries": "多合法顺序采用稳定输入次序、孤立点、缺失依赖",
+      "environment": "JS",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E36",
+      "title": "分片上传调度",
+      "summary": "并发、恢复、取消",
+      "boundaries": "部分失败、重复提交、校验、只模拟不连真实服务",
+      "environment": "模拟接口",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E37",
+      "title": "SSE 消息解析",
+      "summary": "增量文本缓冲",
+      "boundaries": "跨 chunk 行、空行、注释、多 data、断流残片",
+      "environment": "JS",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E38",
+      "title": "乐观更新与回滚",
+      "summary": "变更日志和状态恢复",
+      "boundaries": "多请求交错、服务器拒绝、不可覆盖较新成功",
+      "environment": "React 或 Vue",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E39",
+      "title": "最长无重复子串",
+      "summary": "滑动窗口",
+      "boundaries": "按 Unicode code point 定义，不按 grapheme；空串、重复字符",
+      "environment": "JS",
+      "difficulty": null,
+      "minutes": null
+    },
+    {
+      "id": "E40",
+      "title": "分帧任务执行",
+      "summary": "调度与响应性",
+      "boundaries": "取消、长单项、后台节流；不能承诺硬实时",
+      "environment": "DOM",
+      "difficulty": null,
+      "minutes": null
+    }
+  ],
+  "ai": [
+    {
+      "id": "AI01",
+      "title": "LLM 能力、限制与不确定性",
+      "summary": "token、上下文、概率输出、幻觉；能生成不等于能证明",
+      "deliverable": "找出回答里未经验证的假设"
+    },
+    {
+      "id": "AI02",
+      "title": "从提示词到任务契约",
+      "summary": "目标、输入、边界、验收、输出格式",
+      "deliverable": "把模糊需求改成可验证任务"
+    },
+    {
+      "id": "AI03",
+      "title": "上下文工程与资料组织",
+      "summary": "哪些材料必需、如何检索、摘要损失、信息新鲜度",
+      "deliverable": "给项目整理最小上下文包"
+    },
+    {
+      "id": "AI04",
+      "title": "工具调用、结构化输出与 Agent",
+      "summary": "模型提议动作、宿主验证执行；JSON 合法不等于语义正确",
+      "deliverable": "划分模型与宿主的职责"
+    },
+    {
+      "id": "AI05",
+      "title": "先设计、再拆分、再实现",
+      "summary": "先读相关代码、固定行为合同、最小任务单元",
+      "deliverable": "一项功能的分阶段工作单"
+    },
+    {
+      "id": "AI06",
+      "title": "仓库规则与可执行约束",
+      "summary": "项目规则、目录边界、代码规范；文字规则的局限",
+      "deliverable": "精简仓库约束与门禁映射"
+    },
+    {
+      "id": "AI07",
+      "title": "让 AI 新增功能",
+      "summary": "复用现有模式、UI 状态、接口错误、测试边界",
+      "deliverable": "新增列表筛选的完整任务模板"
+    },
+    {
+      "id": "AI08",
+      "title": "让 AI 排查缺陷",
+      "summary": "重现、假设、证据、回归；避免盲目改代码",
+      "deliverable": "请求竞态缺陷的诊断记录"
+    },
+    {
+      "id": "AI09",
+      "title": "审阅 AI 写的代码",
+      "summary": "需求、调用方、正确性、异步、权限、类型和维护成本",
+      "deliverable": "带缺陷 diff 的人工审阅案例"
+    },
+    {
+      "id": "AI10",
+      "title": "用测试验证 AI 输出",
+      "summary": "独立设计用例、防止实现和测试共享错误假设",
+      "deliverable": "错误实现也能通过的测试反例"
+    },
+    {
+      "id": "AI11",
+      "title": "重构、迁移与依赖变更",
+      "summary": "保持行为、建立基线、逐步迁移、回滚条件",
+      "deliverable": "小范围迁移任务与验收单"
+    },
+    {
+      "id": "AI12",
+      "title": "MCP、Skills 与项目指令",
+      "summary": "协议连接、可复用流程、项目约束的不同职责",
+      "deliverable": "分清某需求应放在哪一层"
+    },
+    {
+      "id": "AI13",
+      "title": "检索增强与知识新鲜度",
+      "summary": "分块、索引、检索、重排、引用、失效；RAG 不消除幻觉",
+      "deliverable": "为知识库设计检索评估集"
+    },
+    {
+      "id": "AI14",
+      "title": "AI 应用中的流式体验",
+      "summary": "SSE、取消、断流、部分结果、结构校验与重试",
+      "deliverable": "描述一次流中断的恢复行为"
+    },
+    {
+      "id": "AI15",
+      "title": "权限、提示注入与数据边界",
+      "summary": "外部内容不能变成指令；最小权限、沙箱、敏感数据",
+      "deliverable": "文档中的恶意指令识别案例"
+    },
+    {
+      "id": "AI16",
+      "title": "Evals、回归样本与执行轨迹",
+      "summary": "任务集、成功判据、多次运行、成本、人工评分",
+      "deliverable": "一份 10 个任务的评估表"
+    },
+    {
+      "id": "AI17",
+      "title": "多 Agent 协作与冲突控制",
+      "summary": "任务边界、共享文件、上下文交接、协作开销",
+      "deliverable": "判断什么时候不值得并行"
+    },
+    {
+      "id": "AI18",
+      "title": "成本、延迟与模型选择",
+      "summary": "总任务成本、失败重试、缓存、预算、质量门槛",
+      "deliverable": "同任务对照实验，不做永久榜单"
+    },
+    {
+      "id": "AI19",
+      "title": "Harness：把可靠性写进环境",
+      "summary": "可读仓库、反馈闭环、阶段产物、可恢复任务",
+      "deliverable": "把规则转成检查与失败反馈"
+    },
+    {
+      "id": "AI20",
+      "title": "模型升级后重新评估工作流",
+      "summary": "旧约束何时过时、如何删减重复指令、保留硬边界",
+      "deliverable": "升级前后对照评估与变更记录"
+    }
+  ]
+}

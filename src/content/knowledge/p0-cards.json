@@ -1,0 +1,362 @@
+[
+  {
+    "catalogId": "K03-02",
+    "question": "为什么用三个可选字段描述请求容易出现矛盾？",
+    "answerPoints": [
+      "字段独立组合允许业务不认可的情况",
+      "判别联合把阶段与必需数据绑定"
+    ],
+    "pitfalls": [
+      "可选链只能避免异常，不能恢复领域语义"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K03-02",
+    "question": "请求联合为何仍需请求 ID？",
+    "answerPoints": [
+      "类型约束字段结构",
+      "ID 校验阻止过期事件改变当前状态"
+    ],
+    "pitfalls": [
+      "合法 success 对象也可能属于旧请求"
+    ],
+    "sourceHeadingId": "transitions"
+  },
+  {
+    "catalogId": "K04-01",
+    "question": "为什么 HTML 返回不代表首屏完成？",
+    "answerPoints": [
+      "还需要解析资源发现、样式布局和绘制",
+      "脚本或关键图片可延迟呈现"
+    ],
+    "pitfalls": [
+      "把接口 duration 当作全部体验耗时"
+    ],
+    "sourceHeadingId": "rendering"
+  },
+  {
+    "catalogId": "K04-01",
+    "question": "display:none 的节点为何仍能查询却没有布局宽度？",
+    "answerPoints": [
+      "DOM 保留结构",
+      "布局阶段不为它生成可见盒"
+    ],
+    "pitfalls": [
+      "混淆 DOM 树与布局树"
+    ],
+    "sourceHeadingId": "rendering"
+  },
+  {
+    "catalogId": "K04-02",
+    "question": "交替读写何时可能触发额外布局？",
+    "answerPoints": [
+      "写入使相关几何失效",
+      "随后读取要求同步得到最新结果"
+    ],
+    "pitfalls": [
+      "将所有几何读取都称作昂贵"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K04-02",
+    "question": "为什么 rAF 不能自行修复布局抖动？",
+    "answerPoints": [
+      "它改变回调时机",
+      "回调内的读写依赖仍然存在"
+    ],
+    "pitfalls": [
+      "把调度 API 当成布局批处理器"
+    ],
+    "sourceHeadingId": "failure"
+  },
+  {
+    "catalogId": "K05-01",
+    "question": "为什么普通操作优先使用原生 button？",
+    "answerPoints": [
+      "获得键盘激活与禁用合同",
+      "减少自行实现焦点和语义的责任"
+    ],
+    "pitfalls": [
+      "role 只声明角色，不补全交互"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K05-01",
+    "question": "为什么提交逻辑监听 form 的 submit？",
+    "answerPoints": [
+      "统一点击和回车入口",
+      "配合原生约束验证"
+    ],
+    "pitfalls": [
+      "仅 click 会遗漏其他提交方式"
+    ],
+    "sourceHeadingId": "forms"
+  },
+  {
+    "catalogId": "K05-02",
+    "question": "content-box 与 border-box 如何解释 100px 宽度？",
+    "answerPoints": [
+      "前者只规定内容盒",
+      "后者把内边距和边框计入规定宽度"
+    ],
+    "pitfalls": [
+      "margin 始终在边框盒之外"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K05-02",
+    "question": "为什么增大子元素 z-index 可能无效？",
+    "answerPoints": [
+      "只在当前层叠上下文内排序",
+      "祖先整体层级先决定与外部的关系"
+    ],
+    "pitfalls": [
+      "忽略 transform 等祖先建立的上下文"
+    ],
+    "sourceHeadingId": "stacking"
+  },
+  {
+    "catalogId": "K06-01",
+    "question": "no-cache 与 no-store 的关键区别是什么？",
+    "answerPoints": [
+      "no-cache 允许存储但使用前需验证",
+      "no-store 指示不要存储"
+    ],
+    "pitfalls": [
+      "把 no-cache 误读成完全禁用存储"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K06-01",
+    "question": "为什么 304 响应不能单独当新正文？",
+    "answerPoints": [
+      "服务器表示副本仍有效",
+      "客户端需要已存正文配合响应元数据"
+    ],
+    "pitfalls": [
+      "对空响应直接调用 JSON 解析"
+    ],
+    "sourceHeadingId": "validation"
+  },
+  {
+    "catalogId": "K06-02",
+    "question": "fetch 取得 500 响应为何仍可能兑现 Promise？",
+    "answerPoints": [
+      "兑现表示取得响应",
+      "HTTP 成败要继续检查 ok 和 status"
+    ],
+    "pitfalls": [
+      "把没有 catch 当成功"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K06-02",
+    "question": "超时后的写请求为何不能盲目重试？",
+    "answerPoints": [
+      "服务端可能已完成写入",
+      "需要幂等键或查询最终结果"
+    ],
+    "pitfalls": [
+      "客户端取消不等于服务端回滚"
+    ],
+    "sourceHeadingId": "idempotency"
+  },
+  {
+    "catalogId": "K07-01",
+    "question": "为什么连续三次 setCount(count + 1) 可能只增加一？",
+    "answerPoints": [
+      "回调读取同一次渲染快照",
+      "三次排入相同替换值"
+    ],
+    "pitfalls": [
+      "setter 不会修改本次局部绑定"
+    ],
+    "sourceHeadingId": "problem"
+  },
+  {
+    "catalogId": "K07-01",
+    "question": "函数式更新为何能依次累加？",
+    "answerPoints": [
+      "处理时得到队列中的前值",
+      "每个纯更新产生下一值"
+    ],
+    "pitfalls": [
+      "更新函数不应执行外部副作用"
+    ],
+    "sourceHeadingId": "queue"
+  },
+  {
+    "catalogId": "K07-02",
+    "question": "Effect 的清理应对应什么？",
+    "answerPoints": [
+      "停止本轮 setup 建立的外部资源",
+      "依赖变化和卸载都要停止旧同步"
+    ],
+    "pitfalls": [
+      "只在卸载时清理会遗漏重新同步"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K07-02",
+    "question": "为什么旧请求失败也必须检查有效身份？",
+    "answerPoints": [
+      "失败回调同样会改变状态",
+      "旧错误可覆盖当前成功"
+    ],
+    "pitfalls": [
+      "只保护成功路径不完整"
+    ],
+    "sourceHeadingId": "failure"
+  },
+  {
+    "catalogId": "K08-01",
+    "question": "reactive 原始值属性解构为何成为快照？",
+    "answerPoints": [
+      "解构只执行当时属性读取",
+      "局部绑定没有保留代理访问路径"
+    ],
+    "pitfalls": [
+      "对象引用解构与数字解构边界不同"
+    ],
+    "sourceHeadingId": "problem"
+  },
+  {
+    "catalogId": "K08-01",
+    "question": "toRef 如何维持属性关系？",
+    "answerPoints": [
+      "读取经容器访问目标属性",
+      "写入仍作用于目标属性"
+    ],
+    "pitfalls": [
+      "不要把链接误当成深复制"
+    ],
+    "sourceHeadingId": "vue-code"
+  },
+  {
+    "catalogId": "K08-02",
+    "question": "computed 与 watch 的主要责任差别是什么？",
+    "answerPoints": [
+      "computed 表达纯派生值并按依赖缓存",
+      "watch 变化后执行外部同步等副作用"
+    ],
+    "pitfalls": [
+      "不要用 watch 维护可直接派生的副本"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K08-02",
+    "question": "watch 为什么应接收 getter 而非 state.count 的数字？",
+    "answerPoints": [
+      "数字是已求出的快照",
+      "getter 执行时重新读取并可追踪"
+    ],
+    "pitfalls": [
+      "source 的读取不能提前丢失关系"
+    ],
+    "sourceHeadingId": "sources"
+  },
+  {
+    "catalogId": "K09-01",
+    "question": "为什么构建成功不能替代类型检查？",
+    "answerPoints": [
+      "转换可能只移除类型语法",
+      "静态类型错误需由类型检查器验证"
+    ],
+    "pitfalls": [
+      "将能打包等同于类型正确"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K09-01",
+    "question": "发布后旧页面的按需资源为何可能失败？",
+    "answerPoints": [
+      "旧 HTML 仍引用旧 chunk 名",
+      "删除旧资源破坏延迟加载路径"
+    ],
+    "pitfalls": [
+      "只验证新打开首页不够"
+    ],
+    "sourceHeadingId": "deploy"
+  },
+  {
+    "catalogId": "K09-02",
+    "question": "为什么 package.json 范围不足以保证重复安装？",
+    "answerPoints": [
+      "范围内可出现新版本",
+      "传递依赖也需要固定解析结果"
+    ],
+    "pitfalls": [
+      "只固定直接依赖不够"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K09-02",
+    "question": "锁文件完整性为何不能保证包安全？",
+    "answerPoints": [
+      "完整性核对字节是否相符",
+      "漏洞与脚本权限属于独立风险"
+    ],
+    "pitfalls": [
+      "可信字节不等于可信行为"
+    ],
+    "sourceHeadingId": "integrity"
+  },
+  {
+    "catalogId": "K10-01",
+    "question": "为什么函数耗时不能直接称作 INP？",
+    "answerPoints": [
+      "交互还有输入等待和下一次绘制延迟",
+      "指标遵循完整生命周期算法"
+    ],
+    "pitfalls": [
+      "只计算 handler 无法覆盖响应体验"
+    ],
+    "sourceHeadingId": "mechanism"
+  },
+  {
+    "catalogId": "K10-01",
+    "question": "实验室和真实数据为何要一起看？",
+    "answerPoints": [
+      "实验室提供可控复现",
+      "真实数据呈现用户条件分布"
+    ],
+    "pitfalls": [
+      "不要改变测试条件来制造收益"
+    ],
+    "sourceHeadingId": "lab-field"
+  },
+  {
+    "catalogId": "K10-02",
+    "question": "为什么 await Promise.resolve 不保证输入获得执行机会？",
+    "answerPoints": [
+      "续体仍属于微任务",
+      "微任务队列先于下一任务清空"
+    ],
+    "pitfalls": [
+      "把异步语法等同于任务让出"
+    ],
+    "sourceHeadingId": "yield"
+  },
+  {
+    "catalogId": "K10-02",
+    "question": "拆分同步任务为何需要重新检查共享状态？",
+    "answerPoints": [
+      "让出期间其他任务可能修改状态",
+      "提交前需核对输入快照和有效身份"
+    ],
+    "pitfalls": [
+      "只拆循环可能改变原子性"
+    ],
+    "sourceHeadingId": "boundaries"
+  }
+]

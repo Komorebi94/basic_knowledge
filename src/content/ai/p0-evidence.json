@@ -1,0 +1,272 @@
+[
+  {
+    "catalogId": "AI01",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      },
+      {
+        "title": "OpenAI：如何使用大型语言模型",
+        "url": "https://developers.openai.com/cookbook/articles/how_to_work_with_large_language_models",
+        "checkedAt": "2026-10-08",
+        "claimScope": "自回归 token 预测与训练机制；文章事实核验边界为原创案例推导"
+      },
+      {
+        "title": "OpenAI：文本生成高级用法",
+        "url": "https://developers.openai.com/api/docs/guides/advanced-usage",
+        "checkedAt": "2026-10-08",
+        "claimScope": "生成参数与确定性边界；采样稳定不等于业务准确性的原创解释"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI03",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI04",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：函数调用",
+        "url": "https://developers.openai.com/api/docs/guides/function-calling",
+        "checkedAt": "2026-10-08",
+        "claimScope": "工具边界或流程概念；不承诺账号能力、费用或最新版本"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI05",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI06",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI07",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI08",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI09",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI10",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI11",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI12",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；MCP 工具结构参考 2025-06-18"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "MCP：2025-06-18 Tools 规范",
+        "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+        "checkedAt": "2026-10-08",
+        "claimScope": "工具边界或流程概念；不承诺账号能力、费用或最新版本"
+      },
+      {
+        "title": "OpenAI：构建 Skills",
+        "url": "https://learn.chatgpt.com/docs/build-skills",
+        "checkedAt": "2026-10-08",
+        "claimScope": "工具边界或流程概念；不承诺账号能力、费用或最新版本"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI15",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：Agent 安全实践",
+        "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety",
+        "checkedAt": "2026-10-08",
+        "claimScope": "工具边界或流程概念；不承诺账号能力、费用或最新版本"
+      },
+      {
+        "title": "MCP：工具安全与校验",
+        "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+        "checkedAt": "2026-10-08",
+        "claimScope": "工具边界或流程概念；不承诺账号能力、费用或最新版本"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI16",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      },
+      {
+        "title": "OpenAI：Agent 工作流评估",
+        "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI19",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：用 Evals 系统验证 Skills",
+        "url": "https://developers.openai.com/blog/eval-skills",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  },
+  {
+    "catalogId": "AI20",
+    "checkedAt": "2026-10-08",
+    "applicableVersions": [
+      "通用；工具配置以实际官方说明为准"
+    ],
+    "claims": "本地示例为原创机制演示；评估、权限与流程取舍为作者建议，不宣称任何模型实测能力。",
+    "sources": [
+      {
+        "title": "OpenAI：评估实践",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+        "checkedAt": "2026-10-08",
+        "claimScope": "评估方法依据；文章独立例子与合同为作者设计"
+      }
+    ]
+  }
+]
