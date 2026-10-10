@@ -26,7 +26,6 @@ npm run build:runner
 npm run verify:content
 npm run verify:search
 npm run verify:store
-npm run verify:personal
 npm run verify:runner
 npm run verify:visual
 npm run verify:catalog
@@ -36,10 +35,8 @@ npm run verify:exercises
 npm run verify:p0-ui
 npm run verify:personal-domain
 npm run verify:learning-store
-npm run verify:learning-ui
 npm run verify:real-quota
 npm run verify:review
-npm run verify:review-ui
 npm run verify:practice-domain
 npm run verify:practice-runner
 npm run verify:practice-ui
@@ -53,15 +50,12 @@ npm run verify:ai-p1-ui
 
 | 路径 | 当前状态 |
 | --- | --- |
-| / | 真实已读、独立通过、今日与本周回顾统计及继续学习入口 |
+| / | 重定向到知识地图 |
 | /knowledge、/knowledge/:domain | 16 个专题、128 个单元的完整目录与学习范围 |
 | /search?q=… | 搜索完整目录、64 篇正文与24道练习题面；支持内容 ID，待编写条目定位目录锚点 |
 | /knowledge/:domain/:slug、/ai/:slug | 44+20 篇完整教程、折叠回忆问题、关联练习与章节深链接 |
 | /practice、/ai | 40 道练习规划目录，24 道题已开放；20 篇 AI 教程全部开放 |
 | /practice/:slug | 24 道完整题目、代码自动保存、隔离运行、停止、结果、提示、解析、尝试与证据历史 |
-| /me | 文章与章节笔记、私人搜索、收藏、补强、学习历史及原文入口 |
-| /settings | 完整学习数据备份、恢复点、时区与每日目标、字号、运行快捷键、存储与清理 |
-| /review | 订阅、暂停、到期队列、回答草稿、评分、撤销及会话恢复 |
 | 文章与练习详情路径 | 内容尚未发布时显示恢复入口 |
 
 目录中的主题和题目是规划，不代表正文或运行环境已经完成。当前也不会展示虚构的学习进度。
@@ -75,7 +69,7 @@ npm run verify:ai-p1-ui
 - src/content/catalog.json：完整结构化目录；来自设计文档的已确认条目，不包含答案。
 - docs/design/：完整产品规格、内容蓝图、数据与安全边界、验收标准及设计图。
 
-后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；Cloudflare Pages 生产部署已完成 [Chrome 专项验收](docs/verification/cloudflare-pages-2026-10-10.json)，完整浏览器矩阵及人工读屏仍未验收。我的积累支持笔记自动保存、冲突比较及未保存时的切页保护。
+后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；Cloudflare Pages 生产部署已完成 [Chrome 专项验收](docs/verification/cloudflare-pages-2026-10-10.json)，完整浏览器矩阵及人工读屏仍未验收。复习计划与我的积累已移出产品。
 
 维护目录时先更新设计文档 07、08、09 中的表格，再运行 `npm run sync:catalog`（需要 Python 3）生成结构化目录，最后运行 `npm run verify:catalog` 验证数量、唯一 ID、分类、页面和搜索定位。正文按稳定目录 ID 关联，不通过标题猜测已开放状态。
 

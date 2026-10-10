@@ -44,22 +44,6 @@ export function isPersonalLearningState(value: unknown): value is PersonalLearni
     && Object.entries(value.bookmarks).every(([id,b]) => validId(id) && object(b) && b.contentId === id && typeof b.titleSnapshot === "string" && b.titleSnapshot.length <= 200 && validInstant(b.createdAt))
     && Object.entries(value.weakMarkers).every(([id,w]) => validId(id) && object(w) && w.contentId === id && typeof w.reasonText === "string" && w.reasonText.length <= 2000 && validInstant(w.createdAt));
 }
-export function toggleBookmark(state: PersonalLearningState, contentId: string, title: string, now = new Date().toISOString()): PersonalLearningState {
-  const bookmarks = { ...state.bookmarks };
-  if (Object.hasOwn(bookmarks, contentId)) delete bookmarks[contentId];
-  else bookmarks[contentId] = { contentId, titleSnapshot: title, createdAt: now };
-  return { ...state, bookmarks };
-}
-export function toggleWeakMarker(state: PersonalLearningState, contentId: string, now = new Date().toISOString()): PersonalLearningState {
-  const weakMarkers = { ...state.weakMarkers };
-  if (Object.hasOwn(weakMarkers, contentId)) delete weakMarkers[contentId];
-  else weakMarkers[contentId] = { contentId, reasonText: "手动加入补强", createdAt: now };
-  return { ...state, weakMarkers };
-}
-export function recordReading(state: PersonalLearningState, contentId: string, update: Partial<Pick<ReadingProgress,"status"|"headingId"|"scrollOffset">>, now = new Date().toISOString()): PersonalLearningState {
-  const previous = state.readings[contentId];
-  return { ...state, readings: { ...state.readings, [contentId]: { contentId, status: previous?.status ?? "in-progress", headingId: previous?.headingId ?? null, scrollOffset: previous?.scrollOffset ?? 0, ...update, updatedAt: now } } };
-}
 export function normalizePersonalLearningState(state: PersonalLearningState): PersonalLearningState {
   const p = state.preferences;
   return {

@@ -4,7 +4,6 @@ import { usePractice } from "./usePractice";
 import { RunnerClient } from "../../infrastructure/runner/client";
 import { registerUnsavedDataGuard } from '../../infrastructure/persistence/personalStore';
 import { startAttempt, markAssistance, finishRun, type PracticeRun, type CaseResult } from "../../domain/practice";
-import { toggleBookmark, toggleWeakMarker } from "../../domain/personalLearning";
 import type { Exercise } from "../../content/practice";
 import { UnavailablePage } from "../../app/pages";
 import { articleHref } from "../../content/articles";
@@ -123,7 +122,6 @@ function Workspace({exercise}:{exercise:Exercise}) {
     setPanel(id);
     queueMicrotask(() => document.getElementById(`practice-tab-${id}`)?.focus());
   }
-  const titleActions=<div className="practice-heading-actions"><button type="button" className="button secondary" disabled={!snapshot} onClick={()=>{void learning.mutate(state=>({...state,personal:toggleBookmark(state.personal,exercise.id,exercise.title)})).catch(catchError)}}>{snapshot?.state.personal.bookmarks[exercise.id]?'取消收藏':'收藏题目'}</button><button type="button" className="button secondary" disabled={!snapshot} onClick={()=>{void learning.mutate(state=>({...state,personal:toggleWeakMarker(state.personal,exercise.id)})).catch(catchError)}}>{snapshot?.state.personal.weakMarkers[exercise.id]?'移出补强':'加入补强'}</button></div>;
   const editor=<section className="article-section practice-editor" aria-labelledby="practice-editor-heading">
     <div className="section-title-row"><h2 id="practice-editor-heading">代码 · JavaScript</h2><span role="status">{status}</span></div>
     <label htmlFor="practice-code">本次实现</label>
@@ -142,7 +140,6 @@ function Workspace({exercise}:{exercise:Exercise}) {
         <div className="heading-bar">
           <Link className="back-link" to="/practice">← 返回练习目录</Link>
           <p className="eyebrow">动手练习 · {exercise.id} · 建议 {exercise.estimatedMinutes} 分钟</p>
-          {titleActions}
         </div>
         <h1>{exercise.title}</h1>
         <p className="article-lead">{exercise.summary}</p>

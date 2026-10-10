@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router";
 import type { Article } from "./articles";
 import { CodeBlock } from "./CodeBlock";
 import { cardsForContent, exercisesForContent, reviewCases } from "./learningContent";
-import { ArticleLearningTools } from "../features/personal/ArticleLearningTools";
 
 export function ArticleView({ article, backTo, backLabel }: { article: Article; backTo: string; backLabel: string }) {
   const location = useLocation();
@@ -37,7 +36,6 @@ export function ArticleView({ article, backTo, backLabel }: { article: Article; 
           <h1>{article.title}</h1>
           <p className="article-lead">{article.summary}</p>
         </header>
-        <ArticleLearningTools key={article.id} article={article} />
 
         {article.sections.map((section) => (
           <section className="article-section" key={section.id} aria-labelledby={section.id}>
@@ -60,7 +58,7 @@ export function ArticleView({ article, backTo, backLabel }: { article: Article; 
           <p>{item.brief}</p>
           <CodeBlock code={item.excerpt} />
           <ol>{item.questions.map((question) => <li key={question}>{question}</li>)}</ol>
-          <p>先写下你的判断，再展开参考。可在「我的积累」中保存这篇文章的审阅笔记。</p>
+          <p>先写下你的判断，再展开参考。</p>
           <details className="learning-disclosure"><summary>查看参考问题与自评尺度</summary>
             <ul>{item.findings.map((finding) => <li key={finding}>{finding}</li>)}</ul>
             <p>按定位问题、解释触发条件、说明影响、提出验证办法四项自评：每项 0 分为未说明，1 分为部分说明，2 分为准确且有证据。自评不替代实际验证。</p>
@@ -70,7 +68,7 @@ export function ArticleView({ article, backTo, backLabel }: { article: Article; 
 
         {cards.length > 0 && <section className="article-section" aria-labelledby="recall-cards">
           <h2 id="recall-cards" tabIndex={-1}>合上正文，试着回答</h2>
-          <p>先独立回忆，再展开核对。这里展开答案不会计入完成；加入复习后，在复习会话中评分才会安排下次时间。</p>
+          <p>先独立回忆，再展开核对。展开后的要点用来自查。</p>
           {cards.map((card) => <details className="learning-disclosure" key={card.cardId}>
             <summary>{card.question}</summary>
             <ul>{card.answerPoints.map((point) => <li key={point}>{point}</li>)}</ul>

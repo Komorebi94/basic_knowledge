@@ -1,4 +1,3 @@
-import { useLearning } from "../personal/useLearning";
 import { Link, useParams } from "react-router";
 import { UnavailablePage } from "../../app/pages";
 import { ArticleView } from "../../content/ArticleView";
@@ -7,7 +6,6 @@ import { findKnowledgeDomain, knowledgeDomains } from "./catalog";
 import { findCatalogArticle, knowledgeTopics, topicDepth } from "../../content/catalog";
 
 export function KnowledgeMapPage() {
-  const { snapshot } = useLearning();
   return (
     <div className="standard-page">
       <div className="page-intro">
@@ -24,7 +22,7 @@ export function KnowledgeMapPage() {
             <span className="domain-id">{domain.id} · {domain.topics.length} 个知识单元</span>
             <h2>{domain.title}</h2>
             <p>{domain.summary}</p>
-            <p>已读 {articles.filter((a) => a.domainSlug === domain.slug && snapshot?.state.personal.readings[a.id]?.status === "read").length} / 已发布 {articles.filter((a) => a.domainSlug === domain.slug).length}</p>
+            <p>已发布 {articles.filter((a) => a.domainSlug === domain.slug).length} 篇教程</p>
             <span className="text-link">查看专题 <span aria-hidden="true">→</span></span>
           </Link>
         ))}
@@ -34,7 +32,6 @@ export function KnowledgeMapPage() {
 }
 
 export function KnowledgeDomainPage() {
-  const { snapshot } = useLearning();
   const { domain: slug } = useParams();
   const domain = findKnowledgeDomain(slug);
   const published = articles.filter((article) => article.kind === "knowledge" && article.domainSlug === slug);
@@ -63,7 +60,7 @@ export function KnowledgeDomainPage() {
       <section className="topic-section">
         <div className="section-title-row">
           <h2>完整知识目录</h2>
-          <span>{domain.topics.length} 个知识单元 · {published.length} 篇教程 · 已读 {published.filter((a) => snapshot?.state.personal.readings[a.id]?.status === "read").length}</span>
+          <span>{domain.topics.length} 个知识单元 · {published.length} 篇教程</span>
         </div>
         <ol className="topic-list">
           {domain.topics.map((topic, index) => {
@@ -75,7 +72,7 @@ export function KnowledgeDomainPage() {
                 {article ? <Link className="catalog-topic-title" to={articleHref(article)}>{topic.title}</Link> : <span className="catalog-topic-title">{topic.title}</span>}
                 <p>{topic.summary}</p>
               </div>
-              <span className="topic-status">{article ? snapshot?.state.personal.readings[article.id]?.status === "read" ? "已读" : "正文已补齐" : "待编写"}</span>
+              <span className="topic-status">{article ? "正文已补齐" : "待编写"}</span>
             </li>;
           })}
         </ol>

@@ -1,4 +1,3 @@
-import { useLearning } from "../personal/useLearning";
 import { UnavailablePage } from "../../app/pages";
 import { Link, useParams } from "react-router";
 import { ArticleView } from "../../content/ArticleView";
@@ -12,7 +11,6 @@ const publishedAiArticles = aiTopics.flatMap((topic) => {
 });
 
 export function AiHomePage() {
-  const { snapshot } = useLearning();
   return (
     <div className="standard-page">
       <div className="page-intro">
@@ -52,7 +50,7 @@ export function AiHomePage() {
                   {article ? <Link className="catalog-topic-title" to={articleHref(article)}>{topic.title}</Link> : <span className="catalog-topic-title">{topic.title}</span>}
                   <p>{topic.summary}</p><p className="catalog-deliverable">实践目标：{topic.deliverable}</p>
                 </div>
-                <span className="topic-status">{article ? snapshot?.state.personal.readings[article.id]?.status === "read" ? "已读" : "正文已补齐" : "待编写"}</span>
+                <span className="topic-status">{article ? "正文已补齐" : "待编写"}</span>
               </li>;
             })}
           </ol>

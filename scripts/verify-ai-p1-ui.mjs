@@ -31,21 +31,16 @@ try {
     await recall.locator("summary").first().click();
     await recall.getByRole("link", { name: "回看对应讲解 →", exact: true }).first().click();
     await page.waitForFunction(id => document.activeElement?.id === id, article.cards[0].sourceHeadingId);
-    await page.getByRole("button", { name: "加入复习", exact: true }).click();
-    await page.waitForFunction(() => [...document.querySelectorAll("button")].some(button => button.textContent === "暂停本篇复习" && !button.disabled));
-    await page.reload({ waitUntil: "networkidle" });
-    const saved = await page.evaluate(async () => (await (await import("/src/infrastructure/persistence/personalStore.ts")).readLearning()).state.review.progress);
-    assert(article.cards.every(card => saved[card.cardId]), `${article.id}: all cards subscribed after refresh`);
     for (const width of [1440, 390, 320]) {
       await page.setViewportSize({ width, height: 844 });
       await page.goto(origin + article.href, { waitUntil: "networkidle" });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${article.id}/${width}: overflow`);
       if (width !== 320) await page.screenshot({ path: `docs/verification/ai-p1-${article.id}-${width}.png` });
     }
-    report.articles.push({ id: article.id, href: article.href, cards: article.cards.length, checks: ["search and route", "focused reader", "recall source focus", "subscription and refresh", "1440/390/320px reflow"] });
+    report.articles.push({ id: article.id, href: article.href, cards: article.cards.length, checks: ["search and route", "focused reader", "recall source focus", "1440/390/320px reflow"] });
   }
   assert.deepEqual(report.pageErrors, []);
   await writeFile("docs/verification/ai-p1-ui-report.json", JSON.stringify(report, null, 2) + "\n");
-  console.log("AI P1 UI verified: 20 published AI units; 4 new search/routes, recall focus, review subscriptions and responsive readers.");
+  console.log("AI P1 UI verified: 20 published AI units; 4 new search/routes, recall focus and responsive readers.");
   await context.close();
 } finally { await browser.close(); }
