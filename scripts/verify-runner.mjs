@@ -81,7 +81,9 @@ try {
     send({ type: "init" });
     await ready;
 
-    async function run(code, timeoutMs = 1_000) {
+    // On a deployed origin, the first run also downloads the Worker bundle.
+    // Use the existing protocol limit for probes; explicit timeout/stop cases remain short.
+    async function run(code, timeoutMs = 5_000) {
       const runId = crypto.randomUUID();
       const done = waitFor("done", runId);
       send({ type: "run", runId, code, timeoutMs });

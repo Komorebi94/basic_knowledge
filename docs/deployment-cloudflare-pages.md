@@ -2,6 +2,14 @@
 
 主站和练习运行器共用 GitHub 仓库 `Komorebi94/basic_knowledge`，分别构建到 `dist/` 与 `dist-runner/`。两个 Pages 项目使用不同 origin，保留现有文章地址、章节锚点和本地数据，不需要 GitHub Actions、后端或数据库。
 
+## 当前生产地址
+
+- 主站：<https://zhixu-komorebi94.pages.dev>
+- 运行器：<https://zhixu-komorebi94-runner.pages.dev>
+- 两个项目均连接仓库的 `master` 分支，推送后自动构建部署。
+
+2026-10-10 已完成生产环境 Chrome 专项验收，范围与未验证项见 [验收记录](verification/cloudflare-pages-2026-10-10.json)。
+
 ## 创建项目
 
 在 Cloudflare 控制台进入 Workers & Pages，创建 **Pages** 项目并连接 GitHub 仓库。允许 Cloudflare 访问该仓库，用同一仓库创建两个项目：
@@ -27,7 +35,7 @@ Pages 安装仓库依赖后执行构建命令；保留 `package-lock.json`。两
 | `ZHIXU_PARENT_ORIGIN` | 主站的实际 HTTPS origin |
 | `VITE_RUNNER_ORIGIN` | 运行器的实际 HTTPS origin |
 
-例如主站 `https://your-main-project.pages.dev`，运行器 `https://your-runner-project.pages.dev`；这些只是示例，项目尚未创建。
+当前分别填 `https://zhixu-komorebi94.pages.dev` 和 `https://zhixu-komorebi94-runner.pages.dev`。首次创建其他项目时，以其实际分配域名为准。
 
 仅填写协议、域名和必要的端口，不填写子路径、查询或章节片段。两者必须不同；同一个域名下的 `/runner/` 不满足隔离条件。构建脚本拒绝缺失地址、HTTP、本机地址、同源地址和含凭据的地址。
 
@@ -76,8 +84,8 @@ npm run verify:pages:browser
 5. 可以用实际地址运行隔离检查：
 
 ```bash
-ZHIXU_MAIN_ORIGIN=https://your-main-project.pages.dev \
-ZHIXU_RUNNER_ORIGIN=https://your-runner-project.pages.dev \
+ZHIXU_MAIN_ORIGIN=https://zhixu-komorebi94.pages.dev \
+ZHIXU_RUNNER_ORIGIN=https://zhixu-komorebi94-runner.pages.dev \
 npm run verify:runner
 ```
 

@@ -75,7 +75,7 @@ npm run verify:ai-p1-ui
 - src/content/catalog.json：完整结构化目录；来自设计文档的已确认条目，不包含答案。
 - docs/design/：完整产品规格、内容蓝图、数据与安全边界、验收标准及设计图。
 
-后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；完整浏览器矩阵、人工读屏及生产部署环境仍未验收。我的积累支持笔记自动保存、冲突比较及未保存时的切页保护。
+后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；Cloudflare Pages 生产部署已完成 [Chrome 专项验收](docs/verification/cloudflare-pages-2026-10-10.json)，完整浏览器矩阵及人工读屏仍未验收。我的积累支持笔记自动保存、冲突比较及未保存时的切页保护。
 
 维护目录时先更新设计文档 07、08、09 中的表格，再运行 `npm run sync:catalog`（需要 Python 3）生成结构化目录，最后运行 `npm run verify:catalog` 验证数量、唯一 ID、分类、页面和搜索定位。正文按稳定目录 ID 关联，不通过标题猜测已开放状态。
 
@@ -90,11 +90,11 @@ npm run verify:ai-p1-ui
 
 ## 个人数据与部署边界
 
-正式部署采用 **一个 GitHub 仓库、两个 Cloudflare Pages 项目**：主站使用 `npm run build:pages` → `dist/`，运行器使用 `npm run build:runner:pages` → `dist-runner/`。两个项目连接 `Komorebi94/basic_knowledge`，分别使用独立 HTTPS origin。环境变量、首次创建步骤和验收见 [Cloudflare Pages 部署指南](docs/deployment-cloudflare-pages.md)。配置已补齐，线上项目仍需创建并验收。
+正式部署采用 **一个 GitHub 仓库、两个 Cloudflare Pages 项目**：主站使用 `npm run build:pages` → `dist/`，运行器使用 `npm run build:runner:pages` → `dist-runner/`。两个项目连接 `Komorebi94/basic_knowledge` 的 `master` 分支，分别使用独立 HTTPS origin。主站地址为 <https://zhixu-komorebi94.pages.dev>，运行器为 <https://zhixu-komorebi94-runner.pages.dev>。环境变量、创建步骤和验收见 [Cloudflare Pages 部署指南](docs/deployment-cloudflare-pages.md)。
 
 新版导出使用 schema 2，覆盖笔记、草稿、阅读、收藏、补强、复习会话与事件、练习尝试与通过证据；导入仍接受 schema 1，为旧备份补空学习状态。预检后整笔事务替换，保留唯一恢复点；失败不混合新旧数据。未保存输入会阻止跨页维护，冲突需要明确选择。私人数据保存在浏览器，不自动上传。
 
-主站与运行器分别部署 `dist/` 与 `dist-runner/`。构建主站时通过 `VITE_RUNNER_ORIGIN` 指定运行器，构建运行器时通过 `ZHIXU_PARENT_ORIGIN` 指定主站。运行器安全策略由 `runner/security.js` 定义；构建自动输出供 Cloudflare Pages 使用的 `_headers`，其他静态托管必须在服务器复现这些响应头。目标部署尚未实测。
+主站与运行器分别部署 `dist/` 与 `dist-runner/`。构建主站时通过 `VITE_RUNNER_ORIGIN` 指定运行器，构建运行器时通过 `ZHIXU_PARENT_ORIGIN` 指定主站。运行器安全策略由 `runner/security.js` 定义；构建自动输出供 Cloudflare Pages 使用的 `_headers`，其他静态托管必须在服务器复现这些响应头。
 
 本地预览主站默认 4173，需要为该 origin 重新构建运行器，并停止占用 5174 的开发运行器：
 
