@@ -1,0 +1,252 @@
+{
+  "verifiedAt": "2026-10-12T08:49:40.624Z",
+  "browser": "154.0.8037.99",
+  "articleIds": [
+    "K05-06",
+    "K05-05",
+    "K05-03",
+    "K05-07",
+    "K05-08",
+    "K05-04"
+  ],
+  "examples": 20,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K05-06",
+      "sectionId": "compositor",
+      "language": "javascript",
+      "codeSha256": "b66e8f470e8203f4a821c8e4b4f97b0b348c90f7880af227922ac2a06ea5a8bf",
+      "output": [
+        "30,30",
+        "0,30"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-06",
+      "sectionId": "control",
+      "language": "javascript",
+      "codeSha256": "4ba40f2569e82c51f77cc395a4d09c7a40e483e13fe2f35ec2e46e8cee1a646d",
+      "output": [
+        "0.5,paused",
+        "1,0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-06",
+      "sectionId": "motion",
+      "language": "javascript",
+      "codeSha256": "fd1c404e0dd06b8965ffae5125cede605af7263bee32908efbd582c2bf21c197",
+      "output": [
+        "none",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "none"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "layers",
+      "language": "javascript",
+      "codeSha256": "07365ea11aed795c4fcabba6d40df85e225afb4a010599b2ec93c1aa2f1d7ff5",
+      "output": [
+        "rgb(1, 2, 3)",
+        "rgb(4, 5, 6)"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "unlayered",
+      "language": "javascript",
+      "codeSha256": "78cbcb7c2bbf516e20c655860a5dd1f9d6a13af59ebfe5d927d08b2947b757d5",
+      "output": [
+        "rgb(0, 0, 255)",
+        "rgb(255, 0, 0)",
+        "rgb(0, 0, 9)"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "specificity",
+      "language": "javascript",
+      "codeSha256": "442651cf15ca65c314d9288936f656aa8550f64f044feb7b1b59b5a630e428b3",
+      "output": [
+        "rgb(0, 128, 0)",
+        "rgb(0, 0, 1)"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "tokens",
+      "language": "javascript",
+      "codeSha256": "2d892edf0f5ee66dc9f802cd45b8fa3fc5191190d1d3db99e464e7d92549fb47",
+      "output": [
+        "12px",
+        "4px",
+        "7px"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "minimum",
+      "language": "javascript",
+      "codeSha256": "804780a2bac890de2816bb0cda92da391062de9c2947209bc7658e54c40c008f",
+      "output": [
+        "180,180",
+        "100,180,180",
+        "100,100,180"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "tracks",
+      "language": "javascript",
+      "codeSha256": "f3d15e84744c090d2108ab665fdc800cf354187612c48ec37f3f01f8ca1978bd",
+      "output": [
+        "default:300,80,200,380",
+        "item-min:120,80,200,300",
+        "track-min:120,80,200,300",
+        "clipped:120,80,200,200"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "distribution",
+      "language": "javascript",
+      "codeSha256": "96d81f00bb68e6f5e5d2f03ad01493532341137012c0aa44bae4366e0d1ccb67",
+      "output": [
+        "80,120",
+        "40,160"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "distribution",
+      "language": "javascript",
+      "codeSha256": "7a6ed507671c18f8f71b85181ed2d825e3b253fa5dd06e28ef9305a6afbd1d4f",
+      "output": [
+        "100,140,70,70",
+        "16,100"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-07",
+      "sectionId": "logical",
+      "language": "javascript",
+      "codeSha256": "519a55b314b0a3cff4acee8ee407edefbfd3f58daf3240381cbf1cd60d6ca3dd",
+      "output": [
+        "ltr,horizontal-tb,0px,0px,0px,16px,0px,8px,0px,0px",
+        "rtl,horizontal-tb,0px,16px,0px,0px,0px,0px,0px,8px",
+        "vertical,vertical-rl,16px,0px,0px,0px,0px,0px,8px,0px",
+        "block,vertical-rl,0px,16px,0px,0px,0px,0px,0px,0px"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-07",
+      "sectionId": "length",
+      "language": "javascript",
+      "codeSha256": "9f31062a0c4b0b02b39b9b34ab02146295bef91c74df19e8d66741deafdf7acc",
+      "output": [
+        "280,64,200,344",
+        "136,64,200,200"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-07",
+      "sectionId": "fallback",
+      "language": "javascript",
+      "codeSha256": "ebe8ce61c0cca6c08547e2a9ab4930ffc9095c000aa1e69b91dd4e5f95cb7598",
+      "output": [
+        "MissingLessonFont, sans-serif",
+        "true",
+        "true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-08",
+      "sectionId": "sticky",
+      "language": "javascript",
+      "codeSha256": "355a7090d9504df5a91f0171a0f99ccd3c8a12e9009a09b114888ca7a4932932",
+      "output": [
+        "top:0,40",
+        "no-inset:-40,40",
+        "hidden:-40,40"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-08",
+      "sectionId": "containing-block",
+      "language": "javascript",
+      "codeSha256": "5e395fcf17e6cf013f2e7e3efea1b7f705b9172b1618cea001ed528359cfe8bc",
+      "output": [
+        "0,0",
+        "40,50",
+        "0,0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-08",
+      "sectionId": "popover",
+      "language": "javascript",
+      "codeSha256": "8555b3ab5cdf1b7b9dc84604dc3e2c2291682d5dc23e141edc6fda286b2960eb",
+      "output": [
+        "false",
+        "true,40,40,20,0",
+        "false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-04",
+      "sectionId": "viewport",
+      "language": "javascript",
+      "codeSha256": "b5587849461efad502309a110b1ba6cf97109f244e09c1bc0cf68f1867e6bf60",
+      "output": [
+        "24px true 420",
+        "16px true 300"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-04",
+      "sectionId": "container",
+      "language": "javascript",
+      "codeSha256": "630e102d8d4b2965c369bce78f9637afb015921d29d3abad8cebe17c4921670d",
+      "output": [
+        "none,280",
+        "block,80,420"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K05-04",
+      "sectionId": "supports",
+      "language": "javascript",
+      "codeSha256": "fefcdf526483d31761c05a1a51807ded0bb62bbdfbe3ad574f875e49bc47f88b",
+      "output": [
+        "true",
+        "true",
+        "false"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

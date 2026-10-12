@@ -78,7 +78,26 @@ export const retrievalFreshnessArticle: Article = {
       "paragraphs": [
         "提交给生成器的上下文区分可信任务与外部资料，用块ID标识来源；要求逐项陈述规则、例外和依据，不足时询问或拒答。客服案例的正确候选是“标准订单14日；定制订单不适用；需核对下单条件”，而不是只写“14日退款”。",
         "输出审阅分开三项：来源是否可访问且有效，文本是否支持该断言，回答是否覆盖问题所需的所有限定条件。引用存在只证明可定位，不证明蕴含关系；模型可以引用正确文档后自行写错数字。结构校验能要求citation字段，但不能替代语义核对。",
-        "RAG仍可能漏检、取到错误版本、误读否定词，或者遵从资料中的恶意指令。对于金额、审批或权限决策，让确定性业务规则处理最终动作，模型负责解释；人工复核只在需要的风险点介入，不用漂亮引用替代证据。"
+        "RAG仍可能漏检、取到错误版本、误读否定词，或者遵从资料中的恶意指令。对于金额、审批或权限决策，让确定性业务规则处理最终动作，模型负责解释；人工复核只在需要的风险点介入，不用漂亮引用替代证据。",
+        "下面把定位和答案审阅拆开，片段可在现代浏览器控制台运行。引用摘录仍能在当前版本里找到，答案却写成 30 日，或漏掉定制订单例外。最后一行故意用否定句，展示子串重合不能判断含义。"
+      ],
+      "examples": [
+        {
+          "code": "const source = { id: 'refund', version: 2, text: '标准订单可在14日退款，定制订单除外。' };\nconst citation = { documentId: 'refund', version: 2, quote: '标准订单可在14日退款' };\nfunction locate(cite, doc) {\n  if (cite.documentId !== doc.id || cite.version !== doc.version) return 'stale';\n  return doc.text.includes(cite.quote) ? 'located' : 'mismatch';\n}\nfunction reviewAnswer(answer, doc, cite) {\n  const location = locate(cite, doc);\n  if (location !== 'located') return location;\n  const missing = ['14日', '定制订单除外'].filter(part => !answer.includes(part));\n  const invented = ['30日', '已完成退款'].filter(part => answer.includes(part) && !doc.text.includes(part));\n  if (invented.length) return 'unsupported:' + invented.join(',');\n  if (missing.length) return 'incomplete:' + missing.join(',');\n  return 'supported';\n}\nconsole.log(locate(citation, source));\nconsole.log(reviewAnswer('标准订单可在30日退款', source, citation));\nconsole.log(reviewAnswer('标准订单可在14日退款', source, citation));\nconsole.log(reviewAnswer('标准订单可在14日退款，定制订单除外。', source, citation));\nconsole.log('negated:' + reviewAnswer('不是14日退款，定制订单除外', source, citation));",
+          "expectedOutput": [
+            "located",
+            "unsupported:30日",
+            "incomplete:定制订单除外",
+            "supported",
+            "negated:supported"
+          ],
+          "explanation": [
+            "locate 只比较文档身份、版本和摘录是否出现。citation.quote 是“标准订单可在14日退款”，source.text 包含这句，版本同为 2，所以结果是 located。这一步没有读取即将展示的答案。",
+            "第一条答案写成 30日。locate 仍会成功，但 reviewAnswer 在来源文本里找不到 30日，于是返回 unsupported:30日，不会因为摘录可定位就放过。第二条答案含有 14日，缺少“定制订单除外”，返回 incomplete。完整答案同时包含期限和例外，返回 supported。",
+            "否定句“不是14日退款，定制订单除外”同时包含两段必需子串，函数仍返回 supported。这是该判据的失败路径：它只做字符串包含，不能识别否定、同义改写或条件范围。生产审阅需要针对每条主张的独立判据，不能沿用这个子串函数当作蕴含证明。",
+            "示例也没有覆盖租户、撤权和索引延迟；那些状态留在后面的引用解析里。这里专门说明：引用可打开，与答案受当前文本支持，是先后两道检查。"
+          ]
+        }
       ]
     },
     {

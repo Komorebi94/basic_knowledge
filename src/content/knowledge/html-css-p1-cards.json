@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K05-03",
+    "sourceHeadingId": "minimum",
+    "question": "Flex 项目写了 flex:1 1 0，为什么仍可能宽于容器？",
+    "answerPoints": [
+      "默认 min-width:auto 会采用内容的最小贡献",
+      "flex-basis 是伸缩起点，不取消这个下限",
+      "把下限改为 0 后，还要单独决定内容如何换行、滚动或裁剪"
+    ],
+    "pitfalls": [
+      "只给最外层容器设置 overflow:hidden"
+    ]
+  },
+  {
+    "catalogId": "K05-03",
+    "sourceHeadingId": "tracks",
+    "question": "Grid 列写了 1fr，内容为什么还能把轨道撑宽？",
+    "answerPoints": [
+      "1fr 的最小值默认包含格子的最小贡献",
+      "降低格子的 min-width，或把轨道写成 minmax(0, 1fr)，列才可以窄于内容",
+      "列变窄后，内容溢出仍会扩大滚动宽度，除非明确裁剪"
+    ],
+    "pitfalls": [
+      "认为轨道变窄会自动缩小子元素的指定宽度"
+    ]
+  },
+  {
+    "catalogId": "K05-03",
+    "sourceHeadingId": "distribution",
+    "question": "两个 flex-grow 都是 1 时，最终宽度由什么决定？",
+    "answerPoints": [
+      "先保留各自的 flex-basis，再分配剩余空间",
+      "增长因子相同只表示剩余空间的分法相同",
+      "flex:0 0 会冻结该项，换行也不会把它压窄"
+    ],
+    "pitfalls": [
+      "把相同增长因子理解成最终宽度各占一半"
+    ]
+  },
+  {
+    "catalogId": "K05-04",
+    "sourceHeadingId": "viewport",
+    "question": "组件放进窄栏后，为什么仍使用宽页面的字号？",
+    "answerPoints": [
+      "视口媒体查询读取视口，不读取组件父级",
+      "容器查询读取声明了 container-type 的容器",
+      "组件断点应在容器尺寸改变基础布局无法容纳内容时触发"
+    ],
+    "pitfalls": [
+      "用设备宽度清单代替组件自己的内容断点"
+    ]
+  },
+  {
+    "catalogId": "K05-04",
+    "sourceHeadingId": "container",
+    "question": "容器查询没有生效时，界面应保留什么？",
+    "answerPoints": [
+      "基础样式先完成主任务",
+      "查询只增加宽容器才容纳得下的补充区域",
+      "主操作不依赖某个查询条件才出现"
+    ],
+    "pitfalls": [
+      "祖先没有查询容器时仍假设增强规则会套用"
+    ]
+  },
+  {
+    "catalogId": "K05-04",
+    "sourceHeadingId": "supports",
+    "question": "CSS.supports 返回 true 说明了什么？",
+    "answerPoints": [
+      "当前环境识别这条声明",
+      "仍需验证容器尺寸、断点和焦点顺序",
+      "返回 false 时使用已经能完成任务的基础布局"
+    ],
+    "pitfalls": [
+      "把一次特性检测缓存成永久的浏览器版本判断"
+    ]
+  },
+  {
+    "catalogId": "K05-05",
+    "sourceHeadingId": "layers",
+    "question": "后声明的层里，特异性较低的规则为什么会获胜？",
+    "answerPoints": [
+      "层顺序先决定哪一层参与比较",
+      "特异性只在同一层内比较",
+      "覆盖主题应进入更后的层，或替换主题提供的属性"
+    ],
+    "pitfalls": [
+      "为了跨层取胜而不断加长选择器"
+    ]
+  },
+  {
+    "catalogId": "K05-05",
+    "sourceHeadingId": "unlayered",
+    "question": "一条未分层的类为什么能盖过层内的 ID？",
+    "answerPoints": [
+      "普通重要度中，未分层作者样式排在分层样式之后",
+      "临时调试样式会因此长期压过组件层",
+      "层内重要声明属于另一个比较桶，可以胜过未分层普通声明"
+    ],
+    "pitfalls": [
+      "用 !important 作为每次覆盖主题的常规手段"
+    ]
+  },
+  {
+    "catalogId": "K05-05",
+    "sourceHeadingId": "tokens",
+    "question": "同一主题色需要替换时，应改选择器还是改属性？",
+    "answerPoints": [
+      "主题值放在可继承的自定义属性中",
+      "子树可以覆盖同名属性，缺失时使用后备值",
+      "组件消费属性，层只负责规则的优先级"
+    ],
+    "pitfalls": [
+      "在每个组件选择器里复制具体颜色"
+    ]
+  },
+  {
+    "catalogId": "K05-06",
+    "sourceHeadingId": "compositor",
+    "question": "translateX(30px) 之后，为什么 offsetLeft 仍是 0？",
+    "answerPoints": [
+      "transform 改变视觉坐标，不改布局偏移",
+      "修改 left 会让布局偏移和视觉坐标一起变化",
+      "装饰性位移优先使用 transform 或 opacity"
+    ],
+    "pitfalls": [
+      "在动画每一帧交替修改并读取布局属性"
+    ]
+  },
+  {
+    "catalogId": "K05-06",
+    "sourceHeadingId": "control",
+    "question": "取消 Web Animations 动画后，元素的效果会怎样？",
+    "answerPoints": [
+      "cancel 移除动画施加的效果",
+      "计算值回到动画之外的样式",
+      "持久界面状态应写回数据或样式，不依赖过期动画"
+    ],
+    "pitfalls": [
+      "组件卸载后仍让旧动画保持最终帧"
+    ]
+  },
+  {
+    "catalogId": "K05-06",
+    "sourceHeadingId": "motion",
+    "question": "用户要求减少动态效果时，反馈应如何完成？",
+    "answerPoints": [
+      "用文字、焦点或稳定状态表达结果",
+      "非必要位移不播放，而不是改成很短的长距离运动",
+      "若结束帧才是最终位置，直接设置最终样式"
+    ],
+    "pitfalls": [
+      "只把动画持续时间改成 0，仍保留大幅位移"
+    ]
+  },
+  {
+    "catalogId": "K05-07",
+    "sourceHeadingId": "logical",
+    "question": "dir 改为 rtl 后，margin-inline-start 落到哪一侧？",
+    "answerPoints": [
+      "行内起点改到物理右侧",
+      "padding-inline-end 改到物理左侧",
+      "vertical-rl 还会把行内轴转到纵向"
+    ],
+    "pitfalls": [
+      "为每种语言分别维护一套 left 和 right"
+    ]
+  },
+  {
+    "catalogId": "K05-07",
+    "sourceHeadingId": "length",
+    "question": "翻译变长时，哪一部分应该收缩？",
+    "answerPoints": [
+      "文本项目使用可低于内容的最小尺寸",
+      "操作区保持完整尺寸",
+      "不能省略的文本改为换行或滚动，而不是切掉按钮"
+    ],
+    "pitfalls": [
+      "用缩小字号容纳最长译文"
+    ]
+  },
+  {
+    "catalogId": "K05-07",
+    "sourceHeadingId": "fallback",
+    "question": "document.fonts.check 对未知字体返回 true，表示什么？",
+    "answerPoints": [
+      "当前可以用已有字体立即绘制",
+      "计算后的 font-family 仍保留候选列表",
+      "true 不能证明指定家族已经安装"
+    ],
+    "pitfalls": [
+      "按一种字体的宽度把容器卡死"
+    ]
+  },
+  {
+    "catalogId": "K05-08",
+    "sourceHeadingId": "sticky",
+    "question": "sticky 标题为什么会随内容滚出容器？",
+    "answerPoints": [
+      "缺少 inset 时没有可停留的位置",
+      "中间层 overflow:hidden 会形成新的滚动端口",
+      "用 scrollTop 和相对距离确认它相对哪一个容器停留"
+    ],
+    "pitfalls": [
+      "先增大 z-index，而没有检查滚动端口"
+    ]
+  },
+  {
+    "catalogId": "K05-08",
+    "sourceHeadingId": "containing-block",
+    "question": "fixed 元素为什么没有贴着视口？",
+    "answerPoints": [
+      "祖先的 transform 可以成为 fixed 的包含块",
+      "后代的 top 和 left 相对这个祖先计算",
+      "清除该变换后，包含块可以回到视口"
+    ],
+    "pitfalls": [
+      "用 sticky 的排查结果直接解释 fixed 坐标"
+    ]
+  },
+  {
+    "catalogId": "K05-08",
+    "sourceHeadingId": "popover",
+    "question": "祖先 overflow:hidden 为什么没有切短打开的 Popover？",
+    "answerPoints": [
+      "showPopover 后元素进入顶层呈现",
+      ":popover-open 可以确认打开状态",
+      "顶层不代替焦点进入、关闭和可访问名称"
+    ],
+    "pitfalls": [
+      "只提高 z-index，让弹层继续留在裁剪祖先内"
+    ]
+  }
+]

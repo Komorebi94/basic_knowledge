@@ -1,0 +1,218 @@
+{
+  "verifiedAt": "2026-10-12T07:35:21.635Z",
+  "browser": "154.0.8037.99",
+  "articleIds": [
+    "K03-04",
+    "K03-07",
+    "K03-05",
+    "K03-03",
+    "K03-08",
+    "K03-06"
+  ],
+  "examples": 18,
+  "strictTypeScriptExamples": 18,
+  "evidence": [
+    {
+      "articleId": "K03-04",
+      "sectionId": "distribution",
+      "language": "typescript",
+      "codeSha256": "bbb8d126b7734067320f4eeb9260cef852372e7f72de7229679908de455dc2cc",
+      "output": [
+        "draft 3"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-04",
+      "sectionId": "infer",
+      "language": "typescript",
+      "codeSha256": "5937916fc264ef20d1340957f204a0742f2775695f866be58f0a64a5a3412967",
+      "output": [
+        "42 true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-04",
+      "sectionId": "mapping",
+      "language": "typescript",
+      "codeSha256": "f7f9be6c176a449a9455687bef12696b19c5b288b2edcd7c0019ecbe2838d661",
+      "output": [
+        "Published 2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-07",
+      "sectionId": "ambient",
+      "language": "typescript",
+      "codeSha256": "5ff4067ad4e3837d640653dfbc7dd942377da8cb56b96e1b72e008215216e520",
+      "output": [
+        "true",
+        "declaration has no implementation"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-07",
+      "sectionId": "runtime",
+      "language": "typescript",
+      "codeSha256": "69ba2a331fe2d39dc240b41988762896d52920988cf2af235ec37a1fbdf983d6",
+      "output": [
+        "7",
+        "true",
+        "true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-07",
+      "sectionId": "consumer",
+      "language": "typescript",
+      "codeSha256": "6d8189ed21c05378d8a1c7a0ddfd9dc8e89d95ca9b8c4aa366c23123b36f8885",
+      "output": [
+        "5"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "contravariance",
+      "language": "typescript",
+      "codeSha256": "59de3fcfd4248d8ddfc52a8a7f08e60bfadce2eb8e86bfcc350c28fa11e6b903",
+      "output": [
+        "o1",
+        "o2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "methods",
+      "language": "typescript",
+      "codeSha256": "50a1db020ba62ccbeba04a2520e1f5b966ccee6286a82dc6741e75a311a95e3c",
+      "output": [
+        "700",
+        "b1"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "overloads",
+      "language": "typescript",
+      "codeSha256": "955bc9f25f3b655fb4bd949d123927229f6355d72662d1dd56a71d2c7dfd6139",
+      "output": [
+        "DRAFT 3",
+        "Ready"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-03",
+      "sectionId": "relationship",
+      "language": "typescript",
+      "codeSha256": "9125644620169a547b4ea97929fff05115cd0637cfe5a743ee1c56d1f7b901f9",
+      "output": [
+        "2500",
+        "true",
+        "true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-03",
+      "sectionId": "keys",
+      "language": "typescript",
+      "codeSha256": "40dde25c8c055c0c92f0336444deb252a541fab397d9c50ac8fee8180e54bef5",
+      "output": [
+        "4",
+        "on"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-03",
+      "sectionId": "factory",
+      "language": "typescript",
+      "codeSha256": "1fe935393033f9a83e9ce4f200894f0cb06e34d53bc8cac1b0cb476680d3cd52",
+      "output": [
+        "Draft@2 summary"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-08",
+      "sectionId": "finite",
+      "language": "typescript",
+      "codeSha256": "be37d23c1d076a30984f6ab4aca7fcb0b3050e8ef53710551d9beec1a4324a33",
+      "output": [
+        "Draft",
+        "3"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-08",
+      "sectionId": "configuration",
+      "language": "typescript",
+      "codeSha256": "0531feea8e6fcf3813b10a002e86bb24b72b858f49489095aec99fa8d752d062",
+      "output": [
+        "Ready",
+        "5",
+        "text,count"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-08",
+      "sectionId": "bounded",
+      "language": "typescript",
+      "codeSha256": "373e5207464725421a493bcc9c77669bb14c81444f54e654f5cacfdd61365115",
+      "output": [
+        "Draft",
+        "3",
+        "1"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-06",
+      "sectionId": "projection",
+      "language": "typescript",
+      "codeSha256": "de83b132aa16c2aa8175f4f73c9591e7283dea0ef7686c89bcf4dea6bd39729e",
+      "output": [
+        "id,title,internalMemo",
+        "id,title",
+        "false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-06",
+      "sectionId": "commands",
+      "language": "typescript",
+      "codeSha256": "03ba769012783f11732d522a9ffdcaab5d29666aec6e107afa9e3f06a6ddfec0",
+      "output": [
+        "p1 500 USD",
+        "CNY",
+        "true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-06",
+      "sectionId": "readonly",
+      "language": "typescript",
+      "codeSha256": "27304d10f1dd8f1a3b94c74158be6b571767a19ce3b495ab00ea52c0a8bcb1f3",
+      "output": [
+        "ts,types Changed",
+        "ts,types"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

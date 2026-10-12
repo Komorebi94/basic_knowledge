@@ -1,6 +1,6 @@
 # 实现状态与验证记录
 
-记录日期：2026-10-09。设计目录描述目标合同，本文记录实际交付。
+记录日期：2026-10-12。设计目录描述目标合同，本文记录实际交付。
 
 历史2026-09-30验证浏览器：Chrome 154.0.8037.58；主站 origin：`http://127.0.0.1:5173`。笔记与备份验证使用独立临时上下文。
 
@@ -10,8 +10,8 @@
 | --- | --- |
 | 网站骨架 | React、TypeScript、Vite，深链接路由，桌面与移动布局 |
 | 完整目录 | 16 个专题 × 8 个单元，共 128 个前端知识单元；40 道练习；20 个 AI 单元。均显示标题与学习范围；已补齐正文/题面与待编写状态分别标明 |
-| 阅读内容 | 44 篇知识、20 篇 AI，共64篇完整教程；AI P0/P1 全部补齐。原207个作者例子加新增10个例子，其中原9个严格TypeScript样例；原内容ID、URL和锚点保留 |
-| 学习配套 | 134张回忆卡（P0为96张、AI P1新增14张）、任务模板及AI09/10/15审阅案例；卡片原文定位、默认折叠答案、自评说明与双向练习关联可用 |
+| 阅读内容 | 74 篇知识、20 篇 AI，共94篇完整教程；AI P0/P1 全部补齐。原 207 个作者例子，另加 4 个 AI P0 示例、11 个 AI P1 示例、18 个 K04 示例、18 个 K03 严格 TypeScript 示例、20 个 K05 布局示例、18 个 K06 示例与 17 个 K07 示例；其中原 9 个严格 TypeScript 样例。原内容 ID、URL 和锚点保留 |
+| 学习配套 | 224张回忆卡（P0为96张、AI P1新增14张、K04新增18张、K03新增18张、K05新增18张、K06新增18张、K07新增18张）、任务模板及AI09/10/15审阅案例；卡片原文定位、默认折叠答案、自评说明与双向练习关联可用 |
 | 练习内容与功能 | E01—E24完整题目、代码与复盘自动保存、跨源 Worker 运行、停止/超时、结果与控制台、提示/参考标记、尝试和独立/参考证据历史；182用例、72样例通过，48典型错误实现被拒绝 |
 | 搜索 | 中英别名、内容ID、全半角归一、分档排序；完整目录、正文、练习题面可检索；提示与折叠参考答案不进入练习全文索引，待编写条目定位目录锚点 |
 | 个人数据 | 文章/章节笔记、私人搜索、阅读位置、显式已读、收藏、补强、历史；自动保存、冲突比较、切页保护；schema 2 全量备份，兼容 schema 1、事务替换与恢复 |
@@ -111,8 +111,60 @@ K01 与 K02 的各 8 个单元已按同一深入教程标准开放。2026-10-08�
 验证命令与证据：
 
 - `typecheck`、`lint`、`build`，构建门禁覆盖 20 篇 AI 附加合同、P1 正文、卡片锚点、模板、搜索与公开元数据。
-- `ZHIXU_ARTICLE_IDS=AI13,AI14,AI17,AI18 npm run verify:articles`：独立 Chrome 空白页面核对 10 个新增示例；[报告](verification/article-examples-report.json)含源码 SHA256 与实际输出，不连接模型或真实后端。
+- `ZHIXU_ARTICLE_IDS=AI13,AI14,AI17,AI18 npm run verify:articles`：独立 Chrome 空白页面核对 10 个新增示例；[报告](verification/article-examples-report.json)含源码 SHA256 与实际输出，不连接模型或真实后端。2026-10-12 同一命令会覆盖到 11 个示例，因为 AI13 增补了生成审阅例子；AI14、AI17、AI18 的证据仍是 2026-10-09 的运行记录。
 - `verify:ai-p1-ui`：目录全部可读、新文章 ID 搜索、正文、卡片原文焦点、复习订阅刷新恢复、1440/390/320px 阅读；[报告](verification/ai-p1-ui-report.json)。
 - `verify:p0-ui`：88 个桌面与 88 个移动详情路由、折叠卡片与解析、P1 ID 搜索和无效路由恢复；[报告](verification/p0-ui-report.json)。
 
 截图位于 `verification/ai-p1-AI{13,14,17,18}-{1440,390}.png`，已人工检查四篇手机截图。新增内容未接入在线模型调用，流式示例也不代表完整生产 SSE 库；完整浏览器矩阵和人工读屏限制仍如上所述。
+
+## 2026-10-12 K04 浏览器专题补齐
+
+K04-03—K04-08 已补齐，K04 的八个单元全部可读。新增内容覆盖事件传播与默认行为、存储与配额、观察器与视口、导航与历史恢复、Service Worker 与离线、Web 平台能力与渐进增强。每篇从具体问题解释机制，包含完整示例、输出原因、错误路径、工程取舍与适用边界；共新增 18 个可执行示例、18 张回忆卡。知识正文现有 50 篇，与 20 篇 AI 合计 70 篇，卡片共 152 张。
+
+- 注册、公开元数据、前置知识、正文搜索和卡片锚点已接入；构建门禁增加六篇 K04 P1 的正文、示例与卡片检查。
+- `typecheck`、`lint`、`build`、`git diff --check` 通过。正文包仍有大于 500 kB 的构建提示，本轮没有额外拆包。
+- `verify:k04`：临时独立 loopback HTTP origin、Chrome 154.0.8037.99，核对 18 个作者示例的实际输出。涵盖真实 DOM 事件、IndexedDB 事务中止与回读、三类观察器、History 与 Cache Storage；配额拒绝、剪贴板拒绝、导出取消及部分路由/缓存决策采用明确标注的教学替身，不冒充真实设备或权限验收。见 [示例报告](verification/k04-article-examples.json)。
+- 同一命令用文章原文中的 Worker 与完整离线 HTML 实测首次未受控、重新导航受控、断网导航回退、恢复在线、新版本等待及旧缓存保留；不在学习站 origin 注册 Worker。见 [平台报告](verification/k04-platform-report.json)。
+- `ZHIXU_ARTICLE_REPORT=k04-all-article-regression.json npm run verify:articles`：70 篇文章、240 个浏览器示例、9 个严格 TypeScript 示例全部通过。新增 origin fixture 支持仍只加载仓库作者内容；新报告与已有报告分开保存。见 [全量回归](verification/k04-all-article-regression.json)。
+- `verify:k04-ui`：K04 八个单元全部可读；六篇新增文章的 ID 搜索、完整正文、深链接刷新、18 张卡片默认折叠及原文焦点、1440/390/320px 回流通过，0 pageerror。见 [界面报告](verification/k04-ui-report.json)。截图为 `verification/k04-K04-{03…08}-{1440,390}.png`，六张手机截图已人工查看。
+
+来源于 2026-10-12 核对 DOM、Storage、HTML History、Intersection Observer、Service Workers、Permissions 规范与对应 MDN 页面；链接与核验日期存于文章及发布清单。完整跨浏览器矩阵、真实设备权限、物理配额与 bfcache 命中矩阵未在本轮验收。E25—E40 配套 DOM/框架/类型练习仍未制作；本轮只补知识内容，不启用学习站离线功能。
+
+## 2026-10-12 K03 TypeScript 专题补齐
+
+K03-03—K03-08 已补齐，K03 的八个单元全部可读。新增六篇分别覆盖泛型与约束、条件与映射类型、函数类型与变型、工具与领域类型、声明文件与公共库、复杂类型可维护性。每篇围绕具体工程问题解释类型关系、完整代码、失败路径、取舍与适用边界；新增 18 个 TypeScript 正向示例、7 个不执行的编译反例、18 张回忆卡。
+
+- 文章注册、公开元数据、前置知识、搜索和卡片原文锚点接入；构建门禁新增六篇 K03 P1 的正文、示例与卡片检查。当前共 56 篇知识、20 篇 AI、170 张卡片，规划目录规模仍为 128/40/20。
+- `typecheck`、`lint`、`build`、`git diff --check` 通过；正文延迟包仍有大于 500 kB 的构建提示，本轮没有额外拆包。
+- `ZHIXU_ARTICLE_IDS=K03-03,K03-04,K03-05,K03-06,K03-07,K03-08 ZHIXU_ARTICLE_REPORT=k03-article-examples.json npm run verify:articles`：18 个示例先通过 TypeScript 6.0.3 的 strict 与 noUncheckedIndexedAccess，再在独立 Chrome 154.0.8037.99 页面核对全部预期输出。见 [示例报告](verification/k03-article-examples.json)。本次没有重新执行全部既有文章，K04 全量回归仍保留在前一节。
+- `verify:k03-types`：七个原文编译反例均产生指定诊断；额外启用 exactOptionalPropertyTypes，验证属性缺席与显式 undefined 的差异，不使用忽略错误指令。见 [类型与公共包报告](verification/k03-types-report.json)。
+- 同一命令从 K03-07 原文实现生成声明与 ESM/CommonJS JavaScript，在临时包的真实 exports 布局下验证 Bundler/ESNext、NodeNext ESM、NodeNext CommonJS 消费。两种 Node 消费者都实际输出 `7` 与 `true`；故意将声明返回值改成 string 后，number 消费点产生 TS2322。包与源码、导出清单、消费文件的 SHA256 随报告保存，不发布外部包。
+- `ZHIXU_MAIN_ORIGIN=http://127.0.0.1:5183 npm run verify:k03-ui`：本轮专用开发实例验证八个可读单元、六篇新增文章的 ID 搜索、完整正文、深链接刷新、18 张卡片默认折叠及原文焦点、1440/390/320px 回流，0 pageerror。见 [界面报告](verification/k03-ui-report.json)。六张手机截图已人工查看，文件为 `verification/k03-K03-{03…08}-{1440,390}.png`。
+- K03/K04 共享同一阅读验收脚本，保留 `verify:k04-ui` 入口；同一 5183 实例下 K04 分支回归通过。
+
+于 2026-10-12 核对 TypeScript 官方 Handbook、模块/声明发布资料、exactOptionalPropertyTypes、satisfies 与官方性能指导，来源链接和日期存于文章及发布清单。当前证据只覆盖已安装 TypeScript 6.0.3、Node 与临时消费项目，不代表旧编译器、所有打包器或大型项目类型性能已验收。E33/E34 的可执行类型练习仍未制作。
+
+## 2026-10-12 K05 HTML 与 CSS 专题补齐
+
+K05-03—K05-08 已补齐，K05 的八个单元全部可读。新增六篇分别覆盖 Flex 与 Grid 约束、响应式与容器查询、层叠层与选择器、动画与交互反馈、国际化排版与逻辑属性、复杂布局诊断。每篇用空白页几何或计算样式实验解释机制，并写明失败路径、取舍和适用边界；新增 20 个浏览器示例、18 张回忆卡。
+
+- 文章注册、公开元数据、前置知识、搜索和卡片原文锚点接入；构建门禁新增六篇 K05 P1 的正文、示例与卡片检查。当前共 62 篇知识、20 篇 AI、188 张卡片，规划目录规模仍为 128/40/20。搜索文档仍为 204 条：新正文替换了同 ID 的待编写目录条目。
+- E27—E29 仍未制作，文章只说明这些练习尚未可做，不显示空的练习入口。
+- `typecheck`、`lint`、`build`、`git diff --check` 通过。`build` 先执行 `verify:p0`。正文延迟包 `catalog` 仍大于 500 kB，本轮没有额外拆包。
+- `npm run verify:k05`：Chrome 154.0.8037.99 空白页核对 20 个作者示例的实际输出，包含 Flex/Grid 尺寸、容器查询、层叠层、动画矩阵、逻辑属性物理边、sticky 相对距离、fixed 包含块和 Popover 打开状态。见 [示例报告](verification/k05-article-examples.json)。本次没有重新执行全部既有文章。
+- `ZHIXU_MAIN_ORIGIN=http://127.0.0.1:5185 npm run verify:k05-ui`：本轮专用开发实例验证八个可读单元、六篇新增文章的 ID 搜索、完整正文、深链接刷新、18 张卡片默认折叠及原文焦点、1440/390/320px 回流，0 pageerror。见 [界面报告](verification/k05-ui-report.json)。六张手机截图已人工查看，文件为 `verification/k05-K05-{03…08}-{1440,390}.png`。
+
+于 2026-10-12 核对 CSS Flexbox、Grid、Conditional Rules、Cascade、Writing Modes、Logical Properties、Position、Media Queries、Web Animations 与 HTML Popover 的对应章节，来源链接和日期存于文章及发布清单。几何数字来自本机 Chrome 空白页，不代表所有引擎、字体和缩放组合。完整浏览器矩阵与人工读屏仍未验收。
+
+## 2026-10-12 K06、K07 网络与 React 专题补齐
+
+K06-03—K06-08、K07-03—K07-08 已补齐，网络与 React 两个专题各八个单元全部可读。K06 覆盖连接与协议前提、Cookie 与刷新、同源和 CORS、SSE 与 WebSocket、大文件传输、接口契约。K07 覆盖组件身份与 key、状态所有权、并发体验与 Suspense、Hook 调用顺序、服务器组件边界、性能测量。协议选择、CORS 放行、协调和服务器组件都写成可执行的教学模型，并标明不是抓包、浏览器网络栈或 React 调度器源码。K07-07 标明客户端包为 React 19.3.0，示例不执行服务器组件。
+
+- 文章注册、公开元数据、前置知识、搜索和卡片原文锚点接入；构建门禁新增十二篇正文、示例与卡片检查。当前共 74 篇知识、20 篇 AI、224 张卡片，规划目录规模仍为 128/40/20。搜索文档仍为 204 条：新正文替换了同 ID 的待编写目录条目。
+- E30、E31、E36—E38 仍未制作，文章只说明这些练习尚未可做。E11—E13、E23、E24 继续指向既有异步题目，不作为这两专题的空练习入口。
+- `typecheck`、`lint`、`build`、`git diff --check` 通过。`build` 先执行 `verify:p0`。正文延迟包 `catalog` 为 947.71 kB，本轮没有额外拆包。
+- `npm run verify:k06`：Chrome 154.0.8037.99 空白页核对 18 个作者示例，包含 URL 源、协议前提、Cookie 属性、单次刷新、预检与响应暴露、SSE 分帧、Blob 分片和日期字符串。见 [示例报告](verification/k06-article-examples.json)。
+- `npm run verify:k07`：同一 Chrome 核对 17 个作者示例，包含 key 配对、状态提升、过渡时间线、Hook 顺序、`Object.is` 依赖、服务器组件能力表和可见区间。见 [示例报告](verification/k07-article-examples.json)。本次没有重新执行全部既有文章。
+- `ZHIXU_MAIN_ORIGIN=http://127.0.0.1:5186 npm run verify:k06-ui` 与 `verify:k07-ui`：本轮专用开发实例分别验证八个可读单元、六篇新增文章的 ID 搜索、完整正文、深链接刷新、18 张卡片默认折叠及原文焦点、1440/390/320px 回流，0 pageerror。见 [K06 界面报告](verification/k06-ui-report.json) 与 [K07 界面报告](verification/k07-ui-report.json)。十二张手机截图已人工查看，文件为 `verification/k06-K06-{03…08}-{1440,390}.png` 与 `verification/k07-K07-{03…08}-{1440,390}.png`。
+
+于 2026-10-12 核对 RFC 9113、RFC 9114、RFC 6265、RFC 9110、RFC 3339、Fetch CORS、HTML 源与服务器发送事件、WebSockets、File API，以及 React 19 文档中的状态、列表、过渡、Suspense、Hook、服务器组件和 memo。来源链接返回 200。空白页里的模型只复现文档中的可观察结果，不代表生产抓包、真实长连接或 RSC 打包器已经验收。完整浏览器矩阵与人工读屏仍未验收。

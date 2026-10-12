@@ -47,7 +47,7 @@ try {
       cases: reviewCases.map(item => ({ id: item.catalogId, title: item.title })),
     };
   });
-  assert.equal(content.articleRoutes.length, 64, 'all article count');
+  assert.equal(content.articleRoutes.length, 94, 'all article count including complete K03–K07');
   assert.equal(content.articleRoutes.filter(route => route.type === 'ai').length, 20, 'complete AI catalog');
   assert.equal(content.practiceRoutes.length, 24, 'core exercise count');
   assert.deepEqual(content.missing, [], 'P0 articles missing');

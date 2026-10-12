@@ -91,7 +91,27 @@ export const workflowUpgradeEvaluationArticle: Article = {
       "paragraphs": [
         "假设重复的“三次检查输入”说明被合成一句，而输入校验仍由宿主执行。对照结果维持，只能支持当前样本下这段重复说明可减，不能推导“输入校验不需要”。记录被删文本原本负责提醒还是执行边界，避免把语言简化误传成安全机制移除。",
         "若删掉读合同步骤后正常题仍过，缺资料题却开始杜撰，说明总分掩盖了类别差异。恢复该步骤，再调查是否可通过更小的上下文索引降低成本。评估目的不是证明删减一定成功，而是找到哪种改动在目标任务里有收益。",
-        "比较运行需要明确中断与失败也算结果。新模型某次工具拒绝后卡住，不能从统计中删除这次运行；超时和资源上限属于工作流质量。将失败列入同一张表，才不会因只看完成任务而高估候选版本。"
+        "比较运行需要明确中断与失败也算结果。新模型某次工具拒绝后卡住，不能从统计中删除这次运行；超时和资源上限属于工作流质量。将失败列入同一张表，才不会因只看完成任务而高估候选版本。",
+        "下面用删掉“读取合同”提醒前后的人工结果演示这个区分。样本可在现代浏览器控制台运行，不调用模型。正常题前后都通过；缺资料题从按合同停止变成杜撰。分组记录能指出该恢复哪一条提醒，整体通过率只说明成功条数变了。"
+      ],
+      "examples": [
+        {
+          "code": "function line(runs, category) {\n  const group = runs.filter(run => run.category === category);\n  const passed = group.filter(run => run.passed).length;\n  const fabricated = group.filter(run => run.fabricated).length;\n  return category + ':' + passed + '/' + group.length + ':fabricated:' + fabricated;\n}\nfunction removalEffect(step, before, after) {\n  const categories = [];\n  for (const run of before) if (!categories.includes(run.category)) categories.push(run.category);\n  const regressions = [];\n  for (const category of categories) {\n    const oldFabricated = before.filter(run => run.category === category && run.fabricated).length;\n    const nextFabricated = after.filter(run => run.category === category && run.fabricated).length;\n    if (nextFabricated > oldFabricated) regressions.push(category);\n  }\n  const oldRate = before.filter(run => run.passed).length / before.length;\n  const newRate = after.filter(run => run.passed).length / after.length;\n  return {\n    oldRate: oldRate.toFixed(2),\n    newRate: newRate.toFixed(2),\n    decision: regressions.length ? 'restore:' + step + ':' + regressions.join(',') : 'candidate'\n  };\n}\nconst before = [\n  { category: 'normal', passed: true, fabricated: false },\n  { category: 'missing-policy', passed: true, fabricated: false }\n];\nconst after = [\n  { category: 'normal', passed: true, fabricated: false },\n  { category: 'missing-policy', passed: false, fabricated: true }\n];\nconst effect = removalEffect('read-contract', before, after);\nconsole.log(line(before, 'normal') + ' -> ' + line(after, 'normal'));\nconsole.log(line(before, 'missing-policy') + ' -> ' + line(after, 'missing-policy'));\nconsole.log(effect.oldRate);\nconsole.log(effect.newRate);\nconsole.log(effect.decision);\nconsole.log(removalEffect('read-contract', before, before).decision);",
+          "expectedOutput": [
+            "normal:1/1:fabricated:0 -> normal:1/1:fabricated:0",
+            "missing-policy:1/1:fabricated:0 -> missing-policy:0/1:fabricated:1",
+            "1.00",
+            "0.50",
+            "restore:read-contract:missing-policy",
+            "candidate"
+          ],
+          "explanation": [
+            "before 的两类各有一条通过且 fabricated 为 false。after 只改了缺资料题：passed 变为 false，fabricated 变为 true。正常题的 1/1 与 fabricated:0 没有变化，所以回归被定位到 missing-policy。",
+            "removalEffect 先按 before 里类别首次出现的顺序收集类别，再比较每类 fabricated 计数。缺资料题从 0 增到 1，因此 decision 是 restore:read-contract:missing-policy。整体通过率从 1.00 降到 0.50，但决策依据是新增杜撰的类别，不是这个平均数字本身。",
+            "把 after 换成 before 时，没有任何类别的 fabricated 增加，函数返回 candidate。这只表示这组人工记录里没观察到新的杜撰，不表示提醒已经可以删除，也不测量宿主校验是否仍在执行。",
+            "数字是作者构造的对照结果。真实升级还要保留运行次数、失败轨迹和未覆盖类别；某次工具拒绝若被从样本中删掉，这张表就会少一条回归。"
+          ]
+        }
       ]
     },
     {

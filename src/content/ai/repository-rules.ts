@@ -89,7 +89,26 @@ export const repositoryRulesArticle: Article = {
       "paragraphs": [
         "规则可以有合理例外，例如修正文稿需要同时更新检索注册表。例外应来自用户或适用的项目合同，并记录具体文件与原因。工具遇到门禁失败后不能自己添加“忽略此文件”把例外变成永久规则。先查这次是否已有授权，再判断改动是否是必要的依赖步骤。",
         "检查程序需要维护，但修改它与业务修复应保持证据清楚。若验证器本身有 bug，先用最小样本证明错误判定，再修复并验证原有反例仍能失败。否则“修验证器”可能实际降低标准，而没有人注意到先前保护的行为被移除。",
-        "把规则编号与门禁报告关联，便于指出失败来源。不要把所有要求合成一个“质量不达标”，也不要把检查日志当作可执行指令。日志是观察结果，后续动作仍由当前任务与授权确定，这同样适用于外部构建日志中的建议。"
+        "把规则编号与门禁报告关联，便于指出失败来源。不要把所有要求合成一个“质量不达标”，也不要把检查日志当作可执行指令。日志是观察结果，后续动作仍由当前任务与授权确定，这同样适用于外部构建日志中的建议。",
+        "下面沿用前文的相对路径合同，在现代浏览器里比较两种失败之后的动作。错误函数把第一次拒绝的路径写进忽略名单再查一遍，于是违规数变成 0。交付函数不修改名单；只有调用前已经给出的精确路径例外可以通过，含 .. 的路径即使被写进例外名单也仍然拒绝。"
+      ],
+      "examples": [
+        {
+          "code": "function violations(paths, ignored) {\n  const found = [];\n  for (const path of paths) {\n    if (ignored.includes(path)) continue;\n    const parts = typeof path === 'string' ? path.split('/') : [''];\n    const traversal = path.startsWith('/') || path.includes('\\\\') || parts.some(part => part === '..' || part === '.' || part === '');\n    const inContent = typeof path === 'string' && path.startsWith('src/content/') && !traversal;\n    if (!inContent) found.push(path);\n  }\n  return found;\n}\nfunction bypass(paths) {\n  const first = violations(paths, []);\n  return violations(paths, first).length + ':' + first.join(',');\n}\nfunction deliver(paths, authorized) {\n  const found = [];\n  for (const path of paths) {\n    const parts = typeof path === 'string' ? path.split('/') : [''];\n    if (typeof path !== 'string' || path.startsWith('/') || path.includes('\\\\') || parts.some(part => part === '..' || part === '.' || part === '')) {\n      found.push(path);\n      continue;\n    }\n    if (authorized.includes(path) || path.startsWith('src/content/')) continue;\n    found.push(path);\n  }\n  return found.length ? 'blocked:' + found.join(',') : 'accepted';\n}\nconst changed = ['src/content/article.ts', 'src/content-backup/settings.ts'];\nconsole.log(violations(changed, []).join(','));\nconsole.log(bypass(changed));\nconsole.log(deliver(changed, []));\nconsole.log(deliver(changed, ['src/content-backup/settings.ts']));\nconsole.log(deliver(['src/content/../config.ts'], ['src/content/../config.ts']));",
+          "expectedOutput": [
+            "src/content-backup/settings.ts",
+            "0:src/content-backup/settings.ts",
+            "blocked:src/content-backup/settings.ts",
+            "accepted",
+            "blocked:src/content/../config.ts"
+          ],
+          "explanation": [
+            "第一次 violations 看到 article.ts 以 src/content/ 开头且没有 ..，所以放过；content-backup 只有相同的字符串前缀，没有目录分隔后的 content 段，进入 found。此时忽略名单仍是空的。",
+            "bypass 把这份 found 原样当作新的忽略名单再查一次。第二条路径被 includes 跳过，返回的违规数是 0，同时输出里仍能看到被忽略的原路径。绿色结果来自名单被本次失败改写。",
+            "deliver 不接收自己刚产生的 found。授权名单为空时，备份路径被拒绝。调用方事先放入同一路径后，该精确字符串才被接受；article.ts 仍靠目录规则通过。这个 accepted 只说明例外名单与路径一致，不说明有人已经批准这次例外。",
+            "最后一次把 src/content/../config.ts 同时作为输入和授权例外。函数先按 .. 段拒绝，不会走到授权名单。因此例外不能豁免父目录跳转。示例仍不解析符号链接，也不读取文件内容。"
+          ]
+        }
       ]
     },
     {

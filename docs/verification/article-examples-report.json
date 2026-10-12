@@ -1,15 +1,57 @@
 {
-  "verifiedAt": "2026-10-09T08:08:22.530Z",
+  "verifiedAt": "2026-10-12T02:08:16.831Z",
   "browser": "154.0.8037.99",
   "articleIds": [
-    "AI18",
-    "AI17",
     "AI13",
-    "AI14"
+    "AI14",
+    "AI17",
+    "AI18"
   ],
-  "examples": 10,
+  "examples": 11,
   "strictTypeScriptExamples": 0,
   "evidence": [
+    {
+      "articleId": "AI13",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "39fc0f4d81c6ba49afbc3f83f41e2dc347ee003a29e62dc8eb16fe8834b309fd",
+      "output": [
+        "refund-v1",
+        "shipping-v2,refund-v2",
+        "refund-v2",
+        "标准订单可在14日退款，定制订单除外。"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI13",
+      "sectionId": "generation",
+      "language": "javascript",
+      "codeSha256": "5a1b350259f1b84ea33274beb08473230c7afb060b36f879c1fd2bdd4f5a3b60",
+      "output": [
+        "located",
+        "unsupported:30日",
+        "incomplete:定制订单除外",
+        "supported",
+        "negated:supported"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "AI13",
+      "sectionId": "citations",
+      "language": "javascript",
+      "codeSha256": "a6fa89a3a9bae71f634998c21cf939c4f856f7153d741377efae73febd46318b",
+      "output": [
+        "located",
+        "stale",
+        "unavailable",
+        "recall=1",
+        "recall=0",
+        "abstain-ready"
+      ],
+      "passed": true
+    },
     {
       "articleId": "AI18",
       "sectionId": "wrong",
@@ -87,34 +129,6 @@
       "passed": true
     },
     {
-      "articleId": "AI13",
-      "sectionId": "wrong",
-      "language": "javascript",
-      "codeSha256": "39fc0f4d81c6ba49afbc3f83f41e2dc347ee003a29e62dc8eb16fe8834b309fd",
-      "output": [
-        "refund-v1",
-        "shipping-v2,refund-v2",
-        "refund-v2",
-        "标准订单可在14日退款，定制订单除外。"
-      ],
-      "passed": true
-    },
-    {
-      "articleId": "AI13",
-      "sectionId": "citations",
-      "language": "javascript",
-      "codeSha256": "a6fa89a3a9bae71f634998c21cf939c4f856f7153d741377efae73febd46318b",
-      "output": [
-        "located",
-        "stale",
-        "unavailable",
-        "recall=1",
-        "recall=0",
-        "abstain-ready"
-      ],
-      "passed": true
-    },
-    {
       "articleId": "AI14",
       "sectionId": "decoder",
       "language": "module",
@@ -144,6 +158,7 @@
     }
   ],
   "limitations": [
-    "Only author-maintained examples; no model API or live backend validation"
+    "Only author-maintained examples; no model API or live backend validation",
+    "AI13 was rechecked on this run, including the generation support example. AI14, AI17 and AI18 evidence is unchanged from the 2026-10-09 run."
   ]
 }

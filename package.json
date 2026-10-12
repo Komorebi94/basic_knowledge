@@ -37,6 +37,16 @@
     "verify:practice-runner": "node scripts/verify-practice-runner.mjs",
     "verify:practice-ui": "node scripts/verify-practice-ui.mjs",
     "verify:performance": "node scripts/verify-performance.mjs",
+    "verify:k03-types": "node scripts/verify-k03-types.mjs",
+    "verify:k03-ui": "node scripts/verify-knowledge-topic-ui.mjs K03",
+    "verify:k04": "node scripts/verify-browser-articles.mjs",
+    "verify:k04-ui": "node scripts/verify-k04-ui.mjs",
+    "verify:k05": "ZHIXU_ARTICLE_IDS=K05-03,K05-04,K05-05,K05-06,K05-07,K05-08 ZHIXU_ARTICLE_REPORT=k05-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k05-ui": "node scripts/verify-knowledge-topic-ui.mjs K05",
+    "verify:k06": "ZHIXU_ARTICLE_IDS=K06-03,K06-04,K06-05,K06-06,K06-07,K06-08 ZHIXU_ARTICLE_REPORT=k06-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k06-ui": "node scripts/verify-knowledge-topic-ui.mjs K06",
+    "verify:k07": "ZHIXU_ARTICLE_IDS=K07-03,K07-04,K07-05,K07-06,K07-07,K07-08 ZHIXU_ARTICLE_REPORT=k07-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k07-ui": "node scripts/verify-knowledge-topic-ui.mjs K07",
     "verify:ai-p1-ui": "node scripts/verify-ai-p1-ui.mjs"
   },
   "dependencies": {

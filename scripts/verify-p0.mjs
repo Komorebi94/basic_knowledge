@@ -45,8 +45,18 @@ assert.equal(p0KnowledgeIds.length, 32);
 assert.equal(p0AiIds.length, 16);
 assert.equal(exercises.length, 24);
 const p0Ids = [...p0KnowledgeIds, ...p0AiIds];
+const browserP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K04" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(browserP1Ids.length, 6);
+const typescriptP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K03" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(typescriptP1Ids.length, 6);
+const htmlCssP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K05" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(htmlCssP1Ids.length, 6);
+const networkingP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K06" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(networkingP1Ids.length, 6);
+const reactP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K07" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(reactP1Ids.length, 6);
 assert.equal(p1AiIds.length, 4);
-for (const id of [...p0Ids, ...p1AiIds]) {
+for (const id of [...p0Ids, ...p1AiIds, ...browserP1Ids, ...typescriptP1Ids, ...htmlCssP1Ids, ...networkingP1Ids, ...reactP1Ids]) {
   const article = articleById.get(id);
   assert(article, `${id}: missing published article`);
   assert(article.sections.length >= 4, `${id}: incomplete body`);
@@ -133,4 +143,4 @@ assert.equal(JSON.stringify(metadata.articles), JSON.stringify(articles.map(({id
 const exerciseMetadata = load(resolve(root,"src/content/exerciseMetadata.json"));
 assert.equal(JSON.stringify(exerciseMetadata),JSON.stringify(exercises.map(({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}) => ({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}))),"Generated exercise summaries are stale");
 assert(exerciseMetadata.every((entry) => !("referenceArtifact" in entry) && !("hints" in entry)),"Reading summaries must not load practice answers");
-console.log(`Published content verified: P0 ${p0KnowledgeIds.length} knowledge + ${p0AiIds.length} AI + ${exercises.length} exercises; P1 ${p1AiIds.length} AI; ${recallCards.length} cards (${recallCards.filter((card) => p0Ids.includes(card.catalogId)).length} P0); ${aiContentContracts.filter(contract => contract.taskTemplate).length} templates; ${reviewCases.length} cases; 204 unique search documents.`);
+console.log(`Published content verified: P0 ${p0KnowledgeIds.length} knowledge + ${p0AiIds.length} AI + ${exercises.length} exercises; P1 ${browserP1Ids.length + typescriptP1Ids.length + htmlCssP1Ids.length + networkingP1Ids.length + reactP1Ids.length} K03–K07 knowledge + ${p1AiIds.length} AI; ${recallCards.length} cards (${recallCards.filter((card) => p0Ids.includes(card.catalogId)).length} P0); ${aiContentContracts.filter(contract => contract.taskTemplate).length} templates; ${reviewCases.length} cases; 204 unique search documents.`);

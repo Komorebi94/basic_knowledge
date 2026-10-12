@@ -6,8 +6,9 @@ import { join } from "node:path";
 import { runInNewContext } from "node:vm";
 import { chromium } from "playwright";
 import ts from "typescript";
+import { startArticleFixture } from "./lib/article-fixture.mjs";
 
-// Run only reviewed examples from repository article modules in isolated blank pages.
+// Run reviewed article examples in isolated blank pages or a disposable origin fixture.
 // Reader submissions and imported backups never enter this verifier.
 // language "module" runs as an ES module so top-level await and live bindings are real.
 const articles = [];
@@ -27,13 +28,25 @@ for (const directory of ["knowledge", "ai"]) {
 
 const temp = await mkdtemp(join(tmpdir(), "zhixu-article-examples-"));
 const requestedIds = (process.env.ZHIXU_ARTICLE_IDS ?? "").split(",").filter(Boolean);
+// Origin-dependent browser lessons use an isolated loopback fixture, never the main site.
+let exampleOrigin = process.env.ZHIXU_ARTICLE_ORIGIN;
+if (exampleOrigin) {
+  const url = new URL(exampleOrigin);
+  assert(url.protocol === "http:" && url.hostname === "127.0.0.1", "Example origin must be an isolated loopback HTTP fixture");
+}
 for (const id of requestedIds) assert(articles.some(article => (article.catalogId ?? article.id) === id), `Unknown article ID: ${id}`);
 const selectedArticles = requestedIds.length ? articles.filter(article => requestedIds.includes(article.catalogId ?? article.id)) : articles;
+const needsOrigin = selectedArticles.some(article => ["K04-04", "K04-06", "K04-07"].includes(article.id));
+const worker = articles.find(article => article.id === "K04-07")?.sections.find(section => section.id === "worker")?.code;
+const offlinePage = articles.find(article => article.id === "K04-07")?.sections.find(section => section.id === "offline-page")?.code;
+const fixture = !exampleOrigin && needsOrigin ? await startArticleFixture(worker, offlinePage) : undefined;
+exampleOrigin ??= fixture?.origin;
 const evidence = [];
 let checked = 0;
 let typed = 0;
-const browser = await chromium.launch({ channel: "chrome", headless: true });
+let browser;
 try {
+  browser = await chromium.launch({ channel: "chrome", headless: true });
   for (const article of selectedArticles) {
     for (const section of article.sections) {
       for (const example of section.examples ?? []) {
@@ -60,6 +73,7 @@ try {
           typed += 1;
         }
         const page = await browser.newPage();
+        if (exampleOrigin) await page.goto(exampleOrigin);
         const output = [];
         const errors = [];
         page.on("console", (message) => {
@@ -87,9 +101,12 @@ try {
       }
     }
   }
-  await writeFile(new URL("../docs/verification/article-examples-report.json", import.meta.url), JSON.stringify({ verifiedAt: new Date().toISOString(), browser: browser.version(), articleIds: selectedArticles.map(article => article.catalogId ?? article.id), examples: checked, strictTypeScriptExamples: typed, evidence, limitations: ["Only author-maintained examples; no model API or live backend validation"] }, null, 2) + "\n");
+  const report = process.env.ZHIXU_ARTICLE_REPORT ?? "article-examples-report.json";
+  assert(/^[a-z0-9-]+\.json$/.test(report), "Report must be a JSON filename");
+  await writeFile(new URL(`../docs/verification/${report}`, import.meta.url), JSON.stringify({ verifiedAt: new Date().toISOString(), browser: browser.version(), articleIds: selectedArticles.map(article => article.catalogId ?? article.id), examples: checked, strictTypeScriptExamples: typed, evidence, limitations: ["Only author-maintained examples; no model API or live backend validation"] }, null, 2) + "\n");
   console.log(`Verified ${selectedArticles.length} articles / ${checked} browser examples / ${typed} strict TypeScript examples.`);
 } finally {
-  await browser.close();
+  await browser?.close();
+  await fixture?.close();
   await rm(temp, { recursive: true, force: true });
 }

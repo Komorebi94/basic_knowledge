@@ -1,0 +1,58 @@
+{
+  "compilerVersion": "6.0.3",
+  "negativeChecks": [
+    {
+      "articleId": "K03-03",
+      "sectionId": "negative-factory",
+      "expectedDiagnosticCodes": [
+        2322
+      ]
+    },
+    {
+      "articleId": "K03-04",
+      "sectionId": "negative-required",
+      "expectedDiagnosticCodes": [
+        2741
+      ]
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "negative-parameter",
+      "expectedDiagnosticCodes": [
+        2322
+      ]
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "negative-optional",
+      "expectedDiagnosticCodes": [
+        2345
+      ]
+    },
+    {
+      "articleId": "K03-06",
+      "sectionId": "negative-optional",
+      "expectedDiagnosticCodes": [
+        2375
+      ]
+    },
+    {
+      "articleId": "K03-07",
+      "sectionId": "negative-public-options",
+      "expectedDiagnosticCodes": [
+        2322
+      ]
+    },
+    {
+      "articleId": "K03-08",
+      "sectionId": "negative-config",
+      "expectedDiagnosticCodes": [
+        1360
+      ]
+    }
+  ],
+  "packageArticleId": "K03-07",
+  "packageSourceSection": "library-source",
+  "packageManifestSection": "package-exports",
+  "packageConsumerSection": "consumer-files"
+}

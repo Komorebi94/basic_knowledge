@@ -1,6 +1,6 @@
 # 知序 · 个人技术知识库
 
-这是一个供个人长期学习与复习的前端知识空间。规划目录包含 16 个专题的 128 个前端知识单元、40 道练习、20 个 AI 工程单元。现已补齐首版 P0：32 篇知识教程、16 篇 AI 教程、24 道完整练习、96 张回忆卡、至少 4 套任务模板和 3 个审阅案例。2026-10-09 补齐 4 篇 AI P1 教程；当前实际可读 44 篇知识、20 篇 AI，共 64 篇文章，回忆卡共 134 张。
+这是一个供个人长期学习与复习的前端知识空间。规划目录包含 16 个专题的 128 个前端知识单元、40 道练习、20 个 AI 工程单元。现已补齐首版 P0：32 篇知识教程、16 篇 AI 教程、24 道完整练习、96 张回忆卡、至少 4 套任务模板和 3 个审阅案例。2026-10-09 补齐 4 篇 AI P1 教程；2026-10-12 补齐 K04、K03、K05、K06、K07 各 6 篇扩展教程；当前实际可读 74 篇知识、20 篇 AI，共 94 篇文章，回忆卡共 224 张。
 
 正文、练习题面和目录均可搜索。文章提供折叠自检与关联练习；练习提供合同、骨架、三层提示、参考实现、逐步解析和行为用例。已接入隔离运行、练习草稿与通过证据、复习订阅与评分、阅读位置、收藏、补强和完整个人数据备份。实际进度见 [实现记录](docs/implementation-status.md)。
 
@@ -42,9 +42,19 @@ npm run verify:practice-runner
 npm run verify:practice-ui
 npm run verify:performance
 npm run verify:ai-p1-ui
+npm run verify:k04
+npm run verify:k04-ui
+npm run verify:k03-types
+npm run verify:k03-ui
+npm run verify:k05
+npm run verify:k05-ui
+npm run verify:k06
+npm run verify:k06-ui
+npm run verify:k07
+npm run verify:k07-ui
 ```
 
-主站构建产物位于 dist/，运行器产物位于 dist-runner/。浏览器验证需要本地开发服务器，以及已安装的 Chrome；默认主站 5173、运行器 5174，可用 ZHIXU_MAIN_ORIGIN 和 ZHIXU_RUNNER_ORIGIN 指定。运行器通过 npm run dev:runner 启动。验证脚本使用临时浏览器上下文，不读取日常浏览器资料。项目没有连接模型 API。
+主站构建产物位于 dist/，运行器产物位于 dist-runner/。浏览器验证需要本地开发服务器，以及已安装的 Chrome；默认主站 5173、运行器 5174，可用 ZHIXU_MAIN_ORIGIN 和 ZHIXU_RUNNER_ORIGIN 指定。运行器通过 npm run dev:runner 启动。验证脚本使用临时浏览器上下文，不读取日常浏览器资料。`verify:k04` 自行启动独立临时 origin，运行 18 个新增作者示例及 Service Worker 离线/更新实验，不需要主站；`verify:k04-ui` 检查主站 K04 目录与六篇新增教程。`verify:k03-types` 验证编译反例和独立临时包的 Bundler/NodeNext 消费，`verify:k03-ui` 检查 K03 阅读合同。`verify:k05` 在独立 Chrome 空白页核对六篇新增教程的作者示例，`verify:k05-ui` 检查 K05 目录与阅读合同。`verify:k06`、`verify:k07` 同样在空白页核对各自六篇新增教程；`verify:k06-ui`、`verify:k07-ui` 检查网络与 React 目录及阅读合同。项目没有连接模型 API。
 
 ## 当前页面
 
@@ -52,8 +62,8 @@ npm run verify:ai-p1-ui
 | --- | --- |
 | / | 重定向到知识地图 |
 | /knowledge、/knowledge/:domain | 16 个专题、128 个单元的完整目录与学习范围 |
-| /search?q=… | 搜索完整目录、64 篇正文与24道练习题面；支持内容 ID，待编写条目定位目录锚点 |
-| /knowledge/:domain/:slug、/ai/:slug | 44+20 篇完整教程、折叠回忆问题、关联练习与章节深链接 |
+| /search?q=… | 搜索完整目录、94 篇正文与24道练习题面；支持内容 ID，待编写条目定位目录锚点 |
+| /knowledge/:domain/:slug、/ai/:slug | 74+20 篇完整教程、折叠回忆问题、关联练习与章节深链接 |
 | /practice、/ai | 40 道练习规划目录，24 道题已开放；20 篇 AI 教程全部开放 |
 | /practice/:slug | 24 道完整题目、代码自动保存、隔离运行、停止、结果、提示、解析、尝试与证据历史 |
 | 文章与练习详情路径 | 内容尚未发布时显示恢复入口 |
@@ -77,7 +87,7 @@ npm run verify:ai-p1-ui
 
 [产品定位](docs/design/01-product.md) · [页面规格](docs/design/05-pages.md) · [设计图](docs/design/visuals/README.md) · [交接说明](docs/design/15-handoff.md)
 
-当前 64 篇正文按深入教程标准编写。原 60 篇文章已验证 207 个浏览器示例及其中 9 个 TypeScript 示例的严格类型检查；新增 4 篇 AI P1 的 10 个示例另有 [执行报告](docs/verification/article-examples-report.json)。可用 `ZHIXU_ARTICLE_IDS=AI13,AI14,AI17,AI18 npm run verify:articles` 复现新增检查，不指定 ID 则检查全部作者示例。`npm run verify:exercises` 已验证 182 个行为用例、72 个可见样例，并击败 48 个典型错误实现。练习复现说明见 [harness 文档](docs/verification/exercise-harness.md)。模块示例以 ES 模块执行。闭包教程的 12 个示例另可运行 `npm run verify:closures` 验证；详细内容制作与阅读修订标准见 [D14](docs/design/15-handoff.md)。
+当前 94 篇正文按深入教程标准编写。原 60 篇文章已验证 207 个浏览器示例及其中 9 个 TypeScript 示例的严格类型检查；2026-10-12 又为 AI04、AI06、AI16、AI20 追加 4 个示例并通过定向检查。4 篇 AI P1 现有 11 个示例，见 [执行报告](docs/verification/article-examples-report.json)。可用 `ZHIXU_ARTICLE_IDS=AI13,AI14,AI17,AI18 npm run verify:articles` 复现新增检查，不指定 ID 则检查全部作者示例。`npm run verify:exercises` 已验证 182 个行为用例、72 个可见样例，并击败 48 个典型错误实现。练习复现说明见 [harness 文档](docs/verification/exercise-harness.md)。模块示例以 ES 模块执行。闭包教程的 12 个示例另可运行 `npm run verify:closures` 验证；详细内容制作与阅读修订标准见 [D14](docs/design/15-handoff.md)。
 
 
 内容发布门禁 `npm run verify:p0` 会验证 P0 数量、稳定 ID、卡片与原文锚点、AI 合同、模板/案例、公开元数据、来源 URL 与双向关联；`npm run build` 自动运行此门禁。参考用例仅执行仓库作者内容，用户输入与导入备份不会进入这些脚本。

@@ -1,0 +1,17 @@
+{
+  "verifiedAt": "2026-10-12T03:10:04.380Z",
+  "browser": "154.0.8037.99",
+  "workerSha256": "f462ed9a41c53aa880ce7ae42a00319715415dc5c40e0a1a2bb1fad147d7f608",
+  "checks": [
+    "First document has no controller without claim",
+    "New navigation is controlled",
+    "Real offline navigation returns precached fallback",
+    "Returning online uses network",
+    "v2 waits while v1 client remains and both caches exist"
+  ],
+  "limitations": [
+    "Temporary isolated loopback origin only",
+    "No site-wide offline feature installed",
+    "No full cross-browser, physical quota, user permission or bfcache matrix"
+  ]
+}

@@ -3,6 +3,10 @@ import { knowledgeTopics, aiTopics } from "./catalog";
 import exercises from "./exerciseMetadata.json";
 import existingCards from "./existing-cards.json";
 import knowledgeCards from "./knowledge/p0-cards.json";
+import browserCards from "./knowledge/browser-p1-cards.json";
+import typescriptCards from "./knowledge/typescript-p1-cards.json";
+import htmlCssCards from "./knowledge/html-css-p1-cards.json";
+import networkingReactCards from "./knowledge/networking-react-p1-cards.json";
 import aiCards from "./ai/p0-cards.json";
 import p1RetrievalStream from "./ai/p1-retrieval-stream.json";
 import p1CollaborationCost from "./ai/p1-collaboration-cost.json";
@@ -34,7 +38,7 @@ export interface ReviewCase {
 export const reviewCases: readonly ReviewCase[] = caseSource;
 
 const cardCounts = new Map<string, number>();
-export const recallCards: readonly RecallCard[] = [...existingCards, ...knowledgeCards, ...aiCards, ...p1RetrievalStream.cards, ...p1CollaborationCost.cards].map((card) => {
+export const recallCards: readonly RecallCard[] = [...existingCards, ...knowledgeCards, ...browserCards, ...typescriptCards, ...htmlCssCards, ...networkingReactCards, ...aiCards, ...p1RetrievalStream.cards, ...p1CollaborationCost.cards].map((card) => {
   const article = publicMetadata.articles.find((item) => (item.catalogId ?? item.id) === card.catalogId);
   if (!article) throw new Error(`回忆卡片没有对应文章：${card.catalogId}`);
   const order = (cardCounts.get(card.catalogId) ?? 0) + 1;

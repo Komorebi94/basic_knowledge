@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K03-03",
+    "sourceHeadingId": "relationship",
+    "question": "findById 为什么返回 T | undefined 而不是基础 id 接口？",
+    "answerPoints": [
+      "T 保留输入元素的附加字段",
+      "查找可能没有结果，必须保留 undefined",
+      "约束只决定实现可读取的最小能力"
+    ],
+    "pitfalls": [
+      "把约束当成返回值全部字段"
+    ]
+  },
+  {
+    "catalogId": "K03-03",
+    "sourceHeadingId": "negative-factory",
+    "question": "为何 {name:string} 不能直接返回为任意 T extends {name:string}？",
+    "answerPoints": [
+      "T 可能还要求其他字段或更窄字面量",
+      "满足基础约束不等于满足具体 T",
+      "构造完整 T 需要已有对象或调用方工厂"
+    ],
+    "pitfalls": [
+      "用类型断言掩盖缺失字段"
+    ]
+  },
+  {
+    "catalogId": "K03-03",
+    "sourceHeadingId": "inference",
+    "question": "parseJson<T> 为什么不能自动校验 JSON？",
+    "answerPoints": [
+      "类型参数在运行时消失",
+      "JSON 解析只确定语法，不证明领域结构",
+      "应通过 unknown 与验证器建立 T"
+    ],
+    "pitfalls": [
+      "由调用方指定 T 就认定响应可信"
+    ]
+  },
+  {
+    "catalogId": "K03-04",
+    "sourceHeadingId": "distribution",
+    "question": "什么时候条件类型会分别处理联合成员？",
+    "answerPoints": [
+      "检查侧为裸类型参数时通常发生分布",
+      "元组包装可把检查改为整体比较",
+      "需要根据实际工具定义推导"
+    ],
+    "pitfalls": [
+      "认为所有 extends 判定都会分布"
+    ]
+  },
+  {
+    "catalogId": "K03-04",
+    "sourceHeadingId": "infer",
+    "question": "为何判断 never 常使用 [T] extends [never]？",
+    "answerPoints": [
+      "裸参数对 never 分布得到没有成员的结果",
+      "包装后整体比较可以返回 true",
+      "never 不等同于 undefined 或普通空值"
+    ],
+    "pitfalls": [
+      "用 T extends never 却期待普通布尔结果"
+    ]
+  },
+  {
+    "catalogId": "K03-04",
+    "sourceHeadingId": "mapping",
+    "question": "移除可选修饰符后，字段值会自动生成吗？",
+    "answerPoints": [
+      "映射只改变静态合同",
+      "初始化必须真正提供必需字段",
+      "运行时归一与默认值需独立实现"
+    ],
+    "pitfalls": [
+      "用类型断言冒充字段已补全"
+    ]
+  },
+  {
+    "catalogId": "K03-05",
+    "sourceHeadingId": "contravariance",
+    "question": "只处理 Order 的函数为何不能接收所有 BaseEvent？",
+    "answerPoints": [
+      "入口允许传缺少订单金额的基础事件",
+      "窄参数实现会读取不存在的字段",
+      "应缩小入口或扩宽处理器的安全能力"
+    ],
+    "pitfalls": [
+      "因为字段结构相近就允许替换"
+    ]
+  },
+  {
+    "catalogId": "K03-05",
+    "sourceHeadingId": "methods",
+    "question": "方法签名赋值通过能证明窄参数安全吗？",
+    "answerPoints": [
+      "方法有参数双向兼容例外",
+      "宽输入仍可能违反实现需求",
+      "严格边界可用函数属性并配负向检查"
+    ],
+    "pitfalls": [
+      "为消除报错切换到方法语法"
+    ]
+  },
+  {
+    "catalogId": "K03-05",
+    "sourceHeadingId": "arity",
+    "question": "为什么回调忽略索引不需要把 index 声明为可选？",
+    "answerPoints": [
+      "函数可以忽略调用方额外提供的参数",
+      "可选参数表示调用方可以省略它",
+      "实际始终提供的索引应按真实合同声明"
+    ],
+    "pitfalls": [
+      "混淆少接收参数与允许缺席"
+    ]
+  },
+  {
+    "catalogId": "K03-06",
+    "sourceHeadingId": "projection",
+    "question": "为什么 Omit 后 JSON 仍可能包含内部字段？",
+    "answerPoints": [
+      "Omit 只改变静态可见类型",
+      "结构赋值可保留原对象额外字段",
+      "公开响应需要运行时显式投影"
+    ],
+    "pitfalls": [
+      "把额外属性检查当全局字段过滤"
+    ]
+  },
+  {
+    "catalogId": "K03-06",
+    "sourceHeadingId": "commands",
+    "question": "Partial<Product> 为什么不能直接当改价命令？",
+    "answerPoints": [
+      "它不表达金额与币种必须一起更新",
+      "它可能暴露不允许修改的内部字段",
+      "业务更新需命令合同与运行时不变量"
+    ],
+    "pitfalls": [
+      "只按字段是否可选判断业务有效"
+    ]
+  },
+  {
+    "catalogId": "K03-06",
+    "sourceHeadingId": "readonly",
+    "question": "Readonly 为何没有阻止 tags.push？",
+    "answerPoints": [
+      "Readonly 只限制顶层属性重赋",
+      "嵌套数组和其他别名仍可能修改对象",
+      "深层不可变或快照需要独立策略"
+    ],
+    "pitfalls": [
+      "把静态只读当运行时深冻结"
+    ]
+  },
+  {
+    "catalogId": "K03-07",
+    "sourceHeadingId": "ambient",
+    "question": "declare function 为什么能编译却在运行时 ReferenceError？",
+    "answerPoints": [
+      "声明只描述预期存在的能力",
+      "它不生成对应函数实现",
+      "必须核对代码入口与真实运行环境"
+    ],
+    "pitfalls": [
+      "把声明文件当可执行库"
+    ]
+  },
+  {
+    "catalogId": "K03-07",
+    "sourceHeadingId": "package-exports",
+    "question": "为什么双模块库要分别核对类型与 JavaScript 入口？",
+    "answerPoints": [
+      "import/require 消费方有不同模块语义",
+      "类型入口存在不保证代码入口可执行",
+      "声明和代码都应来自真实构建产物"
+    ],
+    "pitfalls": [
+      "只改扩展名就宣称兼容两种模块"
+    ]
+  },
+  {
+    "catalogId": "K03-07",
+    "sourceHeadingId": "resolution",
+    "question": "paths 配置为什么不能保证 Node 找到模块？",
+    "answerPoints": [
+      "它影响编译解析，不自动重写输出路径",
+      "实际运行仍需合法模块入口或对应工具支持",
+      "应在发布包布局下跑真实消费者"
+    ],
+    "pitfalls": [
+      "用源码路径导入代替发布验证"
+    ]
+  },
+  {
+    "catalogId": "K03-08",
+    "sourceHeadingId": "finite",
+    "question": "两种明确字段为何未必需要深路径递归类型？",
+    "answerPoints": [
+      "有限判别联合直接表达值与操作关系",
+      "新增成员可在穷尽检查中暴露",
+      "无真实消费者的递归工具增加理解与编译成本"
+    ],
+    "pitfalls": [
+      "把泛化程度当成质量"
+    ]
+  },
+  {
+    "catalogId": "K03-08",
+    "sourceHeadingId": "performance",
+    "question": "类型性能变化应该用什么证据判断？",
+    "answerPoints": [
+      "固定编译器、配置、文件与机器条件",
+      "记录诊断指标并用 trace 定位关系",
+      "改写后保持正向与负向语义"
+    ],
+    "pitfalls": [
+      "用浏览器运行时间证明类型检查变快"
+    ]
+  },
+  {
+    "catalogId": "K03-08",
+    "sourceHeadingId": "configuration",
+    "question": "satisfies 能替代动态 JSON 验证吗？",
+    "answerPoints": [
+      "它只检查受编译表达式的静态关系",
+      "动态输入仍需 unknown 收窄",
+      "它不生成过滤或校验代码"
+    ],
+    "pitfalls": [
+      "配置满足类型就认为所有运行输入可信"
+    ]
+  }
+]

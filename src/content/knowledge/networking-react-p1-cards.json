@@ -1,0 +1,254 @@
+[
+  {
+    "catalogId": "K06-03",
+    "sourceHeadingId": "origin",
+    "question": "显式写出 443 端口，为什么仍可能和 https URL 是同一源？",
+    "answerPoints": ["源由方案、主机和端口组成", "https 的默认端口不会把源拆开", "不同方案或主机即使指向同一 IP 也不是同一源"],
+    "pitfalls": ["用 IP 相等判断浏览器能否复用连接"]
+  },
+  {
+    "catalogId": "K06-03",
+    "sourceHeadingId": "choice",
+    "question": "浏览器在没有 TLS 时，为什么不能靠配置改用 HTTP/2？",
+    "answerPoints": ["浏览器不使用明文 h2c", "h2 需要 TLS 且 ALPN 选中 h2", "HTTP/3 还需要 QUIC 的 TLS 1.3 和发现信号"],
+    "pitfalls": ["把服务器打开的协议版本当成客户端一定可用"]
+  },
+  {
+    "catalogId": "K06-03",
+    "sourceHeadingId": "blocking",
+    "question": "HTTP/2 已经多路复用，为什么一个丢包仍会拖住其他流？",
+    "answerPoints": ["HTTP/2 消除的是应用层一次只处理一个响应", "这些流仍共享一条按序交付的 TCP 连接", "QUIC 可以把阻塞限制在丢失的那条流"],
+    "pitfalls": ["把同连接上的集体延迟判断成每个请求各自的服务器故障"]
+  },
+  {
+    "catalogId": "K06-04",
+    "sourceHeadingId": "placement",
+    "question": "访问令牌放进 localStorage 和 HttpOnly Cookie，暴露面有什么不同？",
+    "answerPoints": ["localStorage 可被同源脚本读出并在刷新后保留", "HttpOnly Cookie 不进入脚本可读的 Cookie 字符串", "Cookie 由浏览器自动附带，因此要单独处理 CSRF"],
+    "pitfalls": ["同时在两个位置保存同一权限的令牌"]
+  },
+  {
+    "catalogId": "K06-04",
+    "sourceHeadingId": "refresh",
+    "question": "多个请求同时遇到访问令牌过期时，刷新应怎么发生？",
+    "answerPoints": ["等待者共享同一次刷新 Promise", "轮换刷新令牌不是可并发重复的操作", "失败后不要在回调里立刻无限递归刷新"],
+    "pitfalls": ["每个 401 各自携带同一个旧刷新令牌"]
+  },
+  {
+    "catalogId": "K06-04",
+    "sourceHeadingId": "attributes",
+    "question": "Set-Cookie 上的 HttpOnly 和 SameSite 分别约束什么？",
+    "answerPoints": ["HttpOnly 阻止脚本读取令牌文本", "SameSite 约束跨站请求是否自动附带", "None 必须同时使用 Secure"],
+    "pitfalls": ["按旧的默认行为假设未写 SameSite 的 Cookie 会跨站发送"]
+  },
+  {
+    "catalogId": "K06-05",
+    "sourceHeadingId": "preflight",
+    "question": "POST application/json 为什么会先出现 OPTIONS？",
+    "answerPoints": ["JSON 内容类型不在简单请求的类型名单里", "预检询问源、方法和头是否被允许", "预检失败时业务请求可能还没有发出"],
+    "pitfalls": ["只在 GET 上配置 CORS，却用 JSON 调用接口"]
+  },
+  {
+    "catalogId": "K06-05",
+    "sourceHeadingId": "expose",
+    "question": "Allow-Origin 为星号并且携带凭据时，脚本能读取响应吗？",
+    "answerPoints": ["带凭据时不能使用星号", "允许凭据时要回写具体源", "自定义响应头还要列入暴露名单"],
+    "pitfalls": ["用 CORS 失败代替服务端权限检查"]
+  },
+  {
+    "catalogId": "K06-05",
+    "sourceHeadingId": "origin",
+    "question": "同源比较包含路径吗？",
+    "answerPoints": ["源只包含方案、主机和端口", "子域是不同源", "CORS 放行读取并不授予业务操作权限"],
+    "pitfalls": ["认为不返回 CORS 头就能阻止请求到达服务器"]
+  },
+  {
+    "catalogId": "K06-06",
+    "sourceHeadingId": "choice",
+    "question": "什么情况下应继续用 fetch，而不是换 WebSocket？",
+    "answerPoints": ["一次请求对应一个结果时用 fetch", "服务器单向文本推送可以选 SSE", "双向连续消息才需要 WebSocket 自己的重连和鉴权"],
+    "pitfalls": ["为了一次按钮提交升级成长连接"]
+  },
+  {
+    "catalogId": "K06-06",
+    "sourceHeadingId": "frames",
+    "question": "SSE 的下一条事件没有 id 字段时，编号如何确定？",
+    "answerPoints": ["事件以空行结束", "多行 data 在空行处拼成一条正文", "已出现的 id 会保留到后续事件"],
+    "pitfalls": ["每读到一行 data 就提交一次业务更新"]
+  },
+  {
+    "catalogId": "K06-06",
+    "sourceHeadingId": "resume",
+    "question": "重连后如何避免把已处理的状态再执行一次？",
+    "answerPoints": ["保存最后一条已应用的编号", "小于或等于该编号的事件不再执行副作用", "编号出现空档时应重新拉取权威快照"],
+    "pitfalls": ["把连接打开事件当成一次新的业务操作"]
+  },
+  {
+    "catalogId": "K06-07",
+    "sourceHeadingId": "parts",
+    "question": "重试同一个分片时，为什么不能把它追加成新内容？",
+    "answerPoints": ["分片边界和分片号要稳定", "重复到达的同一分片号只保留一份", "全部到齐后仍要校验整个对象"],
+    "pitfalls": ["用文件名查找半截进度"]
+  },
+  {
+    "catalogId": "K06-07",
+    "sourceHeadingId": "resume",
+    "question": "本地文件长度变了，为什么不能继续使用旧分片？",
+    "answerPoints": ["上传号绑定原来的长度和校验", "长度变化后应创建新的上传", "过期的上传号也不能拿来续传"],
+    "pitfalls": ["只因为分片计数达到总数就宣布成功"]
+  },
+  {
+    "catalogId": "K06-07",
+    "sourceHeadingId": "cancel",
+    "question": "用户取消后，已经上传的分片必须立刻删除吗？",
+    "answerPoints": ["取消要停止当前和未开始的分片", "已接受的分片可以保留到上传号过期", "丢弃整个上传应是单独的明确操作"],
+    "pitfalls": ["界面停止后仍自动从第 1 片重传"]
+  },
+  {
+    "catalogId": "K06-08",
+    "sourceHeadingId": "compatible",
+    "question": "响应多了一个未知字段，旧客户端应该怎么处理？",
+    "answerPoints": ["兼容读取会忽略未知字段", "必填字段的类型被改变则拒绝", "null 和字段缺省可以表示不同含义"],
+    "pitfalls": ["把未知字段当成契约破坏并拒绝渲染"]
+  },
+  {
+    "catalogId": "K06-08",
+    "sourceHeadingId": "page",
+    "question": "活列表为什么不用递增偏移取下一页？",
+    "answerPoints": ["读取期间插入或删除会让偏移漏项或重复", "下一页使用上一页给出的不透明游标", "客户端不解析游标内部结构"],
+    "pitfalls": ["未知游标时静默回到第一页而不报告错误"]
+  },
+  {
+    "catalogId": "K06-08",
+    "sourceHeadingId": "time",
+    "question": "接口里的时间应使用哪种文本？",
+    "answerPoints": ["使用带偏移的日期时间字符串", "显示格式留在客户端按用户时区处理", "只有日期的值和某一时刻不是同一类型"],
+    "pitfalls": ["把页面语言里的“上午 8 点”写进 JSON"]
+  },
+  {
+    "catalogId": "K07-03",
+    "sourceHeadingId": "identity",
+    "question": "列表重排后，为什么稳定 id 能留下原来的输入？",
+    "answerPoints": ["key 表示兄弟组件的身份", "同一 key 会配对到原来的状态", "key 消失表示卸载，新 key 从初始状态开始"],
+    "pitfalls": ["每次渲染用随机数充当 key"]
+  },
+  {
+    "catalogId": "K07-03",
+    "sourceHeadingId": "index",
+    "question": "用数组下标当 key，删除第一项后状态会怎样？",
+    "answerPoints": ["下标表示位置而不是数据身份", "后面的项会接到前面位置留下的状态", "只在末尾追加时问题可能暂时看不见"],
+    "pitfalls": ["把下标 key 的警告消失当成身份已经正确"]
+  },
+  {
+    "catalogId": "K07-03",
+    "sourceHeadingId": "type",
+    "question": "同一位置从编辑组件换成预览组件，草稿为什么会消失？",
+    "answerPoints": ["组件类型变化会卸载原来的状态", "要保留草稿时把状态放在仍然挂载的父级", "更换 key 也可以主动重置下一位用户的表单"],
+    "pitfalls": ["指望子组件卸载后仍保留内部未提交内容"]
+  },
+  {
+    "catalogId": "K07-04",
+    "sourceHeadingId": "lift",
+    "question": "两个组件各自 useState 同一个初始数量，为什么会显示不同数字？",
+    "answerPoints": ["各自的状态在复制后独立更新", "共享事实放在最近的共同父级", "子组件通过 props 读取、通过回调请求修改"],
+    "pitfalls": ["用 Effect 把 props 再复制进一份 state"]
+  },
+  {
+    "catalogId": "K07-04",
+    "sourceHeadingId": "server",
+    "question": "先发出的请求后返回时，如何避免覆盖新的界面？",
+    "answerPoints": ["给每次读取一个身份", "只有当前身份可以写入已见结果", "本地草稿和服务端副本要明确哪一份获胜"],
+    "pitfalls": ["把第一次复制进 state 的响应当成永久来源"]
+  },
+  {
+    "catalogId": "K07-04",
+    "sourceHeadingId": "local",
+    "question": "父组件后来传入新的初始值，已挂载的本地状态会自动改变吗？",
+    "answerPoints": ["初始值只在挂载时采用", "之后的 props 不会自动覆盖该状态", "需要重置时更换身份或在明确事件里更新"],
+    "pitfalls": ["渲染期间发现 props 不同就无条件 setState"]
+  },
+  {
+    "catalogId": "K07-05",
+    "sourceHeadingId": "transition",
+    "question": "搜索输入已经变化，为什么列表可以暂时保持旧结果？",
+    "answerPoints": ["输入是紧急更新，应立即显示", "列表刷新可以放进过渡", "pending 表示等待，不要求卸载当前内容"],
+    "pitfalls": ["任一请求开始就把整页换成加载图"]
+  },
+  {
+    "catalogId": "K07-05",
+    "sourceHeadingId": "suspense",
+    "question": "Suspense 边界在子树尚未完成和出错时分别显示什么？",
+    "answerPoints": ["尚未完成时显示该边界的后备内容", "完成后显示子树内容", "错误交给错误边界，而不是 Suspense 自己"],
+    "pitfalls": ["在每次渲染中直接发请求，却没有稳定缓存"]
+  },
+  {
+    "catalogId": "K07-05",
+    "sourceHeadingId": "scope",
+    "question": "首次进入和后续刷新，为什么可以使用不同的等待方式？",
+    "answerPoints": ["首次没有旧内容时可以使用后备界面", "后续刷新可以保留旧内容并显示 pending", "互不相关的区域使用各自的边界"],
+    "pitfalls": ["把输入按键和整页路由放进同一个过渡"]
+  },
+  {
+    "catalogId": "K07-06",
+    "sourceHeadingId": "order",
+    "question": "为什么不能把 useState 放进条件分支？",
+    "answerPoints": ["状态按本次渲染的 Hook 调用顺序保存", "少调用一次会让后面的读取落到别人的槽位", "条件应放进稳定 Hook 的参数或 Effect 内部"],
+    "pitfalls": ["在点击回调里调用 Hook"]
+  },
+  {
+    "catalogId": "K07-06",
+    "sourceHeadingId": "deps",
+    "question": "依赖数组里每次渲染都新建的函数，Effect 会怎样？",
+    "answerPoints": ["依赖按位置用 Object.is 比较", "新函数和新对象都算变化", "变化后会清理上一次并重新同步"],
+    "pitfalls": ["用空依赖掩盖仍然使用的房间 id"]
+  },
+  {
+    "catalogId": "K07-06",
+    "sourceHeadingId": "reuse",
+    "question": "两个组件调用同一个自定义 Hook，会共享那份状态吗？",
+    "answerPoints": ["每个调用组件拥有自己的 Hook 状态", "Hook 复用的是建立状态和订阅的步骤", "模块级变量会跨组件共享且不随卸载还原"],
+    "pitfalls": ["把自定义 Hook 当成全局存储"]
+  },
+  {
+    "catalogId": "K07-07",
+    "sourceHeadingId": "capability",
+    "question": "按 React 19 的服务器组件模型，useState 可以在服务器组件里使用吗？",
+    "answerPoints": ["服务器组件可以异步读取服务器资源", "useState 和 Effect 属于客户端能力", "需要两者时拆成服务器父级和客户端子组件"],
+    "pitfalls": ["在同一个组件里同时写数据库查询和 useState"]
+  },
+  {
+    "catalogId": "K07-07",
+    "sourceHeadingId": "import",
+    "question": "客户端文件可以导入服务器组件模块吗？",
+    "answerPoints": ["服务器父级可以引用客户端子组件", "客户端模块不能导入服务器模块", "use client 标在文件入口，不是某一行的临时开关"],
+    "pitfalls": ["给整个路由加上 use client 来绕过读取错误"]
+  },
+  {
+    "catalogId": "K07-07",
+    "sourceHeadingId": "props",
+    "question": "为什么服务器不能把事件函数当作普通属性传给客户端组件？",
+    "answerPoints": ["跨边界的属性必须能被协议序列化", "函数和服务器资源对象不能当普通属性传递", "事件处理应定义在客户端模块内"],
+    "pitfalls": ["用 structuredClone 成功代替完整的 Flight 序列化测试"]
+  },
+  {
+    "catalogId": "K07-08",
+    "sourceHeadingId": "memo",
+    "question": "memo 之后属性内容没变，为什么子树仍会渲染？",
+    "answerPoints": ["比较使用上一次和这一次的引用", "新数组或新函数都会导致继续渲染", "应先测量，并让真正没变的引用保持稳定"],
+    "pitfalls": ["未测量就给每一行同时加多种缓存"]
+  },
+  {
+    "catalogId": "K07-08",
+    "sourceHeadingId": "window",
+    "question": "固定行高的虚拟列表如何决定挂载哪些行？",
+    "answerPoints": ["用滚动位置、视口和行高计算可见区间", "overscan 在区间两侧多保留少量行", "可变行高不能继续用固定除法"],
+    "pitfalls": ["窗口外不挂载组件，却仍为每一行创建重订阅"]
+  },
+  {
+    "catalogId": "K07-08",
+    "sourceHeadingId": "measure",
+    "question": "为什么不能用某一次的最小耗时宣布优化有效？",
+    "answerPoints": ["先用标记圈定同一次交互", "在相同数据和设备上比较分布", "组件渲染和布局、网络要分开看"],
+    "pitfalls": ["把开发模式里的一次耗时写成生产合同"]
+  }
+]

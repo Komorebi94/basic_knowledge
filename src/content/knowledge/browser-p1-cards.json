@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K04-03",
+    "sourceHeadingId": "path",
+    "question": "target 与 currentTarget 为什么会不同？",
+    "answerPoints": [
+      "target 描述当前可见的事件目标",
+      "currentTarget 是当前正在执行监听器的节点",
+      "委托时通常从 target 找动作，再用 currentTarget 确认所有权"
+    ],
+    "pitfalls": [
+      "把图标点击的 target 当成按钮"
+    ]
+  },
+  {
+    "catalogId": "K04-03",
+    "sourceHeadingId": "cancel",
+    "question": "stopPropagation 能取消表单默认提交吗？",
+    "answerPoints": [
+      "它控制传播路径，不取消默认行为",
+      "可取消事件用 preventDefault 取消默认行为",
+      "同一节点的其他监听器仍可能执行"
+    ],
+    "pitfalls": [
+      "把停止传播当作防止重复副作用的保证"
+    ]
+  },
+  {
+    "catalogId": "K04-03",
+    "sourceHeadingId": "passive",
+    "question": "为什么 passive 监听器中的 preventDefault 没有效果？",
+    "answerPoints": [
+      "passive 声明本监听器不取消默认行为",
+      "需要取消时核对事件类型并显式选择合适策略",
+      "passive 不会减轻长任务"
+    ],
+    "pitfalls": [
+      "只移除警告而不修正交互合同"
+    ]
+  },
+  {
+    "catalogId": "K04-04",
+    "sourceHeadingId": "transaction",
+    "question": "为什么 put success 不足以确认草稿已保存？",
+    "answerPoints": [
+      "后续请求或 abort 仍能使整笔事务回滚",
+      "应等待事务 complete 才推进已保存状态",
+      "失败时保留用户输入和原有数据"
+    ],
+    "pitfalls": [
+      "把请求成功等同事务提交"
+    ]
+  },
+  {
+    "catalogId": "K04-04",
+    "sourceHeadingId": "quota",
+    "question": "estimate 显示空间足够，写入为什么仍可能失败？",
+    "answerPoints": [
+      "usage 和 quota 是估计，不是空间预留",
+      "其他写入及浏览器策略会改变可用空间",
+      "必须处理实际写入失败并提供恢复"
+    ],
+    "pitfalls": [
+      "用估算代替错误处理"
+    ]
+  },
+  {
+    "catalogId": "K04-04",
+    "sourceHeadingId": "lifetime",
+    "question": "为什么不能打开 IndexedDB 事务后等待网络再写？",
+    "answerPoints": [
+      "事务只在相应生命周期内接受请求",
+      "网络返回时事务可能已结束或不活跃",
+      "先准备外部数据，再开启短事务"
+    ],
+    "pitfalls": [
+      "把顺序 await 误当事务一直保持活跃"
+    ]
+  },
+  {
+    "catalogId": "K04-05",
+    "sourceHeadingId": "intersection",
+    "question": "IntersectionObserver 通知能直接证明已阅读吗？",
+    "answerPoints": [
+      "基础通知主要描述几何交叉",
+      "不保证无遮挡、前台状态或用户注意力",
+      "阅读证据需要明确的用户行为或额外合同"
+    ],
+    "pitfalls": [
+      "把相交统计当成学习完成"
+    ]
+  },
+  {
+    "catalogId": "K04-05",
+    "sourceHeadingId": "feedback",
+    "question": "把 ResizeObserver 写入放到 rAF 就能消除循环吗？",
+    "answerPoints": [
+      "rAF 可能只把反馈搬到下一帧",
+      "应让期望尺寸收敛并避免无条件自增",
+      "优先用 CSS 表达尺寸关系"
+    ],
+    "pitfalls": [
+      "用跨帧调度掩盖没有稳定点"
+    ]
+  },
+  {
+    "catalogId": "K04-05",
+    "sourceHeadingId": "lifecycle",
+    "question": "disconnect 后为什么仍可能收到业务结果？",
+    "answerPoints": [
+      "它停止观察器，不取消之前发起的异步任务",
+      "异步任务需自己的取消和身份校验",
+      "卸载后不得提交迟到状态"
+    ],
+    "pitfalls": [
+      "误以为一个清理调用负责所有资源"
+    ]
+  },
+  {
+    "catalogId": "K04-06",
+    "sourceHeadingId": "history",
+    "question": "pushState 之后为什么路由视图没有自动更新？",
+    "answerPoints": [
+      "它修改历史条目与 URL，不加载新文档",
+      "它不会自动派发 popstate",
+      "应用需显式渲染或交由路由库统一处理"
+    ],
+    "pitfalls": [
+      "手动合成 popstate 代替明确导航合同"
+    ]
+  },
+  {
+    "catalogId": "K04-06",
+    "sourceHeadingId": "bfcache",
+    "question": "bfcache 恢复为什么不宜再次清空表单初始化？",
+    "answerPoints": [
+      "快照可能已经保留用户输入与页面状态",
+      "应区分首次加载和恢复后的有效性检查",
+      "迟到请求不能覆盖恢复输入"
+    ],
+    "pitfalls": [
+      "把每次 pageshow 当新启动"
+    ]
+  },
+  {
+    "catalogId": "K04-06",
+    "sourceHeadingId": "unsaved",
+    "question": "beforeunload 能保证未保存草稿不丢吗？",
+    "answerPoints": [
+      "提示受到用户激活与环境限制",
+      "移动端终止等情况可能不触发",
+      "应在编辑期间保存并保持错误恢复入口"
+    ],
+    "pitfalls": [
+      "等待关闭时才首次保存"
+    ]
+  },
+  {
+    "catalogId": "K04-07",
+    "sourceHeadingId": "lifecycle",
+    "question": "register 成功为什么不保证当前页面离线可用？",
+    "answerPoints": [
+      "注册与安装、激活、控制是不同阶段",
+      "资源预缓存也可能失败",
+      "首次未受控页面需重新导航或明确 claim 策略"
+    ],
+    "pitfalls": [
+      "把 registration 存在当所有资源可离线"
+    ]
+  },
+  {
+    "catalogId": "K04-07",
+    "sourceHeadingId": "updates",
+    "question": "skipWaiting 配合立即删旧缓存有什么风险？",
+    "answerPoints": [
+      "旧页面仍可能请求旧版本的延迟资源",
+      "新 Worker 可能处理旧页面请求",
+      "需要兼容窗口或保存后协调更新"
+    ],
+    "pitfalls": [
+      "以缓存版本号变化代替完整更新合同"
+    ]
+  },
+  {
+    "catalogId": "K04-07",
+    "sourceHeadingId": "cache-api",
+    "question": "Cache Storage 默认会忽略查询参数吗？",
+    "answerPoints": [
+      "默认匹配包含相应查询条件",
+      "忽略参数可能混淆不同资源或用户数据",
+      "应用负责显式缓存与失效策略"
+    ],
+    "pitfalls": [
+      "把 Cache Storage 当自动过期的 HTTP 缓存"
+    ]
+  },
+  {
+    "catalogId": "K04-08",
+    "sourceHeadingId": "layers",
+    "question": "API 存在为什么不足以显示操作成功？",
+    "answerPoints": [
+      "还受安全上下文、策略、激活与权限影响",
+      "实际调用仍可能拒绝",
+      "成功反馈必须等待完整操作完成"
+    ],
+    "pitfalls": [
+      "初始化检测一次后忽略所有错误"
+    ]
+  },
+  {
+    "catalogId": "K04-08",
+    "sourceHeadingId": "permissions",
+    "question": "permission=prompt 时应该禁用操作入口吗？",
+    "answerPoints": [
+      "prompt 通常表示仍需用户决定",
+      "query 不等于申请或完成操作",
+      "让用户在明确目的的操作中授权并提供替代"
+    ],
+    "pitfalls": [
+      "把未决定当永久拒绝"
+    ]
+  },
+  {
+    "catalogId": "K04-08",
+    "sourceHeadingId": "cancel",
+    "question": "导出取消后为什么不应自动开始下载？",
+    "answerPoints": [
+      "取消是用户选择，不是请求另一个保存方式",
+      "替代路径应由用户明确选择",
+      "保存、取消与错误需要不同结果反馈"
+    ],
+    "pitfalls": [
+      "为了完成任务绕过用户刚做的取消"
+    ]
+  }
+]
