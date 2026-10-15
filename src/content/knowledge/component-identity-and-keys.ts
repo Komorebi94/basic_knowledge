@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const componentIdentityKeysArticle: Article = {
+  "revision": 2,
   "id": "K07-03",
   "kind": "knowledge",
   "domainSlug": "react",
@@ -10,14 +11,14 @@ export const componentIdentityKeysArticle: Article = {
   "aliases": ["key", "reconciliation", "identity", "列表 key", "组件身份"],
   "tags": ["React", "协调", "组件身份、key 与协调"],
   "estimatedMinutes": 22,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
       "title": "列表只是换了顺序，为什么输入跑到了另一行？",
       "paragraphs": [
         "两条订单草稿可以展开编辑。按更新时间重新排序后，第一行里已经输入的备注出现在第二行。组件函数重新执行了，但 React 要根据身份决定哪一次状态还属于哪一个组件。排序改变的是位置，不应该改变草稿的身份。",
-        "前置是 K07-01 的渲染快照。本仓库安装 React 19.3.0。空白页示例不挂载 React，也不读取 React 源码；它用 Map 和位置下标复现官方文档描述的可观察结果：同一 key 保留状态，key 或组件类型变化则从初始状态开始。真实列表仍要在 React 项目里核对。"
+        "前置是 K07-01 的渲染快照。本仓库安装 React 19.3.0。前半篇先用 Map 和下标解释身份规则，后半篇真实挂载输入组件，比较稳定 id 与位置 key 在重排后的草稿归属。模型不代表 React 内部协调器实现。"
       ]
     },
     {
@@ -94,11 +95,33 @@ export const componentIdentityKeysArticle: Article = {
       ]
     },
     {
+      "id": "react-key-experiment",
+      "title": "真实列表实验：排序之后，草稿应跟着业务身份移动",
+      "paragraphs": [
+        "以下为真实 React 19.3.0 开发构建实验，运行 npm run verify:k07。隔离服务将本仓库安装的 react、react-dom/client 与测试 act 打包为 /react.mjs；普通项目分别从这些包导入相同 API。act 只用于让测试中的更新完成，不应放进产品事件处理器。每例创建独立根并在结束时卸载，不运行读者代码。",
+        "每行的 useState 在首次挂载时读取 title。先渲染 A、B，再反转输入数据；正确路径以业务 id 为 key，反例以数组位置为 key。观察真实 input 的 value，不能只比较手写状态表。"
+      ],
+      "examples": [
+        {
+          "language": "module",
+          "code": "import { createElement as h, createRoot, useState, act } from '/react.mjs';\nglobalThis.IS_REACT_ACT_ENVIRONMENT = true;\nfunction Row({ item }) {\n  const [draft, setDraft] = useState(item.title);\n  return h('label', null, item.id, h('input', { value: draft, onChange: event => setDraft(event.target.value) }));\n}\nasync function reorder(indexKeys) {\n  const host = document.body.appendChild(document.createElement('div'));\n  const root = createRoot(host);\n  const items = [{ id: 'A', title: 'alpha' }, { id: 'B', title: 'beta' }];\n  const view = rows => h('section', null, rows.map((item, index) => h(Row, { key: indexKeys ? index : item.id, item })));\n  await act(async () => { root.render(view(items)); });\n  await act(async () => { root.render(view([...items].reverse())); });\n  const result = [...host.querySelectorAll('label')].map(label => label.firstChild.textContent + ':' + label.querySelector('input').value).join(',');\n  await act(async () => { root.unmount(); });\n  host.remove();\n  return result;\n}\nconsole.log('id:' + await reorder(false));\nconsole.log('index:' + await reorder(true));",
+          "expectedOutput": [
+            "id:B:beta,A:alpha",
+            "index:B:alpha,A:beta"
+          ],
+          "explanation": [
+            "业务 key 保留 A、B 各自的组件身份，React 移动对应行，输入的草稿仍是 beta、alpha。数组位置 key 则保留第 0、1 个组件实例，新 label 读到 B、A，旧 state 却仍是 alpha、beta。",
+            "这个反例说明 props 会更新而初始 state 不会重置。要主动重置草稿可改变 key；要跨卸载保留草稿则由更稳定的所有者保存。不要通过随机 key 修复，随机身份会每轮卸载，丢失编辑与焦点。"
+          ]
+        }
+      ]
+    },
+    {
       "id": "practice",
       "title": "先预测排序，再预测删除和下一位用户",
       "paragraphs": [
         "给 a:typed、b:empty，预测按 b、a 排序且使用数据 id 时的状态，再预测改用下标时的状态。然后把组件从 form 换成 preview，预测草稿还在不在。",
-        "E30、E31、E38 尚未制作。在 React 项目里用受控输入做一次排序测试，才能把模型结果落到真实渲染上。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 React；组件身份、Effect 和挂起行为按本文注明的真实运行环境核对。"
       ]
     }
   ],

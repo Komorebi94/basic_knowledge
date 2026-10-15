@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const layoutDiagnosisArticle: Article = {
+  "revision": 2,
   "id": "K05-08",
   "kind": "knowledge",
   "domainSlug": "html-css",
@@ -21,7 +22,7 @@ export const layoutDiagnosisArticle: Article = {
     "复杂布局诊断"
   ],
   "estimatedMinutes": 24,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -131,7 +132,7 @@ export const layoutDiagnosisArticle: Article = {
       "title": "用一次滚动区分三种定位失败",
       "paragraphs": [
         "建立 100px 滚动容器和高内容。预测 sticky 有 top、无 inset、以及中间层 overflow:hidden 的三行相对距离。再预测固定定位后代在祖先 translateZ(0) 前后的视口坐标。最后预测 40px 的 Popover 打在 20px 裁剪祖先里时，打开后的高度是 20 还是 40。",
-        "把预测写在修改样式之前。结果不符时只改变一个条件再测，保留相对距离、包含块和打开状态三份证据。E28 的对话框练习尚未制作，本节不把它当作已经可做的验证。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。涉及状态、窗口或分帧的模型题只检验纯计算结果；真实 DOM、布局、构建及耗时按本文环境另行核对。"
       ]
     }
   ],

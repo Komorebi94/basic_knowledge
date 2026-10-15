@@ -95,13 +95,14 @@
     "sourceHeadingId": "resume",
     "question": "标记是 html-only 时，为什么结果不是 resumed？",
     "answerPoints": [
-      "html-only 只表示内容可见",
-      "脚本就绪才是 interactive",
-      "hydrated 才是 resumed"
+      "html-only 只描述依赖脚本的内容尚未接管",
+      "script-ready 是 awaiting-hydration，脚本可执行仍需绑定行为",
+      "hydrateRoot 接上对应区域后，才验证该区域交互"
     ],
     "pitfalls": [
       "外壳字节已经发出，就认为按钮已经能点击"
-    ]
+    ],
+    "cardRevision": 2
   },
   {
     "catalogId": "K14-05",
@@ -158,28 +159,30 @@
   {
     "catalogId": "K14-07",
     "sourceHeadingId": "capability",
-    "question": "导出要读临时文件时，为什么这张表不把它放到边缘？",
+    "question": "固定能力表拒绝文件导出时，为什么还要核对目标平台？",
     "answerPoints": [
-      "边缘的 filesystem 是 unsupported",
-      "Node 的 filesystem 是 allowed",
-      "离用户近不能代替运行时缺少的 API"
+      "表中的 edge 是受限教学配置",
+      "真实平台可能提供 WebSocket、TCP 或部分 Node 兼容能力",
+      "API、权限、方向和生命周期必须按具体部署验证"
     ],
     "pitfalls": [
       "所有请求都放到边缘，包括依赖本地文件的导出"
-    ]
+    ],
+    "cardRevision": 2
   },
   {
     "catalogId": "K14-07",
     "sourceHeadingId": "start",
-    "question": "同样空闲 40 毫秒，为什么边缘是 cold-start、Node 是 process-kept？",
+    "question": "为什么不能从 edge 或 Node 名称直接推断冷启动？",
     "answerPoints": [
-      "空闲大于 0 时边缘要重新启动",
-      "这个模型里的 Node 保持进程",
-      "空闲为 0 时两边都是 warm"
+      "生命周期由指定托管配置决定",
+      "已确认回收与常驻分别对应不同模型分支",
+      "实例状态未知时保留 unknown，再按实测记录判断"
     ],
     "pitfalls": [
       "把 cold-start 当成每个请求都要付的固定毫秒数"
-    ]
+    ],
+    "cardRevision": 2
   },
   {
     "catalogId": "K14-07",
@@ -210,20 +213,21 @@
   {
     "catalogId": "K14-08",
     "sourceHeadingId": "trace",
-    "question": "失败日志的编号是 req-2、指标的编号是 req-1 时，为什么结果是 split？",
+    "question": "如何从聚合指标定位某一次失败请求，又不让标签无限增长？",
     "answerPoints": [
-      "sameTrace 要求数组中的编号全部相同",
-      "req-2 不能并进 req-1",
-      "时间接近不能代替同一个请求编号"
+      "指标使用路由模板、方法和结果类别等有界维度",
+      "日志及跨度保留 traceId/spanId 或应用请求身份",
+      "exemplar 可以将部分测量关联到具体 trace"
     ],
     "pitfalls": [
-      "把同一分钟里的日志和指标当成同一次保存"
-    ]
+      "把每请求唯一 ID 放到 Counter 的普通标签中"
+    ],
+    "cardRevision": 2
   },
   {
     "catalogId": "K14-08",
     "sourceHeadingId": "boundaries",
-    "question": "三条记录都带 req-1 时，为什么还不能说追踪系统已经收下了这次保存？",
+    "question": "日志和跨度都带 req-1 时，为什么还不能说追踪系统已经收下了这次保存？",
     "answerPoints": [
       "函数只检查编号和记录形状",
       "它不生成 traceparent，也不发送跨度",
@@ -231,6 +235,7 @@
     ],
     "pitfalls": [
       "本地字符串拼对了，就认为收集器里已经有完整追踪"
-    ]
+    ],
+    "cardRevision": 2
   }
 ]

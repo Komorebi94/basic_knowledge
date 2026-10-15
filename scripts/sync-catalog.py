@@ -36,6 +36,17 @@ for row in table_rows(design / "09-ai-engineering.md"):
     if re.fullmatch(r"AI\d{2}", row[0]):
         ai.append({"id": row[0], "title": row[1], "summary": row[2], "deliverable": row[3]})
 
+# Design rows retain the broader DOM/framework/type goals. Published model
+# exercises must describe their actual JavaScript scope in the public catalog.
+published_path = root / "src/content/exerciseMetadata.json"
+if published_path.exists():
+    published = {item["id"]: item for item in json.loads(published_path.read_text())}
+    for item in practice:
+        actual = published.get(item["id"])
+        item["aliases"] = [item["title"]] if actual and actual["title"] != item["title"] else []
+        if actual and int(item["id"][1:]) >= 25:
+            item.update(title=actual["title"], summary=actual["summary"], environment="JavaScript")
+
 for name, entries, expected in [("knowledge", knowledge, 128), ("practice", practice, 40), ("ai", ai, 20)]:
     if len(entries) != expected or len({entry["id"] for entry in entries}) != expected:
         raise ValueError(f"{name}: expected {expected} unique entries, found {len(entries)}")

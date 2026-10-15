@@ -28,15 +28,16 @@
   {
     "catalogId": "K10-03",
     "sourceHeadingId": "fonts",
-    "question": "font-display 为 block 且字体 400ms 才到，文字首次绘制发生在何时？",
+    "question": "在本例假设阻塞期为 3000ms、字体于 400ms 到达时，block 模型何时首次绘制文字？",
     "answerPoints": [
-      "块周期内不先画后备文字",
-      "字体到达时才绘制，结果是 paint:400",
-      "swap 则会在 0 先画后备字体"
+      "在本例固定周期模型内，400ms 字体到达时绘制",
+      "swap 模型阻塞期为 0，先显示后备字体",
+      "规范给出周期类别及建议，真实时长与绘制需浏览器核对"
     ],
     "pitfalls": [
       "认为字体文件一到，所有 font-display 都会立刻替换"
-    ]
+    ],
+    "cardRevision": 2
   },
   {
     "catalogId": "K10-04",

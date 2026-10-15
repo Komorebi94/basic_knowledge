@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const responsiveContainerArticle: Article = {
+  "revision": 2,
   "id": "K05-04",
   "kind": "knowledge",
   "domainSlug": "html-css",
@@ -21,7 +22,7 @@ export const responsiveContainerArticle: Article = {
     "响应式与容器查询"
   ],
   "estimatedMinutes": 22,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -127,7 +128,7 @@ export const responsiveContainerArticle: Article = {
       "title": "用两个宽度预测字号和侧栏",
       "paragraphs": [
         "不看输出，先回答：容器从 420px 改为 300px 时，标题字号哪个值会变，视口查询哪个值可以不变。再预测侧栏在 280px 和 420px 下的 display。然后把断点改成 240px，预测 280px 的卡片是否会显示侧栏。",
-        "最后检查窄状态能否完成主任务：标题、主要按钮和必要说明都在，侧栏只是附加信息。E27 至 E29 尚未做成可运行练习，这里用空白页实验验证规则。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。涉及状态、窗口或分帧的模型题只检验纯计算结果；真实 DOM、布局、构建及耗时按本文环境另行核对。"
       ]
     }
   ],

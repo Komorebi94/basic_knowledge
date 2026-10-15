@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const performanceDiagnosisArticle: Article = {
+  "revision": 2,
   "id": "K07-08",
   "kind": "knowledge",
   "domainSlug": "react",
@@ -10,14 +11,14 @@ export const performanceDiagnosisArticle: Article = {
   "aliases": ["memo", "virtualization", "code splitting", "performance.measure", "性能"],
   "tags": ["React", "性能", "性能诊断与优化"],
   "estimatedMinutes": 23,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
       "title": "给每一行都加了 memo，为什么输入仍然卡？",
       "paragraphs": [
         "长列表里每输入一个字都明显停顿。作者给行组件包上 memo，停顿还在。父组件每次渲染都创建新的 items 数组和新的点击函数，memo 的前后属性用 Object.is 比较，引用变了就会继续渲染。优化要先知道时间花在渲染、布局还是网络，再让比较能够成功。",
-        "前置是 K07-01 的渲染和 K04-02 的布局成本。示例使用性能时间线的标记名称，以及引用相等和可见区间的纯计算。duration 的具体毫秒数不稳定，所以不断言某一帧的耗时。React 19.3.0 的 Profiler 需要在真实组件树里记录，本文模型不替代那次记录。"
+        "前置是 K07-01 的渲染和 K04-02 的布局成本。先检查性能标记与引用比较，再用真实 memo 子组件及 Profiler 验证渲染和提交。开发环境的具体毫秒数不是生产预算，是否值得优化仍要在目标页面重复测量。"
       ]
     },
     {
@@ -94,11 +95,35 @@ export const performanceDiagnosisArticle: Article = {
       ]
     },
     {
+      "id": "react-memo-experiment",
+      "title": "真实 memo 与 Profiler：先观察跳过了什么，再谈收益",
+      "paragraphs": [
+        "以下为真实 React 19.3.0 开发构建实验，运行 npm run verify:k07。隔离服务将本仓库安装的 react、react-dom/client 与测试 act 打包为 /react.mjs；普通项目分别从这些包导入相同 API。act 只用于让测试中的更新完成，不应放进产品事件处理器。每例创建独立根并在结束时卸载，不运行读者代码。",
+        "同一子组件三次由根更新：第一次挂载、第二次只更新兄弟文字、第三次换一个函数 prop。使用 memo 默认比较并记录渲染次数；Profiler 只验证产生了有效提交记录，不以开发环境的某次毫秒数证明生产收益。"
+      ],
+      "examples": [
+        {
+          "language": "module",
+          "code": "import { createElement as h, createRoot, memo, Profiler, act } from '/react.mjs';\nglobalThis.IS_REACT_ACT_ENVIRONMENT = true;\nlet renders = 0;\nconst samples = [];\nconst Row = memo(function Row({ onSelect }) { renders += 1; return h('button', { onClick: onSelect }, '选择'); });\nconst stableSelect = () => {};\nconst host = document.body.appendChild(document.createElement('div'));\nconst root = createRoot(host);\nconst view = (text, onSelect) => h(Profiler, { id: 'list', onRender: (_id, _phase, duration) => samples.push(duration) }, h('p', null, text), h(Row, { onSelect }));\nawait act(async () => { root.render(view('第一版', stableSelect)); });\nconsole.log(renders);\nawait act(async () => { root.render(view('第二版', stableSelect)); });\nconsole.log(renders);\nawait act(async () => { root.render(view('第三版', () => {})); });\nconsole.log(renders);\nconsole.log('提交记录:' + (samples.length >= 3 && samples.every(value => Number.isFinite(value) && value >= 0)));\nawait act(async () => { root.unmount(); }); host.remove();",
+          "expectedOutput": [
+            "1",
+            "1",
+            "2",
+            "提交记录:true"
+          ],
+          "explanation": [
+            "第二次 Row 的 onSelect 引用没变，默认 memo 比较可以跳过这次父更新，计数仍为 1。第三次传入新箭头函数，即使函数体同样为空，引用不同仍让 Row 渲染到 2。",
+            "Profiler 证明提交记录存在，不证明比较省下了值得关注的成本。组件自身状态或消费的 context 变化仍可以更新 memo 组件；React Compiler 及生产构建也可能改变优化方式，应在目标应用重新测量。"
+          ]
+        }
+      ]
+    },
+    {
       "id": "practice",
       "title": "预测三次属性比较和两个可见区间",
       "paragraphs": [
         "同一引用、新数组、新函数，分别预测 skip 还是 render。再预测滚动位置 0 和 400 的可见区间，以及面板从未打开到加载完成的三个状态。",
-        "E30、E31、E38 尚未制作。在真实 React 树里补一次 Profiler 记录后，再决定是否保留 memo。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 React；组件身份、Effect 和挂起行为按本文注明的真实运行环境核对。"
       ]
     }
   ],

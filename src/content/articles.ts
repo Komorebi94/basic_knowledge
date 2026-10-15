@@ -167,6 +167,7 @@ export interface Article {
   aliases: readonly string[];
   tags: readonly string[];
   estimatedMinutes: number;
+  revision?: number;
   verifiedAt: string;
   sections: readonly ArticleSection[];
   sources: readonly { title: string; url: string }[];

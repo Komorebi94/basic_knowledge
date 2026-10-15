@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const formValidationArticle: Article = {
+  "revision": 2,
   id: "K15-03",
   kind: "knowledge",
   domainSlug: "accessibility",
@@ -10,7 +11,7 @@ export const formValidationArticle: Article = {
   aliases: ["form errors", "error summary", "aria-invalid", "表单恢复"],
   tags: ["无障碍", "表单", "错误"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -145,7 +146,7 @@ console.log('未知时机:' + reportWhen('blur'));`,
       title: "用一份订单把两条错误改到可以保存",
       paragraphs: [
         "先提交空标题和 0，确认 focus 是 title 且摘要里有 amount。再只改标题，确认摘要不再提到标题。最后把数量改成 2，确认 saved。另做一次只有红框、没有文字的提示，结果应是 color-only。",
-        "本主题没有已开放的独立练习。示例不创建输入框，也不宣布某种读屏已经读出错误。"
+        "E29 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

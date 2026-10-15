@@ -537,6 +537,24 @@ a.catalog-topic-title {
   background: #eef4ef;
 }
 
+.example-output {
+  margin: 16px 0 24px;
+}
+
+.example-output figcaption {
+  color: #52665c;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.example-output pre {
+  margin-top: 8px;
+  background: #eef4ef;
+  color: #234c3b;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .article-diagram figcaption {
   color: #176b57;
   font-size: 14px;

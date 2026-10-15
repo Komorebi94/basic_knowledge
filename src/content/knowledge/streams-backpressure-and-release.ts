@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const streamsBackpressureArticle: Article = {
+  "revision": 2,
   id: "K14-03",
   kind: "knowledge",
   domainSlug: "server",
@@ -10,14 +11,14 @@ export const streamsBackpressureArticle: Article = {
   aliases: ["stream", "backpressure", "readable", "背压"],
   tags: ["服务端", "流", "资源"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
       title: "附件只有几兆，为什么读进一个字符串之后进程仍会撑住？",
       paragraphs: [
         "笔记附件先被拼成一个完整字符串，校验通过后再写入存储。文件比预期大，或者同时有几个下载时，峰值内存是所有未处理字节的总和，而不是用户正在看的那一块。读得比写得快时，中间缓冲会一直涨。",
-        "流把数据分成块。队列有上限，满了就让生产方停下，这就是背压。消费完要关闭，提前放弃时要丢掉还没读的块并拒绝后续写入。本篇用固定字符串块演示，不打开真实文件，也不是 Node 的 Stream 实现。"
+        "前半篇先用固定字符串队列解释背压与释放；后面在 Node 22 的真实 Stream 中运行 write/drain、pipeline 与取消。内存流没有磁盘权限和持久性保证，文件提交还需独立验收。"
       ]
     },
     {
@@ -160,6 +161,52 @@ console.log('逐块:' + holdOne(chunks));`,
         "模型同步返回 backpressure，没有 pause、resume 或异步 drain。Node 的可读流、Web Streams 的 desiredSize 和 highWaterMark 各有自己的单位与时机。不能把 queued:2 说成某个版本的默认水位。",
         "块长度按 JavaScript 字符串的 UTF-16 码元计算。附件的字节数、压缩和多字节字符都可能不同。上限 4 只让例子稳定。",
         "holdOne 没有把块写到磁盘。seen 只是计数。真正的复制仍要确认写入完成、失败时删除半份文件，并在取消时停止来源。"
+      ]
+    },
+    {
+      "id": "node-pipeline",
+      "title": "真实 Node pipeline：成功等待 finish，失败销毁两端",
+      "paragraphs": [
+        "下面使用 Node 22 的 node:stream 与 stream/promises，在内存中构造真正的 Readable、Writable，不打开磁盘文件。写入回调经微任务完成，pipeline 负责串接背压、失败传播和清理。回调中的成功表示这一块已被消费，不是“开始写就算完成”。"
+      ],
+      "examples": [
+        {
+          "language": "node",
+          "code": "import { Readable, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nconst chunks = [];\nconst source = Readable.from(['aa', 'bb'], { objectMode: false });\nconst sink = new Writable({ highWaterMark: 1, write(chunk, _encoding, done) { chunks.push(chunk.toString()); queueMicrotask(done); } });\nawait pipeline(source, sink);\nconsole.log(chunks.join(''));\nconsole.log('完成:' + sink.writableFinished);\nconst failedSource = Readable.from(['first', 'second']);\nconst failedSink = new Writable({ write(_chunk, _encoding, done) { done(new Error('disk-unavailable')); } });\ntry { await pipeline(failedSource, failedSink); }\ncatch (error) { console.log('失败:' + error.message); }\nconsole.log('已销毁:' + (failedSource.destroyed && failedSink.destroyed));",
+          "expectedOutput": [
+            "aabb",
+            "完成:true",
+            "失败:disk-unavailable",
+            "已销毁:true"
+          ],
+          "explanation": [
+            "成功路径在 aa、bb 的写入回调都结束且 Writable finish 后才兑现，所以拼接为 aabb、writableFinished 为 true。低水位限制缓冲，但不是全进程的硬内存上限。",
+            "失败端通过回调交出错误，pipeline 拒绝并销毁相关流。这里 disk-unavailable 是可控的接收端故障，不是假装磁盘真的满了；换成文件流后还需要临时文件与原子提交策略，销毁流不会自动删除半份文件。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-drain-abort",
+      "title": "write 返回 false 后等 drain；取消则结束整条 pipeline",
+      "paragraphs": [
+        "write(false) 说明块已接收，但调用方应暂停继续写。下面保留首块的完成回调，先观察背压，再释放它并等待 drain。取消实验在首块写入期间 abort，验证的是资源状态和拒绝类别，不断言某个时间上限。"
+      ],
+      "examples": [
+        {
+          "language": "node",
+          "code": "import { Readable, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nimport { once } from 'node:events';\nlet release;\nconst sink = new Writable({ highWaterMark: 1, write(_chunk, _encoding, done) { release = done; } });\nconsole.log('可继续写:' + sink.write('aa'));\nconst drained = once(sink, 'drain');\nrelease(); await drained;\nconsole.log('缓冲字节:' + sink.writableLength);\nconst finished = once(sink, 'finish'); sink.end(); await finished;\nconst controller = new AbortController();\nconst source = Readable.from(['a', 'b']);\nconst target = new Writable({ write(_chunk, _encoding, done) { controller.abort(); done(); } });\ntry { await pipeline(source, target, { signal: controller.signal }); }\ncatch (error) { console.log(error.name); }\nconsole.log('取消后销毁:' + (source.destroyed && target.destroyed));",
+          "expectedOutput": [
+            "可继续写:false",
+            "缓冲字节:0",
+            "AbortError",
+            "取消后销毁:true"
+          ],
+          "explanation": [
+            "首块超过水位时 write 返回 false，但它没有被拒绝或丢掉。完成回调释放缓冲后触发 drain，等待者才能继续写；只看 false 就重新发送这一块，会造成重复。",
+            "abort 让 pipeline 拒绝为 AbortError，并销毁两端。已被下游提交的内容不会回滚；远端写入或文件替换需要各自的事务与确认协议。不能在主线程同步无限循环里期待 AbortSignal 自动中断 JavaScript。"
+          ]
+        }
       ]
     },
     {

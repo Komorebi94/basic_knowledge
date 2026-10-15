@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const largePageDiagnosisArticle: Article = {
+  "revision": 2,
   id: "K10-08",
   kind: "knowledge",
   domainSlug: "performance",
@@ -10,7 +11,7 @@ export const largePageDiagnosisArticle: Article = {
   aliases: ["performance diagnosis", "trace", "诊断", "回归验证", "订单页"],
   tags: ["性能工程", "大型页面诊断案例"],
   estimatedMinutes: 24,
-  verifiedAt: "2026-10-13",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -98,7 +99,7 @@ export const largePageDiagnosisArticle: Article = {
       title: "把一次慢拆成分组、假设、对照和未解项",
       paragraphs: [
         "选一个自己的慢动作，写下至少两个分组和每组样本数。提出一个可否定的原因，再写一个不应该改变该指标的对照改动。用同一条件复测，并列出这项改动没有覆盖的下一个指标。",
-        "E25、E30 和 E40 尚未开放。本案例的虚拟数字不能当作这些练习或生产预算的输入。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。涉及状态、窗口或分帧的模型题只检验纯计算结果；真实 DOM、布局、构建及耗时按本文环境另行核对。"
       ]
     }
   ],

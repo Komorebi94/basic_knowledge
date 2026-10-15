@@ -90,6 +90,8 @@ assert(recallCards.filter((card) => p0Ids.includes(card.catalogId)).length >= 96
 for (const card of recallCards) {
   const article = articleById.get(card.catalogId);
   assert(article && article.id === card.sourceContentId, `${card.cardId}: broken stable content identity`);
+  assert.equal(card.sourceRevision, article.revision ?? 1, `${card.cardId}: stale source revision`);
+  assert(Number.isSafeInteger(card.cardRevision) && card.cardRevision > 0, `${card.cardId}: invalid card revision`);
   assert(article.sections.some((section) => section.id === card.sourceHeadingId), `${card.cardId}: missing source heading ${card.sourceHeadingId}`);
   assert(card.question && card.answerPoints.length >= 2 && card.answerPoints.length <= 5 && card.pitfalls.length > 0, `${card.cardId}: incomplete card`);
 }
@@ -161,7 +163,7 @@ for (const article of articles) {
   assert(!visible.includes("面试"), `${article.id}: forbidden publication wording`);
 }
 const metadata = load(resolve(root,"src/content/publicMetadata.json"));
-assert.equal(JSON.stringify(metadata.articles), JSON.stringify(articles.map(({id,catalogId,kind,title,summary,domainSlug,slug,estimatedMinutes}) => ({id,catalogId:catalogId ?? id,kind,title,summary,domainSlug,slug,estimatedMinutes,href:articleHref({kind,domainSlug,slug})}))),"Generated article summaries are stale");
+assert.equal(JSON.stringify(metadata.articles), JSON.stringify(articles.map(({id,catalogId,kind,title,summary,domainSlug,slug,estimatedMinutes,revision = 1}) => ({id,catalogId:catalogId ?? id,kind,title,summary,domainSlug,slug,estimatedMinutes,revision,href:articleHref({kind,domainSlug,slug})}))),"Generated article summaries are stale");
 const exerciseMetadata = load(resolve(root,"src/content/exerciseMetadata.json"));
 assert.equal(JSON.stringify(exerciseMetadata),JSON.stringify(exercises.map(({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}) => ({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}))),"Generated exercise summaries are stale");
 assert(exerciseMetadata.every((entry) => !("referenceArtifact" in entry) && !("hints" in entry)),"Reading summaries must not load practice answers");

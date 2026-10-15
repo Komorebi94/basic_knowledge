@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const ssrHydrationArticle: Article = {
+  "revision": 2,
   "id": "K08-07",
   "kind": "knowledge",
   "domainSlug": "vue",
@@ -22,7 +23,7 @@ export const ssrHydrationArticle: Article = {
     "水合"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -250,7 +251,7 @@ export const ssrHydrationArticle: Article = {
       "paragraphs": [
         "先合上代码解释：为什么服务端按钮有文字但不能运行 Vue 回调？为什么 createSSRApp 与 createApp 最终都能显示数量 2，但只有匹配的水合例子复用了原按钮？为什么为每个请求新建 app 仍可能让两份 HTML 都显示 B？",
         "再把 mismatch 示例改为服务器数量 2、客户端仍用 1，检查警告和可点击结果；修复时把服务器最终公开状态传入客户端，而不是删日志。给标题包含结束 script 标签的情况保留原文，核对节点数与恢复后的数据；对非法 HTML，先查看浏览器修正后的真实结构，再决定模板应怎样调整。",
-        "本主题暂无已交付独立 Vue SSR 编码题，不提供空入口。动手时只使用隔离作者实验，涉及旧请求提交可回到 E13，服务端与客户端运行时的一般差异可回看 K14-01。回忆卡核对水合基线、请求隔离和副作用责任。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 Vue；框架机制仍按本文注明的真实实验核对。"
       ]
     }
   ],

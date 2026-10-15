@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const streamsAndSocketsArticle: Article = {
+  "revision": 2,
   "id": "K06-06",
   "kind": "knowledge",
   "domainSlug": "networking",
@@ -10,7 +11,7 @@ export const streamsAndSocketsArticle: Article = {
   "aliases": ["SSE", "EventSource", "WebSocket", "backpressure", "Last-Event-ID", "实时流"],
   "tags": ["网络", "实时", "SSE、WebSocket 与实时流"],
   "estimatedMinutes": 23,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -49,11 +50,13 @@ export const streamsAndSocketsArticle: Article = {
       "examples": [
         {
           "language": "javascript",
-          "code": "function parseSse(text) {\n  const events = [];\n  let data = [];\n  let id = '';\n  const flush = () => {\n    if (data.length) events.push((id || '-') + ':' + data.join('\\\\n'));\n    data = [];\n  };\n  for (const line of text.split('\\n')) {\n    if (line === '') { flush(); continue; }\n    if (line.startsWith(':')) continue;\n    const index = line.indexOf(':');\n    const field = index === -1 ? line : line.slice(0, index);\n    let value = index === -1 ? '' : line.slice(index + 1);\n    if (value.startsWith(' ')) value = value.slice(1);\n    if (field === 'data') data.push(value);\n    if (field === 'id') id = value;\n  }\n  flush();\n  return events.join('|');\n}\nconsole.log(parseSse('id: 7\\ndata: hello\\n\\ndata: a\\ndata: b\\n\\n'));",
-          "expectedOutput": ["7:hello|7:a\\nb"],
+          "code": "function parseSse(text) {\n  const events = [];\n  let data = [];\n  let id = '';\n  const flush = () => {\n    if (data.length) events.push((id || '-') + ':' + data.join('\\\\n'));\n    data = [];\n  };\n  const lines = text.replace(/\\r\\n|\\r/g, '\\n').split('\\n');\n  lines.pop(); // 最后一段可能只是残片，EOF 不能补出一个空行。\n  for (const line of lines) {\n    if (line === '') { flush(); continue; }\n    if (line.startsWith(':')) continue;\n    const index = line.indexOf(':');\n    const field = index === -1 ? line : line.slice(0, index);\n    let value = index === -1 ? '' : line.slice(index + 1);\n    if (value.startsWith(' ')) value = value.slice(1);\n    if (field === 'data') data.push(value);\n    if (field === 'id' && !value.includes('\\0')) id = value;\n  }\n  return events.join('|');\n}\nconsole.log(parseSse('id: 7\\ndata: hello\\n\\ndata: a\\ndata: b\\n\\n'));",
+          "expectedOutput": [
+            "7:hello|7:a\\nb"
+          ],
           "explanation": [
             "第一条事件的 id 是 7、data 是 hello。第二条没有新 id，两行 data 合成 a 和 b，日志里显示为 a\\nb。",
-            "id 中的空格按规范去掉了一个前导空格，所以结果是 7 而不是带前导空格的原始字段。不完整的最后一帧若没有空行，这个解析器会在结束时提交；网络分块时不能把缓冲区尾部当成完整事件。"
+            "输入按完整文本处理，先统一合法行结束。split 后最后一段不对应已读到的行结束，先移除；只有真正读到的空行调用 flush。EOF 前缺少空行的数据被丢弃。id 含 NUL 时忽略；未出现新 id 时保留旧值。它仍不负责网络分块、重连和 retry，增量边界见 E37。"
           ]
         }
       ]
@@ -91,6 +94,27 @@ export const streamsAndSocketsArticle: Article = {
       "paragraphs": [
         "第一条边界是网络路径。代理超时、企业防火墙和 HTTP/1.1 中间设备都可能打断 SSE 或 WebSocket。示例没有发起连接，因此没有测量这些路径。上线前要在目标网络里观察重连和心跳。",
         "第二条边界是鉴权。SSE 的浏览器接口不容易为每次重连附加新的 Authorization 头。用 Cookie 时要重新检查 K06-04 的 CSRF 和过期刷新；用一次性票据时，重连要能更换票据，不能把票据写进永久 URL。"
+      ]
+    },
+    {
+      "id": "incomplete-event",
+      "title": "一条 data 行结束，不等于事件已经结束",
+      "paragraphs": [
+        "复制下面的完整文本解析器，在 ES 模块中分别输入没有换行、只有行结束、具备事件空行的三份文本。SSE 的空行是事件边界；连接断开不能代替它，否则半份 JSON 或不完整状态就可能被提交。"
+      ],
+      "examples": [
+        {
+          "code": "function parseSse(text) {\n  const events = [];\n  let data = [];\n  let id = '';\n  const flush = () => {\n    if (data.length) events.push((id || '-') + ':' + data.join('\\\\n'));\n    data = [];\n  };\n  const lines = text.replace(/\\r\\n|\\r/g, '\\n').split('\\n');\n  lines.pop(); // 最后一段可能只是残片，EOF 不能补出一个空行。\n  for (const line of lines) {\n    if (line === '') { flush(); continue; }\n    if (line.startsWith(':')) continue;\n    const index = line.indexOf(':');\n    const field = index === -1 ? line : line.slice(0, index);\n    let value = index === -1 ? '' : line.slice(index + 1);\n    if (value.startsWith(' ')) value = value.slice(1);\n    if (field === 'data') data.push(value);\n    if (field === 'id' && !value.includes('\\0')) id = value;\n  }\n  return events.join('|');\n}\nconsole.log(JSON.stringify(parseSse('data: partial')));\nconsole.log(JSON.stringify(parseSse('data: partial\\n')));\nconsole.log(parseSse('data: complete\\r\\n\\r\\n'));",
+          "expectedOutput": [
+            "\"\"",
+            "\"\"",
+            "-:complete"
+          ],
+          "explanation": [
+            "前两份输入均没有完整事件终止空行，所以返回空字符串；JSON.stringify 让空输出明确可见。第三份 CRLF 形成 data 行和空行，才派发 complete。",
+            "此函数一次收到完整文本，因此能先统一行结束；实际 reader.read 的块可能把 CRLF 拆开，不能对每块各自 replace 后直接拼接。增量解析必须记住 CR，E37 的任意切分用例验证这一点。"
+          ]
+        }
       ]
     },
     {

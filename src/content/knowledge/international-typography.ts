@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const internationalTypographyArticle: Article = {
+  "revision": 2,
   "id": "K05-07",
   "kind": "knowledge",
   "domainSlug": "html-css",
@@ -21,7 +22,7 @@ export const internationalTypographyArticle: Article = {
     "国际化排版与逻辑属性"
   ],
   "estimatedMinutes": 23,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -130,7 +131,7 @@ export const internationalTypographyArticle: Article = {
       "title": "交换方向后重新指出物理边",
       "paragraphs": [
         "盖住输出，指出 margin-inline-start:16px 在 ltr、rtl 和 vertical-rl 中分别落在哪一条物理边上。再预测 280px 内容放进 200px 行时，默认最小尺寸和 min-width:0 的滚动宽度。最后说明为什么 MissingLessonFont 的 check 可以为 true。",
-        "用产品里最长的译文和目标方向各走一遍主流程，确认按钮完整、文本可读、焦点顺序与阅读起点一致。E27 至 E29 尚未交付，本节不把它们显示为可做练习。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。涉及状态、窗口或分帧的模型题只检验纯计算结果；真实 DOM、布局、构建及耗时按本文环境另行核对。"
       ]
     }
   ],

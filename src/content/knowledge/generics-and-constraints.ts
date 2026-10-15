@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const genericsConstraintsArticle: Article = {
+  "revision": 2,
   "id": "K03-03",
   "kind": "knowledge",
   "domainSlug": "typescript",
@@ -20,7 +21,7 @@ export const genericsConstraintsArticle: Article = {
     "泛型与约束"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -123,7 +124,7 @@ export const genericsConstraintsArticle: Article = {
       "title": "什么时候泛型值得保留",
       "paragraphs": [
         "第一条边界是运行时数据：接口和泛型都不能证明网络输入。第二条边界是空集合与缺失结果：泛型保留元素关系，但 noUncheckedIndexedAccess 下普通下标仍可能为 undefined，不能用非空断言抹去业务缺失。",
-        "取舍方法是画出类型关系：哪个输入决定哪个输出，哪些参数需要保持一致，哪些能力由调用方提供。若 T 没有建立这些关系，具体类型往往更可读；若多个使用者真的需要复用关系，再提取泛型。把 getField 的键改成未知字符串，解释编译器为什么不能确定结果。E33 类型练习仍待制作，本文示例可先独立复现。"
+        "取舍方法是画出类型关系：哪个输入决定哪个输出，哪些参数需要保持一致，哪些能力由调用方提供。若 T 没有建立这些关系，具体类型往往更可读；若多个使用者真的需要复用关系，再提取泛型。把 getField 的键改成未知字符串，解释编译器为什么不能确定结果。E33 现为运行时属性练习，不承担类型验收；K03-06 的映射类型与递归解包练习通过严格编译验证，本文示例也可独立复现。"
       ]
     }
   ],

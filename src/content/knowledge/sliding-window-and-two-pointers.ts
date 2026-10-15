@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const slidingWindowArticle: Article = {
+  "revision": 2,
   id: "K16-05",
   kind: "knowledge",
   domainSlug: "algorithms",
@@ -10,7 +11,7 @@ export const slidingWindowArticle: Article = {
   aliases: ["two pointers", "sliding window", "双指针", "无重复"],
   tags: ["算法", "窗口", "查找"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -121,7 +122,7 @@ console.log('空串:' + longestUnique(''));`,
       title: "用一组有序数和一串重复字符把指针走完",
       paragraphs: [
         "1、2、4、7 与目标 6 应得到下标 1 和 2。未排序应直接 unsorted。abca 应得到 abc，abba 应得到 ab，空字符串应得到 empty。",
-        "本主题没有已开放的独立练习。示例不在输入框里高亮选区。"
+        "E39 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

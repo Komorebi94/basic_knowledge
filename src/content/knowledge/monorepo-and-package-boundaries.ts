@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const monorepoBoundariesArticle: Article = {
+  "revision": 2,
   "id": "K09-06",
   "kind": "knowledge",
   "domainSlug": "tooling",
@@ -20,7 +21,7 @@ export const monorepoBoundariesArticle: Article = {
     "Monorepo 与包边界"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -151,7 +152,7 @@ export const monorepoBoundariesArticle: Article = {
       "title": "拿干净消费者而不是源码目录作为包验证入口",
       "paragraphs": [
         "给包例子添加一个新的公开子路径，核对文件确实包含且 Node 能解析；再构造 sdk 失败后 app 不可执行的调度检查。修改公共锁文件或编译目标，说明缓存与受影响范围应怎样变化。",
-        "本主题没有独立已开放工作区题。规划的依赖图题 E35 尚未开放；可以先用作者模型验证循环与缺失边，再为真实仓库配置对应行为验收。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。涉及状态、窗口或分帧的模型题只检验纯计算结果；真实 DOM、布局、构建及耗时按本文环境另行核对。"
       ]
     }
   ],

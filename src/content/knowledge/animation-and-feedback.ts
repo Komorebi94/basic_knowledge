@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const animationFeedbackArticle: Article = {
+  "revision": 2,
   "id": "K05-06",
   "kind": "knowledge",
   "domainSlug": "html-css",
@@ -21,7 +22,7 @@ export const animationFeedbackArticle: Article = {
     "动画与交互反馈"
   ],
   "estimatedMinutes": 22,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -129,7 +130,7 @@ export const animationFeedbackArticle: Article = {
       "title": "预测偏移、视觉坐标和取消后的值",
       "paragraphs": [
         "先预测 left:30px 与 translateX(30px) 的两行输出，再预测动画取消后不透明度是 0.5 还是 1。然后写出减少动态效果时提示应停留的最终文字，以及不该出现的位移。",
-        "在目标页面用开发者工具的渲染或性能记录核对一次真实滑动，确认没有在动画帧里读写布局。E27 至 E29 尚未提供可运行练习；本节的空白页读数用来核对机制。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。涉及状态、窗口或分帧的模型题只检验纯计算结果；真实 DOM、布局、构建及耗时按本文环境另行核对。"
       ]
     }
   ],

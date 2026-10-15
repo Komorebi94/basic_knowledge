@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const treeGraphArticle: Article = {
+  "revision": 2,
   id: "K16-03",
   kind: "knowledge",
   domainSlug: "algorithms",
@@ -10,7 +11,7 @@ export const treeGraphArticle: Article = {
   aliases: ["tree traversal", "cycle detection", "DFS", "依赖环"],
   tags: ["算法", "树", "图"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -144,7 +145,7 @@ console.log('后一段:' + cycle([['a', 'b'], ['c', 'c']]));`,
       title: "用同一份目录分别写出渲染顺序和删除顺序",
       paragraphs: [
         "笔记树的先序应以 notes 开头、2026 在 published 后面。后序应先出现 draft 和 2026。依赖三条边绕回 app 时应得到 cycle:app>ui>api>app；拿掉最后一条边应得到 none。",
-        "本主题没有已开放的独立练习。示例不读取真实目录，也不排列包的安装顺序。"
+        "E35 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

@@ -39,7 +39,7 @@ export function generatePublicMetadata() {
   const { articles, articleHref } = load(resolve(root, "src/content/articles.ts"));
   const { exercises } = load(resolve(root, "src/content/practice/index.ts"));
   const metadata = {
-    articles: articles.map(({id,catalogId,kind,title,summary,domainSlug,slug,estimatedMinutes}) => ({id,catalogId:catalogId ?? id,kind,title,summary,domainSlug,slug,estimatedMinutes,href:articleHref({kind,domainSlug,slug})})),
+    articles: articles.map(({id,catalogId,kind,title,summary,domainSlug,slug,estimatedMinutes,revision = 1}) => ({id,catalogId:catalogId ?? id,kind,title,summary,domainSlug,slug,estimatedMinutes,revision,href:articleHref({kind,domainSlug,slug})})),
     exercises: exercises.map(({id,title,slug,revision}) => ({id,title,slug,revision,href:`/practice/${slug}`})),
   };
   writeIfChanged(resolve(root,"src/content/publicMetadata.json"), JSON.stringify(metadata,null,2)+"\n");

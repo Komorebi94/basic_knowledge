@@ -38,10 +38,11 @@ try {
   await page.goto(`${origin}/practice`, { waitUntil: "networkidle" });
   assert.equal(await page.locator(".practice-row").count(), 40);
 
-  for (const [query, href] of [
+  for (const [query, href, heading = query] of [
     ["联合类型与状态建模", "/knowledge/typescript/discriminated-state"],
     ["模型升级后重新评估工作流", "/ai/workflow-upgrade-evaluation"],
-    ["依赖图拓扑排序", "/practice#E35"],
+    ["依赖图拓扑排序", "/practice/dependency-topo-sort"],
+    ["useAsyncResource", "/practice/async-resource", "异步资源状态模型"],
   ]) {
     await page.goto(`${origin}/search?q=${encodeURIComponent(query)}`, { waitUntil: "networkidle" });
     await page.locator(`a[href='${href}']`).click();
@@ -49,7 +50,7 @@ try {
     if (href.includes("#")) {
       assert.equal(await page.locator("#E35").evaluate((element) => document.activeElement === element), true);
     } else {
-      await page.getByRole("heading", { name: query, exact: true }).waitFor();
+      await page.getByRole("heading", { name: heading, exact: true }).waitFor();
     }
   }
 

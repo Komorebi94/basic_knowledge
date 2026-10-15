@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const hooksReuseBoundariesArticle: Article = {
+  "revision": 2,
   "id": "K07-06",
   "kind": "knowledge",
   "domainSlug": "react",
@@ -10,14 +11,14 @@ export const hooksReuseBoundariesArticle: Article = {
   "aliases": ["custom hook", "rules of hooks", "dependencies", "复用", "调用顺序"],
   "tags": ["React", "Hooks", "Hooks 与复用边界"],
   "estimatedMinutes": 22,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
       "title": "条件里多调用了一次 Hook，为什么后面的状态串了？",
       "paragraphs": [
         "组件有时订阅房间，有时不订阅。作者把 useState 写进 if。第一次渲染走了三个 Hook，第二次少了一个，再往下读到的状态槽接到了上一次的另一个值。Hook 的状态按组件本次渲染的调用顺序保存。自定义 Hook 只是把这串调用收进一个函数，不会创建新的状态所有者。",
-        "前置是 K07-01 的状态槽和 K07-02 的订阅清理。示例用游标数组演示顺序错位，并用 Object.is 演示依赖比较。它对应 React 文档中的 Hook 规则，不执行 React 19.3.0 的调度。"
+        "前置是 K07-01 的状态槽和 K07-02 的订阅清理。前半篇用游标数组与 Object.is 解释规则，后面真实挂载 Strict Mode 和自定义 Hook，验证独立状态及卸载后的订阅数量；不靠模型推断内部调度次数。"
       ]
     },
     {
@@ -25,7 +26,8 @@ export const hooksReuseBoundariesArticle: Article = {
       "title": "同一组件的每次渲染都要按同一顺序调用 Hook",
       "paragraphs": [
         "渲染开始时从第一个槽位读取。每调用一次 useState 或 useEffect，游标前进。条件、循环和提前 return 若改变调用次数，后面的调用会读到别人的槽位。规则因此要求 Hook 只在组件或自定义 Hook 的顶层调用。",
-        "需要条件订阅时，仍然每次调用 Hook，把条件放进 Hook 的参数或 Effect 内部。不要为了少一次调用把 Hook 放进分支。自定义 Hook 内部的调用顺序也算进这一个组件的总顺序，两个自定义 Hook 不能在同一次渲染里交换位置。"
+        "需要条件订阅时，仍然每次调用 Hook，把条件放进 Hook 的参数或 Effect 内部。不要为了少一次调用把 Hook 放进分支。自定义 Hook 内部的调用顺序也算进这一个组件的总顺序，两个自定义 Hook 不能在同一次渲染里交换位置。",
+        "上述顺序约束适用于 useState、useEffect 等传统 Hook。React 19 的 use API 是例外，可以在组件或 Hook 的条件和循环里读取 Promise/context，但仍不能任意放在事件回调或 try/catch 里。不要从这个例外推出普通 Hook 也可以条件调用。"
       ],
       "examples": [
         {
@@ -94,11 +96,34 @@ export const hooksReuseBoundariesArticle: Article = {
       ]
     },
     {
+      "id": "react-hook-experiment",
+      "title": "真实自定义 Hook：独立状态与 Strict Mode 清理",
+      "paragraphs": [
+        "以下为真实 React 19.3.0 开发构建实验，运行 npm run verify:k07。隔离服务将本仓库安装的 react、react-dom/client 与测试 act 打包为 /react.mjs；普通项目分别从这些包导入相同 API。act 只用于让测试中的更新完成，不应放进产品事件处理器。每例创建独立根并在结束时卸载，不运行读者代码。",
+        "下面的 useCounter 为每个调用者创建自己的状态，并订阅各自命名的外部事件。开发 Strict Mode 会额外检验 setup/cleanup；断言的是当前有效监听数量及实际更新，不依赖 setup 总调用次数。"
+      ],
+      "examples": [
+        {
+          "language": "module",
+          "code": "import { createElement as h, createRoot, StrictMode, useState, useEffect, act } from '/react.mjs';\nglobalThis.IS_REACT_ACT_ENVIRONMENT = true;\nconst bus = new EventTarget();\nlet active = 0;\nfunction useCounter(name) {\n  const [value, setValue] = useState(0);\n  useEffect(() => {\n    const handler = () => setValue(previous => previous + 1);\n    bus.addEventListener(name, handler); active += 1;\n    return () => { bus.removeEventListener(name, handler); active -= 1; };\n  }, [name]);\n  return value;\n}\nfunction Counter({ name }) { return h('output', null, name + ':' + useCounter(name)); }\nconst host = document.body.appendChild(document.createElement('div'));\nconst root = createRoot(host);\nawait act(async () => { root.render(h(StrictMode, null, h(Counter, { name: 'A' }), h(Counter, { name: 'B' }))); });\nconsole.log('有效监听:' + active);\nawait act(async () => { bus.dispatchEvent(new Event('A')); });\nconsole.log([...host.querySelectorAll('output')].map(node => node.textContent).join(','));\nawait act(async () => { root.unmount(); });\nbus.dispatchEvent(new Event('A'));\nconsole.log('卸载后:' + active); host.remove();",
+          "expectedOutput": [
+            "有效监听:2",
+            "A:1,B:0",
+            "卸载后:0"
+          ],
+          "explanation": [
+            "Strict Mode 的重建结束后仍只有 A、B 两个有效订阅，说明清理与建立配对。发送 A 只更新 A 的 Hook 状态，B 继续为 0；复用的是逻辑，不是同一份状态。",
+            "卸载移除两个原始 handler，active 回到 0，迟到事件不再更新页面。若把状态移到模块变量，或 removeEventListener 传新函数，这两项不变量就会被破坏。"
+          ]
+        }
+      ]
+    },
+    {
       "id": "practice",
       "title": "先数 Hook 调用，再判断引用是否相同",
       "paragraphs": [
         "第一次渲染调用三个槽、第二次去掉中间那个，预测第三个名字读到的值。再预测同一对象、更长的数组和新函数哪几次会让依赖比较返回 true。最后说明模块级计数为什么会串到另一个组件。",
-        "E30、E31、E38 尚未制作。把条件订阅改成稳定调用后，用卸载和切换房间检查清理是否成对。"
+        "E31 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

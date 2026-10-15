@@ -1,0 +1,6477 @@
+{
+  "verifiedAt": "2026-10-15T02:12:44.702Z",
+  "browser": "155.0.8059.40",
+  "toolingEvidence": {
+    "rolldownVersion": "1.2.11",
+    "typescriptVersion": "6.0.3",
+    "fixtureSha256": "e76769382b37a75693a3c75d691c255b2cdb939ef23113676bebb43d5d84ff67"
+  },
+  "vueVersion": "3.5.43",
+  "routerVersion": "4.6.4",
+  "nodeVersion": "v22.22.3",
+  "ssrAppSha256": "ab4166c379cb0f09c0650a194e36e13dc9c1b256c68757b9c9b70902f1c7fd5e",
+  "articleIds": [
+    "K15-08",
+    "K05-06",
+    "K06-08",
+    "K02-03",
+    "K15-04",
+    "K12-04",
+    "K11-02",
+    "K12-02",
+    "K14-04",
+    "K05-02",
+    "K14-01",
+    "K10-06",
+    "K10-05",
+    "K02-05",
+    "K05-05",
+    "K09-08",
+    "K11-07",
+    "K01-02",
+    "K09-05",
+    "K13-03",
+    "K08-08",
+    "K15-07",
+    "K16-01",
+    "K12-05",
+    "K08-03",
+    "K07-03",
+    "K08-02",
+    "K02-04",
+    "K07-05",
+    "K03-04",
+    "K06-03",
+    "K15-06",
+    "K06-04",
+    "K10-03",
+    "K11-03",
+    "K03-07",
+    "K09-02",
+    "K11-04",
+    "K14-07",
+    "K13-05",
+    "K03-02",
+    "K16-07",
+    "K12-06",
+    "K07-02",
+    "K04-03",
+    "K10-01",
+    "K05-03",
+    "K15-03",
+    "K16-08",
+    "K03-05",
+    "K03-03",
+    "K07-06",
+    "K06-01",
+    "K13-07",
+    "K05-07",
+    "K01-06",
+    "K15-01",
+    "K10-08",
+    "K06-07",
+    "K05-08",
+    "K08-04",
+    "K10-04",
+    "K10-02",
+    "K03-08",
+    "K16-02",
+    "K01-08",
+    "K13-06",
+    "K12-03",
+    "K13-01",
+    "K09-01",
+    "K01-07",
+    "K09-06",
+    "K04-06",
+    "K04-01",
+    "K04-05",
+    "K10-07",
+    "K07-08",
+    "K13-04",
+    "K04-08",
+    "K02-02",
+    "K12-07",
+    "K01-05",
+    "K01-04",
+    "K12-08",
+    "K08-01",
+    "K07-01",
+    "K14-02",
+    "K04-02",
+    "K14-08",
+    "K06-02",
+    "K05-04",
+    "K02-06",
+    "K08-06",
+    "K06-05",
+    "K11-08",
+    "K05-01",
+    "K15-02",
+    "K11-05",
+    "K14-06",
+    "K07-07",
+    "K04-07",
+    "K16-05",
+    "K16-04",
+    "K09-07",
+    "K08-07",
+    "K16-06",
+    "K07-04",
+    "K13-02",
+    "K04-04",
+    "K14-05",
+    "K06-06",
+    "K14-03",
+    "K13-08",
+    "K02-01",
+    "K08-05",
+    "K12-01",
+    "K01-03",
+    "K15-05",
+    "K02-08",
+    "K09-04",
+    "K16-03",
+    "K09-03",
+    "K03-01",
+    "K11-06",
+    "K03-06",
+    "K01-01",
+    "K02-07",
+    "K11-01",
+    "AI08",
+    "AI07",
+    "AI03",
+    "AI18",
+    "AI05",
+    "AI16",
+    "AI19",
+    "AI01",
+    "AI12",
+    "AI17",
+    "AI15",
+    "AI11",
+    "AI06",
+    "AI13",
+    "AI09",
+    "AI14",
+    "AI02",
+    "AI10",
+    "AI04",
+    "AI20"
+  ],
+  "examples": 474,
+  "browserExamples": 446,
+  "nodeExamples": 28,
+  "strictTypeScriptExamples": 27,
+  "evidence": [
+    {
+      "articleId": "K15-08",
+      "sectionId": "scan",
+      "language": "javascript",
+      "codeSha256": "f00d8d79be7f3237b047a486c86f5f0fa06e9aa56288157bfa323cabd5cb806a",
+      "output": [
+        "缺名称:fail:name",
+        "低对比:fail:contrast",
+        "名称通过:pass:name",
+        "未知发现:invalid",
+        "陷阱:block",
+        "动效:fix-before-release",
+        "文案:follow-up"
+      ],
+      "diagnostics": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K15-08",
+      "sectionId": "gate",
+      "language": "javascript",
+      "codeSha256": "24ce74ea05d00452b0ccef3123b79aab280175b6bbbc10ebf73dbc1b38180b77",
+      "output": [
+        "挡住:blocked:fail:contrast",
+        "未完成:incomplete:untested:speech",
+        "接受:accepted",
+        "空:empty",
+        "优先级挡住:blocked:block"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-06",
+      "sectionId": "compositor",
+      "language": "javascript",
+      "codeSha256": "b66e8f470e8203f4a821c8e4b4f97b0b348c90f7880af227922ac2a06ea5a8bf",
+      "output": [
+        "30,30",
+        "0,30"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-06",
+      "sectionId": "control",
+      "language": "javascript",
+      "codeSha256": "4ba40f2569e82c51f77cc395a4d09c7a40e483e13fe2f35ec2e46e8cee1a646d",
+      "output": [
+        "0.5,paused",
+        "1,0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-06",
+      "sectionId": "motion",
+      "language": "javascript",
+      "codeSha256": "fd1c404e0dd06b8965ffae5125cede605af7263bee32908efbd582c2bf21c197",
+      "output": [
+        "none",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "none"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-08",
+      "sectionId": "compatible",
+      "language": "javascript",
+      "codeSha256": "a78afc24e745dbaf0f94f0d5c563fb1c5d302d22fcaef59f6e5e623c1336369c",
+      "output": [
+        "ok:林:absent",
+        "ok:林:cleared",
+        "reject"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-08",
+      "sectionId": "page",
+      "language": "javascript",
+      "codeSha256": "51e2a5b5116cb77c60c586af68842ee08f727d9e1e801a92afc20ccd92887ee2",
+      "output": [
+        "a,b|b",
+        "c,d|"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-08",
+      "sectionId": "time",
+      "language": "javascript",
+      "codeSha256": "413661f7d55ce1e0d3d6d9a85b1fc42015419532c170005983c2e5c9b78e18e7",
+      "output": [
+        "2026-10-12T08:00:00.000Z",
+        "true",
+        "date,instant,reject"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-03",
+      "sectionId": "problem",
+      "language": "module",
+      "codeSha256": "e1aca4fbf575ff7c917a8716e1e9aca907043d51f35634e4240a9757f4d93838",
+      "output": [
+        "over cleanup",
+        "cleanup",
+        "kept value",
+        "sync"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-03",
+      "sectionId": "serial",
+      "language": "module",
+      "codeSha256": "e29b6f1adf399d047e2f9181319ae64dce16c3960ad91175a05f1181ac17af10",
+      "output": [
+        "start-a,end-a,start-b,end-b",
+        "start-c,start-d,end-c,end-d"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-03",
+      "sectionId": "errors",
+      "language": "module",
+      "codeSha256": "0e0ab3330b2bbeaabc54391e766929247d7d11b4a09e45bef728c06d2a1c43f2",
+      "output": [
+        "caught missing",
+        "cleanup",
+        "outer missing"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-04",
+      "sectionId": "play",
+      "language": "javascript",
+      "codeSha256": "8c589ec5d52e1162dd0333e296ab00f20d930f7b5f4f6190604c5c94d10bbbf0",
+      "output": [
+        "失败路径:pending:新标题",
+        "失败路径:busy",
+        "失败路径:rolled-back:草稿",
+        "失败路径:no-undo",
+        "成功路径:pending:新标题",
+        "成功路径:confirmed:新标题:1",
+        "成功路径:undo:草稿:0",
+        "成功路径:no-undo",
+        "成功路径:ignored"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-04",
+      "sectionId": "feedback",
+      "language": "javascript",
+      "codeSha256": "c44193097a7c9d2bf074e783c91ed664f1928e39ac553b8c4b44edf9fbf6afb9",
+      "output": [
+        "等待:status:正在保存:keep-focus",
+        "确认:status:已保存:keep-focus",
+        "回滚:alert:已恢复草稿:keep-focus",
+        "重复:status:请等待:keep-focus",
+        "未知反馈:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-04",
+      "sectionId": "debounce",
+      "language": "javascript",
+      "codeSha256": "f8a5d6cae22d13bcf46d4a083c6c383249c5fc26d048fb31032ecd9c681c4e7b",
+      "output": [
+        "提前:scheduled/none/none",
+        "改写:scheduled/b/b",
+        "取消后:idle/none/b",
+        "到期:a/a",
+        "半程:none",
+        "再到期:c/a|c",
+        "中途:canceled/none/none",
+        "非法:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-04",
+      "sectionId": "retry",
+      "language": "javascript",
+      "codeSha256": "3853547c94d3e8326acc68098035fe65777af8b2c3d4cce377020681143672b7",
+      "output": [
+        "开始:waiting/0:fail@0",
+        "未到:none/0:fail@0",
+        "第二次:waiting/0:fail@0,1:fail@20",
+        "成功:done/0:fail@0,1:fail@20,2:ok@70",
+        "只改标记:late/empty",
+        "严格开始:waiting",
+        "严格取消:canceled/none/0:fail@0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "5ffe8cc27b90dd070362ea4ee607f4ee99db6787661625e6884978633c29111d",
+      "output": [
+        "true",
+        "false",
+        "false",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-02",
+      "sectionId": "guards",
+      "language": "javascript",
+      "codeSha256": "f9d5ab846af6d530322b1a52dec2d3def9a6352babd3d70aa747d548a7c90107",
+      "output": [
+        "true",
+        "false",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-02",
+      "sectionId": "bad-check",
+      "language": "javascript",
+      "codeSha256": "371ff52d81eb203e70794969de53a7769c014b4340beba319cfddd365c523170",
+      "output": [
+        "true",
+        "false",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "c9b371496f4107db778a28661cf2a71dc23349abc6911a9f432324e2aee26760",
+      "output": [
+        "[\"fallback\",0]",
+        "[\"fallback\",false]",
+        "[\"fallback\",\"\"]",
+        "[\"fallback\",\"fallback\"]"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-02",
+      "sectionId": "identity",
+      "language": "javascript",
+      "codeSha256": "234e894e72a11abfe34232adaf9a2d2e35d6c8503f3a8d77f963c6d8fe57a22e",
+      "output": [
+        "error",
+        "new"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-02",
+      "sectionId": "errors",
+      "language": "javascript",
+      "codeSha256": "276fbf7c35110c9207d09da37f942d654542e77e2911dd9eb489b246a1ec252a",
+      "output": [
+        "true",
+        "text-required",
+        "0",
+        "",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-04",
+      "sectionId": "aggregate",
+      "language": "javascript",
+      "codeSha256": "02e89d28996422cb6a165d4c496cab057d94ae6ffdbd481aef65e126f59fafd4",
+      "output": [
+        "别人:denied",
+        "转发令牌:token-not-forwarded",
+        "聚合:ok:草稿+订单",
+        "超时:timeout:草稿",
+        "部分:partial:草稿"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-04",
+      "sectionId": "shape",
+      "language": "javascript",
+      "codeSha256": "6647812ade22515605c2b6201c21025e23c415d43d17692474a6c296c1d0dcdc",
+      "output": [
+        "整形:{\"title\":\"草稿\",\"updated\":\"10-14\"}",
+        "缺标题:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "bad94db6104e7eb35619114b4f7883dd7416f04ff9b4d445c43fb0210350ca23",
+      "output": [
+        "124",
+        "100"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-02",
+      "sectionId": "formatting",
+      "language": "javascript",
+      "codeSha256": "6d32ebc40597ccb58f349839db3bb46fb809d63f6680ee8a1d3346cf6e92e118",
+      "output": [
+        "40"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-02",
+      "sectionId": "stacking",
+      "language": "javascript",
+      "codeSha256": "94d74e2f4fbb58f796a039656b6a4d4ed010adc566f2c51402eb8aeeed7e28f5",
+      "output": [
+        "panel,dialog",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "4c35ecf53b72bee54c3d008b163a69912650b74f241d3c046cae2e1eabedbcfe",
+      "output": [
+        "object",
+        "object",
+        "object",
+        "undefined",
+        "function"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-01",
+      "sectionId": "pure",
+      "language": "javascript",
+      "codeSha256": "794eb187323473761795518b73a0511a4ee0b0ec03ebdbb84c3c8236259bf268",
+      "output": [
+        "闭包 · 知识",
+        "知识",
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-01",
+      "sectionId": "scheduling",
+      "language": "javascript",
+      "codeSha256": "2317b6136baea29e385536e5852fc2077114ce8ba3a7bc9c8296867cd93bc5a3",
+      "output": [
+        "sync,end,promise,microtask"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-06",
+      "sectionId": "measure",
+      "language": "node",
+      "codeSha256": "73e30f32964282a951fc96bfa0796ca7fe1727154d81a1112835b1b19274d657",
+      "output": [
+        "重模块更大:true",
+        "标记保留:true",
+        "运行:true",
+        "重复更大:true",
+        "重复源码:1:1",
+        "共享源码:1",
+        "重复调用:true:true",
+        "共享调用:2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K10-06",
+      "sectionId": "benefit",
+      "language": "javascript",
+      "codeSha256": "831b3d3dd7cd1dbc730ee86740f89559363ddd37ff1c0a84b03a0c052e4840cf",
+      "output": [
+        "transfer-only",
+        "parse-only",
+        "both",
+        "none",
+        "invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-05",
+      "sectionId": "key",
+      "language": "javascript",
+      "codeSha256": "17a51d544b2c13b8d64e7f7e54576a7d62a27c1e777faf2ca99d0ada05806aa0",
+      "output": [
+        "忽略片段:true",
+        "语言不同:false",
+        "非https:rejected",
+        "键:https://shop.example/item?id=1|accept-language=zh"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-05",
+      "sectionId": "freshness",
+      "language": "javascript",
+      "codeSha256": "8e16e7cc1fc609911c01eeeddd1a7d4c1c3f74fba417c25c3b1858a488fe6cb1",
+      "output": [
+        "fresh",
+        "stale-revalidate",
+        "expired",
+        "miss",
+        "expired",
+        "invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-05",
+      "sectionId": "eviction",
+      "language": "javascript",
+      "codeSha256": "688c9dbbd468a96cec0820c6d37530551beecf6f115bc3c72697461d31e8133d",
+      "output": [
+        "主图还在:false",
+        "保留:true:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-05",
+      "sectionId": "budget",
+      "language": "javascript",
+      "codeSha256": "a29001345b0355141682b02cd798d1ab3b48158980c49667b0d86a5a4ca49096",
+      "output": [
+        "先主图:hero|none",
+        "先预取:promo,next|hero"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-05",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "170381ebd9740ea308a23858805ae52f42b0ca7811e19f415bb92be8a00524ba",
+      "output": [
+        "ignore old,show new"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-05",
+      "sectionId": "abort",
+      "language": "javascript",
+      "codeSha256": "99789d3e2b376601be5787d60f91cb0348c99453b49ffc4910ede21a84b1cb17",
+      "output": [
+        "true",
+        "AbortError",
+        "work AbortError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-05",
+      "sectionId": "both",
+      "language": "javascript",
+      "codeSha256": "02da1ed10f3046340746acb3175f54aee4f70061fc92b53c43a73606a8a724c7",
+      "output": [
+        "ignored",
+        "applied",
+        "new"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "layers",
+      "language": "javascript",
+      "codeSha256": "07365ea11aed795c4fcabba6d40df85e225afb4a010599b2ec93c1aa2f1d7ff5",
+      "output": [
+        "rgb(1, 2, 3)",
+        "rgb(4, 5, 6)"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "unlayered",
+      "language": "javascript",
+      "codeSha256": "78cbcb7c2bbf516e20c655860a5dd1f9d6a13af59ebfe5d927d08b2947b757d5",
+      "output": [
+        "rgb(0, 0, 255)",
+        "rgb(255, 0, 0)",
+        "rgb(0, 0, 9)"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "specificity",
+      "language": "javascript",
+      "codeSha256": "442651cf15ca65c314d9288936f656aa8550f64f044feb7b1b59b5a630e428b3",
+      "output": [
+        "rgb(0, 128, 0)",
+        "rgb(0, 0, 1)"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-05",
+      "sectionId": "tokens",
+      "language": "javascript",
+      "codeSha256": "2d892edf0f5ee66dc9f802cd45b8fa3fc5191190d1d3db99e464e7d92549fb47",
+      "output": [
+        "12px",
+        "4px",
+        "7px"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-08",
+      "sectionId": "gates",
+      "language": "node",
+      "codeSha256": "5775da21ddfa72a775619a9c7714900f26d15a4a29b0d3c9fd342adaf0e6c0ea",
+      "output": [
+        "失败轨迹:typecheck,lint",
+        "失败未发布:true",
+        "成功轨迹:typecheck,lint,build,publish"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-08",
+      "sectionId": "artifacts",
+      "language": "node",
+      "codeSha256": "9d55e05d44fd676d35cb3261d501ab8cbcfd3ee9e88027074eee04ea8983de8e",
+      "output": [
+        "同产物晋级:true",
+        "重建已变化:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-08",
+      "sectionId": "concurrency",
+      "language": "node",
+      "codeSha256": "04d3289f19a05f195e6d3d50aaa7fb73e957bbba610664a33dde118eeca9a451",
+      "output": [
+        "新发布:true",
+        "旧发布拒绝:true",
+        "当前:r2",
+        "回滚新意图:true:r1"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-08",
+      "sectionId": "canary",
+      "language": "node",
+      "codeSha256": "5cc3157bbcb05ff2d1515892cbfd54f3ea7c1e3e518f2da6c730da431472e16b",
+      "output": [
+        "小样本:hold",
+        "退化:rollback",
+        "稳定:promote",
+        "无效:invalid"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K11-07",
+      "sectionId": "origin",
+      "language": "javascript",
+      "codeSha256": "b6fcbda681f6451b565d82c5c5f26acc27c3aae93d6fa4f8c8ce536dc640bf7d",
+      "output": [
+        "默认端口:true",
+        "子域:false",
+        "协议:false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-07",
+      "sectionId": "sandbox",
+      "language": "javascript",
+      "codeSha256": "750371310f4357358ce9f88a942b74a6d781b1947cabd471ea71757df32e5349",
+      "output": [
+        "空标记:no-scripts",
+        "仅脚本:opaque-origin",
+        "脚本加同源:not-a-boundary",
+        "其他源:cross-origin"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-07",
+      "sectionId": "message",
+      "language": "javascript",
+      "codeSha256": "b5e24de056f236d1a4842e386b02e704b9ac9297f4840f42a8a053ff960ddae1",
+      "output": [
+        "accepted:1",
+        "rejected",
+        "invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "18018dd17163f41399645fccfbeddfb91769a85fb9ecccf7b25a3c082582770d",
+      "output": [
+        "1",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "scope-basics",
+      "language": "javascript",
+      "codeSha256": "cd8afdb878100eecfefa8789387ddd8c07352d41787ea12b5843ce29f5386f78",
+      "output": [
+        "changed block",
+        "changed",
+        "ReferenceError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "mechanism",
+      "language": "javascript",
+      "codeSha256": "0d4bb7bda061e4766411d9cad052bb5550af9cea8c5084f80ae25c161a7b6842",
+      "output": [
+        "caller",
+        "creator"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "environments",
+      "language": "javascript",
+      "codeSha256": "046bba37aa136ab560d248af1f37130d0f43338da8a1513207c27642e3b48783",
+      "output": [
+        "photo:7",
+        "video:7",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "bindings",
+      "language": "javascript",
+      "codeSha256": "142ef747cf0031f058fc0ce86ba86ce2e8e11759a38e8fa41da7d0ee3549deee",
+      "output": [
+        "2",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "shared-state",
+      "language": "javascript",
+      "codeSha256": "6062088fb48c6c78cf3973fca04ac58b757dc094441c3b72e9265e7b59913924",
+      "output": [
+        "2",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "loops",
+      "language": "javascript",
+      "codeSha256": "1500c03326e5344a93fa3b769dafa41de54bb9729f6fb87cf9188ce995125f02",
+      "output": [
+        "3,3,3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "loops",
+      "language": "javascript",
+      "codeSha256": "a2666723dfc5b43784c49cb5b9a93cfef5925f4da8db6427dc4bd0f5b4e92fc3",
+      "output": [
+        "0,1,2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "initialization",
+      "language": "javascript",
+      "codeSha256": "f7d0047005e739653eceac62436c79574b1a5ee5bcb5017ec814899c10f49b2e",
+      "output": [
+        "ReferenceError",
+        "8"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "async",
+      "language": "javascript",
+      "codeSha256": "f34b69b5c15e198b7ef2b61f212baf70c36ea736edc262a7a6e4831ee0dda4ae",
+      "output": [
+        "second",
+        "first"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "application",
+      "language": "javascript",
+      "codeSha256": "79c10c17bf0a59a2bc5f07d9b999dabfac53395d8d19374853a38382fb70ffcb",
+      "output": [
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-02",
+      "sectionId": "lifetime",
+      "language": "javascript",
+      "codeSha256": "aa1d28e8f97cf55ea5431f71d74fb22894e94ee0a004ec2feb71b8c7370c22a1",
+      "output": [
+        "photo-queue"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "chunks",
+      "language": "node",
+      "codeSha256": "a9b1dad04872f9877ae6e73f29664d7084a8dad14e8c78ef35c11d8d32c16c2c",
+      "output": [
+        "chunk数:2",
+        "入口有动态边:1",
+        "调用前:0",
+        "调用后:1:结果6:同模块true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "hashes",
+      "language": "node",
+      "codeSha256": "aadb63a33a6c6a87c5a708a9f3969b398568b05c42afd4a21239d505c19850c2",
+      "output": [
+        "子chunk变化:true",
+        "引用入口变化:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "http",
+      "language": "node",
+      "codeSha256": "3b30cbf9a779d978493ea71ad081fcfb541250f9dbbb50cbff212017f4d51f05",
+      "output": [
+        "旧资源:200",
+        "入口策略:no-cache",
+        "旧页仍可加载:200",
+        "删除旧资源:404",
+        "错误回退:200:text/html"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "recovery",
+      "language": "node",
+      "codeSha256": "7bc411e4a77f411a5791cf0d6d2498731f16ce92c821f345d91e7c3657026528",
+      "output": [
+        "首次:资源不可用",
+        "重试:ready:同结果true:次数2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K13-03",
+      "sectionId": "flow",
+      "language": "javascript",
+      "codeSha256": "835ada825628be0292e59ae5d4861cdcef0846f7d009e774663994e4f6987172",
+      "output": [
+        "空标题:blocked:title",
+        "改标题:edited",
+        "笔记带金额:edited/blocked:amount-forbidden",
+        "撤销:undone/editing|note|草稿|",
+        "提交:pending:1/busy",
+        "旧响应:stale",
+        "成功:saved/saved|note|草稿|",
+        "订单缺金额:blocked:amount",
+        "订单:edited/pending:1",
+        "失败:failed/failed|order|零件|12"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-03",
+      "sectionId": "linkage",
+      "language": "javascript",
+      "codeSha256": "4eb2c23b0c3d1d29b166d5e0de524afbe64cdfdf45f9d65c2ccd528a61e68809",
+      "output": [
+        "笔记空金额:ok",
+        "笔记有金额:amount-forbidden",
+        "订单空:amount",
+        "订单零:amount",
+        "订单十二:ok",
+        "种类:bad-kind"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-08",
+      "sectionId": "measurement",
+      "language": "module",
+      "codeSha256": "299d596504ec29f90708224ca22456a00c91900379e8a4cad7cfa5770abd725c",
+      "output": [
+        "窗口:true:DOM:2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-08",
+      "sectionId": "dependencies",
+      "language": "module",
+      "codeSha256": "e16cb6946fcdc7a51a1b4d98af28a568a2cfb3a8180d27d3270ec1caf839d421",
+      "output": [
+        "初始依赖:first,mode",
+        "未读字段:1:A:1",
+        "读取字段:2:A:2:触发first:true",
+        "切换依赖:mode,second:B:20",
+        "旧字段:3:B:20"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-08",
+      "sectionId": "computed",
+      "language": "module",
+      "codeSha256": "8ae12020dd8540ef7851046bebce891d26039b19860948456899827a3eb56f66",
+      "output": [
+        "初始:1,1",
+        "等价变化:2,1",
+        "值变化:3,2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-08",
+      "sectionId": "shallow",
+      "language": "module",
+      "codeSha256": "875fe7718cb8a2472fa68ddfc1a16c9cd581c321229fad75411eaa4a0a6aa62f",
+      "output": [
+        "嵌套代理:false",
+        "内部修改:数据2:DOM1",
+        "根替换:DOM3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-08",
+      "sectionId": "identity",
+      "language": "module",
+      "codeSha256": "28df11917171a4675e2810da687c4dc22432d299dd59e0b1e001d9193afdbda8",
+      "output": [
+        "根对象被代理:false",
+        "嵌套身份一致:false",
+        "引用键命中:false",
+        "业务ID命中:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-08",
+      "sectionId": "virtual",
+      "language": "module",
+      "codeSha256": "9074247dd02a82d1bf3347848f00faea966920c2907df512751fbfdfdb4ae969",
+      "output": [
+        "初始:4",
+        "中间:1,2,3,4,5:偏移20",
+        "末尾:9999:4",
+        "清空:0:没有匹配订单",
+        "非法高度:TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-08",
+      "sectionId": "batching",
+      "language": "module",
+      "codeSha256": "4c375f286e1cd739002322e881d08f0976d4e69041c2b50404a77595069ce4c4",
+      "output": [
+        "同步阶段:3,0",
+        "调度后:3,1",
+        "停止后:3,1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-07",
+      "sectionId": "choose",
+      "language": "javascript",
+      "codeSha256": "09a7b5800c29fa6ad596e9a6800817b57071ae7fb342411b69b7d3f62ea8ad50",
+      "output": [
+        "submit:native:button",
+        "notes:native:table",
+        "sheet:grid:arrow-cells",
+        "tabs:tabs:one-tabstop",
+        "editor:editor:mode",
+        "date:native:date",
+        "menu:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-07",
+      "sectionId": "keys",
+      "language": "javascript",
+      "codeSha256": "8873ec56f4869366063da8f35c58ff3383b4f93aa73774ff0d1a85583cae0e39",
+      "output": [
+        "选项卡离开:leave",
+        "选项卡下一项:next",
+        "表格忽略方向键:ignore",
+        "网格下一格:next-cell",
+        "网格离开:leave",
+        "编辑缩进:indent",
+        "退出编辑:navigate",
+        "导航离开:leave",
+        "编辑缺模式:invalid",
+        "按钮激活:activate",
+        "按钮忽略方向键:ignore"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "7b7f9052f4be605cfc706b7a3e827e475834057f4aa14b346be0b5fd015154f5",
+      "output": [
+        "10",
+        "36",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-01",
+      "sectionId": "index",
+      "language": "javascript",
+      "codeSha256": "1124a1688655571e1c24ad0095c2a5f5cee2e253887e6ce45089cb32e82036cf",
+      "output": [
+        "B,A,未分类",
+        "2:3",
+        "2:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-01",
+      "sectionId": "search",
+      "language": "javascript",
+      "codeSha256": "2885104c86bdf87de02ecc27c5ea9b850aed2a05f399190490f3ee11bd69322b",
+      "output": [
+        "{\"index\":1,\"steps\":4}",
+        "{\"index\":8,\"steps\":3}",
+        "{\"index\":0,\"steps\":0}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-05",
+      "sectionId": "query",
+      "language": "javascript",
+      "codeSha256": "0713dec4d065e9ac0fc8a435310b8fcf0eb62d98327540db207e7f5bb2979237",
+      "output": [
+        "类选择器:found",
+        "按钮选择器:missing",
+        "样式:div|保存|enabled|not-focusable",
+        "按钮:button|保存|enabled|focusable",
+        "角色:button|保存|enabled|focusable",
+        "原生禁用:button|保存|disabled|not-focusable",
+        "aria禁用:button|保存|disabled|focusable",
+        "输入:input|正文|enabled|focusable",
+        "名称:button|保存笔记|enabled|focusable",
+        "无href:a|说明|enabled|not-focusable",
+        "有href:a|说明|enabled|focusable"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-05",
+      "sectionId": "keyboard",
+      "language": "javascript",
+      "codeSha256": "800df77aa26e7dbcea1e05fc9bff851c6a6c20ebe9fe202998ab5c469c552de6",
+      "output": [
+        "div:closed:not-actionable",
+        "按钮:open",
+        "关闭:closed",
+        "原生禁用:closed:ignored",
+        "aria禁用:closed:ignored",
+        "未打开:closed:already"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-03",
+      "sectionId": "copies",
+      "language": "module",
+      "codeSha256": "f98ad464f367bfafd4a6f6e7ff778e0ec56d93231fc17c3bdec473314b570fc8",
+      "output": [
+        "1,2,1",
+        "3,2,3",
+        "6"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-03",
+      "sectionId": "props",
+      "language": "module",
+      "codeSha256": "c8daef1e74afaad2c1b49996b673b0e3bd4869a07fffef2416d7fc2289760777",
+      "output": [
+        "1",
+        "2:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-03",
+      "sectionId": "controlled",
+      "language": "module",
+      "codeSha256": "e2bd1957ce6e4141f25053423aa33095fa5896107a36eeb12d80777f4b67c5fb",
+      "output": [
+        "数量:1",
+        "数量:2|",
+        "数量:2|数量必须是 1—5 的整数",
+        "数量:2|数量必须是 1—5 的整数",
+        "数量:2|数量必须是 1—5 的整数",
+        "数量:2|数量必须是 1—5 的整数",
+        "数量:3|"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-03",
+      "sectionId": "draft",
+      "language": "module",
+      "codeSha256": "822ece1375cd4ea5d36269966382b6d0fd41db0284ff0b01c49e67a00fc1ce17",
+      "output": [
+        "1:2",
+        "false:4",
+        "true:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-03",
+      "sectionId": "events",
+      "language": "module",
+      "codeSha256": "4fab8b1e60737a671ab2a993dc6058692bff730fb3c11af86adc006693717155",
+      "output": [
+        "丢失:0",
+        "转发:1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-03",
+      "sectionId": "injection",
+      "language": "module",
+      "codeSha256": "b1ff47c7e1abc16feec9cbbbc205a7714e131f26e8ef53d5b2d42112eb94903a",
+      "output": [
+        "1|未提供订单",
+        "2|未提供订单",
+        "原值:2:只读:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-03",
+      "sectionId": "identity",
+      "language": "javascript",
+      "codeSha256": "9ce4763cd94dc31b87797ee511c20a5507fdbb24c4074ce793097606f4c74deb",
+      "output": [
+        "b:empty,a:typed",
+        "a2:fresh,b:empty"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-03",
+      "sectionId": "index",
+      "language": "javascript",
+      "codeSha256": "e4f1b17792dfe32f64baa72d4811afb65acec545b2660df28a372180ec794836",
+      "output": [
+        "b:typed,a:empty",
+        "b:typed"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-03",
+      "sectionId": "type",
+      "language": "javascript",
+      "codeSha256": "901ceeb7a43cf62cf6d256c0c3c675a860db509aefbc92c07bda75fe0dfcec96",
+      "output": [
+        "form#user:draft",
+        "preview#user:fresh",
+        "form#next:fresh"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "686bb248b45df8ed386b398510ed1595ab99eb6e3602416dcdd0e73a0fc8f603",
+      "output": [
+        "6 6 1",
+        "12 2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-02",
+      "sectionId": "sources",
+      "language": "javascript",
+      "codeSha256": "a32be3da42328f19d7056bcd307e95cc7ab4ac4b420d0c3fa331c59bd30b47cb",
+      "output": [
+        "1",
+        "5"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-02",
+      "sectionId": "vue-code",
+      "language": "javascript",
+      "codeSha256": "921ea922ace032ec3f181d9e33c0501d177f5fb2535b9016f4bd73db967328b9",
+      "output": [
+        "初始",
+        "当前结果"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-02",
+      "sectionId": "vue-code",
+      "language": "module",
+      "codeSha256": "0f9778bb762bc0c2c7ebfb470dc24b3b693468c6939cf723793da303b43522f8",
+      "output": [
+        "旧轮取消:true",
+        "当前:B:1",
+        "旧失败忽略:true",
+        "当前失败:C失败:0",
+        "停止后无新请求:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-04",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "e36b734447e398460bddb30005941120b9d4a489887a78b3caccec7b6c6dd05c",
+      "output": [
+        "start-a,start-b,end-a,end-b,start-c,end-c"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-04",
+      "sectionId": "queue",
+      "language": "javascript",
+      "codeSha256": "522f262dc9677886206df3bb281a4b1d4aabc813b449d6e13531fa968af275cd",
+      "output": [
+        "queued 1",
+        "rejected",
+        "rejected"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-04",
+      "sectionId": "failure",
+      "language": "javascript",
+      "codeSha256": "6b5d505754661bf8c4bc0a6e4e71743c068e83bd2db749bf45712665a38a75f2",
+      "output": [
+        "start-a,fail-a,start-b,end-b"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-05",
+      "sectionId": "transition",
+      "language": "javascript",
+      "codeSha256": "86a8726d16379119043c378ded680ede3476fac2fe4d87ac3f71d4e22f5e047e",
+      "output": [
+        "show:ab,pending:ab,show:abc"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-05",
+      "sectionId": "suspense",
+      "language": "javascript",
+      "codeSha256": "37a5693dfaca3860cd87d5bf456e3962def0d1fc40beff451493d3a92cfb4baf",
+      "output": [
+        "fallback",
+        "content:list",
+        "error-boundary",
+        "reads:2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-04",
+      "sectionId": "distribution",
+      "language": "typescript",
+      "codeSha256": "bbb8d126b7734067320f4eeb9260cef852372e7f72de7229679908de455dc2cc",
+      "output": [
+        "draft 3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-04",
+      "sectionId": "infer",
+      "language": "typescript",
+      "codeSha256": "5937916fc264ef20d1340957f204a0742f2775695f866be58f0a64a5a3412967",
+      "output": [
+        "42 true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-04",
+      "sectionId": "mapping",
+      "language": "typescript",
+      "codeSha256": "f7f9be6c176a449a9455687bef12696b19c5b288b2edcd7c0019ecbe2838d661",
+      "output": [
+        "Published 2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-03",
+      "sectionId": "origin",
+      "language": "javascript",
+      "codeSha256": "d670e5c56949ec70f6dc6a3278eaec9f769abceda27607efb0ec0717d9fe4335",
+      "output": [
+        "true,false,false",
+        "https://api.example.test"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-03",
+      "sectionId": "choice",
+      "language": "javascript",
+      "codeSha256": "06718915e173c99a2a3b53f1e89e3b3600e47fb6665e5252cb5754d7b28f8a07",
+      "output": [
+        "http/1.1",
+        "h2",
+        "h3",
+        "unavailable"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-03",
+      "sectionId": "blocking",
+      "language": "javascript",
+      "codeSha256": "adefba21b3f510776133d16134ae0560b9138e1cabd7c08d313f621663a3ce75",
+      "output": [
+        "a1,b1,stall:a2,stall:b2",
+        "a1,b1,stall:a2,b2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-06",
+      "sectionId": "contrast",
+      "language": "javascript",
+      "codeSha256": "146f69f541d308fca28f170b2c194817c0d50bac51ada028d9ab490f7fadaa29",
+      "output": [
+        "正文黑白:pass:21.00:text",
+        "正文灰:fail:4.48:text",
+        "大字灰:pass:4.48:large",
+        "界面灰:pass:4.48:ui",
+        "同色:fail:1.00:text",
+        "短色:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-06",
+      "sectionId": "motion",
+      "language": "javascript",
+      "codeSha256": "cbc722f0c55e4a62a4ce73acad8c287e62a0cbc572cc64f494d632d1439834f2",
+      "output": [
+        "只看颜色:color-only",
+        "有文字:text:失败",
+        "减少旋转:stopped",
+        "减少淡入:opacity-only",
+        "焦点仍在:visible",
+        "允许旋转:spin",
+        "未知效果:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-04",
+      "sectionId": "placement",
+      "language": "javascript",
+      "codeSha256": "ffbc0b8646b9be479450ba7ae3db6254216eeb7da4b1da47f458c981fb4dcb25",
+      "output": [
+        "script:hidden,attach:browser,csrf:review",
+        "script:reachable,attach:manual,reload:lost",
+        "script:readable,attach:manual,reload:kept"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-04",
+      "sectionId": "attributes",
+      "language": "javascript",
+      "codeSha256": "c04aa4ec1a12772876071d4f06239fa63142f69be934b629f38190499f0ffab0",
+      "output": [
+        "session,abc,true,Lax",
+        "theme,light,false,Strict"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-04",
+      "sectionId": "refresh",
+      "language": "javascript",
+      "codeSha256": "6f63ff815d915e117b2be9ba702f73c51bc80931aa7ff82829909c081deebad3",
+      "output": [
+        "1",
+        "fresh,fresh,fresh"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-03",
+      "sectionId": "discovery",
+      "language": "javascript",
+      "codeSha256": "bdfc1d73f32fc3b7373e9cf3ce037b774da48e1319550b8ff2632b4aaa9aabbe",
+      "output": [
+        "preload,img,no-css-url",
+        "no-preload,no-img,css-url"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-03",
+      "sectionId": "blocking",
+      "language": "javascript",
+      "codeSha256": "57950fb79da57a3b4b4c522f9484457f700a96337a489aaceaee6e9eedd80fff",
+      "output": [
+        "晚发现:70",
+        "预加载:40",
+        "异步脚本:40",
+        "只有样式:undiscovered",
+        "非法:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-03",
+      "sectionId": "fonts",
+      "language": "javascript",
+      "codeSha256": "f6a9d785acfb0b98a9f5bb4a6d0990bf2a2bce428c1ee2954aff16371180685b",
+      "output": [
+        "swap:paint:0,fallback-then-swap:400",
+        "optional晚:paint:100,fallback-kept",
+        "optional早:paint:50,font",
+        "block早:paint:400,font",
+        "block晚:paint:3000,fallback-then-swap:5000",
+        "fallback中:paint:100,fallback-then-swap:200",
+        "fallback晚:paint:100,fallback-kept",
+        "非法:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-03",
+      "sectionId": "contention",
+      "language": "javascript",
+      "codeSha256": "434bcf56863f362fd6325281534a2957e677771f77fe9d3f1e4ff32c403e0649",
+      "output": [
+        "先关键:80",
+        "先轮播:160",
+        "缺少主图:missing",
+        "非法:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-03",
+      "sectionId": "decision",
+      "language": "javascript",
+      "codeSha256": "0f9c2de9ec643ed3b7171b8a216d1ff08626e81e4abe0a4b382aa816366337c7",
+      "output": [
+        "nonce:allowed",
+        "错误nonce:blocked",
+        "严格来源忽略宽松内联:blocked",
+        "仅宽松内联:allowed",
+        "同源:allowed",
+        "允许的源:allowed",
+        "其他源:blocked",
+        "http:blocked",
+        "哈希:allowed",
+        "错误哈希:blocked"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-03",
+      "sectionId": "report",
+      "language": "javascript",
+      "codeSha256": "84c0a6fd08886f011cc272cddee1d0690eff5037ceaae7b0f15370713e5804c5",
+      "output": [
+        "报告模式:run-and-report",
+        "执行模式:block",
+        "允许:run",
+        "非法模式:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-07",
+      "sectionId": "ambient",
+      "language": "typescript",
+      "codeSha256": "5ff4067ad4e3837d640653dfbc7dd942377da8cb56b96e1b72e008215216e520",
+      "output": [
+        "true",
+        "declaration has no implementation"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-07",
+      "sectionId": "runtime",
+      "language": "typescript",
+      "codeSha256": "69ba2a331fe2d39dc240b41988762896d52920988cf2af235ec37a1fbdf983d6",
+      "output": [
+        "7",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-07",
+      "sectionId": "consumer",
+      "language": "typescript",
+      "codeSha256": "6d8189ed21c05378d8a1c7a0ddfd9dc8e89d95ca9b8c4aa366c23123b36f8885",
+      "output": [
+        "5"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "dbe71c34195dc4b6bf5ad435e803f6d8610d004425ac820b915f9b9e64a21338",
+      "output": [
+        "1.2.0",
+        "1.1.0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-02",
+      "sectionId": "integrity",
+      "language": "javascript",
+      "codeSha256": "c545a0256074b69ac504390899c984349c621c1b9674271961a290deb7c95d1b",
+      "output": [
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-02",
+      "sectionId": "upgrade",
+      "language": "javascript",
+      "codeSha256": "0e63fb0e63f43976352cc9ddf76358afc0c84d12cd2730227fc6858d0f651547",
+      "output": [
+        "core:1.1.0,parser:3.0.0",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-04",
+      "sectionId": "install",
+      "language": "javascript",
+      "codeSha256": "763b3f0fb8fbdeffa5863863d1e00f47fe38993322cd1133231e6f589bd2cb80",
+      "output": [
+        "install",
+        "rejected-registry",
+        "rejected-hash",
+        "needs-review"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-04",
+      "sectionId": "runtime",
+      "language": "javascript",
+      "codeSha256": "94c171ca5b3c8d03d144d0b03bbe36c1d26b1872ecd1ca2e6eb9e08b46660938",
+      "output": [
+        "经典脚本:page-origin",
+        "沙箱测量:measure",
+        "沙箱越权:rejected:document",
+        "沙箱无请求:none",
+        "未知方式:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-07",
+      "sectionId": "capability",
+      "language": "javascript",
+      "codeSha256": "331ec9bfc1cf586bc1a9a180d37d838e967cc2b3069e1f6c1b33e17b6b37b1fc",
+      "output": [
+        "边缘文件:unsupported",
+        "节点文件:allowed",
+        "边缘长连接:unsupported",
+        "节点长连接:allowed",
+        "边缘跳转:allowed",
+        "边缘个性化:allowed",
+        "节点个性化:origin",
+        "未知:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-07",
+      "sectionId": "start",
+      "language": "javascript",
+      "codeSha256": "58b58c1ee76c12009faad7d741f86307097a5a98e8f09fef35b7287bdd619b90",
+      "output": [
+        "空闲边缘:cold-start",
+        "空闲节点:process-kept",
+        "正在用:warm",
+        "负数:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-05",
+      "sectionId": "surface",
+      "language": "javascript",
+      "codeSha256": "74821afc4618dd63cd32d9e54bac4aba3ebbe5526db6113b3e29a51b2301458f",
+      "output": [
+        "主按钮:accepted:primary",
+        "类名:escape-blocked",
+        "未知:unknown-variant",
+        "图标:unknown-slot",
+        "开放图标:accepted:quiet"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-05",
+      "sectionId": "change",
+      "language": "javascript",
+      "codeSha256": "fee7b6bf681c9ed9ffc8ea86be12edf5c0752a013286c2e567ef48b9b9ff5409",
+      "output": [
+        "add-optional:compatible",
+        "add-variant:compatible",
+        "remove-prop:breaking",
+        "change-default:breaking",
+        "rename-slot:breaking",
+        "restyle:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-02",
+      "sectionId": "problem",
+      "language": "typescript",
+      "codeSha256": "d80a49f59c7101d511d15dabc7a6d0c1d3752827b63f7d612bfd8b589a5f94f3",
+      "output": [
+        "请求:7",
+        "结果:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-02",
+      "sectionId": "transitions",
+      "language": "typescript",
+      "codeSha256": "368332c6a21529028cae25d848b0b2bb11d923472c9698c079a6ec5a07dfead1",
+      "output": [
+        "loading",
+        "新"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-02",
+      "sectionId": "exhaustive",
+      "language": "typescript",
+      "codeSha256": "100ceac8352917545a38b451ed59051441cbe79df57d3cf1f5020f5d2a6e2f2d",
+      "output": [
+        "原因:超时"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-07",
+      "sectionId": "frames",
+      "language": "javascript",
+      "codeSha256": "1220e627f25ce59c6aee33f5c22ff6d383a2d4623381695a5f93670608586706",
+      "output": [
+        "零项:ways:1",
+        "一项:ways:1",
+        "两项:ways:2",
+        "三项:ways:3",
+        "四项:ways:5",
+        "负项:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-07",
+      "sectionId": "pick",
+      "language": "javascript",
+      "codeSha256": "77e33943088df72c8c3c0f3a2d3a9fbb5d6bd3a912ca659df47131427fe624ab",
+      "output": [
+        "预算4:value:5:a,b",
+        "预算3:value:4:c",
+        "预算0:value:0:none",
+        "空笔记:value:0:none"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-06",
+      "sectionId": "isolation",
+      "language": "javascript",
+      "codeSha256": "b771dff8768606979f771e820042b2d9aa222fad08004aec36c0d4bf45c13142",
+      "output": [
+        "共享:A:n1,B:n1",
+        "隔离:A:n1,B:empty",
+        "A清理:A:n1,B:empty",
+        "B才清理:A:n1,B:n1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-06",
+      "sectionId": "flake",
+      "language": "javascript",
+      "codeSha256": "d7f50401fadc610ef538149779f7612e65f7fbbb430ebe2d7f1c542282a44017",
+      "output": [
+        "产品:product",
+        "掩盖共享:masked:shared-state",
+        "仍共享:shared-state",
+        "环境:environment",
+        "就绪:ready@2",
+        "未就绪:not-ready"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "00f58b0f314351a8347c3653817cfe673e19374a227d632bfa4f2a235734a576",
+      "output": [
+        "A",
+        "B"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-02",
+      "sectionId": "derived",
+      "language": "javascript",
+      "codeSha256": "4d9b96e2b10460c818f922660ee02da1581570ecf32029e1dfa23c775d005cc4",
+      "output": [
+        "2",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-02",
+      "sectionId": "react-code",
+      "language": "javascript",
+      "codeSha256": "24ce4b7624bbdd813ca622631d11315b001f37e93b2fc8c7e4d42d4d2bae6212",
+      "output": [
+        "true",
+        "新"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-03",
+      "sectionId": "path",
+      "language": "module",
+      "codeSha256": "27d76e4076d74df297a2d8f6ec38697495dc72051ec38b71c5e7df4bb9824544",
+      "output": [
+        "true true",
+        "capture:1,target:2,bubble:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-03",
+      "sectionId": "cancel",
+      "language": "module",
+      "codeSha256": "d7b648ba86b2c9454293b363a08bad5d862eca9d90cbabcfa9db26a535ae80a9",
+      "output": [
+        "false",
+        "true first,second",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-03",
+      "sectionId": "delegation",
+      "language": "module",
+      "codeSha256": "6f900757cc8aa605b3aa9857786e18770f73056b6d68c6c828a7c60e3603cccc",
+      "output": [
+        "row-7"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "0a40ea072f8c4ac0a44b735f8b7d2e8be1eefb47e53ddb874204da5c80fc6a46",
+      "output": [
+        "900",
+        "696.25"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-01",
+      "sectionId": "lab-field",
+      "language": "javascript",
+      "codeSha256": "4cca99ef3a6c3cd3d28aaf4ef8bbf2829f38204677a27b8a06e7f5bcb6c5d5e4",
+      "output": [
+        "2",
+        "3000"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-01",
+      "sectionId": "measurement",
+      "language": "javascript",
+      "codeSha256": "6a145764d43c49ab3af1f30809b92f44ef5285bf955598feeee81cc00c41761f",
+      "output": [
+        "6",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "minimum",
+      "language": "javascript",
+      "codeSha256": "804780a2bac890de2816bb0cda92da391062de9c2947209bc7658e54c40c008f",
+      "output": [
+        "180,180",
+        "100,180,180",
+        "100,100,180"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "tracks",
+      "language": "javascript",
+      "codeSha256": "f3d15e84744c090d2108ab665fdc800cf354187612c48ec37f3f01f8ca1978bd",
+      "output": [
+        "default:300,80,200,380",
+        "item-min:120,80,200,300",
+        "track-min:120,80,200,300",
+        "clipped:120,80,200,200"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "distribution",
+      "language": "javascript",
+      "codeSha256": "96d81f00bb68e6f5e5d2f03ad01493532341137012c0aa44bae4366e0d1ccb67",
+      "output": [
+        "80,120",
+        "40,160"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-03",
+      "sectionId": "distribution",
+      "language": "javascript",
+      "codeSha256": "7a6ed507671c18f8f71b85181ed2d825e3b253fa5dd06e28ef9305a6afbd1d4f",
+      "output": [
+        "100,140,70,70",
+        "16,100"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-03",
+      "sectionId": "review",
+      "language": "javascript",
+      "codeSha256": "9bcf8887ffb30432e16d578594c1e1ff338e001d3a356851a8714c49176305c6",
+      "output": [
+        "空白标题:focus:title|title:标题不能只包含空格",
+        "可保存:saved",
+        "两项错误:focus:title|title:标题不能只包含空格|amount:数量必须是正整数",
+        "只剩数量:focus:amount|amount:数量必须是正整数",
+        "订单保存:saved",
+        "未知类型:invalid",
+        "笔记忽略数量:saved"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-03",
+      "sectionId": "cue",
+      "language": "javascript",
+      "codeSha256": "edd58fcd95fc57324ae536bec035c66f1d7a5abc66e4b840d6c397e1df52d75e",
+      "output": [
+        "只变红:color-only",
+        "未关联:unlinked",
+        "已关联:linked:标题不能只包含空格",
+        "输入中:defer",
+        "提交时:summary",
+        "未知时机:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-08",
+      "sectionId": "list",
+      "language": "javascript",
+      "codeSha256": "dc8ff95c46661660d2c125e1d668274bed2bf37638de327773834b09a2e187d1",
+      "output": [
+        "开头:0-10/100",
+        "末尾:95-100/100",
+        "越界:invalid",
+        "按下标:keep,replace:b>c,replace:c>d",
+        "按键:remove:b,insert:d",
+        "换位:keep"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-08",
+      "sectionId": "work",
+      "language": "javascript",
+      "codeSha256": "1cf13b71235443ef45348c7362c53012dbdc5bb1e2544c498c8f8f44b1729959",
+      "output": [
+        "小列表:scan",
+        "重复查:index",
+        "一次查:scan",
+        "三帧:frames:3",
+        "一帧:frames:1",
+        "不可拆:unsplittable:6",
+        "没有任务:frames:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "contravariance",
+      "language": "typescript",
+      "codeSha256": "59de3fcfd4248d8ddfc52a8a7f08e60bfadce2eb8e86bfcc350c28fa11e6b903",
+      "output": [
+        "o1",
+        "o2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "methods",
+      "language": "typescript",
+      "codeSha256": "50a1db020ba62ccbeba04a2520e1f5b966ccee6286a82dc6741e75a311a95e3c",
+      "output": [
+        "700",
+        "b1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-05",
+      "sectionId": "overloads",
+      "language": "typescript",
+      "codeSha256": "955bc9f25f3b655fb4bd949d123927229f6355d72662d1dd56a71d2c7dfd6139",
+      "output": [
+        "DRAFT 3",
+        "Ready"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-03",
+      "sectionId": "relationship",
+      "language": "typescript",
+      "codeSha256": "9125644620169a547b4ea97929fff05115cd0637cfe5a743ee1c56d1f7b901f9",
+      "output": [
+        "2500",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-03",
+      "sectionId": "keys",
+      "language": "typescript",
+      "codeSha256": "40dde25c8c055c0c92f0336444deb252a541fab397d9c50ac8fee8180e54bef5",
+      "output": [
+        "4",
+        "on"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-03",
+      "sectionId": "factory",
+      "language": "typescript",
+      "codeSha256": "1fe935393033f9a83e9ce4f200894f0cb06e34d53bc8cac1b0cb476680d3cd52",
+      "output": [
+        "Draft@2 summary"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-06",
+      "sectionId": "order",
+      "language": "javascript",
+      "codeSha256": "071c58b9a906d4e9cecf92455d6f82e2eaafff5360338c42e0a89c4e6ab774d0",
+      "output": [
+        "a,c",
+        "a,b"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-06",
+      "sectionId": "deps",
+      "language": "javascript",
+      "codeSha256": "afb239ea1656f4ac6dd8d02e05200e5417b750051669c5931fe18cfa209f31a1",
+      "output": [
+        "false",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-06",
+      "sectionId": "reuse",
+      "language": "javascript",
+      "codeSha256": "2ae8743c3c1ccfd18a259a32ea9054d113efb4c392df16db241cf00650baa3e2",
+      "output": [
+        "2,1",
+        "4"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "4a4ecc2efed911a1abae8ecfb11c80c0995b84bec3c483447bef6b82256e6101",
+      "output": [
+        "reuse",
+        "validate"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-01",
+      "sectionId": "validation",
+      "language": "javascript",
+      "codeSha256": "456e95d47f90578223ee9df1d917d3742862af36ea7cbf83c3625a3011e79d9c",
+      "output": [
+        "304",
+        "200 新配置"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-01",
+      "sectionId": "keys",
+      "language": "javascript",
+      "codeSha256": "98bd549bcd1a8cc15a7ccab98a85188bbb0a394c4b1037aa600f7912f9959bd6",
+      "output": [
+        "帮助",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-07",
+      "sectionId": "lookup",
+      "language": "javascript",
+      "codeSha256": "23d4684ab7ead060479613d233c59a20af71519bfc514ed7021774ed64d21590",
+      "output": [
+        "中文保存:提交笔记",
+        "英文保存:Save",
+        "英文布局:split",
+        "中文布局:stack",
+        "缺失:missing",
+        "基础:Save"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-07",
+      "sectionId": "literal",
+      "language": "javascript",
+      "codeSha256": "5a5532f28e7a0d616bed9979ac273edaef101e0b1e76059173839fd7b46c68ca",
+      "output": [
+        "字面量:literal",
+        "数字:literal",
+        "布尔:literal",
+        "函数:rejected",
+        "对象:rejected"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-07",
+      "sectionId": "logical",
+      "language": "javascript",
+      "codeSha256": "519a55b314b0a3cff4acee8ee407edefbfd3f58daf3240381cbf1cd60d6ca3dd",
+      "output": [
+        "ltr,horizontal-tb,0px,0px,0px,16px,0px,8px,0px,0px",
+        "rtl,horizontal-tb,0px,16px,0px,0px,0px,0px,0px,8px",
+        "vertical,vertical-rl,16px,0px,0px,0px,0px,0px,8px,0px",
+        "block,vertical-rl,0px,16px,0px,0px,0px,0px,0px,0px"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-07",
+      "sectionId": "length",
+      "language": "javascript",
+      "codeSha256": "9f31062a0c4b0b02b39b9b34ab02146295bef91c74df19e8d66741deafdf7acc",
+      "output": [
+        "280,64,200,344",
+        "136,64,200,200"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-07",
+      "sectionId": "fallback",
+      "language": "javascript",
+      "codeSha256": "ebe8ce61c0cca6c08547e2a9ab4930ffc9095c000aa1e69b91dd4e5f95cb7598",
+      "output": [
+        "MissingLessonFont, sans-serif",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-06",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "75e5c80368e6c2cb5dfeff046adafb69a2e2819b92a0cd49cb77ef623b8ddd59",
+      "output": [
+        "created",
+        "produce-0",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-06",
+      "sectionId": "protocol",
+      "language": "javascript",
+      "codeSha256": "768c1bb6ec8e10695746e35266ff40f4d33da48bb62d0f1d40a1eb4789e3f517",
+      "output": [
+        "a",
+        "b",
+        "true",
+        "0",
+        "a,b"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-06",
+      "sectionId": "cleanup",
+      "language": "javascript",
+      "codeSha256": "fc1335633024fbdbf823c2821414e7360792b508835020927b3f389085d91575",
+      "output": [
+        "first",
+        "cleanup"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-06",
+      "sectionId": "cleanup",
+      "language": "javascript",
+      "codeSha256": "115c6573de59ccea37b04c773d3a9ad0fb30bf3b4ef8b2b4cde0e79bef3d5e8e",
+      "output": [
+        "first",
+        "paused"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-06",
+      "sectionId": "return-method",
+      "language": "javascript",
+      "codeSha256": "fbff99d0485893c9924b81093635eab7fbd4449b83f47da41ee1b38c8c2d877c",
+      "output": [
+        "0",
+        "cleanup"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-06",
+      "sectionId": "return-method",
+      "language": "javascript",
+      "codeSha256": "635f68873c8e1ee97dc60be3c19c9b15472814d2261fea1f9fa3c322b961e3d3",
+      "output": [
+        "1",
+        "boom",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-01",
+      "sectionId": "native",
+      "language": "javascript",
+      "codeSha256": "719f11f4fd554fa3f0c26479f647b727016ccb49a5e60f7c6f044e827d5f31c7",
+      "output": [
+        "0",
+        "-1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-01",
+      "sectionId": "order",
+      "language": "javascript",
+      "codeSha256": "0379231aa0eda11d46a882e73b90cf1d040832dcae7b42895a580b5e92161bfd",
+      "output": [
+        "-1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-01",
+      "sectionId": "dialog",
+      "language": "javascript",
+      "codeSha256": "565589690af873e8746ffdb637341e9a446e9f090ec2c479fd87fd8dd45a3721",
+      "output": [
+        "true",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-08",
+      "sectionId": "segment",
+      "language": "javascript",
+      "codeSha256": "f73b4c4044f3804f7ac2389196f3d017b6ae95b99e043a3422c7b7cfeca8ffe0",
+      "output": [
+        "mobile:3200,desktop:1100"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-08",
+      "sectionId": "hypothesis",
+      "language": "javascript",
+      "codeSha256": "ce4624f58df128c659dba07059084ad8019c76936a162219300d1770fea9a3f2",
+      "output": [
+        "预加载:lcp-only",
+        "页脚:no-lcp-change",
+        "有错误:rejected-errors",
+        "交互变差:inp-worse"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-07",
+      "sectionId": "parts",
+      "language": "javascript",
+      "codeSha256": "0eca746523d6bceaa4292b1a006d99f671c0e9051e6a607678faafa13d135dee",
+      "output": [
+        "5:0-2,2-4,4-5",
+        "1,1,2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-07",
+      "sectionId": "resume",
+      "language": "javascript",
+      "codeSha256": "f7878899db829d805ad6093d76892c496c68b6e800316ec0f50fe4523e96dbfd",
+      "output": [
+        "send:2",
+        "expired",
+        "restart"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-07",
+      "sectionId": "cancel",
+      "language": "javascript",
+      "codeSha256": "6fd7f93589e1078b5880b56b1f5749683ee1f0c4869c4a3cba5d260a2264f3b4",
+      "output": [
+        "send:2",
+        "stopped",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-08",
+      "sectionId": "sticky",
+      "language": "javascript",
+      "codeSha256": "355a7090d9504df5a91f0171a0f99ccd3c8a12e9009a09b114888ca7a4932932",
+      "output": [
+        "top:0,40",
+        "no-inset:-40,40",
+        "hidden:-40,40"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-08",
+      "sectionId": "containing-block",
+      "language": "javascript",
+      "codeSha256": "5e395fcf17e6cf013f2e7e3efea1b7f705b9172b1618cea001ed528359cfe8bc",
+      "output": [
+        "0,0",
+        "40,50",
+        "0,0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-08",
+      "sectionId": "popover",
+      "language": "javascript",
+      "codeSha256": "8555b3ab5cdf1b7b9dc84604dc3e2c2291682d5dc23e141edc6fda286b2960eb",
+      "output": [
+        "false",
+        "true,40,40,20,0",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "lifecycle",
+      "language": "module",
+      "codeSha256": "608b79fce1b16d6cc39be69452f63fa4131120ebd2ab6acf15cff4130138f270",
+      "output": [
+        "setup:null",
+        "mounted:1",
+        "before-update:1",
+        "updated:2",
+        "before-unmount:true",
+        "unmounted:false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "subscription",
+      "language": "module",
+      "codeSha256": "41871f8cbf4e78811e3696804369044d5ee10073719616ddfb7dc5618777f479",
+      "output": [
+        "1,1",
+        "1,2",
+        "1,2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "state",
+      "language": "module",
+      "codeSha256": "42c6737eeef6241818b2353104bdec1b3e2c8081a1efa118b88d82a082522be1",
+      "output": [
+        "独立:1,0",
+        "共享:1,1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "inputs",
+      "language": "module",
+      "codeSha256": "731587256c840d614fb5ec3222168ad364f01478b795b0cadb192d9cae00bbc3",
+      "output": [
+        "4,4,4",
+        "6,6,4",
+        "1:2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "registration",
+      "language": "module",
+      "codeSha256": "bc06b5cca6da7faa10082e2daf173c998a66e4cd8ae90f265ce465df3651f792",
+      "output": [
+        "同步:true",
+        "延迟:false",
+        "正确清理",
+        "错误清理次数:0"
+      ],
+      "diagnostics": [
+        {
+          "type": "warning",
+          "text": "[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement."
+        }
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "late-watch",
+      "language": "module",
+      "codeSha256": "2499fda6f61f5130bc8ea1f38f8b28457b8689660dd3b89c0978a451b79a090f",
+      "output": [
+        "错误:1,2",
+        "修复:1,1",
+        "提前卸载:0,0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "request-cleanup",
+      "language": "module",
+      "codeSha256": "1d09c3c4a120cf0be19d4cd0b4e76509a4eae5ad2abcfe35fd638243a8a74c3c",
+      "output": [
+        "idle",
+        "loading",
+        "ready:B:true",
+        "ready:B",
+        "error:读取失败",
+        "empty",
+        "卸载后:loading:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "scope",
+      "language": "module",
+      "codeSha256": "9eba419df9c118077729357b7f7d73dbe071e6eb83e5962c70d001ca75fe198a",
+      "output": [
+        "活动:1,1",
+        "停止:1,1,1",
+        "无作用域:必须在活动作用域中订阅"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-04",
+      "sectionId": "window",
+      "language": "javascript",
+      "codeSha256": "4713b934ca33ec6d688bf890b8365fc2176a0f215f70029a858a677bad30f195",
+      "output": [
+        "顶部:0:4:0",
+        "末尾:9996:10000:199920",
+        "空列表:0:0:0",
+        "零视口:0:0:0",
+        "非法行高:TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-04",
+      "sectionId": "nodes",
+      "language": "javascript",
+      "codeSha256": "01febdcf0fbac41d04662ec777e6a5a33e374295dce594006cb6bcd42768c92e",
+      "output": [
+        "全量节点:10000",
+        "窗口节点:4",
+        "窗口范围:0:4:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-04",
+      "sectionId": "identity",
+      "language": "javascript",
+      "codeSha256": "e48c39b03c2260b391eecfab381da978d1328fe3d8172a0e1fda2fbc061bc7ba",
+      "output": [
+        "按下标:草稿A,A",
+        "按身份:B,草稿A"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-04",
+      "sectionId": "retention",
+      "language": "javascript",
+      "codeSha256": "7b4ac52dc398ecf6bb91dd36b2d6b214ff850966ce359bb3309f0b5ea892f5a2",
+      "output": [
+        "离开仍保留:true",
+        "释放后:false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-04",
+      "sectionId": "variable",
+      "language": "javascript",
+      "codeSha256": "6d8d6d201b41462bc9eec3635b4c8894b866f1486de7fec48a3066265a9d5659",
+      "output": [
+        "固定偏移:20",
+        "实际偏移:40",
+        "错位:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "b74735bfa51fb2960af800465f9f837d14bf43d316f23b3bc2a4608fe2242806",
+      "output": [
+        "开始",
+        "4950",
+        "结束",
+        "输入机会"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-02",
+      "sectionId": "yield",
+      "language": "javascript",
+      "codeSha256": "aac04e8d47f00db43b2a03c5131be0d7731b1e413e764361808ee693b7f8fb99",
+      "output": [
+        "同步",
+        "微任务1",
+        "微任务2",
+        "任务"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-02",
+      "sectionId": "chunking",
+      "language": "javascript",
+      "codeSha256": "3aa1c6a6f6c52a4ebd27b076c15263ec362ceb71522065cee7bdb5cda8e5210d",
+      "output": [
+        "可以处理其他任务",
+        "10"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-08",
+      "sectionId": "finite",
+      "language": "typescript",
+      "codeSha256": "be37d23c1d076a30984f6ab4aca7fcb0b3050e8ef53710551d9beec1a4324a33",
+      "output": [
+        "Draft",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-08",
+      "sectionId": "configuration",
+      "language": "typescript",
+      "codeSha256": "0531feea8e6fcf3813b10a002e86bb24b72b858f49489095aec99fa8d752d062",
+      "output": [
+        "Ready",
+        "5",
+        "text,count"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-08",
+      "sectionId": "bounded",
+      "language": "typescript",
+      "codeSha256": "373e5207464725421a493bcc9c77669bb14c81444f54e654f5cacfdd61365115",
+      "output": [
+        "Draft",
+        "3",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "keys",
+      "language": "javascript",
+      "codeSha256": "c306d34766a7a3b854777bb477c60dee7b719b31723986ca3e1eeac13329e055",
+      "output": [
+        "4",
+        "false",
+        "1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "missing",
+      "language": "javascript",
+      "codeSha256": "5496cd0334f3620fca272c3ca148e01578f67ae4bc251678e5a10237e09fc574",
+      "output": [
+        "true",
+        "true",
+        "false",
+        "true",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "queue",
+      "language": "javascript",
+      "codeSha256": "1d85957d30cb6335bb0e89af90c47b3fb0989d15cb33538d77481e3869d07748",
+      "output": [
+        "A",
+        "B",
+        "false",
+        "0:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "lru",
+      "language": "javascript",
+      "codeSha256": "7ab600a0f1943a81d51c920fbf61f2f6772174f320a60b7b2ea07deab6f1e211",
+      "output": [
+        "A,C",
+        "false",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-08",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "e915ce41304923233456b7886c19687c58f2f299181f99d646a1fa213a3ab6a9",
+      "output": [
+        "large",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-08",
+      "sectionId": "weakmap",
+      "language": "javascript",
+      "codeSha256": "8c1ab6f20775cdc0523d6615b56ddeae0d12e23a275412510c2e707a47607611",
+      "output": [
+        "large",
+        "true",
+        "symbol-data",
+        "TypeError",
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-08",
+      "sectionId": "weakref",
+      "language": "javascript",
+      "codeSha256": "11f9d7f28c38e42f8177ef6fd07f21d64465d21e6634211307db193d7a0dcf4e",
+      "output": [
+        "true",
+        "s1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-08",
+      "sectionId": "listeners",
+      "language": "javascript",
+      "codeSha256": "2e150fd9a6df32deeea4637af50bfe156646463292c912c8ba6591af5af2f415",
+      "output": [
+        "queue"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-08",
+      "sectionId": "listeners",
+      "language": "javascript",
+      "codeSha256": "ff88847a3441c6f8de5c16c9fabec5dcb8ee9e305ff5e2cb2124340ba87ac5fc",
+      "output": [
+        "queue",
+        "queue"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-06",
+      "sectionId": "place",
+      "language": "javascript",
+      "codeSha256": "6dec3c9664b18fd6f3867958834789b32ceb85c80ea1fd35cb1d6506d162ae8a",
+      "output": [
+        "同组:module",
+        "独立框架:isolate",
+        "独立同框架:package",
+        "共享状态:reject-shared-mutable"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-06",
+      "sectionId": "runtime",
+      "language": "javascript",
+      "codeSha256": "89be093c261fba4da04890467f417e3d8a5f6068a397914cf75ce95986d762c2",
+      "output": [
+        "两份运行时:duplicate-runtime",
+        "一份运行时:singleton",
+        "纯函数:duplicate-ok",
+        "消息:delivered:n1",
+        "坏消息:bad-payload",
+        "错频道:unknown-channel"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-03",
+      "sectionId": "review",
+      "language": "javascript",
+      "codeSha256": "ceac37366c7ee8a49f9a6797c46ff882595f316b609148e68de2549af980bea7",
+      "output": [
+        "save-contract/stub/ok-flag:masks-contract",
+        "save-contract/spy/status-id:call-only",
+        "save-contract/fake/ok-flag:fake-wrong-shape",
+        "save-contract/fake/status-id:in-memory-contract",
+        "ui-reaction/stub/ok-flag:wrong-branch",
+        "ui-reaction/stub/status-id:reaction-only",
+        "ui-reaction/spy/status-id:no-result",
+        "ui-reaction/fake/status-id:reaction-only",
+        "note/stub/status-id:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-03",
+      "sectionId": "fake",
+      "language": "javascript",
+      "codeSha256": "e20d9368509f3477bdc8a1f308eaf2ecef1f7a0f5b3596fd1d8f08dd793c8154",
+      "output": [
+        "stub:{\"status\":201,\"body\":{\"id\":\"generated\"}}",
+        "缺id:{\"status\":400,\"body\":null}",
+        "保存:{\"status\":201,\"body\":{\"id\":\"n1\"}}",
+        "读回:hi",
+        "冲突:{\"status\":409,\"body\":null}",
+        "过长:{\"status\":413,\"body\":null}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-01",
+      "sectionId": "policy",
+      "language": "javascript",
+      "codeSha256": "8717827315f7422f4f64e65ce2c365ffe1aeab67aad4b995316857c8ad31bf80",
+      "output": [
+        "{\"ok\":true,\"value\":{\"text\":\"\"}}",
+        "{\"ok\":false,\"reason\":\"too-long\"}",
+        "{\"ok\":false,\"reason\":\"text-type\"}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-01",
+      "sectionId": "ports",
+      "language": "javascript",
+      "codeSha256": "cc11f6b6e2dc5932f3906511cc427ae967f8e547b87ac3e0e084c8463199ff55",
+      "output": [
+        "saved",
+        "hello",
+        "invalid",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-01",
+      "sectionId": "failure",
+      "language": "javascript",
+      "codeSha256": "f361eff122752f86dac2a0d9b3043c51d21114f09b342951315aafe45fb75f97",
+      "output": [
+        "keep-input:quota",
+        "saved"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "bff10a6a575db4070c0c36d8d5fe64ad2fe21b4bc8831076475f623cbd0e6a50",
+      "output": [
+        "entry,list,format",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-01",
+      "sectionId": "dynamic",
+      "language": "javascript",
+      "codeSha256": "bf0bca5c047af03db4984c40b7d565e7d9d8c9758b7a4358edaa4837f37637d6",
+      "output": [
+        "6",
+        "true 1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-01",
+      "sectionId": "failure",
+      "language": "javascript",
+      "codeSha256": "1b0a7e47df2083decb58e6cd0cbdb4b6559ad7b16866c3879ca819817c3190f6",
+      "output": [
+        "暂时失败",
+        "完成 2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-07",
+      "sectionId": "problem",
+      "language": "module",
+      "codeSha256": "8c4d7cd3e084341573f916666432f33e00fb662cddcfb589ca2e38104f34e95b",
+      "output": [
+        "before",
+        "after",
+        "evaluate",
+        "1",
+        "1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-07",
+      "sectionId": "live-binding",
+      "language": "module",
+      "codeSha256": "32e4baca57247e6e5ad51f261e1675e893228e0fc189aadb6f4093528b6a07f8",
+      "output": [
+        "1",
+        "2",
+        "2",
+        "3",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-07",
+      "sectionId": "cycle",
+      "language": "module",
+      "codeSha256": "827849b4b594db3f456f88b30c6686aea87a77f7dbcb22b269be37b1c0d0ad65",
+      "output": [
+        "A"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-07",
+      "sectionId": "cycle",
+      "language": "module",
+      "codeSha256": "3a3545d10ffa291d829e3813afe13f5a9575393ca13af7e23553dab82d6a0cf3",
+      "output": [
+        "ReferenceError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-07",
+      "sectionId": "failure",
+      "language": "module",
+      "codeSha256": "a4335fc8133b3f213726cb0091b114f181c7bd0b0ff003078d7f57ef9fc71b05",
+      "output": [
+        "true",
+        "SyntaxError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "exports",
+      "language": "node",
+      "codeSha256": "e65a059a137cc63f61869c65ea0d01b03b1ecfed470ebf93cebd172bec96ffad",
+      "output": [
+        "公开入口:3",
+        "内部入口:ERR_PACKAGE_PATH_NOT_EXPORTED"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "tasks",
+      "language": "node",
+      "codeSha256": "e65839d602032b499ef3f05eb3825ac2d72d64c0d4fd24c3c3d8d3311c5bab01",
+      "output": [
+        "顺序:schema,sdk,app",
+        "任务循环",
+        "缺失任务:missing"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "cache",
+      "language": "node",
+      "codeSha256": "453407cf5ce7ba51c8c4aa75504d5b8fda9ff433981fc6d6cc0c2857dcf994a4",
+      "output": [
+        "依赖变化失效:true",
+        "目标变化失效:true",
+        "重复输入命中:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "affected",
+      "language": "node",
+      "codeSha256": "c5516adefd298e9c8e4b9ff33fa5c40984d7e88418cd4d6115b2c94871a630cb",
+      "output": [
+        "受影响:shared,app",
+        "错误图:shared"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K04-06",
+      "sectionId": "url",
+      "language": "module",
+      "codeSha256": "41269070ccb2f09c0d0ca3cfb86bafb38cdb2e116111f12bde96ae84cd18d55d",
+      "output": [
+        "{\"page\":3,\"tab\":\"open\"}",
+        "{\"page\":1,\"tab\":\"all\"}",
+        "{\"page\":1,\"tab\":\"all\"}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-06",
+      "sectionId": "history",
+      "language": "module",
+      "codeSha256": "f1d8c2ce462bd9aba0cd07fff79a0611cf9b8dd821a18f5a6cced0681caf4bef",
+      "output": [
+        "row-7 0",
+        "DataCloneError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-06",
+      "sectionId": "scroll",
+      "language": "module",
+      "codeSha256": "7bd973baa5c6c3c34d363a0d7c5f57279a1ec5ac650918e87fa891473dd82492",
+      "output": [
+        "{\"kind\":\"anchor\",\"id\":\"cache\"}",
+        "{\"kind\":\"position\",\"y\":900}",
+        "{\"kind\":\"position\",\"y\":0}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "d90b46412721594d55a4e7a8b331048f756a52dfeb40e0ecf6f84a8a50b7f9f3",
+      "output": [
+        "商品",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-01",
+      "sectionId": "rendering",
+      "language": "javascript",
+      "codeSha256": "3119931495e19764f3616911b56339b4579cbdcdf24b5f57b994813d52c3d734",
+      "output": [
+        "120",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-01",
+      "sectionId": "events",
+      "language": "javascript",
+      "codeSha256": "2458ecf5fb9ce7d2ed179e538de7b6b2dc6aba27133456ec5ab973bfb4f81ebf",
+      "output": [
+        "75",
+        "layout,paint"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-05",
+      "sectionId": "intersection",
+      "language": "module",
+      "codeSha256": "d986fe01c98d278a3da9466b8b7ca2ab7f2301ee1cafac88ea4b7a99180ecf4f",
+      "output": [
+        "true 1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-05",
+      "sectionId": "resize",
+      "language": "module",
+      "codeSha256": "53cc7df8e636b31a8f9377d27657810f7fc1eecf4dbeb612aac3116f45004d75",
+      "output": [
+        "80",
+        "120"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-05",
+      "sectionId": "mutation",
+      "language": "module",
+      "codeSha256": "e917fe033aa08d07d9db0d1745ca5a959f5b0d79f409cd902dc940bbaa782f1b",
+      "output": [
+        "sync complete",
+        "childList,attributes"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-07",
+      "sectionId": "gate",
+      "language": "javascript",
+      "codeSha256": "e74dc7420be88581af2f0a0b797914d6ff46893a888f8748ec9d00314ef21c55",
+      "output": [
+        "within pass",
+        "regressed fail",
+        "insufficient fail",
+        "invalid fail"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K10-07",
+      "sectionId": "noise",
+      "language": "javascript",
+      "codeSha256": "c246ccd1d28c5495d2f1993a4a5fda437afcec0fe0d0bfb73f87b569950b145f",
+      "output": [
+        "within-noise",
+        "regressed",
+        "no-regression",
+        "insufficient"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-08",
+      "sectionId": "measure",
+      "language": "javascript",
+      "codeSha256": "856451f2216848b2f769b695b68bfaec7f29ddbd645e0b1eb82b165ba7544051",
+      "output": [
+        "list",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-08",
+      "sectionId": "memo",
+      "language": "javascript",
+      "codeSha256": "6f090ad3dc042a366b32fcea3d2b78c81d01fb679195a66906122546556f54cf",
+      "output": [
+        "skip",
+        "render",
+        "render"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-08",
+      "sectionId": "window",
+      "language": "javascript",
+      "codeSha256": "f616f4e8dc9d014947ae9a754fd8cd7e1aca16886993e6b45d24454cd20f9a86",
+      "output": [
+        "0-5",
+        "9-16",
+        "shell,loading,editor"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-04",
+      "sectionId": "decision",
+      "language": "javascript",
+      "codeSha256": "33e1222b011534879b84cfe43dec294008262bdc0ca64d2f553e629f96e1bc93",
+      "output": [
+        "菜单:shown/denied",
+        "自己的:allowed",
+        "只读:hidden/denied",
+        "阅读:shown/allowed",
+        "管理:shown/allowed",
+        "编辑审计:hidden/denied"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-04",
+      "sectionId": "route",
+      "language": "javascript",
+      "codeSha256": "8cba2e873484b64fe45e5b9fa432af95f25a2cbe24ec1fbca10e7fd0aee2ed92",
+      "output": [
+        "别人的删除:rejected:shown",
+        "查看者删除:rejected:hidden",
+        "查看者阅读:open:shown",
+        "管理审计:open:shown"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-08",
+      "sectionId": "copy",
+      "language": "module",
+      "codeSha256": "90005d311fa633d596b8dd223b8585fed59f5db3872e8f5bc36bf2d1b8913160",
+      "output": [
+        "copied",
+        "manual",
+        "manual NotAllowedError const x = 1;"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-08",
+      "sectionId": "choose",
+      "language": "module",
+      "codeSha256": "f0801f42796fd57f05aea93ac8694424448f53c7440ed060b46919e4981f792f",
+      "output": [
+        "picker",
+        "download",
+        "text"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-08",
+      "sectionId": "cancel",
+      "language": "module",
+      "codeSha256": "cdacfafd9e514440eee192a5bb5fa4af8a7bf00872484c66633c598e4978d7c6",
+      "output": [
+        "saved",
+        "canceled",
+        "failed"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "e3569df2915ffcdf3d6b9645953a8c1a621c99ae3fca35efaca9906e589052dd",
+      "output": [
+        "first 1",
+        "second 2",
+        "caught stop",
+        "after recovered"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-02",
+      "sectionId": "chain",
+      "language": "javascript",
+      "codeSha256": "92a496b1b39b68220b0111f3de6a8a76cb981bc7fcec7dd48b0d7b52212309a5",
+      "output": [
+        "missing undefined",
+        "forwarded inner"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-02",
+      "sectionId": "combinators",
+      "language": "javascript",
+      "codeSha256": "a76e4e7cc583d5462924dd5d7177b365ef74fb189d118c601ff5f34e394bdb02",
+      "output": [
+        "fulfilled,rejected",
+        "race first",
+        "any y",
+        "AggregateError",
+        "all b"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-07",
+      "sectionId": "property",
+      "language": "javascript",
+      "codeSha256": "8e693387ca3fdd39b1d0d9e9dfbf89bf7087a17714303d2abc3a6e07e4cc7d80",
+      "output": [
+        "正确:holds",
+        "空:dropped",
+        "排序:reordered",
+        "重复:duplicate",
+        "发明:invented"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-07",
+      "sectionId": "mutation",
+      "language": "javascript",
+      "codeSha256": "b435c383cdd69fa0b5658b8746c35233097706a5bdfb489e971385c4e0a75511",
+      "output": [
+        "0:0/0:survived",
+        "1:0/1:killed",
+        "3:1/3:killed",
+        "4:3/3:survived",
+        "5:3/4:killed",
+        "6:4/4:survived",
+        "缺重复:survived",
+        "含重复:killed"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-05",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "b2a9cc1f5a2f95c241e6dd0c5348fba1a90d6796b5d23b8748ec2cb44c2ed8ac",
+      "output": [
+        "a",
+        "undefined",
+        "draft",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-05",
+      "sectionId": "enumerable",
+      "language": "javascript",
+      "codeSha256": "d2242266da0585d9c8a5dc93c9f251c4328341fcade3ab1e1c7860064f009752",
+      "output": [
+        "false",
+        "true",
+        "a",
+        "TypeError",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-05",
+      "sectionId": "inherited",
+      "language": "javascript",
+      "codeSha256": "653fd19280b7bb3b3f05a3832bcc09d0802d39cad8f198600f7ff3f1257e8328",
+      "output": [
+        "true",
+        "true",
+        "false",
+        "undefined",
+        "draft"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-05",
+      "sectionId": "getter",
+      "language": "javascript",
+      "codeSha256": "e5b484489438bbd99c25b3b705967e7134fe6135c1298e2d13f6a19869561d75",
+      "output": [
+        "computed-draft",
+        "1",
+        "true",
+        "computed-draft",
+        "computed-published",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-05",
+      "sectionId": "symbols",
+      "language": "javascript",
+      "codeSha256": "fa01825029798c085b1c62f46c8c8748c3c0bebefdb345c9e606cb549d358fa1",
+      "output": [
+        "draft",
+        "secret",
+        "false",
+        "true",
+        "true",
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-04",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "98b68189d0641943ac61947aed8112bd70c09150a3e40e85e28163aca1a02bd8",
+      "output": [
+        "from-child",
+        "false",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-04",
+      "sectionId": "shadow",
+      "language": "javascript",
+      "codeSha256": "b6da2e630dc8cf1b965e9e68a6b74d423ac0cf7a91218d485adf116a7da08361",
+      "output": [
+        "own",
+        "from-parent",
+        "from-parent",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-04",
+      "sectionId": "class",
+      "language": "javascript",
+      "codeSha256": "5cbc55a8c4fbbdd9bbb512ab319400e3856f4c44e99e6a2fcbac2b27fcfa36d3",
+      "output": [
+        "woof",
+        "false",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-04",
+      "sectionId": "composition",
+      "language": "javascript",
+      "codeSha256": "ec5ad2cd97c03c20ca3ab3d84dac22bd503645fdccd0be61294d6fe25a9cb078",
+      "output": [
+        "button",
+        "link",
+        "false",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-04",
+      "sectionId": "null-prototype",
+      "language": "javascript",
+      "codeSha256": "ef21b73c7fb45a5855ead5b293359bdb81342ca94a468116f6bd701aa798b98e",
+      "output": [
+        "a",
+        "true",
+        "false",
+        "TypeError",
+        "true",
+        "false",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-08",
+      "sectionId": "gate",
+      "language": "javascript",
+      "codeSha256": "92e208cfb2de831f8401b10940f468a50ed3949aa80040c29cfc5ad9786ade0a",
+      "output": [
+        "全过:passed",
+        "跳过类型:incomplete:types",
+        "类型失败:failed:types",
+        "失败又跳过:incomplete:tests",
+        "缺记录:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-08",
+      "sectionId": "claim",
+      "language": "javascript",
+      "codeSha256": "35fff5f242fc7d1cc87e6bef7f62d12ad53e5505ae27431e39b9cfc000f197f5",
+      "output": [
+        "测试对行为:supports",
+        "测试对类型:outside",
+        "类型对行为:outside",
+        "lint对依赖:supports",
+        "未知:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "452e42b2c60d685cf1e388847d677dbacb8db311805b19d462684d69a7856231",
+      "output": [
+        "1",
+        "2",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-01",
+      "sectionId": "tracking",
+      "language": "javascript",
+      "codeSha256": "adbfa4aa406211c7d4b9221dafe4d3e9c717f5ade16bccb6001ad5716cf751ae",
+      "output": [
+        "2",
+        "4"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-01",
+      "sectionId": "vue-code",
+      "language": "javascript",
+      "codeSha256": "3aab7112b9be8c1961920dbcb6b789ab381081409e3537e1deab87d6ce8fc6c2",
+      "output": [
+        "1 3",
+        "4"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-01",
+      "sectionId": "vue-code",
+      "language": "module",
+      "codeSha256": "953bf39142308e8015754d61356008444415df6e0c7f827555bda5174df0adb9",
+      "output": [
+        "1",
+        "2",
+        "停止后:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "ad698559d81385218265ae6ac68c6f7388131d8911e775aed8f8df249f3a3b04",
+      "output": [
+        "1,1,1",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-01",
+      "sectionId": "queue",
+      "language": "javascript",
+      "codeSha256": "0126ec87f3ccb9b4fe7adaf4dbe073cd33f351b4cf2b3c2d1c57971816dcae5b",
+      "output": [
+        "3",
+        "6"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-01",
+      "sectionId": "react-code",
+      "language": "javascript",
+      "codeSha256": "a1829afbf08ef62b3eca1358a17851d902dca2760a00dc9c437f44b981dbcbbe",
+      "output": [
+        "2",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-02",
+      "sectionId": "timeline",
+      "language": "javascript",
+      "codeSha256": "78eda54d0f4d8750d28d937d16e29017bcc0a36b40c77f13bd2e29359b45a933",
+      "output": [
+        "8",
+        "5",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-02",
+      "sectionId": "first-state",
+      "language": "javascript",
+      "codeSha256": "692b4e1aec54e42247ca585c7c33c520c5282c25270ba83e4dff52264ea7446e",
+      "output": [
+        "false",
+        "true",
+        "笔记:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-02",
+      "sectionId": "cache",
+      "language": "javascript",
+      "codeSha256": "d22f8651adae458f271929df819b429ae298d5cf9cc92e9c89fee7b64bf85af7",
+      "output": [
+        "notes-for-A",
+        "notes-for-A",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "8c4fa2bbc7cf82c6535ae147c2965e3364efa5cf440fa45a785f4e562c441611",
+      "output": [
+        "100",
+        "140"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-02",
+      "sectionId": "batch",
+      "language": "javascript",
+      "codeSha256": "1f7c9937f4e9a49c3aa4dc7ad953641c8d7586b47991c1514cb9bb278a3550e5",
+      "output": [
+        "80,100,120",
+        "90,110,130"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-02",
+      "sectionId": "geometry",
+      "language": "javascript",
+      "codeSha256": "f3300a6c474893d5caa6816a8388c71ead2288af6df9423a0efc058dc01826ab",
+      "output": [
+        "124",
+        "248"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-08",
+      "sectionId": "record",
+      "language": "javascript",
+      "codeSha256": "41eb186a2a7943d0c46940e342fff1b15f913723e508998e015b71b9d8e9451c",
+      "output": [
+        "无编号:missing-id",
+        "令牌:secret",
+        "日志:log:req-1:saved",
+        "指标:metric:notes:req-1",
+        "跨度:span:req-1:bff",
+        "根跨度:span:req-1:root"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-08",
+      "sectionId": "trace",
+      "language": "javascript",
+      "codeSha256": "f1d5d81115b474ff3c4fefab61d63d44f68d91b54df67f218c303cb57fa28c6b",
+      "output": [
+        "同一条:linked:req-1",
+        "拆开:split",
+        "空:empty"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "b8d713217bb1e9d0eb7a53d75b5b6d6de4572ac732c7ae6d5e809d599c9c7a3f",
+      "output": [
+        "false",
+        "503",
+        "维护中"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-02",
+      "sectionId": "parsing",
+      "language": "javascript",
+      "codeSha256": "d1c670fcadae966c04a8a996acda4dc46dd585028983760d08ed8c24c262fd47",
+      "output": [
+        "0",
+        "响应不符合合同"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-02",
+      "sectionId": "idempotency",
+      "language": "javascript",
+      "codeSha256": "c84f6a8768928b368bf35d7007573beee52d946e5f278cdd9b943258477e94ae",
+      "output": [
+        "1",
+        "1",
+        "键被不同参数复用"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-04",
+      "sectionId": "viewport",
+      "language": "javascript",
+      "codeSha256": "b5587849461efad502309a110b1ba6cf97109f244e09c1bc0cf68f1867e6bf60",
+      "output": [
+        "24px true 420",
+        "16px true 300"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-04",
+      "sectionId": "container",
+      "language": "javascript",
+      "codeSha256": "630e102d8d4b2965c369bce78f9637afb015921d29d3abad8cebe17c4921670d",
+      "output": [
+        "none,280",
+        "block,80,420"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-04",
+      "sectionId": "supports",
+      "language": "javascript",
+      "codeSha256": "fefcdf526483d31761c05a1a51807ded0bb62bbdfbe3ad574f875e49bc47f88b",
+      "output": [
+        "true",
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-06",
+      "sectionId": "problem",
+      "language": "module",
+      "codeSha256": "9e64f74f837746910739b9206d17220008fc372d84658dca63261660a76076a3",
+      "output": [
+        "try 0 busy",
+        "try 1 busy",
+        "result ok calls 3",
+        "try 0 bad-request",
+        "fatal bad-request"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-06",
+      "sectionId": "idempotent",
+      "language": "javascript",
+      "codeSha256": "17e73d7c25bdcb5f2509941e29a012152685f70ccf8a7f894860306d26e3351c",
+      "output": [
+        "1",
+        "1",
+        "2",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-06",
+      "sectionId": "backoff",
+      "language": "javascript",
+      "codeSha256": "24292ab35e0803988cea755862bdfe137cb7901ad40b2fa60f38721ba0bcaf69",
+      "output": [
+        "10,20,40,40",
+        "10,20,40"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-06",
+      "sectionId": "query",
+      "language": "module",
+      "codeSha256": "61b95092c3c3b536cfb03431e287e0546a492cdc3ec08497c9fbd954d39b79d2",
+      "output": [
+        "正常:Vue:2:open",
+        "异常::1:all",
+        "重复::1:all"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-06",
+      "sectionId": "history",
+      "language": "module",
+      "codeSha256": "1e42d1ae136dd5daf64c58e8dcfa457ca64477d12394234f356f4a1fdc200972",
+      "output": [
+        "初始:old:3",
+        "提交:new:1:shipping",
+        "替换:final:1",
+        "返回:old:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-06",
+      "sectionId": "reuse",
+      "language": "module",
+      "codeSha256": "810146bce67be966dd9001ef013f579d7ecb35d762474b7fe3c8d551beb0d450",
+      "output": [
+        "复用:1:初始快照:A:读取:A,B",
+        "仅切标签:A,B"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-06",
+      "sectionId": "guards",
+      "language": "module",
+      "codeSha256": "c8860968548d064ebf6fe58e8e95835344fd4ceb81fa170095de85ae0975d0bf",
+      "output": [
+        "换订单被阻止:true:A",
+        "离开被阻止:true:A",
+        "已允许:B",
+        "重复导航:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-06",
+      "sectionId": "form",
+      "language": "module",
+      "codeSha256": "b12106a09227d25811e51d5ca72d8c690c86484a652b95894dfe90034a051fef",
+      "output": [
+        "输入2x:number:2",
+        "清空:string:",
+        "严格空值:false",
+        "严格2x:false",
+        "严格小数:false",
+        "严格2:true:2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-06",
+      "sectionId": "submit",
+      "language": "module",
+      "codeSha256": "88fa3b73016cb3e6c17fd035c36e862bc69c7169f5b7f6e17cfe85f37228d904",
+      "output": [
+        "草稿:2:已提交:1:dirty:true",
+        "失败:false:1:2:网络失败",
+        "保存期编辑:false",
+        "重复提交:false",
+        "成功:true:2:dirty:false",
+        "响应拒绝:false:2:3:保存响应不符合合同",
+        "再次恢复:true:3:dirty:false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-06",
+      "sectionId": "store",
+      "language": "module",
+      "codeSha256": "7b0f61122024f1ab9a3d9d596492808c41331b858c4f875e9c3bdf647c1ff402",
+      "output": [
+        "共享:2:2",
+        "隔离:1",
+        "拒绝:false:2",
+        "调用方修改后:2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-05",
+      "sectionId": "origin",
+      "language": "javascript",
+      "codeSha256": "ad289258d9d47ecbb73bc3084e4146fb67f67ee0301a8dd0601a8616aed4d9d3",
+      "output": [
+        "true,false,false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-05",
+      "sectionId": "preflight",
+      "language": "javascript",
+      "codeSha256": "b158e41fe419d00ac3c10ee1fbb60ebed1201c74f36137d17bcf1f0136788f2f",
+      "output": [
+        "false",
+        "true",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-05",
+      "sectionId": "expose",
+      "language": "javascript",
+      "codeSha256": "2f83cc8fbdba55d800ed6f89b8da3e0982909646cb4f926ab2a3b3caf1a92a15",
+      "output": [
+        "readable,blocked,readable",
+        "visible,hidden,visible"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-08",
+      "sectionId": "gate",
+      "language": "javascript",
+      "codeSha256": "59a2ffbbad4bfb683fb4bd8575b6afda07d4c50b2d9af3c364b7e1174f9d6f1b",
+      "output": [
+        "no-threat-tests",
+        "failed",
+        "passed"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-08",
+      "sectionId": "case",
+      "language": "javascript",
+      "codeSha256": "df135509676aa3eaaa01d0b95f53ad63719f14caef1ac381d874d7aa3f89d59e",
+      "output": [
+        "gap:redirect-rejected+token-redacted",
+        "covered",
+        "gap:other-owner-rejected+redirect-rejected+token-redacted"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "7078277718ec08072e2885ace24270d0a98aae28cb1e82dbcdacfa7effad8ca1",
+      "output": [
+        "已保存",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-01",
+      "sectionId": "forms",
+      "language": "javascript",
+      "codeSha256": "3120620db5ca5347b41958ed51785f88f2231387a66326bf4e714ad0111702f4",
+      "output": [
+        "false",
+        "小林"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K05-01",
+      "sectionId": "names",
+      "language": "javascript",
+      "codeSha256": "04de0c8ad2abe510f7edcd829f5f940a10f5e541a65cf360296b0f1fb338b81c",
+      "output": [
+        "1",
+        "联系邮箱"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-02",
+      "sectionId": "labels",
+      "language": "javascript",
+      "codeSha256": "cdcd6c12e7d9968c969b16b80132fa9ff4b6a0e70c6e88b4c4eeee0a245dfe4b",
+      "output": [
+        "1",
+        "笔记标题",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-02",
+      "sectionId": "errors",
+      "language": "javascript",
+      "codeSha256": "33fcc9ffe635103c3db070019be8b1f9e122b99afe1868bdd42f2209ca7cbd44",
+      "output": [
+        "true",
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-02",
+      "sectionId": "status",
+      "language": "javascript",
+      "codeSha256": "b3aad379a4896e8d86c13e11af539f70b5717cdab45277e15a0417e168366438",
+      "output": [
+        "status",
+        "已保存",
+        "-1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-05",
+      "sectionId": "fields",
+      "language": "javascript",
+      "codeSha256": "c8126e3f4b07b3df4dc974acce05efdffb0715fc6274278db0d32e4ed33db909",
+      "output": [
+        "{\"user\":\"A\",\"token\":\"[redacted]\",\"headers\":{\"Authorization\":\"[redacted]\"},\"note\":\"ok\"}",
+        "[redacted]",
+        "订单 18 未找到"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-05",
+      "sectionId": "urls",
+      "language": "javascript",
+      "codeSha256": "435e732c578a3116f59ae8df54bacc1413f3486a3e996e6f496df9a0ae592155",
+      "output": [
+        "https://notes.example/callback?code=%5Bredacted%5D&next=%2Fapp",
+        "rejected",
+        "invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-06",
+      "sectionId": "private",
+      "language": "javascript",
+      "codeSha256": "b41f3d0796c88769ff84eed24246c70a99a463e6706120f5582f58a9759f3ba5",
+      "output": [
+        "私有写入:stored",
+        "本人:hit:草稿",
+        "他人:miss",
+        "无身份:refused",
+        "坏路径:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-06",
+      "sectionId": "public",
+      "language": "javascript",
+      "codeSha256": "a4ee672315bc5951ba23d2128e8ce10366d6e0d8e39a05457af8206234520e1d",
+      "output": [
+        "误公开:stored",
+        "公开命中:hit:草稿",
+        "样式:stored",
+        "样式命中:hit:body{}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-07",
+      "sectionId": "capability",
+      "language": "javascript",
+      "codeSha256": "830de0e0ad3fdc5ac7ca7b30be55fad5ff7cbc029cb664c62c52e9f244103b92",
+      "output": [
+        "unavailable,available",
+        "available,unavailable"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-07",
+      "sectionId": "import",
+      "language": "javascript",
+      "codeSha256": "e342ab6b709d9094843e4ded09a382f22aa377ea794a8c1e394a5caf436f6f0e",
+      "output": [
+        "allowed:child-reference",
+        "blocked:server-module",
+        "allowed:same"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-07",
+      "sectionId": "props",
+      "language": "javascript",
+      "codeSha256": "86d247ca080727eeb24523904db8e449dbb2469261d86b68dc88d74705428414",
+      "output": [
+        "clone-ok",
+        "blocked:DataCloneError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-07",
+      "sectionId": "cache-api",
+      "language": "module",
+      "codeSha256": "78bf0339bd963c40abe186cfd23cf9b681109c3bf2af26bc8643ea873b2da21c",
+      "output": [
+        "offline shell",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-07",
+      "sectionId": "registration",
+      "language": "module",
+      "codeSha256": "46c7d83efddb49a6ecb8bbf6cfac4085e75bd7d02ff2d7be0ded74188a31db5a",
+      "output": [
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-07",
+      "sectionId": "strategy",
+      "language": "module",
+      "codeSha256": "8343c5449278a9de5699e2a9018c026cc66c86aebd47cf113651695b9c5d330f",
+      "output": [
+        "network",
+        "{\"source\":\"cache\",\"value\":\"old\"}",
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-05",
+      "sectionId": "pair",
+      "language": "javascript",
+      "codeSha256": "cbb85681e6ad1c1b04de7552338f22b1faefc20398b87e697064a100aca5b21a",
+      "output": [
+        "一对:1+2=6",
+        "没有一对:none",
+        "未排序一对:unsorted"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-05",
+      "sectionId": "window",
+      "language": "javascript",
+      "codeSha256": "67419660f41a0611e04b0cd91ba5f5bf485c11be7b207d2e19e07bda4c8cefc9",
+      "output": [
+        "窗口:abc",
+        "重复:a",
+        "回退:ab",
+        "空串:empty"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-04",
+      "sectionId": "search",
+      "language": "javascript",
+      "codeSha256": "222a2680e689077290adbc77fa9388b8bcd1398aa234b61bcfd35ab438334261",
+      "output": [
+        "命中重复:hit:b",
+        "没有:miss",
+        "未排序:unsorted",
+        "空列表:miss"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-04",
+      "sectionId": "order",
+      "language": "javascript",
+      "codeSha256": "946365bdf7abdf9e9a4ae8f3f78da165be47bb22a5a3fc3f6dbcae2b69897ba8",
+      "output": [
+        "稳定:c,a,b",
+        "按编号:a,c,b",
+        "未知比较:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "coordinates",
+      "language": "node",
+      "codeSha256": "d0e337eb0e70a480a3a1430ad1c693179f389dbfc4c06507a709d66ed8b7affa",
+      "output": [
+        "原始行:2",
+        "原始列:3",
+        "对应入口:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "exposure",
+      "language": "node",
+      "codeSha256": "4bc272be64748b50af1aad24d1658ea829593da7b49c242dcca4435445d54c41",
+      "output": [
+        "普通注释:true",
+        "隐藏注释:false",
+        "隐藏仍有map:true",
+        "没有源正文:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "identity",
+      "language": "node",
+      "codeSha256": "4e6802870a8ade3ce4d503f7f153e12f173c6168dde07ae1672a91607aa754df",
+      "output": [
+        "正确配对:map-r1",
+        "拒绝:产物不匹配"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "evidence",
+      "language": "node",
+      "codeSha256": "9d8b2de088461280c02102552ea5ccb5fddc74915f8f80aa6661fd3f7181b485",
+      "output": [
+        "字段:release,routePattern,errorCode",
+        "包含凭证:false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "server",
+      "language": "node",
+      "codeSha256": "14c4df21bd561e435cd6e1d6f70e94ad922762961ca5f8d4d0f70fcd9764368e",
+      "output": [
+        "DOM环境:undefined",
+        "<main><h1>订单 A</h1><button type=\"button\">数量:1</button></main>",
+        "包含内联事件:false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "hydrate",
+      "language": "module",
+      "codeSha256": "633c213aace9c38229d81156237efb6be79295e72040674a85b3f95921482616",
+      "output": [
+        "接管前:数量:1",
+        "接管复用:true",
+        "接管后:数量:2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "mount",
+      "language": "module",
+      "codeSha256": "0f5381e775bf93184b2d2133a0b2b84bf848ceeeb39107c3d3703b583ac8b51d",
+      "output": [
+        "普通挂载重建:true:数量:1",
+        "新按钮:数量:2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "mismatch",
+      "language": "module",
+      "codeSha256": "158d73199dd0a09bf64dfb79a3d844118d944a4799f83b6af3441259a4791979",
+      "output": [
+        "不一致被报告:true:数量:2",
+        "恢复后可点击:数量:3"
+      ],
+      "diagnostics": [
+        {
+          "type": "warning",
+          "text": "Hydration text content mismatch on[object HTMLButtonElement]\n  - rendered on server: 数量:1\n  - expected on client: 数量:2"
+        },
+        {
+          "type": "error",
+          "text": "Hydration completed but contains mismatches."
+        }
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "parser",
+      "language": "module",
+      "codeSha256": "47e292198fa9a5f6b9c105b28b25a6e82e0a04e05eaf275f095949c12bf8de85",
+      "output": [
+        "服务端:<p><div>内容</div></p>",
+        "浏览器:p,div,p",
+        "首段孩子:0",
+        "合法结构:div:p"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "requests",
+      "language": "node",
+      "codeSha256": "2e5bf6c1084ec673c1b0b0f446e0e6bbbe86b4d0c4570b890cafb80637363847",
+      "output": [
+        "错误:<p>B</p>,<p>B</p>",
+        "正确:<p>A</p>,<p>B</p>"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "lifecycle",
+      "language": "node",
+      "codeSha256": "7cef88241b6d1386476f554862aaf4d3a98645b216c683d4b6be2cd6f9f8765d",
+      "output": [
+        "<p>数量:2</p>",
+        "钩子:1,0,0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-07",
+      "sectionId": "serialization",
+      "language": "module",
+      "codeSha256": "a2a47f6b0301fe3e04b115ef27a663a7432fd0e6626bcfee1d5f9a3fd8206dc0",
+      "output": [
+        "脚本节点:1",
+        "标题恢复:true",
+        "私有字段下发:false",
+        "无效状态:TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-06",
+      "sectionId": "match",
+      "language": "javascript",
+      "codeSha256": "4f56ef4451882fd00ce79cc0691621da6eec0bedab97f6ce26b901ef769072ad",
+      "output": [
+        "平衡:balanced",
+        "交叉:mismatch",
+        "未闭合:open",
+        "空括号:balanced",
+        "字母:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-06",
+      "sectionId": "undo",
+      "language": "javascript",
+      "codeSha256": "e8225f9b3fb7f8fb3a3b8ef77b0a6ae5f3e301fede851be3620a1f86080b9c59",
+      "output": [
+        "编辑:type:a",
+        "编辑:type:ab",
+        "编辑:undo:a",
+        "编辑:type:ac",
+        "编辑:redo:blocked",
+        "编辑:undo:a",
+        "编辑:undo:blank",
+        "编辑:undo:blocked"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-04",
+      "sectionId": "local",
+      "language": "javascript",
+      "codeSha256": "06d6d8c2c170020d0b842027d6573b5ea638c968e9410c1d76fc93324c309e1e",
+      "output": [
+        "1",
+        "2",
+        "2:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-04",
+      "sectionId": "lift",
+      "language": "javascript",
+      "codeSha256": "68532d97ae551b830b4da1e66bd59c2624725714465d44b3b59cb3a454adc7cc",
+      "output": [
+        "1,2,1",
+        "2,2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K07-04",
+      "sectionId": "server",
+      "language": "javascript",
+      "codeSha256": "63da2ebbfc65bf5d8a790c7ebe910b62d724c8dd6e7298aba8a4afc0f4c0dac6",
+      "output": [
+        "new",
+        "new"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "328f982fa7fb98a7d9be192215473cace016459981f7a76ab875d0f0132a758b",
+      "output": [
+        "2",
+        "3",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-02",
+      "sectionId": "draft",
+      "language": "javascript",
+      "codeSha256": "5414fb4edd26af17d6ddda039f640200e173be207404b9124aa06a4b437172fe",
+      "output": [
+        "my change",
+        "remote change",
+        "true",
+        "original"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-02",
+      "sectionId": "requests",
+      "language": "javascript",
+      "codeSha256": "0831922d53cb2492b20aed1e094a0bd69be64a94e70188551c77571298e9450e",
+      "output": [
+        "true",
+        "false",
+        "ready:new"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-04",
+      "sectionId": "serialization",
+      "language": "module",
+      "codeSha256": "e4e9fa6a5d11ff2651f3f64c2b23325581ac2861a52dbcecde5ddf59d1c08a8b",
+      "output": [
+        "dark",
+        "light",
+        "light"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-04",
+      "sectionId": "transaction",
+      "language": "module",
+      "codeSha256": "bf116c827e69a4e7c3895d00892646880c16c719fc6ddf99c734b3b1c7b98e78",
+      "output": [
+        "request success",
+        "AbortError",
+        "original"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K04-04",
+      "sectionId": "quota",
+      "language": "module",
+      "codeSha256": "67001cfeabef3ce33fd5db1efde2ec0c875231786430befc96d5033aff674522",
+      "output": [
+        "quota unsaved words null",
+        "saved unsaved words"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-05",
+      "sectionId": "slots",
+      "language": "javascript",
+      "codeSha256": "03e3c02e9f498d0ab1c0c3a43c29cbcdcc2dd73dba032ebc40978b30f6dd1837",
+      "output": [
+        "外壳失败:abort",
+        "部分:shell,notes,orders:hole",
+        "空列表:abort"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-05",
+      "sectionId": "resume",
+      "language": "javascript",
+      "codeSha256": "39c68fa891ea156cca06d47ffcecc339f562388aef195b9713464af721df604b",
+      "output": [
+        "只有壳:visible-only",
+        "脚本:interactive",
+        "接续:resumed",
+        "未知:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-06",
+      "sectionId": "choice",
+      "language": "javascript",
+      "codeSha256": "4d78444ea71d3e21fe3a2cd528484c5e1469b8ee4558da218503f48c1ad49a43",
+      "output": [
+        "sse,websocket,fetch",
+        "function,function"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-06",
+      "sectionId": "frames",
+      "language": "javascript",
+      "codeSha256": "41abdc9099ab25b221b707008be1e39c89a083b2e70e788b526a13a8b8c4625b",
+      "output": [
+        "7:hello|7:a\\nb"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K06-06",
+      "sectionId": "resume",
+      "language": "javascript",
+      "codeSha256": "eb466b39975ebd17e97a3e629bb45cc5aa457a5d0cc758cba66d5785fe68b90c",
+      "output": [
+        "duplicate:7,apply:8:delivered",
+        "1:bc"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-03",
+      "sectionId": "queue",
+      "language": "javascript",
+      "codeSha256": "5afd094e21cae693f839e2e165ae1c1d4bde0ace4f030f047787f03307d12bf9",
+      "output": [
+        "入队:queued:1",
+        "再入:queued:2",
+        "堵住:backpressure",
+        "取出:data:aa",
+        "补入:queued:2",
+        "关闭:closing",
+        "继续:data:bb/data:cc/done",
+        "关闭后再写:closed",
+        "释放:released:0/released",
+        "未读释放:released:2/released"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-03",
+      "sectionId": "memory",
+      "language": "javascript",
+      "codeSha256": "3c44008786c6b0ff1dfb87b6bd74a2a22b43d6b8021fd2d0b6097797cf5300d7",
+      "output": [
+        "整段:exceeded:6",
+        "刚好:buffered:4",
+        "逐块:held:2/seen:6"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-08",
+      "sectionId": "shape",
+      "language": "javascript",
+      "codeSha256": "e526893b19aae2c5d8289e93ef87449785058cf6bfee261d3db8af25a4666735",
+      "output": [
+        "小:local-cache",
+        "搜索:indexed-query",
+        "小但要搜:local-cache",
+        "写入:queue-write",
+        "普通:single-table",
+        "非法:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K13-08",
+      "sectionId": "failure",
+      "language": "javascript",
+      "codeSha256": "6a34a4a073ddbae7c7425697d0e81666d26167d587cdd2f134b91290ec4352e7",
+      "output": [
+        "搜索挂了:list-recent",
+        "写入挂了:keep-draft",
+        "读取挂了:show-error",
+        "未知故障:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "43c03225627e8545d2645fb3c13f1f43c18ab5b5cfe2ddbb9a0bc22773c5db24",
+      "output": [
+        "A",
+        "E",
+        "C",
+        "B",
+        "D"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-01",
+      "sectionId": "stack",
+      "language": "javascript",
+      "codeSha256": "c9da1fdc174fe825c76e53f51348b3c1ceb3757a32d1a7816fbfe67d696aedaa",
+      "output": [
+        "outer:start",
+        "inner",
+        "outer:end",
+        "timer"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-01",
+      "sectionId": "nested",
+      "language": "javascript",
+      "codeSha256": "5f0407bd0ff1f08604e9585f90706baf585b1daf22a54576c135892923ae9fc6",
+      "output": [
+        "sync",
+        "first",
+        "second",
+        "nested",
+        "timer"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-01",
+      "sectionId": "promise",
+      "language": "javascript",
+      "codeSha256": "09ed0b14dfa2f5c32b5b3ca5669b563c00bc50732d8f4b7560b824b474084581",
+      "output": [
+        "executor",
+        "after",
+        "result"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-01",
+      "sectionId": "await",
+      "language": "javascript",
+      "codeSha256": "0e0edb59661b7a69f44de8b0ed16eb72b67e5749c0130b411bd399b16fe2116f",
+      "output": [
+        "before await",
+        "outside",
+        "after await",
+        "queued"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-01",
+      "sectionId": "application",
+      "language": "javascript",
+      "codeSha256": "a3505b30d8930521603b1ab007907c005d550a6198e64eaab1134ee3f5e91885",
+      "output": [
+        "scheduled",
+        "flush:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "pipeline",
+      "language": "module",
+      "codeSha256": "f75cb0a6356d16cac9170e6998b6e1611c3350529624f4736f4243499471cfc9",
+      "output": [
+        "function",
+        "初始:数量:1",
+        "立即:数量:1",
+        "提交:数量:3:更新次数:1",
+        "标题复用:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "static-blocks",
+      "language": "module",
+      "codeSha256": "489999aa65c00ae4e24ff2b779688ddf160c04627237998f1592276342187240",
+      "output": [
+        "静态复用:true",
+        "动态集合:1:span",
+        "文字:1->2:标记:1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "flags",
+      "language": "module",
+      "codeSha256": "2a875d5ae83a4d78765d8dd8ea9f659f0d4b45abbb64648cf7ecfe4032509449",
+      "output": [
+        "固定:11:title",
+        "动态集合:16",
+        "旧属性移除:true:新ID:next"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "props",
+      "language": "module",
+      "codeSha256": "e71c17962f254d6b63eeaa60d75c0c1e1451238721666be7489a559922a343b2",
+      "output": [
+        "传ID:2,2,2",
+        "传布尔:2,2,1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "keys",
+      "language": "module",
+      "codeSha256": "0b13fe9f68bd67b873d17de7804bdfd1259964f8fccc147350d6aed51d6e699e",
+      "output": [
+        "ID:B:B,A:A草稿",
+        "清空:0",
+        "索引:B:A草稿,A:B",
+        "清空:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "once",
+      "language": "module",
+      "codeSha256": "77ffae98ca7369930d9a8cb1ff375cf306ea8df446393324c0d999ec134337cf",
+      "output": [
+        "加载中|加载中",
+        "加载中|20"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "memo",
+      "language": "module",
+      "codeSha256": "3ca72e43e521f7d67067620c2124aad5e6749d66122abbb534403c10fcd9b14e",
+      "output": [
+        "遗漏:旧|1",
+        "遗漏换ID:新|2",
+        "完整:新|1",
+        "完整换ID:新|2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-01",
+      "sectionId": "unit",
+      "language": "javascript",
+      "codeSha256": "02da2f70867b92003e22f31955ad80bae7bee40c848ea6696d04cd2766abb1f0",
+      "output": [
+        "{\"id\":\"n1\",\"text\":\"\"}",
+        "text",
+        "{\"id\":\"n1\",\"text\":\"中文\"}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-01",
+      "sectionId": "integration",
+      "language": "javascript",
+      "codeSha256": "694096db633c4da0ca96192c7efa72d1c5445e3cbba6a67c829fa7b715ecf651",
+      "output": [
+        "true",
+        "kept",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K12-01",
+      "sectionId": "mock",
+      "language": "javascript",
+      "codeSha256": "be4a6271003dc14c98c2c72d88137dad0bed9b2a4e67aad06329f1540d0f48e2",
+      "output": [
+        "saved",
+        "quota"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "6c84a89999b2a65e0c27d201e485546b022edda331ea7110fd949c24359ae76c",
+      "output": [
+        "counter",
+        "2",
+        "global"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "call-site",
+      "language": "javascript",
+      "codeSha256": "cea81adf1c7e07a3cfeeb4ac93260e3128bc0855f5e2115a403ac6d873bac7e0",
+      "output": [
+        "2",
+        "TypeError",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "call-site",
+      "language": "javascript",
+      "codeSha256": "622a1d5ddcd61115e4e94726a8898892836fd64e58d8b9b34d3981919637ac48",
+      "output": [
+        "5",
+        "8",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "arrow",
+      "language": "javascript",
+      "codeSha256": "730d2fb0006298443188f4f8b01f97fe89f73112dcc7c30265a2735405959bc0",
+      "output": [
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "arrow",
+      "language": "javascript",
+      "codeSha256": "2e7ed7d210911505fe56e145aa44309307599fcda7b7b517100dcb69d7f9bc94",
+      "output": [
+        "7",
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "bind",
+      "language": "javascript",
+      "codeSha256": "ac607ccb09ef1db72cbe63142c3fe2fdb9a4279c612318922faaafa824fbbd46",
+      "output": [
+        "2",
+        "3",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "construct",
+      "language": "javascript",
+      "codeSha256": "e6f5f398b8412f1176d9f4aba722ef4ba634c6282470c1d2d058568b9bd88e3e",
+      "output": [
+        "TypeError",
+        "5",
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-03",
+      "sectionId": "events",
+      "language": "javascript",
+      "codeSha256": "01f5325b03bc9bf9d336c7f220ad534d1863e326481fbd944b2dc4065f12e88a",
+      "output": [
+        "save",
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-05",
+      "sectionId": "target",
+      "language": "javascript",
+      "codeSha256": "9495eb0f785124628404fbda76c433976a4a1678e4ffe3e9421c50ed2397c973",
+      "output": [
+        "够大:ok:24x24",
+        "有间距:spaced:20x20:24",
+        "太小:too-small:20x20:8",
+        "坏尺寸:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-05",
+      "sectionId": "reflow",
+      "language": "javascript",
+      "codeSha256": "657d843b3093c24b0a5eeaa62cfa1d4d60d12fe0399f7940982fc5f60dc3c442",
+      "output": [
+        "固定放大:clipped",
+        "改排:stacked",
+        "单轴:one-axis",
+        "表格例外:two-axis-ok",
+        "未知缩放:invalid",
+        "软键盘:above-keyboard",
+        "被挡住:covered",
+        "键盘关闭:full"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-08",
+      "sectionId": "problem",
+      "language": "module",
+      "codeSha256": "bb8a97750bca4108dede6a90d29c164bc6a6c135cd42ee816c978c6a600e9b56",
+      "output": [
+        "A start,A success",
+        "saved",
+        "true",
+        "B start,B fail timeout",
+        "null",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-08",
+      "sectionId": "scope",
+      "language": "javascript",
+      "codeSha256": "d7677a4d0ccd3e6cc43e205e79f9816a8477824512fc3fbbe97f1b08f35c9c32",
+      "output": [
+        "B success,B fail timeout"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-08",
+      "sectionId": "failure",
+      "language": "javascript",
+      "codeSha256": "4f023a3d7d4f7883751c33be3b75b5f8a486f8251c974f0cd0091a9cec0f0484",
+      "output": [
+        "保存没有完成",
+        "A upload TypeError",
+        "已保存",
+        "B upload success"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "syntax",
+      "language": "node",
+      "codeSha256": "181f4debc7f5dfcd72071e94abd4a483c6e2365143049e8d110abf7614579477",
+      "output": [
+        "新语法保留:false",
+        "结果:0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "runtime",
+      "language": "node",
+      "codeSha256": "63a1ca91604f2cf30421891859fb8eca690e07e3ec15629b99079766b08690e2",
+      "output": [
+        "API调用保留:true",
+        "缺失API:TypeError",
+        "局部恢复:1,3"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "lib",
+      "language": "node",
+      "codeSha256": "ba6d6cbebf0f16f4d0f4b8d71e90480a0703b9386ade705fe0ce22a86c9ae7d3",
+      "output": [
+        "旧lib缺声明:true",
+        "新lib错误数:0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "typecheck",
+      "language": "node",
+      "codeSha256": "f6e41dac1f130efcafba2934e35fe1354b22ff37a936b920eb209c8e395f0bcb",
+      "output": [
+        "转译有输出:true",
+        "语义错误:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K16-03",
+      "sectionId": "tree",
+      "language": "javascript",
+      "codeSha256": "03ca1372e29a08133f5fe50479a2b815e8b0a0a64ffe0230fb9509022970b78f",
+      "output": [
+        "树:pre:notes,draft,published,2026|post:draft,2026,published,notes",
+        "单节点:pre:notes|post:notes"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-03",
+      "sectionId": "cycle",
+      "language": "javascript",
+      "codeSha256": "8fbd2b79ced6feee090470346a1eceddf63b9ad08fad6afefdb460ecf1e08a96",
+      "output": [
+        "环:cycle:app>ui>api>app",
+        "无环:none",
+        "自环:cycle:app>app",
+        "空:none",
+        "后一段:cycle:c>c"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "reachable",
+      "language": "node",
+      "codeSha256": "78dcdcdebcbea665eb5de0777a969bcd39ad7d37a16a69030a797223da99b8e0",
+      "output": [
+        "未使用代码保留:false",
+        "运行结果:6"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "module-effects",
+      "language": "node",
+      "codeSha256": "8a83a0c4c7ae9eb77633d283521cdb4f88463fd954bcbae88d6e84e278b3c497",
+      "output": [
+        "正常注册:true",
+        "错误标注:false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "namespace",
+      "language": "node",
+      "codeSha256": "9f7a0860d0aa4f988bbdecf781cfbd4a388466b40a0e3eb82c8623e8d8c2a24b",
+      "output": [
+        "动态可达:true",
+        "light:2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "pure",
+      "language": "node",
+      "codeSha256": "c25035d7f14e97e33c9ea525f2dbc9b74434445348dc96a57f183ba9d1df2369",
+      "output": [
+        "相信错误标注:false",
+        "忽略标注:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K03-01",
+      "sectionId": "problem",
+      "language": "typescript",
+      "codeSha256": "19aeb198d149fce2e7828e9ad0b4d5f1ce6e8379700c087ec8c56913af40dcf3",
+      "output": [
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-01",
+      "sectionId": "unknown",
+      "language": "typescript",
+      "codeSha256": "bf6e49a0f38ddc4bdd1eddc6a8777dcb2dfe3d216361966ee96138c0e063674b",
+      "output": [
+        "Draft",
+        "null",
+        "null",
+        "null"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-01",
+      "sectionId": "mechanism",
+      "language": "typescript",
+      "codeSha256": "a6c21cf5b1bbff6392c905097741e6c55600728862929aeb4d2b1807650aa60e",
+      "output": [
+        "true",
+        "false",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-01",
+      "sectionId": "parsing",
+      "language": "typescript",
+      "codeSha256": "a873bd1d6c1f9863ac84ad7d5c2dc48fcea6bf29e19d525197dd70e28b83298b",
+      "output": [
+        "Draft",
+        "invalid title length",
+        "done must be a boolean"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-01",
+      "sectionId": "arrays",
+      "language": "typescript",
+      "codeSha256": "b2c252f9962709cefef6eb07d4547b42ce473682f5ab2fdacab38e968b158a2b",
+      "output": [
+        "One,Two",
+        "invalid item at 1",
+        ""
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-01",
+      "sectionId": "json",
+      "language": "typescript",
+      "codeSha256": "3ce9b1ece0167a3cc95f357fecf17b4292e992312a6b0a3e8c671476cd3d740f",
+      "output": [
+        "object",
+        "invalid JSON syntax",
+        "object"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-06",
+      "sectionId": "next",
+      "language": "javascript",
+      "codeSha256": "e8893b48ce61a8882ea2de341f6c0fbd70c4796a64ef12cd29476824fdca4a3f",
+      "output": [
+        "相对:/orders?id=1",
+        "本源:/orders?id=1",
+        "外站:rejected",
+        "协议相对:rejected",
+        "http:rejected",
+        "用户信息:rejected",
+        "后缀主机:rejected",
+        "空:rejected",
+        "反斜杠:rejected"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-06",
+      "sectionId": "purpose",
+      "language": "javascript",
+      "codeSha256": "2d6c59a17e502bd438121a13bbae066ad7f7a808435aedfc68d52ef38e073d99",
+      "output": [
+        "站内跳转:internal",
+        "外站跳转:rejected",
+        "参考资料:external-ok",
+        "参考协议相对:external-ok",
+        "非 https:rejected",
+        "未知用途:rejected"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-06",
+      "sectionId": "projection",
+      "language": "typescript",
+      "codeSha256": "de83b132aa16c2aa8175f4f73c9591e7283dea0ef7686c89bcf4dea6bd39729e",
+      "output": [
+        "id,title,internalMemo",
+        "id,title",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-06",
+      "sectionId": "commands",
+      "language": "typescript",
+      "codeSha256": "03ba769012783f11732d522a9ffdcaab5d29666aec6e107afa9e3f06a6ddfec0",
+      "output": [
+        "p1 500 USD",
+        "CNY",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K03-06",
+      "sectionId": "readonly",
+      "language": "typescript",
+      "codeSha256": "27304d10f1dd8f1a3b94c74158be6b571767a19ce3b495ab00ea52c0a8bcb1f3",
+      "output": [
+        "ts,types Changed",
+        "ts,types"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "6ceffedc53b66c50a7bf9ca181fb801a4cdf7ba48e96d406a839b522832c0ddd",
+      "output": [
+        "2",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "primitives",
+      "language": "javascript",
+      "codeSha256": "e951328cfbca8fe91554ca1d16646bc1e2aace2f3f1c7ac1faddc3d6367deb1e",
+      "output": [
+        "1",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "parameters",
+      "language": "javascript",
+      "codeSha256": "63fdf523cdc0b78f5e98b172856e0b2d92fe2b5688236b0d3a778d5f9ce05883",
+      "output": [
+        "1",
+        "9"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "parameters",
+      "language": "javascript",
+      "codeSha256": "2a349bfca8e11a5242b4a1b9f30dbbab862eb53e6e9e1ff53b353bd22df0eeb6",
+      "output": [
+        "TypeError",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "shallow-copy",
+      "language": "javascript",
+      "codeSha256": "659d1c8d2fd50d9b8deabaa10814d84ab5d9c9276c7d3febf307a63dcf56dfee",
+      "output": [
+        "draft",
+        "2",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "deep-copy",
+      "language": "javascript",
+      "codeSha256": "841e9b35e86cbfc1d19cb4f8515d290ff4e4ec16ecffbc9ce8c86714ab7b43bb",
+      "output": [
+        "1",
+        "false",
+        "true",
+        "0",
+        "false",
+        "DataCloneError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "strict-equality",
+      "language": "javascript",
+      "codeSha256": "2f74b139abdfc4c4d04ae81632cc13e207e6fdfa965c747700010554b520afbc",
+      "output": [
+        "true",
+        "false",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "loose-equality",
+      "language": "javascript",
+      "codeSha256": "8caa330a26cce065d61bcba417108f857013a31d1e3fc71d3b2dfba81c064bbc",
+      "output": [
+        "true",
+        "false",
+        "true",
+        "false",
+        "false",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "same-value",
+      "language": "javascript",
+      "codeSha256": "e0b09cc04516055b600b22a7762062e1848e37a751634049cb19ef8fb37a5a60",
+      "output": [
+        "true",
+        "false",
+        "false",
+        "true",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "collections",
+      "language": "javascript",
+      "codeSha256": "d4f73b528aa465b2d14ac4f3229a5e609616cd7ba231dd54e0c0aee1761c6f08",
+      "output": [
+        "true",
+        "true",
+        "2",
+        "missing",
+        "zero",
+        "2",
+        "-1",
+        "true",
+        "0",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "identity",
+      "language": "javascript",
+      "codeSha256": "6d9a7bead2e9897450451c06e746476668d2c701ebc197e89edb4af9ba36b9ea",
+      "output": [
+        "stored",
+        "false",
+        "false",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "comparison",
+      "language": "javascript",
+      "codeSha256": "a86c08adf1ada9a4e9db12602e2d80c7398ddc836e9e743b32f28fb518a8b93f",
+      "output": [
+        "true",
+        "true",
+        "false",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K01-01",
+      "sectionId": "comparison",
+      "language": "javascript",
+      "codeSha256": "f4120624cbe7cd187c72abcf14c1884d06c8c1364ee6705a5718fc1e9e456667",
+      "output": [
+        "true",
+        "false",
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-07",
+      "sectionId": "problem",
+      "language": "module",
+      "codeSha256": "52c13112360fdab499fdde0ab926a0ab3e4ae4a6ce66b5980172560895af47bd",
+      "output": [
+        "clone 1",
+        "undefined",
+        "0",
+        "move 3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K02-07",
+      "sectionId": "clone",
+      "language": "javascript",
+      "codeSha256": "514028634ea2cd1edd072ce15d5ec32d76c3971a4bae82cb602103b35a64b062",
+      "output": [
+        "DataCloneError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "a3b4f0346c60458929572a74e588e14119691025ae20ab12c1557ceb784e86f8",
+      "output": [
+        "0",
+        "1",
+        "true",
+        "重要"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-01",
+      "sectionId": "url",
+      "language": "javascript",
+      "codeSha256": "c1e389f8eef8010d26d1989da119b3bd9813faf10fdbb602fb53588fd9dd126c",
+      "output": [
+        "/notes?tab=all",
+        "null",
+        "null"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K11-01",
+      "sectionId": "encoding",
+      "language": "javascript",
+      "codeSha256": "f31e675d820d9f0237ac240dcc45454f9900b91ce579d848ec5e048166d8d2ed",
+      "output": [
+        "0",
+        "1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI08",
+      "sectionId": "reproduction",
+      "language": "javascript",
+      "codeSha256": "c265d9c9a62bf1ff5734b0af40df1a83a9b49c3e370b1300406a120013873d9a",
+      "output": [
+        "A"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI08",
+      "sectionId": "repair",
+      "language": "javascript",
+      "codeSha256": "785497c0d2885fb0e53e7ab850285c28be64784074b389d9b9068eb08a05ff86",
+      "output": [
+        "B",
+        "idle"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI07",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "a2c5cc48be2547c8e833b22a96d661bafa97898403f6560f7ef33ac709421fcf",
+      "output": [
+        "1",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI07",
+      "sectionId": "implementation",
+      "language": "javascript",
+      "codeSha256": "a77ad7350f8af3ccc6c8047e57e3b69dd81a2631f9ee070682cb92675ce5329c",
+      "output": [
+        "a",
+        "2",
+        "0",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI03",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "fba4a37d094caf2c6d56600f0bf14b1b684699ccba91f78af7798c8aba01b95e",
+      "output": [
+        "cancel-button.js,cancel-old-design.md",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI03",
+      "sectionId": "selection",
+      "language": "javascript",
+      "codeSha256": "d5c5f069db2a13029e001d75a47d4f605a2065a96801bce38234fa9c918c0519",
+      "output": [
+        "0",
+        "write,contract"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI18",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "91f61f474bff280a4adadaa20f904f0b601fc03e32e97eb16c1acbfdeadc6817",
+      "output": [
+        "0.032 0.064",
+        "2.249 0.364"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI18",
+      "sectionId": "latency",
+      "language": "javascript",
+      "codeSha256": "4c03a595d336cf68ad8862e8dbff06a50b1009274e54bb5d237d1ba6884c0322",
+      "output": [
+        "cold 3 900 5000",
+        "warm 3 300 2400",
+        "null"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI18",
+      "sectionId": "budget",
+      "language": "javascript",
+      "codeSha256": "f31baa12fed8ad29d87faa4d0f8c34dc205103e3fa91e0b9af840ea523ff8e29",
+      "output": [
+        "started",
+        "budget",
+        "settled",
+        "unknown",
+        "duplicate",
+        "budget",
+        "timeout"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI05",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "d2cdcccc45803f4d5d2c5b79b682f7a335c9fedd1162ab0286f03f5ef56b235c",
+      "output": [
+        "invalid",
+        "new"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI05",
+      "sectionId": "implementation",
+      "language": "javascript",
+      "codeSha256": "051f28e9d0a14dce62aa7907225e0b2b759be53e9599fb56a9eeb36472807f0e",
+      "output": [
+        "invalid",
+        "old",
+        "ok 0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI16",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "3775ee0bd861f1e729ccabff7159081144231ba6207279eac3661a7595e4724d",
+      "output": [
+        "0.90",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI16",
+      "sectionId": "grading",
+      "language": "javascript",
+      "codeSha256": "8ebfd3649ed4f4aab8edfa59ce8d3ce5fa3c4e1aef524a5158c6382d3ec1d637",
+      "output": [
+        "reject",
+        "insufficient",
+        "candidate"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI16",
+      "sectionId": "grading",
+      "language": "javascript",
+      "codeSha256": "01564bda91b85d5efba167009a1ec434a2478350638514b55028230aa6122845",
+      "output": [
+        "normal 1.00 0",
+        "permission 0.50 1",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI16",
+      "sectionId": "traces",
+      "language": "javascript",
+      "codeSha256": "07c351646b7e666cfcc517a8a34a30134abba3a68fb98921ec6c63872e180765",
+      "output": [
+        "answer-only",
+        "reject:unauthorized",
+        "fail:answer",
+        "pass",
+        "2",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI19",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "ac94b3da3fc45ffcb53c34ea8d5fd575a2f6eaab621dac49231894cc39cf700a",
+      "output": [
+        "passed",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI19",
+      "sectionId": "feedback",
+      "language": "javascript",
+      "codeSha256": "6226f0eb6661a3b6f171ef2353f9b3079288b581e3c6e5ad1154b9542f55e02f",
+      "output": [
+        "passed",
+        "mismatch",
+        "error",
+        "mismatch"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI01",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "61da7f50bfecca2524a54a41c6e6eb71fa522d0d5709be9ce9ae459e920e604c",
+      "output": [
+        "false",
+        "已准确相加"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI01",
+      "sectionId": "evidence",
+      "language": "javascript",
+      "codeSha256": "f1684685e4a28b5fa0f821f277cefa7eb45e5c21d36dd0bd8af8bbf7128cdb15",
+      "output": [
+        "300",
+        "invalid amount"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI12",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "c668ec03c81c96765fbdf0a01a18c8c30f409dda80a45ac0b63fa15e6a1718ea",
+      "output": [
+        "deleted:orders"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI12",
+      "sectionId": "boundary",
+      "language": "javascript",
+      "codeSha256": "08e7fec21a0b80af76b2fa35eacf63878cbaaa231c8ca4530e2b853791bf95ca",
+      "output": [
+        "ok",
+        "denied",
+        "invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI17",
+      "sectionId": "dependency",
+      "language": "javascript",
+      "codeSha256": "289be3232348122893aca245c4a873b45f26b3f45c556e4f0d1d91e8014de403",
+      "output": [
+        "contract",
+        "validator,storage",
+        "storage",
+        "integration"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI17",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "49c902e2c6dd9ee57f80f411f1026ee79c3a63c8b4e2cfd75008fb932b33aec5",
+      "output": [
+        "false true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI17",
+      "sectionId": "implementation",
+      "language": "javascript",
+      "codeSha256": "d00c6ad4b9a1706b138c29335559d49e63d373879b0dea37c9fdec4d564f465c",
+      "output": [
+        "saved",
+        "conflict",
+        "true false",
+        "saved",
+        "3 true true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI15",
+      "sectionId": "case",
+      "language": "javascript",
+      "codeSha256": "13d7e507efe5ee548ddc70e424e797d49ef72d98f04043c4654182dd3e9b6e7a",
+      "output": [
+        "uploadConfig",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI15",
+      "sectionId": "host",
+      "language": "javascript",
+      "codeSha256": "09afa2c640eaf68a3c41b3a8d174cc5785d8d3e61ce9f70f4b9e0050ce22396a",
+      "output": [
+        "allowed",
+        "denied",
+        "denied"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI11",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "d1d8768f6b5f02ffdaee849b5aa13ced8fe718dc2e3224315e1c061ca60925d6",
+      "output": [
+        "0",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI11",
+      "sectionId": "migration",
+      "language": "javascript",
+      "codeSha256": "13a0d1c6a5eeb290fa23d9c93395ca431d927d097a0f46c7e65a4491f0971155",
+      "output": [
+        "{\"version\":2,\"value\":3}",
+        "{\"version\":2,\"value\":3}",
+        "3",
+        "unsupported version"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI06",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "a129918fc41ea41649e5c9fe0dab176fd7db5b3ef11c5c4549d45ac50fdd736f",
+      "output": [
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI06",
+      "sectionId": "gate",
+      "language": "javascript",
+      "codeSha256": "7bda5ed93772414db799d1e66a43207639a2a37cbb812f40c2a38833316d4e42",
+      "output": [
+        "src/content-backup/settings.ts,src/content/../config.ts",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI06",
+      "sectionId": "exceptions",
+      "language": "javascript",
+      "codeSha256": "e9fc845393c409166c6b1c4f416505d1d0f622ee413bbaf1e55026c5d187afc4",
+      "output": [
+        "src/content-backup/settings.ts",
+        "0:src/content-backup/settings.ts",
+        "blocked:src/content-backup/settings.ts",
+        "accepted",
+        "blocked:src/content/../config.ts"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI13",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "39fc0f4d81c6ba49afbc3f83f41e2dc347ee003a29e62dc8eb16fe8834b309fd",
+      "output": [
+        "refund-v1",
+        "shipping-v2,refund-v2",
+        "refund-v2",
+        "标准订单可在14日退款，定制订单除外。"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI13",
+      "sectionId": "generation",
+      "language": "javascript",
+      "codeSha256": "5a1b350259f1b84ea33274beb08473230c7afb060b36f879c1fd2bdd4f5a3b60",
+      "output": [
+        "located",
+        "unsupported:30日",
+        "incomplete:定制订单除外",
+        "supported",
+        "negated:supported"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI13",
+      "sectionId": "citations",
+      "language": "javascript",
+      "codeSha256": "a6fa89a3a9bae71f634998c21cf939c4f856f7153d741377efae73febd46318b",
+      "output": [
+        "located",
+        "stale",
+        "unavailable",
+        "recall=1",
+        "recall=0",
+        "abstain-ready"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI09",
+      "sectionId": "case",
+      "language": "javascript",
+      "codeSha256": "6bcf9ddef63f82dfee8f8659fdaf17141d94b8e63e8649b79676c4f1947baf87",
+      "output": [
+        "alice",
+        "alice"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI09",
+      "sectionId": "repair",
+      "language": "javascript",
+      "codeSha256": "ba6b561edcfbcbee6dbb3ff5eeae706c4c39a9af903adf4c4d6d2d3482570aad",
+      "output": [
+        "alice",
+        "bob",
+        "o2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI14",
+      "sectionId": "decoder",
+      "language": "module",
+      "codeSha256": "a8a2c882fb3db176a7a5cfad19ea6861caa5b3ea3c8537b4ab78df29fd552f62",
+      "output": [
+        "2",
+        "delta",
+        "\"中\\n文\"",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI14",
+      "sectionId": "identity",
+      "language": "javascript",
+      "codeSha256": "b2a5e64e4251caaeeb9a46e9edb02ff538b76aa6175d73390b5003f7f5bf90f8",
+      "output": [
+        "cancelled:true",
+        "interrupted:true",
+        "新稿",
+        "completed:标准订单14日，定制订单除外",
+        "failed:true",
+        "cancelled:true:true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI02",
+      "sectionId": "behavior",
+      "language": "javascript",
+      "codeSha256": "446ea35113794a0895bb466017489f4a057417812dd6cdf19dc2ccf5afe3c063",
+      "output": [
+        "A results"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI02",
+      "sectionId": "identity",
+      "language": "javascript",
+      "codeSha256": "5d66cad48407122edd689e7fb6326e140c4ca9a88b0ebc499faee78c6e2157b3",
+      "output": [
+        "ready B results"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI02",
+      "sectionId": "verification",
+      "language": "javascript",
+      "codeSha256": "d25161bd968aa6a86e7124b4345fff1a3469e19ab53a19ccd8e761fedd74c82a",
+      "output": [
+        "error"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI10",
+      "sectionId": "case",
+      "language": "javascript",
+      "codeSha256": "2055d018171aedab374e4daffaa18ce5977014e4a18dcbde7c879e340ff3cc63",
+      "output": [
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI10",
+      "sectionId": "implementation",
+      "language": "javascript",
+      "codeSha256": "8108bb4ebd73f58965ae981a4bf870ddb631ee6b764f9e7bdaadd42334003bbd",
+      "output": [
+        "true",
+        "invalid amount",
+        "invalid amount"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI04",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "25dffbfff4b828cc14ee424b7664515c27df85a8c55913c6542e517e8e078814",
+      "output": [
+        "alice",
+        "ready"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI04",
+      "sectionId": "host",
+      "language": "javascript",
+      "codeSha256": "54bd695e6906a54697f60ac0a3c56d72a98056fa4cf6e8264b167b9084206695",
+      "output": [
+        "not-found",
+        "ok",
+        "denied"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI04",
+      "sectionId": "termination",
+      "language": "javascript",
+      "codeSha256": "2712228dd0f4793dac6d0ed7137dcc0dd68446bf9c86ce9e91ee1ccc1aa924d8",
+      "output": [
+        "readOrder:alice:paid|readOrder:bob:ready|deleteOrder:alice:paid",
+        "read:o2:paid|stop:unauthorized-field",
+        "invalid|read:o2:paid",
+        "invalid|stop:invalid",
+        "read:o2:paid|stop:repeat",
+        "read:o2:paid|read:o3:shipped|stop:budget"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI20",
+      "sectionId": "wrong",
+      "language": "javascript",
+      "codeSha256": "f6ada9f954bd6dc3074c1db0b681e427f4847a0cdd02ac3c4509b22cf0e3903e",
+      "output": [
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI20",
+      "sectionId": "experiment",
+      "language": "javascript",
+      "codeSha256": "6f6fb8684f7fb428b77003e88acf218cd03fd90dda3bcea0fe544b7d86138709",
+      "output": [
+        "simplify-candidate",
+        "reject",
+        "insufficient"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "AI20",
+      "sectionId": "ablation",
+      "language": "javascript",
+      "codeSha256": "67cf8196bbe6b2bd64d425f461a59e40712ec2e7680d848300d1fb99d7f689c0",
+      "output": [
+        "normal:1/1:fabricated:0 -> normal:1/1:fabricated:0",
+        "missing-policy:1/1:fabricated:0 -> missing-policy:0/1:fabricated:1",
+        "1.00",
+        "0.50",
+        "restore:read-contract:missing-policy",
+        "candidate"
+      ],
+      "diagnostics": [],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

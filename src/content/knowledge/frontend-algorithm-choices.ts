@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const frontendAlgorithmsArticle: Article = {
+  "revision": 2,
   id: "K16-08",
   kind: "knowledge",
   domainSlug: "algorithms",
@@ -10,7 +11,7 @@ export const frontendAlgorithmsArticle: Article = {
   aliases: ["virtual list", "keyed diff", "scheduling", "窗口渲染"],
   tags: ["算法", "列表", "调度"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -151,7 +152,7 @@ console.log('没有任务:' + schedule([], 5));`,
       title: "用同一份一百行列表做窗口和身份两个选择",
       paragraphs: [
         "从 95 开始的窗口应是 95-100/100。a、b、c 到 a、c、d，按键应只 remove b 并 insert d。21 条笔记查两次应是 index，只查一次应是 scan。大于帧预算的单个任务应是 unsplittable。",
-        "本主题没有已开放的独立练习。示例不挂载列表，也不把结果写成某次渲染的耗时。"
+        "E40 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const stateOwnershipDataFlowArticle: Article = {
+  "revision": 2,
   "id": "K07-04",
   "kind": "knowledge",
   "domainSlug": "react",
@@ -10,14 +11,14 @@ export const stateOwnershipDataFlowArticle: Article = {
   "aliases": ["state ownership", "lifting state", "server state", "数据流", "状态提升"],
   "tags": ["React", "状态", "状态所有权与数据流"],
   "estimatedMinutes": 22,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
       "title": "两个购物车数字，为什么一个变成 2、另一个还是 1？",
       "paragraphs": [
         "导航和结算页都显示购物车数量。点击加购后导航变成 2，结算页仍显示进入页面时复制的 1。两份 state 用同一个初始值创建，之后各自修改。共享的事实需要一个所有者，其他组件只接收当时的值和请求修改的回调。",
-        "前置是 K07-01 的快照和 K07-03 的组件身份。示例用普通对象演示复制和共享，对应 React 文档中的状态提升；它不是 React 调度器。服务端数据还要面对过期响应，不能在复制进 state 之后就停止刷新。"
+        "前置是 K07-01 的快照和 K07-03 的组件身份。先用普通对象解释复制和共享，再通过真实父子组件展示 prop 初值与共享状态的差别。服务端数据仍需处理过期响应与基线版本，状态提升不会消除这些边界。"
       ]
     },
     {
@@ -94,11 +95,33 @@ export const stateOwnershipDataFlowArticle: Article = {
       ]
     },
     {
+      "id": "react-owner-experiment",
+      "title": "真实父子实验：复制初值不会持续同步",
+      "paragraphs": [
+        "以下为真实 React 19.3.0 开发构建实验，运行 npm run verify:k07。隔离服务将本仓库安装的 react、react-dom/client 与测试 act 打包为 /react.mjs；普通项目分别从这些包导入相同 API。act 只用于让测试中的更新完成，不应放进产品事件处理器。每例创建独立根并在结束时卸载，不运行读者代码。",
+        "父组件持有数量，受控展示直接读取父值；另一个子组件把该 prop 当作 useState 初值。点击一次父级按钮，比较两者。副本不是错误语法，只有业务需要共享事实时才是错误的所有权选择。"
+      ],
+      "examples": [
+        {
+          "language": "module",
+          "code": "import { createElement as h, createRoot, useState, act } from '/react.mjs';\nglobalThis.IS_REACT_ACT_ENVIRONMENT = true;\nfunction Copied({ count }) { const [local] = useState(count); return h('output', { 'data-copy': true }, local); }\nfunction App() {\n  const [count, setCount] = useState(1);\n  return h('section', null, h('button', { onClick: () => setCount(value => value + 1) }, '增加'), h('output', { 'data-live': true }, count), h(Copied, { count }));\n}\nconst host = document.body.appendChild(document.createElement('div'));\nconst root = createRoot(host);\nawait act(async () => { root.render(h(App)); });\nawait act(async () => { host.querySelector('button').click(); });\nconsole.log('共享:' + host.querySelector('[data-live]').textContent);\nconsole.log('初值副本:' + host.querySelector('[data-copy]').textContent);\nawait act(async () => { root.unmount(); }); host.remove();",
+          "expectedOutput": [
+            "共享:2",
+            "初值副本:1"
+          ],
+          "explanation": [
+            "父级函数式更新从 1 变成 2，受控 output 每次读取最新 prop，所以显示 2。Copied 组件仍是同一位置和类型，只在第一次挂载时用 1 初始化，之后的 count=2 不会改写 local。",
+            "如果子级表示未提交草稿，保留旧值可以合理；此时需要确认、取消和基线版本。如果显示的是共享数量，就删掉副本直接读 prop，而不是加 Effect 追赶它。"
+          ]
+        }
+      ]
+    },
+    {
       "id": "practice",
       "title": "指出谁拥有购物车数量和草稿",
       "paragraphs": [
         "导航和结算同时显示数量时，预测各自 useState 之后只更新一边的结果，再预测提升到父级后的结果。给两次重叠请求，预测后发先至的旧值能不能覆盖新值。",
-        "E13 已练习最新请求身份，可与服务端副本一起看。E30、E31、E38 尚未制作。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 React；组件身份、Effect 和挂起行为按本文注明的真实运行环境核对。"
       ]
     }
   ],

@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const templateCompilationUpdatesArticle: Article = {
+  "revision": 2,
   "id": "K08-05",
   "kind": "knowledge",
   "domainSlug": "vue",
@@ -23,7 +24,7 @@ export const templateCompilationUpdatesArticle: Article = {
     "更新优化"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -224,7 +225,7 @@ export const templateCompilationUpdatesArticle: Article = {
       "paragraphs": [
         "先合上代码解释：为何标题 DOM 相同不能单独证明静态提升？为什么状态是 3，而立即读到的 DOM 仍是 1？为什么传 active 布尔可以让 C 不更新，却不能保证行里读取的其他响应式值永远不触发更新？",
         "再给 memo 示例增加 price，把依赖数组只写 rowId 与 label，保持这两项不变只更新 price，预测并复现旧价格。修复后继续测试价格为空、读取失败与语言变化；每个影响输出的变化都要有对应失效条件。为 key 示例在列表开头插一行，检查原草稿是否仍属于原订单。",
-        "本主题暂无已交付的独立 Vue 编码题，不提供空练习入口。E32 的简化依赖系统和 E38 的乐观更新仍在规划中，不能把它们当作模板编译练习已完成；文末回忆卡用于核对机制与边界。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 Vue；框架机制仍按本文注明的真实实验核对。"
       ]
     }
   ],

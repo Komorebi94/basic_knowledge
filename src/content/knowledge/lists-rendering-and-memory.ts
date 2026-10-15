@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const listsRenderingMemoryArticle: Article = {
+  "revision": 2,
   id: "K10-04",
   kind: "knowledge",
   domainSlug: "performance",
@@ -10,7 +11,7 @@ export const listsRenderingMemoryArticle: Article = {
   aliases: ["virtual list", "windowing", "列表虚拟化", "DOM 节点", "行高"],
   tags: ["性能工程", "列表、渲染与内存"],
   estimatedMinutes: 24,
-  verifiedAt: "2026-10-13",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -137,7 +138,7 @@ export const listsRenderingMemoryArticle: Article = {
       title: "用三组输入检查窗口，而不是只看滚动起来流畅",
       paragraphs: [
         "对固定行高列表核对空列表、滚动 0 和滚过末尾。再交换两行身份，确认草稿、选中和焦点没有留在下标上。最后把一行加高，确认偏移不再使用旧的固定行高，或者明确拒绝可变行高。",
-        "E30 固定高度虚拟列表尚未开放。本篇的节点计数不是那道题的通过证据，也不报告帧率提升。"
+        "E30 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

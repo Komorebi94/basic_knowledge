@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const conditionalMappedArticle: Article = {
+  "revision": 2,
   "id": "K03-04",
   "kind": "knowledge",
   "domainSlug": "typescript",
@@ -21,7 +22,7 @@ export const conditionalMappedArticle: Article = {
     "条件类型与映射类型"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -121,7 +122,7 @@ export const conditionalMappedArticle: Article = {
       "title": "类型计算要用编译证据验证",
       "paragraphs": [
         "第一条边界是可选语义：exactOptionalPropertyTypes 是独立配置，影响“属性缺席”与“显式 undefined”的区别；不能只说开了 strict 就启用它。第二条边界是运行时转换：映射类型不删除字段、不冻结对象、不改名，也不校验来自 JavaScript 的输入。",
-        "自己把 Payload 的检查侧包成元组，预测 Result<number> 是否整体满足成功成员，再编译确认。E33 的工具类型练习仍待制作；先用本文完整例子和静态约束验证推导，不只观察日志。"
+        "自己把 Payload 的检查侧包成元组，预测 Result<number> 是否整体满足成功成员，再编译确认。E33 当前提供运行时投影、浅冻结和 Promise 吸收；实际类型练习在 K03-06，使用编译器负向断言核对静态关系，不能只观察日志。"
       ]
     }
   ],

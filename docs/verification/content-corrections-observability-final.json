@@ -1,0 +1,59 @@
+{
+  "verifiedAt": "2026-10-15T03:13:23.924Z",
+  "browser": "155.0.8059.40",
+  "nodeVersion": "v22.22.3",
+  "articleIds": [
+    "K14-08"
+  ],
+  "examples": 3,
+  "browserExamples": 2,
+  "nodeExamples": 1,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K14-08",
+      "sectionId": "record",
+      "language": "javascript",
+      "codeSha256": "8458529c1876455ba7d27e664d677cbda1c8b5715797525b4dacc7aa54955098",
+      "output": [
+        "无编号:missing-id",
+        "令牌:secret",
+        "日志:log:req-1:saved",
+        "指标:metric:notes",
+        "跨度:span:req-1:bff",
+        "根跨度:span:req-1:root"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-08",
+      "sectionId": "trace",
+      "language": "javascript",
+      "codeSha256": "f1d5d81115b474ff3c4fefab61d63d44f68d91b54df67f218c303cb57fa28c6b",
+      "output": [
+        "同一条:linked:req-1",
+        "拆开:split",
+        "空:empty"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-08",
+      "sectionId": "node-context",
+      "language": "node",
+      "codeSha256": "fb115a96275b6149b56bae05a4ca66ae2d82342f7f8a8367ffaa00f0f442fee7",
+      "output": [
+        "日志上下文:a,b",
+        "指标序列:1",
+        "累计:2",
+        "关联样本:b"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

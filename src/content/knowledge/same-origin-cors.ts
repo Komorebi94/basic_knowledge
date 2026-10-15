@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const sameOriginCorsArticle: Article = {
+  "revision": 2,
   "id": "K06-05",
   "kind": "knowledge",
   "domainSlug": "networking",
@@ -10,7 +11,7 @@ export const sameOriginCorsArticle: Article = {
   "aliases": ["CORS", "preflight", "Same-Origin Policy", "Access-Control-Allow-Origin", "同源策略"],
   "tags": ["网络", "浏览器", "同源策略与 CORS"],
   "estimatedMinutes": 23,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -98,7 +99,7 @@ export const sameOriginCorsArticle: Article = {
       "title": "判断这次调用会不会预检、脚本能不能读",
       "paragraphs": [
         "预测 POST application/json 是否预检，以及 Allow-Origin 为星号且携带 Cookie 时脚本能否读取。再预测没有暴露名单时，X-Request-Id 是否可见。",
-        "把一次失败分成“请求未发出”“服务器已处理但脚本被阻止”“脚本可读但业务状态不是 2xx”。E36、E37 尚未制作，现有 E11 至 E13 不验证 CORS 头。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。模型题不执行浏览器协议协商、CORS 或连接复用；这些条件须结合目标浏览器和服务端记录核对。"
       ]
     }
   ],

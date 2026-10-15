@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const asyncFeedbackArticle: Article = {
+  "revision": 2,
   id: "K15-04",
   kind: "knowledge",
   domainSlug: "accessibility",
@@ -10,7 +11,7 @@ export const asyncFeedbackArticle: Article = {
   aliases: ["optimistic update", "rollback", "double submit", "状态反馈"],
   tags: ["无障碍", "异步", "反馈"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -155,7 +156,7 @@ console.log('未知反馈:' + feedback('focus'));`,
       title: "把失败、重复点击和迟到成功各走一遍",
       paragraphs: [
         "失败路径应依次是 pending、busy、rolled-back:草稿、no-undo。成功路径应在 confirmed 之后才允许 undo，第二次 undo 和事后的 ok 都不能再改写草稿。四种反馈都以 keep-focus 结束。",
-        "本主题没有已开放的独立练习。示例不连接接口，也不把 status 字符串当成读屏已经播报的证据。"
+        "E38 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

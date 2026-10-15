@@ -9,8 +9,8 @@ export const functionsExercises = [
     "runtime": "JavaScript ES2022 · 纯逻辑隔离环境；计时器与 AbortController 由受控 harness 提供",
     "estimatedMinutes": 30,
     "revision": 1,
-    "updatedAt": "2026-10-08",
-    "verifiedAt": "2026-10-08",
+    "updatedAt": "2026-10-15",
+    "verifiedAt": "2026-10-15",
     "entryContract": "createEmitter() → {on,off,once,emit}；on/once(name, fn) 返回精确解绑函数；off(name, fn) 移除最近一次同函数订阅；emit(name,...args) 返回异常数组。name 为 string/Symbol，fn 为函数，否则 TypeError。",
     "problem": [
       "事件系统需要保证监听顺序，同时允许回调在执行过程中增删监听。实现订阅器：emit 使用启动时快照，同一函数可以重复订阅，异常收集后继续调用其余监听。",
@@ -39,7 +39,7 @@ export const functionsExercises = [
       "once 还需要 fired 标记。嵌套 emit 可能先在内层执行一个 once，而外层快照还保留它；仅从原列表移除不足以防止外层再次执行。错误收集也必须逐监听捕获，不能把整段循环放在一个 try 中。"
     ],
     "alternative": "发布订阅库常让异常直接抛出或自动去重；选择这些方案时应改变合同并迁移调用方，不能混用语义。",
-    "complexity": "on 为摊还 O(1)，off/解绑 O(m)，emit 时间与快照空间 O(m)，m 为该事件监听数。",
+    "complexity": "on 为摊还 O(1)，off/解绑 O(m)。emit 快照空间 O(m)；含 once 时每项解绑会查找并移动数组，最坏时间 O(m²)，另计监听函数本身成本。没有解绑的普通分发为 O(m)。",
     "commonMistakes": [
       "Set 去重违反重复订阅合同。",
       "调用 once 后才解绑导致重入重复甚至无限递归。"

@@ -2,13 +2,19 @@ import { createServer } from 'node:http';
 import { URL } from 'node:url';
 
 // A disposable origin for reviewed browser examples; no application or personal data.
-export async function startArticleFixture(worker, offlinePage, vueRuntime, routerRuntime, ssrFixture) {
+export async function startArticleFixture(worker, offlinePage, vueRuntime, routerRuntime, ssrFixture, reactFixture) {
   if (typeof worker !== 'string' || typeof offlinePage !== 'string') throw new TypeError('Missing reviewed Service Worker source');
   let version = 1;
   const server = createServer((request, response) => {
     const path = new URL(request.url, 'http://127.0.0.1').pathname;
     response.setHeader('Cache-Control', 'no-store');
-    if (path === '/vue.mjs' && typeof vueRuntime === 'string') {
+    if (path === '/react.mjs' && reactFixture) {
+      response.setHeader('Content-Type', 'text/javascript');
+      response.end(reactFixture.runtime);
+    } else if (path === '/react-ssr.json' && reactFixture) {
+      response.setHeader('Content-Type', 'application/json; charset=utf-8');
+      response.end(JSON.stringify({ html: reactFixture.html, initial: 1 }));
+    } else if (path === '/vue.mjs' && typeof vueRuntime === 'string') {
       response.setHeader('Content-Type', 'text/javascript');
       response.end(vueRuntime);
     } else if (path === '/vue-router.mjs' && typeof routerRuntime === 'string') {

@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const utilityDomainArticle: Article = {
+  "revision": 2,
   "id": "K03-06",
   "kind": "knowledge",
   "domainSlug": "typescript",
@@ -22,7 +23,7 @@ export const utilityDomainArticle: Article = {
     "工具类型与领域类型"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -128,6 +129,40 @@ export const utilityDomainArticle: Article = {
       "paragraphs": [
         "第一条边界是序列化：Omit、Pick 和 Readonly 都没有对应的自动运行时代码。第二条边界是共享模型演进：内部新增字段不能未经审阅改变公开接口。再加上可选值和联合关联，工具类型的便利不能成为省掉合同讨论的理由。",
         "自行给 PublicRow 添加公开摘要，确认投影必须实际提供该字段；给 Command 增加一种“下架”动作，检查每个处理分支是否完整。本单元暂无已发布的独立题目，可以用这些变更和编译诊断建立行为证据。"
+      ]
+    },
+    {
+      "id": "type-exercise",
+      "title": "编译练习：Pick 与 Readonly 约束的是类型，不执行对象操作",
+      "paragraphs": [
+        "E33 已改为运行时属性练习。这里单独实现两种基础工具类型，在仓库 TypeScript 6.0.3、strict 与 noUncheckedIndexedAccess 下编译，再执行生成的 JavaScript。@ts-expect-error 是本例的负向断言：下一行必须出现类型诊断，否则验证失败；它没有关闭该错误类别的检查。",
+        "目标是保持键与字段类型的关系，并证明只读类型没有冻结对象。不要把类型投影当成对外发送数据前的字段白名单，数据仍需显式投影。"
+      ],
+      "examples": [
+        {
+          "language": "typescript",
+          "code": "type Select<T, K extends keyof T> = { [P in K]: T[P] };\ntype ReadView<T> = { readonly [P in keyof T]: T[P] };\ntype Note = { id: string; title?: string; tags: string[] };\nconst source: Note = { id: 'a', tags: [] };\nconst view: ReadView<Select<Note, 'id' | 'tags'>> = source;\nview.tags.push('reviewed');\nsource.id = 'changed';\nconsole.log(view.id + ':' + view.tags.join(','));\nconsole.log(Object.isFrozen(source));\nif (false) {\n  // @ts-expect-error: 不能通过只读视图重写顶层属性。\n  view.id = 'other';\n  // @ts-expect-error: K 必须来自 Note 的键。\n  const missing: Select<Note, 'unknown'> = {};\n  console.log(missing);\n}",
+          "expectedOutput": [
+            "changed:reviewed",
+            "false"
+          ],
+          "explanation": [
+            "映射类型对每个选择的键取 T[P]，保留字段类型；readonly 只禁止通过 view 重写顶层属性。tags 仍是可变数组，source 也仍是同一对象，因此 push 与别名改 id 都会反映在 view 上。",
+            "运行结果 false 证明编译器没有自动冻结 source。两个负向断言分别验证只读赋值与错误键；使用 Object.freeze 是另一个运行时合同，无法靠改类型声明获得。"
+          ]
+        },
+        {
+          "language": "typescript",
+          "code": "type Unwrap<T> = T extends PromiseLike<infer Value> ? Unwrap<Value> : T;\nconst nested: Unwrap<PromiseLike<Promise<number>>> = 42;\nconst nullable: Unwrap<Promise<string> | null> = null;\nconsole.log(nested);\nconsole.log(nullable === null);\nif (false) {\n  // @ts-expect-error: 递归解包的最终类型是 number。\n  const wrong: Unwrap<PromiseLike<Promise<number>>> = '42';\n  console.log(wrong);\n}",
+          "expectedOutput": [
+            "42",
+            "true"
+          ],
+          "explanation": [
+            "条件类型先识别 PromiseLike 的返回值，再递归解包内层，最终得到 number。联合中的 null 不满足 PromiseLike，原样保留；输出 true 对应被保留的分支。",
+            "这是正常 PromiseLike 输入域的简化工具，内置 Awaited 对 then 的结构、空值与特殊类型有更完整处理。它不发起或等待网络；真正运行时吸收由 Promise.resolve 等操作完成。自引用 thenable 类型也需要谨慎，不能无限递归推导任意结构。"
+          ]
+        }
       ]
     }
   ],

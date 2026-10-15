@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-15",
+  "runtime": "v22.22.3",
+  "notes": "从当前仓库文章与练习参考实现提取代码独立运行；这些结果用于复现缺陷，不代表缺陷已经修复。",
+  "results": [
+    {
+      "id": "K02-04",
+      "case": "同步抛错后下一项",
+      "expected": "next",
+      "actual": "pending",
+      "first": [
+        "sync-failure"
+      ]
+    },
+    {
+      "id": "E37",
+      "case": "CRLF 从 CR 与 LF 之间分块",
+      "expected": [
+        [],
+        [
+          {
+            "event": "message",
+            "data": "a\nb"
+          }
+        ]
+      ],
+      "actual": [
+        [],
+        [
+          {
+            "event": "message",
+            "data": "a"
+          },
+          {
+            "event": "message",
+            "data": "b"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "K06-06",
+      "case": "EOF 前无事件空行",
+      "expected": "",
+      "actual": "-:partial"
+    },
+    {
+      "id": "E33",
+      "case": "宣称只展开一层的嵌套 thenable",
+      "expected": "inner thenable object",
+      "actual": 42
+    },
+    {
+      "id": "E33",
+      "case": "then getter 抛错",
+      "expected": "rejected Promise",
+      "actual": "synchronous throw"
+    },
+    {
+      "id": "E33",
+      "case": "复制自身 __proto__ 数据键",
+      "expected": {
+        "own": true
+      },
+      "actual": {
+        "own": false,
+        "inheritedInjected": true
+      }
+    },
+    {
+      "id": "K01-06",
+      "case": "没有 Symbol.iterator 的类数组",
+      "expected": "Array.from 可处理，得到 a,b",
+      "actual": "a,b"
+    },
+    {
+      "id": "E37",
+      "case": "对合法 CRLF 文本穷举所有两段切分",
+      "splits": 21,
+      "expected": "[{\"event\":\"message\",\"data\":\"a\\nb\"}]",
+      "failures": [
+        {
+          "cut": 8,
+          "actual": "[{\"event\":\"message\",\"data\":\"a\"},{\"event\":\"message\",\"data\":\"b\"}]"
+        }
+      ]
+    },
+    {
+      "id": "E37",
+      "case": "空 event 字段应回退 message",
+      "expected": [
+        {
+          "event": "message",
+          "data": "a"
+        }
+      ],
+      "actual": [
+        {
+          "event": "",
+          "data": "a"
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "case": "常驻与 once 交错时，累计 indexOf 搜索前缀长度",
+      "listeners": 1000,
+      "once": 500,
+      "searchedPositions": 125750,
+      "interpretation": "500 个 once 的删除查找累计涉及 125750 个数组位置；记录的是逻辑查找范围，不是毫秒测量或引擎复杂度保证。"
+    }
+  ]
+}

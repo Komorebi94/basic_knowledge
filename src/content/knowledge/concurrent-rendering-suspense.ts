@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const concurrentSuspenseArticle: Article = {
+  "revision": 2,
   "id": "K07-05",
   "kind": "knowledge",
   "domainSlug": "react",
@@ -10,14 +11,14 @@ export const concurrentSuspenseArticle: Article = {
   "aliases": ["useTransition", "Suspense", "concurrent rendering", "startTransition", "并发"],
   "tags": ["React", "并发", "并发体验与 Suspense"],
   "estimatedMinutes": 23,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
       "title": "搜索框每输入一个字，为什么整页都换成了加载中？",
       "paragraphs": [
         "用户在搜索框输入时，请求的结果列表还没准备好，页面却把输入框和列表一起换成加载占位。输入是紧急更新，列表可以等。React 的过渡用来标记可以延后的更新：旧结果先留在屏幕上，新结果准备好再替换，并用 pending 表示正在等待。",
-        "前置是 K07-01 的渲染可能重跑，以及 K07-02 的外部同步。本仓库的 React 是 19.3.0。示例按文档里的可见行为排列时间线，不调用 useTransition，也不证明某个浏览器帧里发生了多少次渲染。"
+        "前面的时间线用于概念推导，后面的真实实验使用 React 19.3.0 的 use、Suspense、useTransition 与错误边界。它们观察已提交 DOM，不把内部渲染次数或性能提升当作固定保证。"
       ]
     },
     {
@@ -25,7 +26,7 @@ export const concurrentSuspenseArticle: Article = {
       "title": "紧急更新先显示，过渡结果准备好后再替换",
       "paragraphs": [
         "受控输入的 setState 属于紧急更新，它应该马上改变输入框的值。列表筛选、路由内容或大型树的刷新可以放进 startTransition。过渡进行时 isPending 为 true，但当前已经提交的界面仍然显示旧结果。过渡结束才显示新结果。",
-        "pending 不是把整棵子树卸载成加载占位的指令。若产品要求输入时保留旧列表并显示一个小的等待标记，就用 pending 驱动那个标记。若一段内容在首次出现前没有旧结果，才用 Suspense 的 fallback。不要把这两种等待画成同一个组件状态。"
+        "pending 用于表达过渡仍在进行，不要求把整棵子树卸载成加载占位。已揭示内容在过渡内再次挂起时通常可继续保留；首次挂起或紧急更新再次挂起，Suspense 都可能显示 fallback。应按是否有旧内容和更新优先级设计等待界面。"
       ],
       "examples": [
         {
@@ -43,7 +44,7 @@ export const concurrentSuspenseArticle: Article = {
       "id": "suspense",
       "title": "边界只在子树尚未完成时显示后备内容",
       "paragraphs": [
-        "Suspense 边界包住可以等待的子树。子树尚未完成时，边界显示 fallback；完成后显示内容。子树渲染出错则交给错误边界，Suspense 本身不处理错误。fallback 应该是这一小块的等待界面，不要把整个应用壳层放进同一个边界。",
+        "Suspense 在子树使用受支持的挂起来源时生效，例如 lazy 加载代码、use 读取稳定 Promise 或兼容框架的数据源。Effect 和普通事件回调里的 fetch 本身不会激活边界。挂起期间可显示 fallback，兑现后重试渲染；客户端渲染错误交给错误边界。",
         "数据获取若写在渲染函数里并且每次调用都发请求，渲染重跑就会重复请求。能暂停的读取需要稳定缓存：同一输入在缓存未完成时暂停，完成后返回同一结果。获取的身份、取消和过期仍遵守请求规则，不能因为边界显示了 fallback 就忽略旧请求。"
       ],
       "examples": [
@@ -83,11 +84,61 @@ export const concurrentSuspenseArticle: Article = {
       ]
     },
     {
+      "id": "react-suspense-experiment",
+      "title": "真实 Suspense：普通异步状态与可挂起读取不是同一件事",
+      "paragraphs": [
+        "以下为真实 React 19.3.0 开发构建实验，运行 npm run verify:k07。隔离服务将本仓库安装的 react、react-dom/client 与测试 act 打包为 /react.mjs；普通项目分别从这些包导入相同 API。act 只用于让测试中的更新完成，不应放进产品事件处理器。每例创建独立根并在结束时卸载，不运行读者代码。",
+        "为 Promise 在渲染外固定身份，用 use 读取它。初次未完成时看到 fallback，兑现后显示内容；再通过紧急更新换成另一份 pending Promise，会重新出现 fallback。最后拒绝本轮 Promise，由错误边界呈现恢复提示。普通 Effect 内 fetch 不会自动被 Suspense 检测。"
+      ],
+      "examples": [
+        {
+          "language": "module",
+          "code": "import { createElement as h, createRoot, Component, Suspense, use, act } from '/react.mjs';\nglobalThis.IS_REACT_ACT_ENVIRONMENT = true;\nconst deferred = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };\nclass ErrorBoundary extends Component {\n  state = { failed: false };\n  static getDerivedStateFromError() { return { failed: true }; }\n  render() { return this.state.failed ? h('p', null, '读取失败，请重试') : this.props.children; }\n}\nfunction Result({ promise }) { return h('p', null, use(promise)); }\nconst host = document.body.appendChild(document.createElement('div'));\nconst caught = [];\nconst root = createRoot(host, { onCaughtError: error => caught.push(error.message) });\nconst view = promise => h(ErrorBoundary, null, h(Suspense, { fallback: h('p', null, '读取中') }, h(Result, { promise })));\nconst first = deferred();\nawait act(async () => { root.render(view(first.promise)); });\nconsole.log(host.textContent);\nawait act(async () => { first.resolve('第一份内容'); });\nconsole.log(host.textContent);\nconst second = deferred();\nawait act(async () => { root.render(view(second.promise)); });\nconsole.log('后备:' + host.textContent.includes('读取中'));\nawait act(async () => { second.reject(new Error('unavailable')); });\nconsole.log(host.textContent);\nconsole.log('已捕获:' + caught.join(','));\nawait act(async () => { root.unmount(); }); host.remove();",
+          "expectedOutput": [
+            "读取中",
+            "第一份内容",
+            "后备:true",
+            "读取失败，请重试",
+            "已捕获:unavailable"
+          ],
+          "explanation": [
+            "第一次渲染的 use 读取未完成 Promise，边界显示读取中；兑现后 React 重试渲染，输出第一份内容。换成第二份 pending Promise 的紧急更新会再次隐藏旧内容并显示后备，不能说 fallback 只用于首次加载。",
+            "第二份 Promise 拒绝时，use 重新抛出错误，由 ErrorBoundary 切换为失败提示。这个教学边界没有内建重试按钮，应用可通过更新身份并重置错误边界恢复；单纯在 Effect 中维护 loading，不会自动进入同一挂起协议。",
+            "onCaughtError 将预期错误交给记录数组，最后核对 unavailable；没有把任意错误都当成正确失败，也不把错误输出混进常规日志。测试断言错误原因和恢复界面，正式应用可以在此接入脱敏上报。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "react-transition-experiment",
+      "title": "真实 Transition：保留旧内容，紧急输入先提交",
+      "paragraphs": [
+        "以下为真实 React 19.3.0 开发构建实验，运行 npm run verify:k07。隔离服务将本仓库安装的 react、react-dom/client 与测试 act 打包为 /react.mjs；普通项目分别从这些包导入相同 API。act 只用于让测试中的更新完成，不应放进产品事件处理器。每例创建独立根并在结束时卸载，不运行读者代码。",
+        "把输入文字和结果 Promise 分成两份状态。输入更新保持紧急，结果切换放入 startTransition。受控 deferred 使等待时刻确定可见；这检验界面合同，不依赖人为 sleep 或某一帧的渲染次数。"
+      ],
+      "examples": [
+        {
+          "language": "module",
+          "code": "import { createElement as h, createRoot, Suspense, use, useState, useTransition, act } from '/react.mjs';\nglobalThis.IS_REACT_ACT_ENVIRONMENT = true;\nlet resolveNext;\nconst initial = Promise.resolve('旧列表');\nconst next = new Promise(resolve => { resolveNext = resolve; });\nfunction List({ promise }) { return h('output', null, use(promise)); }\nfunction App() {\n  const [input, setInput] = useState('a');\n  const [result, setResult] = useState(initial);\n  const [pending, startTransition] = useTransition();\n  return h('section', null,\n    h('button', { onClick() { setInput('ab'); startTransition(() => setResult(next)); } }, '输入 ab'),\n    h('span', null, input + ':' + pending),\n    h(Suspense, { fallback: h('p', null, '读取中') }, h(List, { promise: result })));\n}\nconst host = document.body.appendChild(document.createElement('div'));\nconst root = createRoot(host);\nawait act(async () => { root.render(h(App)); });\nawait act(async () => { host.querySelector('button').click(); });\nconsole.log(host.querySelector('span').textContent);\nconsole.log(host.querySelector('output').textContent);\nawait act(async () => { resolveNext('新列表'); });\nconsole.log(host.querySelector('span').textContent);\nconsole.log(host.querySelector('output').textContent);\nawait act(async () => { root.unmount(); }); host.remove();",
+          "expectedOutput": [
+            "ab:true",
+            "旧列表",
+            "ab:false",
+            "新列表"
+          ],
+          "explanation": [
+            "点击后紧急输入已是 ab，过渡仍 pending，先前提交的旧列表继续显示。Promise 兑现后，新树可以提交，结果为新列表，pending 结束。这里保留的是已揭示的边界内容；边界 key 改变或首次没有旧内容时，呈现策略会不同。",
+            "startTransition 的回调立即执行，写在回调中的昂贵同步计算仍会占主线程；它标记 React 更新，不是通用后台线程。异步 Action 在 await 后需要按当前 API 再标记更新，且不能自动解决请求乱序；请求身份、取消与错误仍单独处理。"
+          ]
+        }
+      ]
+    },
+    {
       "id": "practice",
       "title": "把一次输入拆成紧急和可延后两步",
       "paragraphs": [
         "用户从 ab 输入到 abc，列表稍后返回。按顺序写出屏幕显示和 pending。再预测子树 pending、ready、error 时边界分别输出什么。最后说明为什么两次无缓存读取会留下两次调用。",
-        "E30、E31、E38 尚未制作。接入 React 时用受控输入观察旧列表是否保留，不要只看加载组件是否出现。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 React；组件身份、Effect 和挂起行为按本文注明的真实运行环境核对。"
       ]
     }
   ],

@@ -9,6 +9,7 @@
       "domainSlug": "tooling",
       "slug": "tree-shaking-and-side-effects",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/tooling/tree-shaking-and-side-effects"
     },
     {
@@ -20,6 +21,7 @@
       "domainSlug": "tooling",
       "slug": "transpilation-polyfills-and-targets",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/tooling/transpilation-polyfills-and-targets"
     },
     {
@@ -31,6 +33,7 @@
       "domainSlug": "tooling",
       "slug": "code-splitting-and-resource-caching",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/tooling/code-splitting-and-resource-caching"
     },
     {
@@ -42,6 +45,7 @@
       "domainSlug": "tooling",
       "slug": "monorepo-and-package-boundaries",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/tooling/monorepo-and-package-boundaries"
     },
     {
@@ -53,6 +57,7 @@
       "domainSlug": "tooling",
       "slug": "source-maps-and-production-debugging",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/tooling/source-maps-and-production-debugging"
     },
     {
@@ -64,6 +69,7 @@
       "domainSlug": "tooling",
       "slug": "ci-cd-and-release-strategies",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/tooling/ci-cd-and-release-strategies"
     },
     {
@@ -75,6 +81,7 @@
       "domainSlug": "vue",
       "slug": "complex-page-performance-and-debugging",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/vue/complex-page-performance-and-debugging"
     },
     {
@@ -86,6 +93,7 @@
       "domainSlug": "vue",
       "slug": "ssr-and-hydration",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/vue/ssr-and-hydration"
     },
     {
@@ -97,6 +105,7 @@
       "domainSlug": "vue",
       "slug": "routing-forms-and-state",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/vue/routing-forms-and-state"
     },
     {
@@ -108,6 +117,7 @@
       "domainSlug": "vue",
       "slug": "template-compilation-and-updates",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/vue/template-compilation-and-updates"
     },
     {
@@ -119,6 +129,7 @@
       "domainSlug": "vue",
       "slug": "lifecycle-and-composables",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/vue/lifecycle-and-composables"
     },
     {
@@ -130,6 +141,7 @@
       "domainSlug": "vue",
       "slug": "component-communication-and-ownership",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/vue/component-communication-and-ownership"
     },
     {
@@ -141,6 +153,7 @@
       "domainSlug": "browser",
       "slug": "event-propagation-defaults",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/browser/event-propagation-defaults"
     },
     {
@@ -152,6 +165,7 @@
       "domainSlug": "browser",
       "slug": "storage-and-quotas",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/browser/storage-and-quotas"
     },
     {
@@ -163,6 +177,7 @@
       "domainSlug": "browser",
       "slug": "observers-and-viewport",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/browser/observers-and-viewport"
     },
     {
@@ -174,6 +189,7 @@
       "domainSlug": "browser",
       "slug": "navigation-history-recovery",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/browser/navigation-history-recovery"
     },
     {
@@ -185,6 +201,7 @@
       "domainSlug": "browser",
       "slug": "service-worker-offline",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/browser/service-worker-offline"
     },
     {
@@ -196,6 +213,7 @@
       "domainSlug": "browser",
       "slug": "platform-progressive-enhancement",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/browser/platform-progressive-enhancement"
     },
     {
@@ -207,6 +225,7 @@
       "domainSlug": "html-css",
       "slug": "flex-and-grid-constraints",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/html-css/flex-and-grid-constraints"
     },
     {
@@ -218,6 +237,7 @@
       "domainSlug": "html-css",
       "slug": "responsive-container-queries",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/html-css/responsive-container-queries"
     },
     {
@@ -229,6 +249,7 @@
       "domainSlug": "html-css",
       "slug": "cascade-layers-and-selectors",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/html-css/cascade-layers-and-selectors"
     },
     {
@@ -240,6 +261,7 @@
       "domainSlug": "html-css",
       "slug": "animation-and-feedback",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/html-css/animation-and-feedback"
     },
     {
@@ -251,6 +273,7 @@
       "domainSlug": "html-css",
       "slug": "international-typography",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/html-css/international-typography"
     },
     {
@@ -262,6 +285,7 @@
       "domainSlug": "html-css",
       "slug": "layout-diagnosis",
       "estimatedMinutes": 24,
+      "revision": 2,
       "href": "/knowledge/html-css/layout-diagnosis"
     },
     {
@@ -273,6 +297,7 @@
       "domainSlug": "networking",
       "slug": "connections-tls-protocols",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/networking/connections-tls-protocols"
     },
     {
@@ -284,6 +309,7 @@
       "domainSlug": "networking",
       "slug": "cookies-sessions-refresh",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/networking/cookies-sessions-refresh"
     },
     {
@@ -295,6 +321,7 @@
       "domainSlug": "networking",
       "slug": "same-origin-cors",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/networking/same-origin-cors"
     },
     {
@@ -306,6 +333,7 @@
       "domainSlug": "networking",
       "slug": "streams-and-sockets",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/networking/streams-and-sockets"
     },
     {
@@ -317,6 +345,7 @@
       "domainSlug": "networking",
       "slug": "large-transfers",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/networking/large-transfers"
     },
     {
@@ -328,6 +357,7 @@
       "domainSlug": "networking",
       "slug": "api-contracts-evolution",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/networking/api-contracts-evolution"
     },
     {
@@ -339,6 +369,7 @@
       "domainSlug": "react",
       "slug": "component-identity-and-keys",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/react/component-identity-and-keys"
     },
     {
@@ -350,6 +381,7 @@
       "domainSlug": "react",
       "slug": "state-ownership-and-data-flow",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/react/state-ownership-and-data-flow"
     },
     {
@@ -361,6 +393,7 @@
       "domainSlug": "react",
       "slug": "concurrent-rendering-suspense",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/react/concurrent-rendering-suspense"
     },
     {
@@ -372,6 +405,7 @@
       "domainSlug": "react",
       "slug": "hooks-and-reuse-boundaries",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/react/hooks-and-reuse-boundaries"
     },
     {
@@ -383,6 +417,7 @@
       "domainSlug": "react",
       "slug": "server-components-boundary",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/react/server-components-boundary"
     },
     {
@@ -394,6 +429,7 @@
       "domainSlug": "react",
       "slug": "performance-diagnosis",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/react/performance-diagnosis"
     },
     {
@@ -405,6 +441,7 @@
       "domainSlug": "javascript",
       "slug": "values-and-equality",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/javascript/values-and-equality"
     },
     {
@@ -416,6 +453,7 @@
       "domainSlug": "javascript",
       "slug": "closures",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/javascript/closures"
     },
     {
@@ -427,6 +465,7 @@
       "domainSlug": "javascript",
       "slug": "this-binding",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/javascript/this-binding"
     },
     {
@@ -438,6 +477,7 @@
       "domainSlug": "javascript",
       "slug": "prototypes",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/javascript/prototypes"
     },
     {
@@ -449,6 +489,7 @@
       "domainSlug": "javascript",
       "slug": "property-descriptors",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/javascript/property-descriptors"
     },
     {
@@ -460,6 +501,7 @@
       "domainSlug": "javascript",
       "slug": "iterators",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/javascript/iterators"
     },
     {
@@ -471,6 +513,7 @@
       "domainSlug": "javascript",
       "slug": "modules",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/javascript/modules"
     },
     {
@@ -482,6 +525,7 @@
       "domainSlug": "javascript",
       "slug": "memory",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/javascript/memory"
     },
     {
@@ -493,6 +537,7 @@
       "domainSlug": "async",
       "slug": "tasks-and-microtasks",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/async/tasks-and-microtasks"
     },
     {
@@ -504,6 +549,7 @@
       "domainSlug": "async",
       "slug": "promises",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/async/promises"
     },
     {
@@ -515,6 +561,7 @@
       "domainSlug": "async",
       "slug": "async-await",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/async/async-await"
     },
     {
@@ -526,6 +573,7 @@
       "domainSlug": "async",
       "slug": "concurrency",
       "estimatedMinutes": 20,
+      "revision": 2,
       "href": "/knowledge/async/concurrency"
     },
     {
@@ -537,6 +585,7 @@
       "domainSlug": "async",
       "slug": "cancellation",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/async/cancellation"
     },
     {
@@ -548,6 +597,7 @@
       "domainSlug": "async",
       "slug": "retry",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/async/retry"
     },
     {
@@ -559,6 +609,7 @@
       "domainSlug": "async",
       "slug": "workers",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/async/workers"
     },
     {
@@ -570,6 +621,7 @@
       "domainSlug": "async",
       "slug": "traces",
       "estimatedMinutes": 18,
+      "revision": 1,
       "href": "/knowledge/async/traces"
     },
     {
@@ -581,6 +633,7 @@
       "domainSlug": "typescript",
       "slug": "unknown-and-boundaries",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/typescript/unknown-and-boundaries"
     },
     {
@@ -591,6 +644,7 @@
       "summary": "以搜索请求乱序为例，走完目标描述、仓库上下文、修改约束、代码审阅和独立验收，学会把一次 AI 改动变成可以检查的交付。",
       "slug": "task-contract",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/ai/task-contract"
     },
     {
@@ -602,6 +656,7 @@
       "domainSlug": "security",
       "slug": "auth-authorization-csrf",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/security/auth-authorization-csrf"
     },
     {
@@ -613,6 +668,7 @@
       "domainSlug": "testing",
       "slug": "behavior-boundary-tests",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/testing/behavior-boundary-tests"
     },
     {
@@ -624,6 +680,7 @@
       "domainSlug": "html-css",
       "slug": "boxes-and-stacking",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/html-css/boxes-and-stacking"
     },
     {
@@ -635,6 +692,7 @@
       "domainSlug": "server",
       "slug": "streams-backpressure-and-release",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/server/streams-backpressure-and-release"
     },
     {
@@ -646,6 +704,7 @@
       "domainSlug": "server",
       "slug": "bff-and-aggregation",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/server/bff-and-aggregation"
     },
     {
@@ -657,6 +716,7 @@
       "domainSlug": "server",
       "slug": "streaming-render-and-resume",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/server/streaming-render-and-resume"
     },
     {
@@ -668,6 +728,7 @@
       "domainSlug": "server",
       "slug": "server-cache-and-isolation",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/server/server-cache-and-isolation"
     },
     {
@@ -675,10 +736,11 @@
       "catalogId": "K14-07",
       "kind": "knowledge",
       "title": "部署运行时与边缘计算",
-      "summary": "用固定能力表区分边缘和 Node：文件与长连接留在 Node，跳转可以放在边缘，空闲边缘要付启动成本。",
+      "summary": "先核对指定运行时的 API、生命周期与部署约束，再决定功能位置；用真实 Node 文件操作区分能力存在和托管权限。",
       "domainSlug": "server",
       "slug": "deployment-runtimes-and-edge",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/server/deployment-runtimes-and-edge"
     },
     {
@@ -686,10 +748,11 @@
       "catalogId": "K14-08",
       "kind": "knowledge",
       "title": "全链路可观测性",
-      "summary": "用同一请求编号串起日志、指标和跨度，缺少编号或字段里出现令牌时不记，不同编号不能当成同一次请求。",
+      "summary": "用日志和 trace 关联单次请求，指标按有界维度聚合；区分 requestId、traceId、spanId 与 exemplar，并在写入前去除秘密。",
       "domainSlug": "server",
       "slug": "request-observability",
       "estimatedMinutes": 22,
+      "revision": 2,
       "href": "/knowledge/server/request-observability"
     },
     {
@@ -701,6 +764,7 @@
       "domainSlug": "server",
       "slug": "browser-node-boundaries",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/server/browser-node-boundaries"
     },
     {
@@ -712,6 +776,7 @@
       "domainSlug": "algorithms",
       "slug": "tree-and-graph-traversal",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/algorithms/tree-and-graph-traversal"
     },
     {
@@ -723,6 +788,7 @@
       "domainSlug": "algorithms",
       "slug": "sort-binary-search-stability",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/algorithms/sort-binary-search-stability"
     },
     {
@@ -734,6 +800,7 @@
       "domainSlug": "algorithms",
       "slug": "sliding-window-and-two-pointers",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/algorithms/sliding-window-and-two-pointers"
     },
     {
@@ -745,6 +812,7 @@
       "domainSlug": "algorithms",
       "slug": "stack-and-expressions",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/algorithms/stack-and-expressions"
     },
     {
@@ -756,6 +824,7 @@
       "domainSlug": "algorithms",
       "slug": "dynamic-programming-states",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/algorithms/dynamic-programming-states"
     },
     {
@@ -767,6 +836,7 @@
       "domainSlug": "algorithms",
       "slug": "frontend-algorithm-choices",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/algorithms/frontend-algorithm-choices"
     },
     {
@@ -778,6 +848,7 @@
       "domainSlug": "algorithms",
       "slug": "complexity-scale",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/algorithms/complexity-scale"
     },
     {
@@ -789,6 +860,7 @@
       "domainSlug": "vue",
       "slug": "computed-and-watch",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/vue/computed-and-watch"
     },
     {
@@ -800,6 +872,7 @@
       "domainSlug": "tooling",
       "slug": "dependencies-and-lockfiles",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/tooling/dependencies-and-lockfiles"
     },
     {
@@ -811,6 +884,7 @@
       "domainSlug": "typescript",
       "slug": "discriminated-state",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/typescript/discriminated-state"
     },
     {
@@ -822,6 +896,7 @@
       "domainSlug": "typescript",
       "slug": "generics-and-constraints",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/typescript/generics-and-constraints"
     },
     {
@@ -833,6 +908,7 @@
       "domainSlug": "typescript",
       "slug": "conditional-and-mapped-types",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/typescript/conditional-and-mapped-types"
     },
     {
@@ -844,6 +920,7 @@
       "domainSlug": "typescript",
       "slug": "function-types-variance",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/typescript/function-types-variance"
     },
     {
@@ -855,6 +932,7 @@
       "domainSlug": "typescript",
       "slug": "utility-and-domain-types",
       "estimatedMinutes": 25,
+      "revision": 2,
       "href": "/knowledge/typescript/utility-and-domain-types"
     },
     {
@@ -866,6 +944,7 @@
       "domainSlug": "typescript",
       "slug": "declarations-public-libraries",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/typescript/declarations-public-libraries"
     },
     {
@@ -877,6 +956,7 @@
       "domainSlug": "typescript",
       "slug": "maintainable-complex-types",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/knowledge/typescript/maintainable-complex-types"
     },
     {
@@ -888,6 +968,7 @@
       "domainSlug": "react",
       "slug": "effects-and-synchronization",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/react/effects-and-synchronization"
     },
     {
@@ -899,6 +980,7 @@
       "domainSlug": "performance",
       "slug": "critical-resources",
       "estimatedMinutes": 24,
+      "revision": 2,
       "href": "/knowledge/performance/critical-resources"
     },
     {
@@ -910,6 +992,7 @@
       "domainSlug": "performance",
       "slug": "lists-rendering-and-memory",
       "estimatedMinutes": 24,
+      "revision": 2,
       "href": "/knowledge/performance/lists-rendering-and-memory"
     },
     {
@@ -921,6 +1004,7 @@
       "domainSlug": "performance",
       "slug": "cache-and-prefetch",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/performance/cache-and-prefetch"
     },
     {
@@ -932,6 +1016,7 @@
       "domainSlug": "performance",
       "slug": "bundle-analysis-and-dependencies",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/performance/bundle-analysis-and-dependencies"
     },
     {
@@ -943,6 +1028,7 @@
       "domainSlug": "performance",
       "slug": "performance-budgets",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/performance/performance-budgets"
     },
     {
@@ -954,6 +1040,7 @@
       "domainSlug": "performance",
       "slug": "large-page-diagnosis",
       "estimatedMinutes": 24,
+      "revision": 2,
       "href": "/knowledge/performance/large-page-diagnosis"
     },
     {
@@ -965,6 +1052,7 @@
       "domainSlug": "performance",
       "slug": "experience-metrics",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/performance/experience-metrics"
     },
     {
@@ -976,6 +1064,7 @@
       "domainSlug": "networking",
       "slug": "http-cache-validation",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/networking/http-cache-validation"
     },
     {
@@ -987,6 +1076,7 @@
       "domainSlug": "accessibility",
       "slug": "form-validation-and-recovery",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/accessibility/form-validation-and-recovery"
     },
     {
@@ -998,6 +1088,7 @@
       "domainSlug": "accessibility",
       "slug": "async-feedback-and-rollback",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/accessibility/async-feedback-and-rollback"
     },
     {
@@ -1009,6 +1100,7 @@
       "domainSlug": "accessibility",
       "slug": "touch-zoom-and-reflow",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/accessibility/touch-zoom-and-reflow"
     },
     {
@@ -1020,6 +1112,7 @@
       "domainSlug": "accessibility",
       "slug": "contrast-and-motion",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/accessibility/contrast-and-motion"
     },
     {
@@ -1031,6 +1124,7 @@
       "domainSlug": "accessibility",
       "slug": "complex-widgets-and-keyboard",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/accessibility/complex-widgets-and-keyboard"
     },
     {
@@ -1042,6 +1136,7 @@
       "domainSlug": "accessibility",
       "slug": "accessibility-verification",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/accessibility/accessibility-verification"
     },
     {
@@ -1053,6 +1148,7 @@
       "domainSlug": "accessibility",
       "slug": "keyboard-focus",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/accessibility/keyboard-focus"
     },
     {
@@ -1064,6 +1160,7 @@
       "domainSlug": "performance",
       "slug": "main-thread-long-tasks",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/performance/main-thread-long-tasks"
     },
     {
@@ -1075,6 +1172,7 @@
       "domainSlug": "algorithms",
       "slug": "maps-sets-queues-cache",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/algorithms/maps-sets-queues-cache"
     },
     {
@@ -1086,6 +1184,7 @@
       "domainSlug": "architecture",
       "slug": "complex-forms-and-workflows",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/architecture/complex-forms-and-workflows"
     },
     {
@@ -1097,6 +1196,7 @@
       "domainSlug": "architecture",
       "slug": "permissions-routes-and-menus",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/architecture/permissions-routes-and-menus"
     },
     {
@@ -1108,6 +1208,7 @@
       "domainSlug": "architecture",
       "slug": "design-system-and-component-contracts",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/architecture/design-system-and-component-contracts"
     },
     {
@@ -1119,6 +1220,7 @@
       "domainSlug": "architecture",
       "slug": "microfrontends-and-migration",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/architecture/microfrontends-and-migration"
     },
     {
@@ -1130,6 +1232,7 @@
       "domainSlug": "architecture",
       "slug": "i18n-and-tenant-config",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/architecture/i18n-and-tenant-config"
     },
     {
@@ -1141,6 +1244,7 @@
       "domainSlug": "architecture",
       "slug": "system-design-and-capacity",
       "estimatedMinutes": 23,
+      "revision": 2,
       "href": "/knowledge/architecture/system-design-and-capacity"
     },
     {
@@ -1152,6 +1256,7 @@
       "domainSlug": "architecture",
       "slug": "module-boundaries",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/architecture/module-boundaries"
     },
     {
@@ -1163,6 +1268,7 @@
       "domainSlug": "tooling",
       "slug": "module-graphs-and-loading",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/tooling/module-graphs-and-loading"
     },
     {
@@ -1174,6 +1280,7 @@
       "domainSlug": "browser",
       "slug": "navigation-to-pixels",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/browser/navigation-to-pixels"
     },
     {
@@ -1185,6 +1292,7 @@
       "domainSlug": "vue",
       "slug": "reactivity-tracking",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/vue/reactivity-tracking"
     },
     {
@@ -1196,6 +1304,7 @@
       "domainSlug": "react",
       "slug": "render-state-snapshots",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/react/render-state-snapshots"
     },
     {
@@ -1207,6 +1316,7 @@
       "domainSlug": "server",
       "slug": "rendering-and-hydration",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/server/rendering-and-hydration"
     },
     {
@@ -1218,6 +1328,7 @@
       "domainSlug": "browser",
       "slug": "rendering-and-layout",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/browser/rendering-and-layout"
     },
     {
@@ -1229,6 +1340,7 @@
       "domainSlug": "networking",
       "slug": "requests-and-idempotency",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/networking/requests-and-idempotency"
     },
     {
@@ -1240,6 +1352,7 @@
       "domainSlug": "html-css",
       "slug": "semantic-interactions",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/html-css/semantic-interactions"
     },
     {
@@ -1251,6 +1364,7 @@
       "domainSlug": "accessibility",
       "slug": "semantics-names-feedback",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/accessibility/semantics-names-feedback"
     },
     {
@@ -1262,6 +1376,7 @@
       "domainSlug": "architecture",
       "slug": "state-ownership",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/architecture/state-ownership"
     },
     {
@@ -1273,6 +1388,7 @@
       "domainSlug": "testing",
       "slug": "mocks-and-contracts",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/testing/mocks-and-contracts"
     },
     {
@@ -1284,6 +1400,7 @@
       "domainSlug": "testing",
       "slug": "async-tests-and-time",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/testing/async-tests-and-time"
     },
     {
@@ -1295,6 +1412,7 @@
       "domainSlug": "testing",
       "slug": "component-accessibility-tests",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/testing/component-accessibility-tests"
     },
     {
@@ -1306,6 +1424,7 @@
       "domainSlug": "testing",
       "slug": "e2e-stability",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/testing/e2e-stability"
     },
     {
@@ -1317,6 +1436,7 @@
       "domainSlug": "testing",
       "slug": "property-and-mutation-tests",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/testing/property-and-mutation-tests"
     },
     {
@@ -1328,6 +1448,7 @@
       "domainSlug": "testing",
       "slug": "quality-gates",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/testing/quality-gates"
     },
     {
@@ -1339,6 +1460,7 @@
       "domainSlug": "testing",
       "slug": "testing-levels",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/knowledge/testing/testing-levels"
     },
     {
@@ -1350,6 +1472,7 @@
       "domainSlug": "security",
       "slug": "csp-and-trusted-resources",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/security/csp-and-trusted-resources"
     },
     {
@@ -1361,6 +1484,7 @@
       "domainSlug": "security",
       "slug": "dependency-and-third-party-scripts",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/security/dependency-and-third-party-scripts"
     },
     {
@@ -1372,6 +1496,7 @@
       "domainSlug": "security",
       "slug": "sensitive-data-and-logs",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/security/sensitive-data-and-logs"
     },
     {
@@ -1383,6 +1508,7 @@
       "domainSlug": "security",
       "slug": "url-and-redirect-boundaries",
       "estimatedMinutes": 23,
+      "revision": 1,
       "href": "/knowledge/security/url-and-redirect-boundaries"
     },
     {
@@ -1394,6 +1520,7 @@
       "domainSlug": "security",
       "slug": "client-isolation-and-sandbox",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/knowledge/security/client-isolation-and-sandbox"
     },
     {
@@ -1405,6 +1532,7 @@
       "domainSlug": "security",
       "slug": "security-design-and-verification",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/security/security-design-and-verification"
     },
     {
@@ -1416,6 +1544,7 @@
       "domainSlug": "security",
       "slug": "xss-output-context",
       "estimatedMinutes": 22,
+      "revision": 1,
       "href": "/knowledge/security/xss-output-context"
     },
     {
@@ -1426,6 +1555,7 @@
       "summary": "通过请求乱序案例建立复现、假设、证据和回归记录，提供诊断模板，避免在没有定位状态写入者时盲目修改代码。",
       "slug": "ai-bug-investigation",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/ai-bug-investigation"
     },
     {
@@ -1436,6 +1566,7 @@
       "summary": "以商品列表筛选串联需求、数据入口、状态设计、最小实现和验收，提供可填写的任务模板与独立行为反例。",
       "slug": "ai-feature-development",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/ai-feature-development"
     },
     {
@@ -1446,6 +1577,7 @@
       "summary": "以修复订单取消流程为例，追踪必要资料、来源版本和摘要损失，建立能回到原始代码核验的最小上下文包。",
       "slug": "context-engineering",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/context-engineering"
     },
     {
@@ -1456,6 +1588,7 @@
       "summary": "从购物清单导入功能推导行为合同与任务边界，练习按可验证结果拆分工作，避免把文件数量误当成独立任务。",
       "slug": "design-and-task-splitting",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/design-and-task-splitting"
     },
     {
@@ -1466,6 +1599,7 @@
       "summary": "用十个订单助手任务建立评估表，区分最终答案、工具选择与过程约束，计算分组结果并保留失败轨迹，避免平均分掩盖越权。",
       "slug": "evals-and-traces",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/evals-and-traces"
     },
     {
@@ -1476,6 +1610,7 @@
       "summary": "以文章示例发布为工程案例，将规则转成隔离执行、输出比较、阶段产物和恢复记录，理解 Harness 如何提供反馈而非替代理解。",
       "slug": "harness-reliability",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/harness-reliability"
     },
     {
@@ -1486,6 +1621,7 @@
       "summary": "从金额计算助手的错误回答出发，区分语言生成、工具计算和行为证据，学会发现未经验证的假设并为不确定输出设置边界。",
       "slug": "llm-foundations",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/llm-foundations"
     },
     {
@@ -1496,6 +1632,7 @@
       "summary": "用资料检索与审阅工作流区分协议连接、可复用流程和仓库规则，验证工具参数与流程步骤，避免把能力接入误当成权限授权。",
       "slug": "mcp-skills-instructions",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/mcp-skills-instructions"
     },
     {
@@ -1506,6 +1643,7 @@
       "summary": "通过文档中的伪造操作指令识别提示注入，构建来源、动作允许集合与数据最小化边界，并练习判断只读任务中的越权提议。",
       "slug": "prompt-injection-boundaries",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/prompt-injection-boundaries"
     },
     {
@@ -1516,6 +1654,7 @@
       "summary": "通过计数器模块的行为保持与持久化迁移，建立基线、兼容转换、回滚条件和任务模板，避免用新结构掩盖旧行为丢失。",
       "slug": "refactor-and-migrate",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/refactor-and-migrate"
     },
     {
@@ -1526,6 +1665,7 @@
       "summary": "以防止越界改动为例，把仓库文字规则映射到差异审阅与运行门禁，说明规则文件、检查程序和权限控制分别能保证什么。",
       "slug": "repository-rules",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/repository-rules"
     },
     {
@@ -1536,6 +1676,7 @@
       "summary": "用缓存键缺陷演示从合同、调用方与反例审阅代码，提供审阅模板与可人工判断的案例，避免把解释流畅当作正确性证明。",
       "slug": "review-ai-code",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/review-ai-code"
     },
     {
@@ -1546,6 +1687,7 @@
       "summary": "以金额转换的同源错误演示独立用例、边界断言与错误实现验证，理解测试通过为何仍可能掩盖共同假设错误。",
       "slug": "test-ai-output",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/test-ai-output"
     },
     {
@@ -1556,6 +1698,7 @@
       "summary": "用订单查询助手拆解提议、参数校验、授权、执行与反馈，说明合法 JSON 为什么不能证明工具动作符合用户目标。",
       "slug": "tool-calling-and-agents",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/tool-calling-and-agents"
     },
     {
@@ -1566,6 +1709,7 @@
       "summary": "以订单助手升级为例固定环境、对照任务与硬边界，逐条评估旧指令是否仍有收益，避免升级后凭印象删规则或宣称效果提升。",
       "slug": "workflow-upgrade-evaluation",
       "estimatedMinutes": 20,
+      "revision": 1,
       "href": "/ai/workflow-upgrade-evaluation"
     },
     {
@@ -1576,6 +1720,7 @@
       "summary": "从退款政策更新案例理解分块、权限与版本过滤、重排、引用失效和独立检索评估；区分找到资料与回答正确。",
       "slug": "retrieval-freshness",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/ai/retrieval-freshness"
     },
     {
@@ -1586,6 +1731,7 @@
       "summary": "通过本地字节流和交错请求理解UTF-8、SSE事件边界、取消、断流与结构化完成；设计不会混合新旧草稿的恢复行为。",
       "slug": "streaming-experience",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/ai/streaming-experience"
     },
     {
@@ -1596,6 +1742,7 @@
       "summary": "以清单导入改造为完整案例，推导依赖图、文件所有权、基线冲突与交接验收，判断哪些任务适合并行，以及怎样避免汇总出一个错误系统。",
       "slug": "multi-agent-conflicts",
       "estimatedMinutes": 24,
+      "revision": 1,
       "href": "/ai/multi-agent-conflicts"
     },
     {
@@ -1606,6 +1753,7 @@
       "summary": "以清单导入代码助手的固定任务集为例，计算包含重试、工具和人工修复的任务成本，区分冷暖缓存、首个 token 与完成延迟，并在质量门槛内比较方案。",
       "slug": "cost-latency-model-choice",
       "estimatedMinutes": 25,
+      "revision": 1,
       "href": "/ai/cost-latency-model-choice"
     }
   ],
@@ -1780,49 +1928,49 @@
     },
     {
       "id": "E25",
-      "title": "图片懒加载",
+      "title": "图片懒加载状态模型",
       "slug": "image-lazy-loading",
       "revision": 1,
       "href": "/practice/image-lazy-loading"
     },
     {
       "id": "E26",
-      "title": "事件委托",
+      "title": "事件委托路径模型",
       "slug": "event-delegation",
       "revision": 1,
       "href": "/practice/event-delegation"
     },
     {
       "id": "E27",
-      "title": "可访问 Tabs",
+      "title": "Tabs 键盘状态模型",
       "slug": "accessible-tabs",
       "revision": 1,
       "href": "/practice/accessible-tabs"
     },
     {
       "id": "E28",
-      "title": "对话框",
+      "title": "对话框焦点状态模型",
       "slug": "dialog-focus",
       "revision": 1,
       "href": "/practice/dialog-focus"
     },
     {
       "id": "E29",
-      "title": "表单校验器",
+      "title": "表单校验状态模型",
       "slug": "form-validator",
       "revision": 1,
       "href": "/practice/form-validator"
     },
     {
       "id": "E30",
-      "title": "固定高度虚拟列表",
+      "title": "固定行高窗口计算",
       "slug": "fixed-virtual-list",
       "revision": 1,
       "href": "/practice/fixed-virtual-list"
     },
     {
       "id": "E31",
-      "title": "useAsyncResource",
+      "title": "异步资源状态模型",
       "slug": "async-resource",
       "revision": 1,
       "href": "/practice/async-resource"
@@ -1836,14 +1984,14 @@
     },
     {
       "id": "E33",
-      "title": "基础工具类型",
+      "title": "属性投影、浅冻结与 Promise 吸收",
       "slug": "utility-type-model",
-      "revision": 1,
+      "revision": 2,
       "href": "/practice/utility-type-model"
     },
     {
       "id": "E34",
-      "title": "类型安全事件映射",
+      "title": "事件名称与参数数量校验",
       "slug": "typed-event-map",
       "revision": 1,
       "href": "/practice/typed-event-map"
@@ -1866,12 +2014,12 @@
       "id": "E37",
       "title": "SSE 消息解析",
       "slug": "sse-parser",
-      "revision": 1,
+      "revision": 2,
       "href": "/practice/sse-parser"
     },
     {
       "id": "E38",
-      "title": "乐观更新与回滚",
+      "title": "乐观更新与回滚模型",
       "slug": "optimistic-update",
       "revision": 1,
       "href": "/practice/optimistic-update"
@@ -1885,7 +2033,7 @@
     },
     {
       "id": "E40",
-      "title": "分帧任务执行",
+      "title": "分帧预算规划",
       "slug": "frame-scheduler",
       "revision": 1,
       "href": "/practice/frame-scheduler"

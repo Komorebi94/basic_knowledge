@@ -49,6 +49,15 @@ const needsOrigin = selectedArticles.some(article => ["K04-04", "K04-06", "K04-0
 const needsSsr = selectedArticles.some(article => article.id === 'K08-07');
 const needsRouter = selectedArticles.some(article => article.sections.some(section => section.examples?.some(example => example.code.includes("from '/vue-router.mjs'"))));
 const needsVue = needsSsr || needsRouter || selectedArticles.some(article => article.sections.some(section => section.examples?.some(example => example.code.includes("from '/vue.mjs'"))));
+const needsReact = selectedArticles.some(article => article.sections.some(section => section.examples?.some(example => example.code.includes("from '/react.mjs'"))));
+let reactFixture;
+if (needsReact) {
+  const { createReactRuntime } = await import('./lib/react-fixture.mjs');
+  const { createElement } = await import('react');
+  const { renderToString } = await import('react-dom/server');
+  const reactVersion = JSON.parse(await readFile(new URL('../node_modules/react/package.json', import.meta.url), 'utf8')).version;
+  reactFixture = { runtime: await createReactRuntime(), html: renderToString(createElement('button', null, '1')), version: reactVersion };
+}
 // Expose the official global build as a local module sharing the same Vue instance.
 const routerRuntime = needsRouter ? "import * as Vue from '/vue.mjs';\n" + await readFile(new URL('../node_modules/vue-router/dist/vue-router.global.js', import.meta.url), 'utf8') + '\nexport const { createRouter, createMemoryHistory, RouterView, useRoute, onBeforeRouteUpdate, onBeforeRouteLeave, isNavigationFailure, NavigationFailureType } = VueRouter;\n' : undefined;
 const routerVersion = needsRouter ? JSON.parse(await readFile(new URL('../node_modules/vue-router/package.json', import.meta.url), 'utf8')).version : undefined;
@@ -73,7 +82,7 @@ if (needsSsr) {
 }
 const worker = articles.find(article => article.id === "K04-07")?.sections.find(section => section.id === "worker")?.code;
 const offlinePage = articles.find(article => article.id === "K04-07")?.sections.find(section => section.id === "offline-page")?.code;
-const fixture = !exampleOrigin && (needsOrigin || needsVue || needsRouter) ? await startArticleFixture(worker, offlinePage, vueRuntime, routerRuntime, ssrFixture) : undefined;
+const fixture = !exampleOrigin && (needsOrigin || needsVue || needsRouter || needsReact) ? await startArticleFixture(worker, offlinePage, vueRuntime, routerRuntime, ssrFixture, reactFixture) : undefined;
 exampleOrigin ??= fixture?.origin;
 const evidence = [];
 let checked = 0;
@@ -154,7 +163,7 @@ try {
   }
   const report = process.env.ZHIXU_ARTICLE_REPORT ?? "article-examples-report.json";
   assert(/^[a-z0-9-]+\.json$/.test(report), "Report must be a JSON filename");
-  await writeFile(new URL(`../docs/verification/${report}`, import.meta.url), JSON.stringify({ verifiedAt: new Date().toISOString(), browser: browser.version(), toolingEvidence, vueVersion, routerVersion, nodeVersion: nodeChecked ? process.version : undefined, ssrAppSha256: ssrFixture ? createHash('sha256').update(ssrFixture.source).digest('hex') : undefined, articleIds: selectedArticles.map(article => article.catalogId ?? article.id), examples: checked, browserExamples: checked - nodeChecked, nodeExamples: nodeChecked, strictTypeScriptExamples: typed, evidence, limitations: ["Only author-maintained examples; no model API or live backend validation"] }, null, 2) + "\n");
+  await writeFile(new URL(`../docs/verification/${report}`, import.meta.url), JSON.stringify({ verifiedAt: new Date().toISOString(), browser: browser.version(), toolingEvidence, vueVersion, routerVersion, reactVersion: reactFixture?.version, reactRuntimeSha256: reactFixture ? createHash('sha256').update(reactFixture.runtime).digest('hex') : undefined, nodeVersion: nodeChecked ? process.version : undefined, ssrAppSha256: ssrFixture ? createHash('sha256').update(ssrFixture.source).digest('hex') : undefined, articleIds: selectedArticles.map(article => article.catalogId ?? article.id), examples: checked, browserExamples: checked - nodeChecked, nodeExamples: nodeChecked, strictTypeScriptExamples: typed, evidence, limitations: ["Only author-maintained examples; no model API or live backend validation"] }, null, 2) + "\n");
   console.log(`Verified ${selectedArticles.length} articles / ${checked - nodeChecked} browser + ${nodeChecked} Node examples / ${typed} strict TypeScript examples.`);
 } finally {
   await browser?.close();

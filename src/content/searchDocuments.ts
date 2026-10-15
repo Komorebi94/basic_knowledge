@@ -29,7 +29,7 @@ const plannedAi: SearchDocument[] = aiTopics.filter((topic) => !findCatalogArtic
 const practices: SearchDocument[] = exerciseTopics.map((topic, order) => {
   const exercise = exercises.find((item) => item.id === topic.id);
   return {
-    id: topic.id, type: "practice", title: topic.title, aliases: [], tags: [topic.environment],
+    id: topic.id, type: "practice", title: topic.title, aliases: topic.aliases, tags: [topic.environment],
     headings: [], summary: topic.summary,
     body: [topic.boundaries, ...(exercise?.problem ?? []), exercise?.entryContract ?? ""].join(" "),
     importance: exercise ? 2 : 1, order,

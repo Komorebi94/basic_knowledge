@@ -1,0 +1,1869 @@
+{
+  "date": "2026-10-15",
+  "scope": "当前工作区，未与某个生产 URL 比对版本",
+  "method": "全量目录/结构/登记示例/练习既有用例；各专题核心主张巡检与高风险语义复核；不声称逐句校勘或零遗漏。",
+  "articleCount": 148,
+  "exerciseCount": 40,
+  "articleExamples": 474,
+  "articles": [
+    {
+      "id": "AI01",
+      "title": "LLM 能力、限制与不确定性",
+      "file": "src/content/ai/llm-foundations.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "2fd6a5352904fbcf144beeca994687e87d377ad0b9dd6a375cc4ffeb168fc8d7"
+    },
+    {
+      "id": "AI02",
+      "title": "让 AI 写代码：先约定任务合同",
+      "file": "src/content/ai/task-contract.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "38a4934ee8a66040887f4f7cad0c3822cebef6706508709078b5f97a1fedc0b1"
+    },
+    {
+      "id": "AI03",
+      "title": "上下文工程与资料组织",
+      "file": "src/content/ai/context-engineering.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "fed9090e70a67de98ae7bd6b346f0e1c34f24778f983000e07186fd36e1cfa83"
+    },
+    {
+      "id": "AI04",
+      "title": "工具调用、结构化输出与 Agent",
+      "file": "src/content/ai/tool-calling-and-agents.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "6fa4bf5828bdfd35a34b3a4b4de0a1724167339314b236781c832c052992544e"
+    },
+    {
+      "id": "AI05",
+      "title": "先设计、再拆分、再实现",
+      "file": "src/content/ai/design-and-task-splitting.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "6736e46ae52bb7b58a2f3224711c185faf1167ca23b12487e3123926475b8b59"
+    },
+    {
+      "id": "AI06",
+      "title": "仓库规则与可执行约束",
+      "file": "src/content/ai/repository-rules.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "812775029d4d24481e464e0cba5a95939d40bf930e3a71017fc1a4c6efb303a6"
+    },
+    {
+      "id": "AI07",
+      "title": "让 AI 新增功能",
+      "file": "src/content/ai/ai-feature-development.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "edced174c4aff5d265b55a968b4d2b0a8559bca590629084f8d249118a8c6037"
+    },
+    {
+      "id": "AI08",
+      "title": "让 AI 排查缺陷",
+      "file": "src/content/ai/ai-bug-investigation.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "fd095134872182ad4ce37b9880f59416eef64eda0f2c5a1c2b499aa70a941305"
+    },
+    {
+      "id": "AI09",
+      "title": "审阅 AI 写的代码",
+      "file": "src/content/ai/review-ai-code.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "b808fe78e9175631658df04b16ba40c0c3445dbc422eb4a5e941ef5ab8249927"
+    },
+    {
+      "id": "AI10",
+      "title": "用测试验证 AI 输出",
+      "file": "src/content/ai/test-ai-output.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "c60db7dc9bc7547d5339fec6da77106a291fd59056156564e61f271bb1d86e6d"
+    },
+    {
+      "id": "AI11",
+      "title": "重构、迁移与依赖变更",
+      "file": "src/content/ai/refactor-and-migrate.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "9f98969c25a159f85eb25da1a2dff8291b4dfd59662695630bbbfb4602eb651c"
+    },
+    {
+      "id": "AI12",
+      "title": "MCP、Skills 与项目指令",
+      "file": "src/content/ai/mcp-skills-instructions.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "3be8e432a388180f78409e4cb20dd3be07716279d96b74efe4cd3fd51fb65ffb"
+    },
+    {
+      "id": "AI13",
+      "title": "检索增强与知识新鲜度",
+      "file": "src/content/ai/retrieval-freshness.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "96ca7fc5ec04183de5fc9e70828e2fdc355925e9dd5cdb21d0d4334739abe341"
+    },
+    {
+      "id": "AI14",
+      "title": "AI 应用中的流式体验",
+      "file": "src/content/ai/streaming-experience.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "fe544fdbc17858bfac51808d54072a895ed667ee9db3ef0720819942e02aa9be"
+    },
+    {
+      "id": "AI15",
+      "title": "权限、提示注入与数据边界",
+      "file": "src/content/ai/prompt-injection-boundaries.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "a93af9ccd6278551ec3d2f4e159ebde8ebaaae5dceacab7574f7d15a80082f4e"
+    },
+    {
+      "id": "AI16",
+      "title": "Evals、回归样本与执行轨迹",
+      "file": "src/content/ai/evals-and-traces.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "9ab16c1f11d97a42d8bec702298f73c2bfb555d9d7679fa65c2179e2fa530089"
+    },
+    {
+      "id": "AI17",
+      "title": "多 Agent 协作与冲突控制",
+      "file": "src/content/ai/multi-agent-conflicts.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "00d1a837d615d235809726300c378960db062d6458f105b1f11df9ed6e6b2d02"
+    },
+    {
+      "id": "AI18",
+      "title": "成本、延迟与模型选择",
+      "file": "src/content/ai/cost-latency-model-choice.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "55db0e5e10ef8e4d69ff7bf18e6f181695d6034ac8fd3dbfb0986b8367250a48"
+    },
+    {
+      "id": "AI19",
+      "title": "Harness：把可靠性写进环境",
+      "file": "src/content/ai/harness-reliability.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "85ffed9aac07a7ac7c1467ce6f17059aa076bbbe9e037b40501e0f463f08431a"
+    },
+    {
+      "id": "AI20",
+      "title": "模型升级后重新评估工作流",
+      "file": "src/content/ai/workflow-upgrade-evaluation.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "d9557efcd090ceceac5664d5e4a8eb0203ed62798ebb93b261b6f439bf6e08a1"
+    },
+    {
+      "id": "K01-01",
+      "title": "值、引用与相等性",
+      "file": "src/content/knowledge/values-and-equality.ts",
+      "exampleCount": 13,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "eabd87b6083849db0f202baefe199bcaa563d0cd0816749a777508be3bfc008c"
+    },
+    {
+      "id": "K01-02",
+      "title": "作用域、闭包与生命周期",
+      "file": "src/content/knowledge/closures.ts",
+      "exampleCount": 12,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "ab19276e8a87a811cf1345be4cb39c8c753b99471321a404026a43bb536187c9"
+    },
+    {
+      "id": "K01-03",
+      "title": "this、调用方式与绑定",
+      "file": "src/content/knowledge/this-binding.ts",
+      "exampleCount": 8,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "4317f69aa775f7db163ff645985cbcbb30b861675da67d5aa73dfcace0df13d6"
+    },
+    {
+      "id": "K01-04",
+      "title": "原型、类与对象模型",
+      "file": "src/content/knowledge/prototypes.ts",
+      "exampleCount": 5,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "09b71dcd486630dad2bc6b172feb0477cf4a0d3a00986244e5939ffc325e596a"
+    },
+    {
+      "id": "K01-05",
+      "title": "属性描述符与对象操作",
+      "file": "src/content/knowledge/property-descriptors.ts",
+      "exampleCount": 5,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "24dce7e3b8161f1a9cb9a92760807f0b76b5af93344968f824f264f62cea3bb1"
+    },
+    {
+      "id": "K01-06",
+      "title": "迭代器与生成器",
+      "file": "src/content/knowledge/iterators.ts",
+      "exampleCount": 6,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F06"
+      ],
+      "sourceSha256": "b70929544a654c66b746a64687ec1e261e04c3019f24cfc374a49751119a627d"
+    },
+    {
+      "id": "K01-07",
+      "title": "模块与执行时机",
+      "file": "src/content/knowledge/modules.ts",
+      "exampleCount": 5,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "20d799be6de00fca724cc28ba57889dc22ccb5e7fc100ba3d4ca0f6e138e57d1"
+    },
+    {
+      "id": "K01-08",
+      "title": "内存与垃圾回收",
+      "file": "src/content/knowledge/memory.ts",
+      "exampleCount": 5,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "294f96245be8a58c31e7bf1819aaeab55c8e2c560c74ecf24dc8e43ff97f0833"
+    },
+    {
+      "id": "K02-01",
+      "title": "任务、微任务与渲染时机",
+      "file": "src/content/knowledge/tasks-and-microtasks.ts",
+      "exampleCount": 6,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "f6dc918a3e26ebb1aacc1ffc48f6e0e05ae88109ef9e7dbbcda0f3f89a06f0ca"
+    },
+    {
+      "id": "K02-02",
+      "title": "Promise、错误传播与组合",
+      "file": "src/content/knowledge/promises.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "91881cc048bd66a86790926d8ed06eaccc731cc2ab61c5195d55a4d8cf9150e0"
+    },
+    {
+      "id": "K02-03",
+      "title": "async/await 与资源清理",
+      "file": "src/content/knowledge/async-await.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "2cca90a3088499053903a0de7b16542e3f04ed15ec0c440d921f27b63289556a"
+    },
+    {
+      "id": "K02-04",
+      "title": "并发限制与背压",
+      "file": "src/content/knowledge/concurrency.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F01"
+      ],
+      "sourceSha256": "7f40a8ae6ba575394fc78f268607b2c29e32be1480100a809fc6c21125f77463"
+    },
+    {
+      "id": "K02-05",
+      "title": "取消、过期结果与竞态",
+      "file": "src/content/knowledge/cancellation.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "cc80b89ee194bcc8479d504826de32808d317b94f0ceff842ee9e94636886a03"
+    },
+    {
+      "id": "K02-06",
+      "title": "重试、退避与幂等",
+      "file": "src/content/knowledge/retry.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "77d68c5cd090da07b58fba0195e6679eca96edecb3ac6ab5bec2974e99424a66"
+    },
+    {
+      "id": "K02-07",
+      "title": "Worker 与消息传递",
+      "file": "src/content/knowledge/workers.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "bc43a4517bf5397e1c1a9e01b2f8e8f6839be9a20ab246c7f482991e28fee742"
+    },
+    {
+      "id": "K02-08",
+      "title": "可观测异步流程",
+      "file": "src/content/knowledge/traces.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "8e1afe70ec071e7b17e014ca97a9e49d4332d56d3f2a01c6cac78ffeeec2f1d6"
+    },
+    {
+      "id": "K03-01",
+      "title": "unknown、收窄与边界校验",
+      "file": "src/content/knowledge/unknown-and-boundaries.ts",
+      "exampleCount": 6,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "54eea2ad1519c34d4b623b4e6814fbd6d177b3a91953030dc4fc4be0d68c97bf"
+    },
+    {
+      "id": "K03-02",
+      "title": "联合类型与状态建模",
+      "file": "src/content/knowledge/discriminated-state.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "a371fdca2f2e115197866d671a5ff2d2c8fbcdd590702aed7818c5f8a977dd97"
+    },
+    {
+      "id": "K03-03",
+      "title": "泛型与约束",
+      "file": "src/content/knowledge/generics-and-constraints.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "ac15877ada50d9cbbbf5f98e1f163e071155762aac9e17bd684709be1e75bc9c"
+    },
+    {
+      "id": "K03-04",
+      "title": "条件类型与映射类型",
+      "file": "src/content/knowledge/conditional-and-mapped-types.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "075d0a7643d4d52bbcaa81e418c7f62ed6ac36dd93ae824993201c66a2f4d58c"
+    },
+    {
+      "id": "K03-05",
+      "title": "函数类型与变型",
+      "file": "src/content/knowledge/function-types-variance.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "21eecde8cd9e13c41f4a1b79f4148db5ecc5cda7e891576f6fca4fbff3e011ff"
+    },
+    {
+      "id": "K03-06",
+      "title": "工具类型与领域类型",
+      "file": "src/content/knowledge/utility-and-domain-types.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "f08099c2b9dc1e9988b7da6a63cd36e12426e86be8e893c0efb2b55e744cbfd3"
+    },
+    {
+      "id": "K03-07",
+      "title": "声明文件与公共库",
+      "file": "src/content/knowledge/declarations-public-libraries.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "2e2f0a503d92fb6066fe2fbc6505f2145db0bfec7f28ea2045c2e5465078cd66"
+    },
+    {
+      "id": "K03-08",
+      "title": "复杂类型的可维护性",
+      "file": "src/content/knowledge/maintainable-complex-types.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "17e267938cbb0e17757df3dbd642a9d3e8a1302f1947b1ea0d6c5a67a505fdce"
+    },
+    {
+      "id": "K04-01",
+      "title": "从导航到页面呈现",
+      "file": "src/content/knowledge/navigation-to-pixels.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "852407deeb90cd58ea26b7f0027039127775ad22cbf7224bb731b96047136b0f"
+    },
+    {
+      "id": "K04-02",
+      "title": "渲染流水线与布局成本",
+      "file": "src/content/knowledge/rendering-and-layout.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "2932f305867763d93321260ab872b325807a0bd3e8f1bbfacdc686ede6abe436"
+    },
+    {
+      "id": "K04-03",
+      "title": "事件传播与默认行为",
+      "file": "src/content/knowledge/event-propagation-defaults.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "009851717f7e08d2f7b316e4c8c0d0cd763dbbb152309ec94cbfaaea088bc528"
+    },
+    {
+      "id": "K04-04",
+      "title": "浏览器存储与配额",
+      "file": "src/content/knowledge/storage-and-quotas.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "45a702732a2990f29f987202206070afd410edd3645a8d576a2104d3521b23c0"
+    },
+    {
+      "id": "K04-05",
+      "title": "观察器与视口",
+      "file": "src/content/knowledge/observers-and-viewport.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "39d66b19afc937b9660f7b02061a737b46102278b3055bc5ca5bd2d55d78feeb"
+    },
+    {
+      "id": "K04-06",
+      "title": "导航、历史与恢复",
+      "file": "src/content/knowledge/navigation-history-recovery.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "34c5ddd63d975a35bd09a4652e4150a5271e370a065a8e77b7680f5a899ac704"
+    },
+    {
+      "id": "K04-07",
+      "title": "Service Worker 与离线",
+      "file": "src/content/knowledge/service-worker-offline.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "bf6595cee9bdf52aef69f2e9a60aad1702c1aea3d12c1d61c47e166f3cf79940"
+    },
+    {
+      "id": "K04-08",
+      "title": "Web 平台能力与渐进增强",
+      "file": "src/content/knowledge/platform-progressive-enhancement.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "9edcb236d3b24bacde58d13c020d4a0acfd609d4fabdd0b8b3b7e001135a334a"
+    },
+    {
+      "id": "K05-01",
+      "title": "语义结构与原生交互",
+      "file": "src/content/knowledge/semantic-interactions.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "4c34c4d932c49684110f05ae6544c2ff9345f11ef422e7b41624bb1cc9eadde9"
+    },
+    {
+      "id": "K05-02",
+      "title": "盒模型、格式化上下文与层叠",
+      "file": "src/content/knowledge/boxes-and-stacking.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "23c19cd569913f3f80599eae31c069dd24e76376c771a8dad0f8d7d76683ff03"
+    },
+    {
+      "id": "K05-03",
+      "title": "Flex 与 Grid 的约束",
+      "file": "src/content/knowledge/flex-and-grid-constraints.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "3889b6b8727c668e602367dc603bb1fba4b7716e3e5e6ed72e9b0d22977cb4b6"
+    },
+    {
+      "id": "K05-04",
+      "title": "响应式与容器查询",
+      "file": "src/content/knowledge/responsive-container-queries.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "01bc6a6d85130a474255ac3530012142c5297cd5abceb1e12a61bb6faf8d051b"
+    },
+    {
+      "id": "K05-05",
+      "title": "层叠层、选择器与样式组织",
+      "file": "src/content/knowledge/cascade-layers-and-selectors.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "945bf47193bce3b2a01df67b0c032d727cb9f1e314f461b66a71c8df17ffd1f9"
+    },
+    {
+      "id": "K05-06",
+      "title": "动画与交互反馈",
+      "file": "src/content/knowledge/animation-and-feedback.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "3baa7017969402274397f1881b4737b2f1ce17a19ca2f37e68312a9bf9cf27a0"
+    },
+    {
+      "id": "K05-07",
+      "title": "国际化排版与逻辑属性",
+      "file": "src/content/knowledge/international-typography.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "bd0dbced9bc46e19f29a8f7041d43786bdffac1efa9c36687f3ac05b8085e7d6"
+    },
+    {
+      "id": "K05-08",
+      "title": "复杂布局诊断",
+      "file": "src/content/knowledge/layout-diagnosis.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "2401ae3cc959aab3be24a7adf20e60dd50828e1856f903197ad9aebd2230a407"
+    },
+    {
+      "id": "K06-01",
+      "title": "HTTP 缓存与条件请求",
+      "file": "src/content/knowledge/http-cache-validation.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "53bb849e51e6bd6fe693af69930f13d834a6f0f57b9a3680eaeb17f96f8c5391"
+    },
+    {
+      "id": "K06-02",
+      "title": "请求状态、错误与幂等",
+      "file": "src/content/knowledge/requests-and-idempotency.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "d62e45a7260407d3bef7f01ab62606aaf250885503edd7c1e24c60ba642703c1"
+    },
+    {
+      "id": "K06-03",
+      "title": "连接、TLS 与协议演进",
+      "file": "src/content/knowledge/connections-tls-protocols.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F08",
+        "F11"
+      ],
+      "sourceSha256": "abdc4bf1a91efb51fc6ac41791a7fb1d2369e5482baddd986a450ad91084cdc6"
+    },
+    {
+      "id": "K06-04",
+      "title": "Cookie、认证与会话",
+      "file": "src/content/knowledge/cookies-sessions-refresh.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "5ce406ff933097a9875ab498de9b9bf25dc52bfc48058a5569101baacd6e6922"
+    },
+    {
+      "id": "K06-05",
+      "title": "同源策略与 CORS",
+      "file": "src/content/knowledge/same-origin-cors.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "b522cce29c3c6e8a998a2339e7f9ca02f2d7fa2784f2a8abdd8681d44dffcf30"
+    },
+    {
+      "id": "K06-06",
+      "title": "SSE、WebSocket 与实时流",
+      "file": "src/content/knowledge/streams-and-sockets.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F05"
+      ],
+      "sourceSha256": "fa3bba657b2194df52f51f97d4c074278fb7369ae006c631643690cef2b8e943"
+    },
+    {
+      "id": "K06-07",
+      "title": "上传下载与大文件",
+      "file": "src/content/knowledge/large-transfers.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "a1ad226c49fd4fdc229a58df79a7d7aa1dbba104b4db376ffcf85b7b9b190ec3"
+    },
+    {
+      "id": "K06-08",
+      "title": "接口契约与演进",
+      "file": "src/content/knowledge/api-contracts-evolution.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "080cdd6ef39588774f0139aa70d48a942d4072becd13c94ff4ea13dd9a28f967"
+    },
+    {
+      "id": "K07-01",
+      "title": "渲染、状态快照与更新",
+      "file": "src/content/knowledge/render-state-snapshots.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "ae4a4d4d56a32443600c599ccd419a012dbb4650f3473e58d25d0a6d9fe8144f"
+    },
+    {
+      "id": "K07-02",
+      "title": "Effect 与外部系统同步",
+      "file": "src/content/knowledge/effects-and-synchronization.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "6fdfa23c265e926796f4c560f2a246b5d825480963708d36088d79b7fa31be35"
+    },
+    {
+      "id": "K07-03",
+      "title": "组件身份、key 与协调",
+      "file": "src/content/knowledge/component-identity-and-keys.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "5b8a148d0ed04b0a661bc3bf1d283da3704a8e8905243e1390c752df24ca0a54"
+    },
+    {
+      "id": "K07-04",
+      "title": "状态所有权与数据流",
+      "file": "src/content/knowledge/state-ownership-and-data-flow.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "9b0a63eb8bcd5387a95d711d70be3410dee9c43b07565b11da16c8bb2948a52a"
+    },
+    {
+      "id": "K07-05",
+      "title": "并发体验与 Suspense",
+      "file": "src/content/knowledge/concurrent-rendering-suspense.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "768b7c299672aee747f33461e4dcd7a773e5e31e0dca131c28e299125dd70e61"
+    },
+    {
+      "id": "K07-06",
+      "title": "Hooks 与复用边界",
+      "file": "src/content/knowledge/hooks-and-reuse-boundaries.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "87e4062edbd6c539ae19181d7bbd8208346f5fa4ad4adda4fc1ba46e1c88cea4"
+    },
+    {
+      "id": "K07-07",
+      "title": "服务端组件与边界",
+      "file": "src/content/knowledge/server-components-boundary.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "55ab6fdbe7ca9ec3c33f040fc998d10f3a64c5891ef0d82e5c98bfef890d4bb2"
+    },
+    {
+      "id": "K07-08",
+      "title": "性能诊断与优化",
+      "file": "src/content/knowledge/performance-diagnosis.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "46b01705b3cbbaa1c99bf61540ce68e59271d055321ab9ad59036225925a07a6"
+    },
+    {
+      "id": "K08-01",
+      "title": "响应式依赖追踪",
+      "file": "src/content/knowledge/reactivity-tracking.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "1a6358d566c913039cf72d47fdacdfc52feccbfae721196e67aa3b2dd499522e"
+    },
+    {
+      "id": "K08-02",
+      "title": "computed、watch 与副作用",
+      "file": "src/content/knowledge/computed-and-watch.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "7808f859f560deaf423d4d8f6249d8be0f9a3a193b7ecb21b3d2249d8f07723d"
+    },
+    {
+      "id": "K08-03",
+      "title": "组件通信与状态所有权",
+      "file": "src/content/knowledge/component-communication-and-ownership.ts",
+      "exampleCount": 6,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "6c5b2a4dfe94f1c76832cf81336e8922dd3da37d1ba2cf1553706c338ed41c7b"
+    },
+    {
+      "id": "K08-04",
+      "title": "生命周期与组合式函数",
+      "file": "src/content/knowledge/lifecycle-and-composables.ts",
+      "exampleCount": 8,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "960179ef4358d59c4fd49546d382d54672942c8d3ba2d8429484abe0d251893c"
+    },
+    {
+      "id": "K08-05",
+      "title": "模板编译与更新优化",
+      "file": "src/content/knowledge/template-compilation-and-updates.ts",
+      "exampleCount": 7,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "3fce61f1fd8ca0d5a82ed7f600db5e738f4412e00af8a6e093f1525ed3d79c57"
+    },
+    {
+      "id": "K08-06",
+      "title": "路由、表单与状态管理",
+      "file": "src/content/knowledge/routing-forms-and-state.ts",
+      "exampleCount": 7,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "620800dc891889c5b7f078fd0787867e169accb71b4a2fa60f1f4548e05f24b9"
+    },
+    {
+      "id": "K08-07",
+      "title": "SSR 与水合",
+      "file": "src/content/knowledge/ssr-and-hydration.ts",
+      "exampleCount": 8,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "0946d47383711a07b66fcda4234ba235f632ca2e006486cf8fe09d2218471979"
+    },
+    {
+      "id": "K08-08",
+      "title": "复杂页面性能与调试",
+      "file": "src/content/knowledge/complex-page-performance-and-debugging.ts",
+      "exampleCount": 7,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "190430e448a59cd11f3ef0e3e73174b192130edb7e1b40821544b136a1193e35"
+    },
+    {
+      "id": "K09-01",
+      "title": "模块图、构建与按需加载",
+      "file": "src/content/knowledge/module-graphs-and-loading.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "65bd497ba002efdd3e318e994d61e2270d05985739ce6073744bcc7a04a13ff4"
+    },
+    {
+      "id": "K09-02",
+      "title": "依赖、锁文件与供应链",
+      "file": "src/content/knowledge/dependencies-and-lockfiles.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "3aabbd680d6aba300f1e55e481a3b1df15393253a9c3ed2e89c286b97147469e"
+    },
+    {
+      "id": "K09-03",
+      "title": "Tree shaking 与副作用",
+      "file": "src/content/knowledge/tree-shaking-and-side-effects.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "02a4fd690426e43477f28dc5f44d64065783a842e4ce70f232823d6bf4c6fa7e"
+    },
+    {
+      "id": "K09-04",
+      "title": "转译、polyfill 与目标环境",
+      "file": "src/content/knowledge/transpilation-polyfills-and-targets.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "5cd3bbb66432ce893c2128daa21decdf44d86ddbd1025d10e79c146a35de28c6"
+    },
+    {
+      "id": "K09-05",
+      "title": "代码分割与资源缓存",
+      "file": "src/content/knowledge/code-splitting-and-resource-caching.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "1438c3a21640631aaaf60e7ed77f8cf00ee4a0ab233aea3c73566b17661d4b5b"
+    },
+    {
+      "id": "K09-06",
+      "title": "Monorepo 与包边界",
+      "file": "src/content/knowledge/monorepo-and-package-boundaries.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "d1ecdfb395ddda667527585c744579a9dcc3ab8c30beef79d8db256a266eae4d"
+    },
+    {
+      "id": "K09-07",
+      "title": "Source map 与线上排查",
+      "file": "src/content/knowledge/source-maps-and-production-debugging.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "3c8346f28b4a6a6ad95c2bbe695557f9a523d90c2c56ab9a0f8b228838bb4542"
+    },
+    {
+      "id": "K09-08",
+      "title": "CI/CD 与发布策略",
+      "file": "src/content/knowledge/ci-cd-and-release-strategies.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "000410b97adf1b30b73bb07241dc93e60e7b915f33653f6f0af7219c5d544883"
+    },
+    {
+      "id": "K10-01",
+      "title": "体验指标与测量方法",
+      "file": "src/content/knowledge/experience-metrics.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "32ca44c2b47f670f043867a369d9247bc8a70a1cde8b3236064418ea14e566f3"
+    },
+    {
+      "id": "K10-02",
+      "title": "主线程、长任务与交互响应",
+      "file": "src/content/knowledge/main-thread-long-tasks.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "3fb65cda8258b911b58ffe6a906b3ec27da2108dce6531886f1271b5e24d15d5"
+    },
+    {
+      "id": "K10-03",
+      "title": "首屏与关键资源",
+      "file": "src/content/knowledge/critical-resources.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F09"
+      ],
+      "sourceSha256": "57a3c4a25be9bd735352d315f8543200023ddaa3e0689ac7ff829cdb256970f6"
+    },
+    {
+      "id": "K10-04",
+      "title": "列表、渲染与内存",
+      "file": "src/content/knowledge/lists-rendering-and-memory.ts",
+      "exampleCount": 5,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "4d18609e0f5fa18163d74b58059035277e722b303f00b6507c277e525b655d85"
+    },
+    {
+      "id": "K10-05",
+      "title": "缓存与预取策略",
+      "file": "src/content/knowledge/cache-and-prefetch.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "6e3a38af906218eb18a56524d5230a04166b02b7a4f2bc37cc161560c8a04376"
+    },
+    {
+      "id": "K10-06",
+      "title": "包体分析与依赖治理",
+      "file": "src/content/knowledge/bundle-analysis-and-dependencies.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "43bc653192050581642d511458dafcd3d7e1ddfb70be3b82062a7b687773ebbf"
+    },
+    {
+      "id": "K10-07",
+      "title": "性能预算与回归",
+      "file": "src/content/knowledge/performance-budgets.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "3199d63e7e97ed9ed12d3cc793a3c63395174197474e85763afcc24dc8cfa9c0"
+    },
+    {
+      "id": "K10-08",
+      "title": "大型页面诊断案例",
+      "file": "src/content/knowledge/large-page-diagnosis.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "26a5d2ad9b79b8b2f00fdcbebc973767cdfb993234c764adbd76bd7b3c572adf"
+    },
+    {
+      "id": "K11-01",
+      "title": "XSS、输出上下文与内容净化",
+      "file": "src/content/knowledge/xss-output-context.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "d116891ddfc5bb392825889d3ad029f1cafd67941c44c7dcad729659acae7fb2"
+    },
+    {
+      "id": "K11-02",
+      "title": "认证、授权与 CSRF",
+      "file": "src/content/knowledge/auth-authorization-csrf.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "6928e3ae5d0a34f4c5b346c903b76bef43231a3e9a3ae2371126bc8fc5eee8b2"
+    },
+    {
+      "id": "K11-03",
+      "title": "CSP 与可信资源",
+      "file": "src/content/knowledge/csp-and-trusted-resources.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "dfc8b760c1aeee1975517c8927487d405feaafd6b596784f8a345de208bdcef5"
+    },
+    {
+      "id": "K11-04",
+      "title": "依赖与第三方脚本风险",
+      "file": "src/content/knowledge/dependency-and-third-party-scripts.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "c5c2389d6fbadcedf47b2a441070e7e76e4b4451cf1020c9a14d580362b4a84f"
+    },
+    {
+      "id": "K11-05",
+      "title": "敏感数据与日志",
+      "file": "src/content/knowledge/sensitive-data-and-logs.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "e1bbfc7844c142a786b11f1e8cd800fec273bc97cc91f0a2a029547ae78b9414"
+    },
+    {
+      "id": "K11-06",
+      "title": "URL 与跳转边界",
+      "file": "src/content/knowledge/url-and-redirect-boundaries.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "027dd25725eb5f4a2f2116143563a352a0e158b41a207e3bc293cfaf97e49e7b"
+    },
+    {
+      "id": "K11-07",
+      "title": "客户端隔离与沙箱",
+      "file": "src/content/knowledge/client-isolation-and-sandbox.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "1f9e5d708734c177d933848f07fed7eb4bc751ee6df109617992dc7b6b9800fb"
+    },
+    {
+      "id": "K11-08",
+      "title": "安全设计与验证",
+      "file": "src/content/knowledge/security-design-and-verification.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "fe40365ed81fd5bf4687def94cddc5d1670ef589e78dc452a547cf68cedc9324"
+    },
+    {
+      "id": "K12-01",
+      "title": "单元、集成与端到端的边界",
+      "file": "src/content/knowledge/testing-levels.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "0b6a848fddf291fa6548094e738027447fed44351842730a9964600ca2d05626"
+    },
+    {
+      "id": "K12-02",
+      "title": "行为断言与边界用例",
+      "file": "src/content/knowledge/behavior-boundary-tests.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "d9ce0fd05e43808c505ecad6b234530751fdf75fb49e9a61624a5cf1cb7c6d95"
+    },
+    {
+      "id": "K12-03",
+      "title": "Mock、替身与契约",
+      "file": "src/content/knowledge/mocks-and-contracts.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "30e68c37f7c9d64ac251a97f68cd2e15a64ca45cfd12802359390ec33d772cbf"
+    },
+    {
+      "id": "K12-04",
+      "title": "异步测试与可控时间",
+      "file": "src/content/knowledge/async-tests-and-time.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "05a4417313c4cc511e6dc0fe80ade06db1f5fdc0501bde9d425a8b946b5298c0"
+    },
+    {
+      "id": "K12-05",
+      "title": "组件交互与可访问性测试",
+      "file": "src/content/knowledge/component-accessibility-tests.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "7961ffcfff409c05cd3c15a90966809ec1d87337296024a4a85a08e1baa6f7fc"
+    },
+    {
+      "id": "K12-06",
+      "title": "E2E 稳定性与环境",
+      "file": "src/content/knowledge/e2e-stability.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "732181f34c8d7e99d510d609f7ae0362eb827562504d8298a02972264ec69b11"
+    },
+    {
+      "id": "K12-07",
+      "title": "属性测试与变异测试",
+      "file": "src/content/knowledge/property-and-mutation-tests.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "7b46e0c6a9f9b7d1c71aee00df53fce2df1fbc7c67b5116c89395ff460f96cd5"
+    },
+    {
+      "id": "K12-08",
+      "title": "质量门禁与测试诊断",
+      "file": "src/content/knowledge/quality-gates.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "d2e964c58a345e23e5fc29d77bad5d3d7edb21bf41ab86b7822ab68fbe0ce0f7"
+    },
+    {
+      "id": "K13-01",
+      "title": "模块边界与依赖方向",
+      "file": "src/content/knowledge/module-boundaries.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "9e1506d68b32b855a242caf03e0b441ed75c7ef62317495fbed50e35c7ff303c"
+    },
+    {
+      "id": "K13-02",
+      "title": "状态归属与数据流",
+      "file": "src/content/knowledge/state-ownership.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "ff102be9c26a9701d3d05925ef8a8419d80b1a5cd87628f3eaf30841824bbf86"
+    },
+    {
+      "id": "K13-03",
+      "title": "复杂表单与工作流",
+      "file": "src/content/knowledge/complex-forms-and-workflows.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "6c24cad6a67f2a12a9c9fc735806a61b309b42e2442f2b10816cce2b9f8b1071"
+    },
+    {
+      "id": "K13-04",
+      "title": "权限、路由与菜单",
+      "file": "src/content/knowledge/permissions-routes-and-menus.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "094aaacd9760eae6ae69a319cde3d540cb74eb3e1809685327fb48560d58748b"
+    },
+    {
+      "id": "K13-05",
+      "title": "设计系统与组件契约",
+      "file": "src/content/knowledge/design-system-and-component-contracts.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "d3dfbdfdc9836c2bdc1a5a7622a591c54a7003c3aa5b365e29ae06db596d390b"
+    },
+    {
+      "id": "K13-06",
+      "title": "微前端与渐进迁移",
+      "file": "src/content/knowledge/microfrontends-and-migration.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "8d47963156c47a57951dbb3373998282804ed53aa30b3f06bb9f360a84e8651f"
+    },
+    {
+      "id": "K13-07",
+      "title": "国际化与多租户配置",
+      "file": "src/content/knowledge/i18n-and-tenant-config.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "9d345657741269b65af5bb5eb9fb9c699049470b8fb25bef810b8d2506e8bdf0"
+    },
+    {
+      "id": "K13-08",
+      "title": "系统设计与容量推演",
+      "file": "src/content/knowledge/system-design-and-capacity.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "52d85b823d1ea717e58a29afe721413cd295d405a1ef2439fb61b835b343d4ce"
+    },
+    {
+      "id": "K14-01",
+      "title": "浏览器与 Node 运行边界",
+      "file": "src/content/knowledge/browser-node-boundaries.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "abd34fa072e8db51cbcfe10af392cdb6226f49bb78927982bacb8f70f5ebb29b"
+    },
+    {
+      "id": "K14-02",
+      "title": "CSR、SSR、SSG 与水合",
+      "file": "src/content/knowledge/rendering-and-hydration.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "80df2d74d5c565626f5512d705f103cb924d6b924ecfd5afe06ad887c9610a9e"
+    },
+    {
+      "id": "K14-03",
+      "title": "流、背压与资源释放",
+      "file": "src/content/knowledge/streams-backpressure-and-release.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "0cd58d03a76e3b8baa28ab88bb07bd8ccd8ac6dc94df26860b1b5e314f8b3062"
+    },
+    {
+      "id": "K14-04",
+      "title": "BFF 与接口聚合",
+      "file": "src/content/knowledge/bff-and-aggregation.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "b1275a754c736506a504b1ffd5409abe0d56ad9035c41a0dd7f0d4d224b6a385"
+    },
+    {
+      "id": "K14-05",
+      "title": "流式渲染与加载边界",
+      "file": "src/content/knowledge/streaming-render-and-resume.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "b87c50cba26ff006a201025d0417e1df77c9ac65670ea8295bf6c42c27ab4f11"
+    },
+    {
+      "id": "K14-06",
+      "title": "服务端缓存与隔离",
+      "file": "src/content/knowledge/server-cache-and-isolation.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "44112060abe77011d78e99451a94e94d6f0ac093057b22394657fc091707045f"
+    },
+    {
+      "id": "K14-07",
+      "title": "部署运行时与边缘计算",
+      "file": "src/content/knowledge/deployment-runtimes-and-edge.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "0a5d43d28e7bb34f5ee9e864ef2162a3daa97470a11403abb8d4e4fad711272d"
+    },
+    {
+      "id": "K14-08",
+      "title": "全链路可观测性",
+      "file": "src/content/knowledge/request-observability.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "bc9bec337761277d13bb058c61808bbf1af6715eece8c5c0c8419f07c60503be"
+    },
+    {
+      "id": "K15-01",
+      "title": "键盘导航与焦点管理",
+      "file": "src/content/knowledge/keyboard-focus.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "b16554b9e09983f12cccbf6e5c0a7de773e10f4e283c4a842477439f4a945d29"
+    },
+    {
+      "id": "K15-02",
+      "title": "语义、名称与状态反馈",
+      "file": "src/content/knowledge/semantics-names-feedback.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "549083d0fa949a4b02b67fe15e7d139bb743bd902cda5e9e5374d2322e0650c7"
+    },
+    {
+      "id": "K15-03",
+      "title": "表单验证与恢复",
+      "file": "src/content/knowledge/form-validation-and-recovery.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "37fb4b25f43daf456e9cd537653fdce5ac1247f2f6c41d72e28146b86c6d7259"
+    },
+    {
+      "id": "K15-04",
+      "title": "异步交互与乐观更新",
+      "file": "src/content/knowledge/async-feedback-and-rollback.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "16b513ccec69345055bb72bc6816e6392787bcee7e0975e130131a1caa2926f5"
+    },
+    {
+      "id": "K15-05",
+      "title": "触控、缩放与响应式",
+      "file": "src/content/knowledge/touch-zoom-and-reflow.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "1b87338ec9fde71d633467981b2840c6e12912ee22163e40d5e0b24e37156093"
+    },
+    {
+      "id": "K15-06",
+      "title": "对比度与动态效果",
+      "file": "src/content/knowledge/contrast-and-motion.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "4a53a10fde2af678b29aaf0306d5681f524baa0ff92be3136a103edd3338c282"
+    },
+    {
+      "id": "K15-07",
+      "title": "编辑器、表格与复杂控件",
+      "file": "src/content/knowledge/complex-widgets-and-keyboard.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "54e0909f101af791062841110d9c7e25536efb4e6d58c0ff09b2d4eaf772243c"
+    },
+    {
+      "id": "K15-08",
+      "title": "可用性验证与取舍",
+      "file": "src/content/knowledge/accessibility-verification.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "5743b664301a4e7a2c5cd8f7fc87f8cea80b8b831056ecd92247ed4ca7f09288"
+    },
+    {
+      "id": "K16-01",
+      "title": "复杂度、规模与权衡",
+      "file": "src/content/knowledge/complexity-scale.ts",
+      "exampleCount": 3,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "d75696dee9d2540029c92c767fc8ce35254d9ca9e8e711d6811c9061593bd26b"
+    },
+    {
+      "id": "K16-02",
+      "title": "Map、Set、队列与缓存",
+      "file": "src/content/knowledge/maps-sets-queues-cache.ts",
+      "exampleCount": 4,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "1da70e2126928f8f309978db73bad33a10f1d6268debbbcc91eaf8ef4a659314"
+    },
+    {
+      "id": "K16-03",
+      "title": "树与图的遍历",
+      "file": "src/content/knowledge/tree-and-graph-traversal.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "46bd775d48280d448dfe7c0aeb066b889046ad3a31fc0c3f97ed2d81f8d3ae46"
+    },
+    {
+      "id": "K16-04",
+      "title": "排序、二分与稳定性",
+      "file": "src/content/knowledge/sort-binary-search-stability.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "803375fd4d0aad56cca06c05535fd91c26bb3ea3a4908314a8c93f95b36db479"
+    },
+    {
+      "id": "K16-05",
+      "title": "滑动窗口与双指针",
+      "file": "src/content/knowledge/sliding-window-and-two-pointers.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "85edb0c20ce86b4a194edaae877c708111b8c09dcdc3662a4fe00bc87c6c70e3"
+    },
+    {
+      "id": "K16-06",
+      "title": "栈与表达式处理",
+      "file": "src/content/knowledge/stack-and-expressions.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "46e96f851687d3729f826e7330b6d26388df7a75b1d46ec467d5f029cb911542"
+    },
+    {
+      "id": "K16-07",
+      "title": "动态规划与状态定义",
+      "file": "src/content/knowledge/dynamic-programming-states.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [],
+      "sourceSha256": "291ac0e1ac7653a43dc773132fa2af5bd84878a1d199e9e415e2a0eb545431a1"
+    },
+    {
+      "id": "K16-08",
+      "title": "前端场景的算法设计",
+      "file": "src/content/knowledge/frontend-algorithm-choices.ts",
+      "exampleCount": 2,
+      "registeredExamplesPassed": true,
+      "issues": [
+        "F11"
+      ],
+      "sourceSha256": "b79184364ea6151b9ba96dff3f4115fd582b8444f7597f01adbbf31f76ef2597"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "E01",
+      "title": "防抖与取消",
+      "tests": 10,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E02",
+      "title": "节流与尾调用",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E03",
+      "title": "Promise.all 语义",
+      "tests": 9,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E04",
+      "title": "并发任务池",
+      "tests": 9,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E05",
+      "title": "Promise.allSettled 语义",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E10",
+      "title": "可取消延时",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E11",
+      "title": "重试与退避",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E12",
+      "title": "请求去重",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E13",
+      "title": "最近一次请求生效",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E23",
+      "title": "带超时的任务",
+      "tests": 9,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E24",
+      "title": "异步串行队列",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E06",
+      "title": "受限数据域深拷贝",
+      "tests": 11,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E14",
+      "title": "LRU 缓存",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E15",
+      "title": "数组转森林",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E16",
+      "title": "树遍历与查找",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E17",
+      "title": "路径读取",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E18",
+      "title": "深度扁平化",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E19",
+      "title": "稳定去重",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E20",
+      "title": "二分查找下界",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E21",
+      "title": "括号匹配",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E07",
+      "title": "事件订阅器",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": [
+        "F07"
+      ]
+    },
+    {
+      "id": "E08",
+      "title": "参数化柯里化",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E09",
+      "title": "组合与管道",
+      "tests": 6,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E22",
+      "title": "多参数记忆化",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E25",
+      "title": "图片懒加载",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E26",
+      "title": "事件委托",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E27",
+      "title": "可访问 Tabs",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E28",
+      "title": "对话框",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E29",
+      "title": "表单校验器",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E30",
+      "title": "固定高度虚拟列表",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E31",
+      "title": "useAsyncResource",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E32",
+      "title": "简化响应式依赖系统",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E33",
+      "title": "基础工具类型",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": [
+        "F03",
+        "F04"
+      ]
+    },
+    {
+      "id": "E34",
+      "title": "类型安全事件映射",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E35",
+      "title": "依赖图拓扑排序",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E36",
+      "title": "分片上传调度",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E37",
+      "title": "SSE 消息解析",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": [
+        "F02"
+      ]
+    },
+    {
+      "id": "E38",
+      "title": "乐观更新与回滚",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E39",
+      "title": "最长无重复子串",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    },
+    {
+      "id": "E40",
+      "title": "分帧任务执行",
+      "tests": 8,
+      "existingTestsPassed": true,
+      "issues": []
+    }
+  ],
+  "staleExerciseClaims": [
+    {
+      "id": "K05-04",
+      "section": "practice",
+      "text": "最后检查窄状态能否完成主任务：标题、主要按钮和必要说明都在，侧栏只是附加信息。E27 至 E29 尚未做成可运行练习，这里用空白页实验验证规则。",
+      "file": "src/content/knowledge/responsive-container-queries.ts"
+    },
+    {
+      "id": "K05-06",
+      "section": "practice",
+      "text": "在目标页面用开发者工具的渲染或性能记录核对一次真实滑动，确认没有在动画帧里读写布局。E27 至 E29 尚未提供可运行练习；本节的空白页读数用来核对机制。",
+      "file": "src/content/knowledge/animation-and-feedback.ts"
+    },
+    {
+      "id": "K05-07",
+      "section": "practice",
+      "text": "用产品里最长的译文和目标方向各走一遍主流程，确认按钮完整、文本可读、焦点顺序与阅读起点一致。E27 至 E29 尚未交付，本节不把它们显示为可做练习。",
+      "file": "src/content/knowledge/international-typography.ts"
+    },
+    {
+      "id": "K05-08",
+      "section": "practice",
+      "text": "把预测写在修改样式之前。结果不符时只改变一个条件再测，保留相对距离、包含块和打开状态三份证据。E28 的对话框练习尚未制作，本节不把它当作已经可做的验证。",
+      "file": "src/content/knowledge/layout-diagnosis.ts"
+    },
+    {
+      "id": "K06-03",
+      "section": "practice",
+      "text": "E11、E12、E13、E23、E24 已有可做练习，但它们验证的是重试、去重、最新请求、超时和串行队列，不会替你完成协议协商。E36、E37 仍未制作。",
+      "file": "src/content/knowledge/connections-tls-protocols.ts"
+    },
+    {
+      "id": "K06-04",
+      "section": "practice",
+      "text": "已发布的 E12 练习的是在途去重，和这里的共享刷新是同一类所有权；E36、E37 的接口练习尚未制作。",
+      "file": "src/content/knowledge/cookies-sessions-refresh.ts"
+    },
+    {
+      "id": "K06-05",
+      "section": "practice",
+      "text": "把一次失败分成“请求未发出”“服务器已处理但脚本被阻止”“脚本可读但业务状态不是 2xx”。E36、E37 尚未制作，现有 E11 至 E13 不验证 CORS 头。",
+      "file": "src/content/knowledge/same-origin-cors.ts"
+    },
+    {
+      "id": "K07-03",
+      "section": "practice",
+      "text": "E30、E31、E38 尚未制作。在 React 项目里用受控输入做一次排序测试，才能把模型结果落到真实渲染上。",
+      "file": "src/content/knowledge/component-identity-and-keys.ts"
+    },
+    {
+      "id": "K07-04",
+      "section": "practice",
+      "text": "E13 已练习最新请求身份，可与服务端副本一起看。E30、E31、E38 尚未制作。",
+      "file": "src/content/knowledge/state-ownership-and-data-flow.ts"
+    },
+    {
+      "id": "K07-05",
+      "section": "practice",
+      "text": "E30、E31、E38 尚未制作。接入 React 时用受控输入观察旧列表是否保留，不要只看加载组件是否出现。",
+      "file": "src/content/knowledge/concurrent-rendering-suspense.ts"
+    },
+    {
+      "id": "K07-06",
+      "section": "practice",
+      "text": "E30、E31、E38 尚未制作。把条件订阅改成稳定调用后，用卸载和切换房间检查清理是否成对。",
+      "file": "src/content/knowledge/hooks-and-reuse-boundaries.ts"
+    },
+    {
+      "id": "K07-07",
+      "section": "practice",
+      "text": "E30、E31、E38 尚未制作。若项目启用了服务器组件，再用该项目的构建和一次页面请求验证边界，不要把本文模型当成构建日志。",
+      "file": "src/content/knowledge/server-components-boundary.ts"
+    },
+    {
+      "id": "K07-08",
+      "section": "practice",
+      "text": "E30、E31、E38 尚未制作。在真实 React 树里补一次 Profiler 记录后，再决定是否保留 memo。",
+      "file": "src/content/knowledge/performance-diagnosis.ts"
+    },
+    {
+      "id": "K08-03",
+      "section": "practice",
+      "text": "本主题暂无已交付的独立编码题。规划中的 E32 聚焦依赖追踪，E38 聚焦乐观更新与回滚，均尚未开放，因此本篇不提供空练习入口。文末回忆问题用于检查所有权、草稿与注入边界，不替代实际行为验证。",
+      "file": "src/content/knowledge/component-communication-and-ownership.ts"
+    },
+    {
+      "id": "K08-04",
+      "section": "practice",
+      "text": "本篇没有新增 Vue 框架编码题。规划中的 E32 与 E38 尚未开放，不显示空入口。回忆卡关注资源责任、同步归属和响应式来源；实际运行输出与手机阅读检查记录在仓库内部验证报告中。",
+      "file": "src/content/knowledge/lifecycle-and-composables.ts"
+    },
+    {
+      "id": "K08-05",
+      "section": "practice",
+      "text": "本主题暂无已交付的独立 Vue 编码题，不提供空练习入口。E32 的简化依赖系统和 E38 的乐观更新仍在规划中，不能把它们当作模板编译练习已完成；文末回忆卡用于核对机制与边界。",
+      "file": "src/content/knowledge/template-compilation-and-updates.ts"
+    },
+    {
+      "id": "K08-07",
+      "section": "practice",
+      "text": "本主题暂无已交付独立 Vue SSR 编码题，不提供空入口。动手时只使用隔离作者实验，涉及旧请求提交可回到 E13，服务端与客户端运行时的一般差异可回看 K14-01。回忆卡核对水合基线、请求隔离和副作用责任。",
+      "file": "src/content/knowledge/ssr-and-hydration.ts"
+    },
+    {
+      "id": "K09-06",
+      "section": "practice",
+      "text": "本主题没有独立已开放工作区题。规划的依赖图题 E35 尚未开放；可以先用作者模型验证循环与缺失边，再为真实仓库配置对应行为验收。",
+      "file": "src/content/knowledge/monorepo-and-package-boundaries.ts"
+    },
+    {
+      "id": "K10-04",
+      "section": "practice",
+      "text": "E30 固定高度虚拟列表尚未开放。本篇的节点计数不是那道题的通过证据，也不报告帧率提升。",
+      "file": "src/content/knowledge/lists-rendering-and-memory.ts"
+    },
+    {
+      "id": "K10-08",
+      "section": "practice",
+      "text": "E25、E30 和 E40 尚未开放。本案例的虚拟数字不能当作这些练习或生产预算的输入。",
+      "file": "src/content/knowledge/large-page-diagnosis.ts"
+    },
+    {
+      "id": "K15-03",
+      "section": "practice",
+      "text": "本主题没有已开放的独立练习。示例不创建输入框，也不宣布某种读屏已经读出错误。",
+      "file": "src/content/knowledge/form-validation-and-recovery.ts",
+      "related": [
+        "E29"
+      ]
+    },
+    {
+      "id": "K15-04",
+      "section": "practice",
+      "text": "本主题没有已开放的独立练习。示例不连接接口，也不把 status 字符串当成读屏已经播报的证据。",
+      "file": "src/content/knowledge/async-feedback-and-rollback.ts",
+      "related": [
+        "E38"
+      ]
+    },
+    {
+      "id": "K15-07",
+      "section": "practice",
+      "text": "本主题没有已开放的独立练习。示例不创建表格或编辑器 DOM，也不代替创作实践里的人工键盘走查。",
+      "file": "src/content/knowledge/complex-widgets-and-keyboard.ts",
+      "related": [
+        "E27"
+      ]
+    },
+    {
+      "id": "K16-03",
+      "section": "practice",
+      "text": "本主题没有已开放的独立练习。示例不读取真实目录，也不排列包的安装顺序。",
+      "file": "src/content/knowledge/tree-and-graph-traversal.ts",
+      "related": [
+        "E35"
+      ]
+    },
+    {
+      "id": "K16-05",
+      "section": "practice",
+      "text": "本主题没有已开放的独立练习。示例不在输入框里高亮选区。",
+      "file": "src/content/knowledge/sliding-window-and-two-pointers.ts",
+      "related": [
+        "E39"
+      ]
+    },
+    {
+      "id": "K16-08",
+      "section": "practice",
+      "text": "本主题没有已开放的独立练习。示例不挂载列表，也不把结果写成某次渲染的耗时。",
+      "file": "src/content/knowledge/frontend-algorithm-choices.ts",
+      "related": [
+        "E40"
+      ]
+    }
+  ],
+  "baselineCommit": "db61dd9e501315b6035b8c7ef31b6cdbfd4d875f"
+}

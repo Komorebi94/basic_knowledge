@@ -1,31 +1,32 @@
 import type { Article } from "../articles";
 
 export const deploymentRuntimesArticle: Article = {
+  "revision": 2,
   id: "K14-07",
   kind: "knowledge",
   domainSlug: "server",
   slug: "deployment-runtimes-and-edge",
   title: "部署运行时与边缘计算",
-  summary: "用固定能力表区分边缘和 Node：文件与长连接留在 Node，跳转可以放在边缘，空闲边缘要付启动成本。",
+  summary: "先核对指定运行时的 API、生命周期与部署约束，再决定功能位置；用真实 Node 文件操作区分能力存在和托管权限。",
   aliases: ["edge", "serverless", "cold start", "部署运行时"],
   tags: ["服务端", "部署", "边缘"],
   estimatedMinutes: 22,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
       title: "把读文件的接口放到边缘之后，为什么第一次请求和本地结果不一样？",
       paragraphs: [
-        "笔记导出在 Node 里用文件系统读取临时包，连接保持到写完。部署到更靠近用户的运行时后，文件 API 不存在，长连接也不在这张能力表里。另外，这个运行时空闲后再来的请求要重新启动，导出时间比进程一直活着的 Node 更不稳定。",
-        "放置功能前先看运行时支持什么，以及空闲之后要不要付启动成本。跳转和按地区选择公开入口可以靠近用户。读写本地文件和保持长连接留在本模型的 Node。这张表不是某一家边缘产品的文档。"
+        "同一导出程序在本机 Node 可以读取临时文件，迁移到另一托管环境后却失败：可能缺少 API、没有可写文件系统，也可能请求生命周期不允许继续执行。不能只凭 edge、serverless 或 Node 这些名称推出具体能力。",
+        "前面的表格是“受限边缘与常驻进程”的固定教学配置。真实 Cloudflare Workers 提供 WebSocket 和出站 TCP 等能力，部分 Node 托管则会回收空闲实例。选择必须绑定供应商、兼容日期、协议方向、资源限制和请求生命周期；后面的 Node 探针只验证本地环境。"
       ]
     },
     {
       id: "environment",
       title: "复现环境：只认识 edge 和 node，以及四项固定能力",
       paragraphs: [
-        "运行 npm run verify:k14。accept 的能力只有 redirect、geo、filesystem、socket。边缘上文件和长连接是 unsupported，跳转和 geo 是 allowed。Node 上文件和长连接是 allowed，跳转是 allowed，geo 是 origin，表示个性化发生在源站而不是边缘缓存旁边。",
-        "startCost 里空闲毫秒为 0 时两边都是 warm。空闲大于 0 时，边缘返回 cold-start，Node 返回 process-kept。未知运行时或负数是 invalid。40 毫秒只是作者写下的空闲值，不是测量到的冷启动时间。"
+        "运行 npm run verify:k14。accept 的能力只有 redirect、geo、filesystem、socket。边缘上文件和长连接是 unsupported，跳转和 geo 是 allowed。Node 上文件和长连接是 allowed，跳转是 allowed，geo 是 origin，表示个性化发生在源站而不是边缘缓存旁边。 这里 edge 指受限教学配置，不是所有边缘产品。",
+        "startCost 另行接收生命周期 policy；persistent 保留进程，recycled 表示已确认回收，unknown 不推断。它不把所有 Node 部署标为常驻，也不把所有空闲都标为回收。"
       ]
     },
     {
@@ -75,31 +76,23 @@ console.log('未知:' + accept('browser', 'redirect'));`,
       id: "start",
       title: "空闲之后，边缘要计算启动，一直留着的进程不用",
       paragraphs: [
-        "空闲 40 毫秒时，边缘是 cold-start，Node 是 process-kept。空闲 0 表示实例正在处理或刚处理过，两边都是 warm。启动成本只在空闲之后出现，不是每个请求都自动加上。",
-        "导出这种偶尔发生、又要读文件的工作，冷启动会叠在不支持的 API 之上。高频的公开跳转即使偶发冷启动，也通常比把整次导出搬到边缘更合适。选择看的是请求形态和能力，不是“边缘一定更快”。"
+        "启动取决于部署生命周期，不直接取决于语言运行时。本例把 policy 明确设为 persistent、recycled 或 unknown；只有确认回收后才将启动纳入下一请求，未知时不编造结论。",
+        "空闲值 40 仅供模型分支推导，不代表任何平台的回收阈值或冷启动时长。实际记录要区分初始化、排队、网络与业务处理，并保留地区、包版本和实例状态。"
       ],
       examples: [
         {
-          language: "javascript",
-          code: `function startCost(runtime, idleMs) {
-  if ((runtime !== 'edge' && runtime !== 'node') || !Number.isInteger(idleMs) || idleMs < 0) return 'invalid';
-  if (idleMs === 0) return 'warm';
-  if (runtime === 'edge') return 'cold-start';
-  return 'process-kept';
-}
-console.log('空闲边缘:' + startCost('edge', 40));
-console.log('空闲节点:' + startCost('node', 40));
-console.log('正在用:' + startCost('edge', 0));
-console.log('负数:' + startCost('node', -1));`,
-          expectedOutput: [
-            "空闲边缘:cold-start",
-            "空闲节点:process-kept",
+          "language": "javascript",
+          "code": "function startCost(policy, idleMs) {\n  if (!['persistent', 'recycled', 'unknown'].includes(policy) || !Number.isInteger(idleMs) || idleMs < 0) return 'invalid';\n  if (idleMs === 0) return 'warm';\n  if (policy === 'persistent') return 'process-kept';\n  if (policy === 'recycled') return 'cold-start';\n  return 'unknown';\n}\nconsole.log('按需回收:' + startCost('recycled', 40));\nconsole.log('常驻进程:' + startCost('persistent', 40));\nconsole.log('策略未知:' + startCost('unknown', 40));\nconsole.log('正在用:' + startCost('recycled', 0));\nconsole.log('负数:' + startCost('persistent', -1));",
+          "expectedOutput": [
+            "按需回收:cold-start",
+            "常驻进程:process-kept",
+            "策略未知:unknown",
             "正在用:warm",
             "负数:invalid"
           ],
-          explanation: [
-            "同样空闲 40，边缘要重新启动，Node 在这个模型里保持进程。空闲 0 不再区分两边。",
-            "负数没有空闲含义，返回 invalid。40 不是生产环境测得的毫秒数。"
+          "explanation": [
+            "空闲 40 不是冷启动测量，而是本例给定的输入。只有已经确认“该实例被回收”时，才在模型中计启动；常驻配置保留进程，生命周期未知就返回 unknown。",
+            "Node 可以运行在按需回收平台，边缘实例也可能被复用。要根据实际实例启动、部署地区和负载记录观察，不能用 runtime 名称替代生命周期事实。"
           ]
         }
       ]
@@ -108,7 +101,7 @@ console.log('负数:' + startCost('node', -1));`,
       id: "place",
       title: "一个请求可以分段：边缘做跳转，源站做文件和长连接",
       paragraphs: [
-        "用户先到边缘，边缘只决定去哪个区域的源站。源站的 Node 读取导出文件并保持写完所需的连接。这样地理延迟和进程能力分开处理。把两段都放在边缘，会同时碰上 unsupported 和 cold-start。",
+        "一个可行方案是边缘处理公开入口选择，具备所需权限和持久能力的源站负责文件导出；这是需要依据目标部署验证的方案，不是固定的 edge/Node 二选一。平台若提供合适的流、存储和连接能力，也可以重新评估位置。",
         "个性化若依据每个用户的笔记内容，edge 的 geo 允许并不表示可以把私有 HTML 缓存在边缘。地区是粗粒度的公开选择。私有响应仍按 K14-06 隔离，避免靠近用户的缓存变成跨用户共享。"
       ]
     },
@@ -122,17 +115,56 @@ console.log('负数:' + startCost('node', -1));`,
       ]
     },
     {
+      "id": "node-runtime-probe",
+      "title": "真实 Node 探针：临时文件可以读写，不代表它是持久数据库",
+      "paragraphs": [
+        "本例在 Node 22 的临时目录写入和读取一份固定作者文字，最后删除整个临时目录。API 存在与本次操作成功分别观察；权限失败会通过异常暴露，不能降级成假成功。该实验不建立 WebSocket 或 TCP 连接。"
+      ],
+      "examples": [
+        {
+          "language": "node",
+          "code": "import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';\nimport { tmpdir } from 'node:os';\nimport { join } from 'node:path';\nconsole.log('Web API:' + [typeof fetch, typeof WebSocket].join(','));\nconst directory = await mkdtemp(join(tmpdir(), 'author-export-'));\ntry {\n  const file = join(directory, 'notes.txt');\n  await writeFile(file, '固定作者草稿', 'utf8');\n  console.log('读回:' + await readFile(file, 'utf8'));\n} finally { await rm(directory, { recursive: true, force: true }); }\nconsole.log('清理完成');",
+          "expectedOutput": [
+            "Web API:function,function",
+            "读回:固定作者草稿",
+            "清理完成"
+          ],
+          "explanation": [
+            "当前 Node 提供 fetch 和 WebSocket 客户端构造器，临时目录本次允许写入；typeof 不能证明网络允许握手，也不能证明某个托管平台的全部协议与权限。",
+            "finally 删除临时文件，展示资源所有权。容器重启、实例回收或平台迁移可能丢掉本地文件，因此重要导出和共享数据应按产品恢复目标选择持久存储；存在 fs API 不会自动产生这个保证。"
+          ]
+        }
+      ]
+    },
+    {
       id: "practice",
       title: "先列功能需要的 API，再决定它能不能靠近用户",
       paragraphs: [
-        "读文件和长连接应得到边缘 unsupported、Node allowed。跳转可以在边缘。再写空闲与正在使用两种启动结果。私有页面不要只因为 geo allowed 就缓存在边缘。",
-        "本主题没有已开放的独立练习。表中的能力名不是某一厂商的接口。"
+        "先填目标平台的能力、协议方向和生命周期，再预测是否可部署；不知道就写待核对。用本地 Node 探针验证一次文件读写，不把它推广成线上磁盘持久性。",
+        "本主题没有专属编码题。能力表与本机实验各自限定环境，没有执行 Cloudflare 部署或比较跨地区延迟。"
       ]
     }
   ],
   sources: [
-    { title: "Node.js：文件系统", url: "https://nodejs.org/api/fs.html" },
-    { title: "MDN：WebSockets", url: "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" },
-    { title: "WinterCG", url: "https://wintercg.org/" }
+    {
+      "title": "Node.js：文件系统",
+      "url": "https://nodejs.org/api/fs.html"
+    },
+    {
+      "title": "MDN：WebSockets",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API"
+    },
+    {
+      "title": "WinterCG",
+      "url": "https://wintercg.org/"
+    },
+    {
+      "title": "Cloudflare Workers：WebSockets",
+      "url": "https://developers.cloudflare.com/workers/runtime-apis/websockets/"
+    },
+    {
+      "title": "Cloudflare Workers：TCP sockets",
+      "url": "https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/"
+    }
   ]
 };

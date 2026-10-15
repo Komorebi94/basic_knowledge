@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const componentCommunicationOwnershipArticle: Article = {
+  "revision": 2,
   "id": "K08-03",
   "kind": "knowledge",
   "domainSlug": "vue",
@@ -21,7 +22,7 @@ export const componentCommunicationOwnershipArticle: Article = {
     "状态所有权"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -201,7 +202,7 @@ export const componentCommunicationOwnershipArticle: Article = {
       "paragraphs": [
         "先合上代码，推导“数量变成 5，再输入 6”时侧栏、草稿和错误分别显示什么。再添加一个外部刷新，把已提交数量从 2 改成 4：实时受控视图应显示 4，有未提交草稿的编辑器却不能无声覆盖用户输入。为它选择显式重置或版本冲突，并说明谁执行这个决定。",
         "进一步练习：把事件示例的包装器多加一层，指出需要在哪里转发；同时挂载两份 Provider，各自创建 quantity，确认按钮互不影响。若把 quantity 创建移到共同模块，两份 provider 可能共享同一事实，作用域就改变了。",
-        "本主题暂无已交付的独立编码题。规划中的 E32 聚焦依赖追踪，E38 聚焦乐观更新与回滚，均尚未开放，因此本篇不提供空练习入口。文末回忆问题用于检查所有权、草稿与注入边界，不替代实际行为验证。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 Vue；框架机制仍按本文注明的真实实验核对。"
       ]
     }
   ],

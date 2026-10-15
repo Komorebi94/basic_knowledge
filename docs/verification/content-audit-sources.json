@@ -1,0 +1,2831 @@
+[
+  {
+    "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+    "ids": [
+      "AI01",
+      "AI03",
+      "AI05",
+      "AI06",
+      "AI07",
+      "AI08",
+      "AI09",
+      "AI10",
+      "AI11",
+      "AI16",
+      "AI18",
+      "AI20"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+    "seconds": 0.91
+  },
+  {
+    "url": "https://developers.openai.com/cookbook/articles/how_to_work_with_large_language_models",
+    "ids": [
+      "AI01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/cookbook/articles/how_to_work_with_large_language_models",
+    "seconds": 1.1
+  },
+  {
+    "url": "https://developers.openai.com/api/docs/guides/advanced-usage",
+    "ids": [
+      "AI01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/api/docs/guides/advanced-usage",
+    "seconds": 1.02
+  },
+  {
+    "url": "https://docs.github.com/en/copilot/tutorials/customize-code-review",
+    "ids": [
+      "AI02"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.github.com/en/copilot/tutorials/customize-code-review",
+    "seconds": 1.04
+  },
+  {
+    "url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+    "ids": [
+      "AI02"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github",
+    "seconds": 1.63
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+    "ids": [
+      "AI02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+    "seconds": 1.16
+  },
+  {
+    "url": "https://developers.openai.com/api/docs/guides/function-calling",
+    "ids": [
+      "AI04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/api/docs/guides/function-calling",
+    "seconds": 0.92
+  },
+  {
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+    "ids": [
+      "AI12",
+      "AI15"
+    ],
+    "status": 200,
+    "finalUrl": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+    "seconds": 1.43
+  },
+  {
+    "url": "https://learn.chatgpt.com/docs/build-skills",
+    "ids": [
+      "AI12"
+    ],
+    "status": 200,
+    "finalUrl": "https://learn.chatgpt.com/docs/build-skills",
+    "seconds": 0.94
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents",
+    "ids": [
+      "AI13"
+    ],
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents",
+    "seconds": 1.71
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-filters",
+    "ids": [
+      "AI13"
+    ],
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/azure/search/vector-search-filters",
+    "seconds": 0.89
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/azure/search/semantic-search-overview",
+    "ids": [
+      "AI13"
+    ],
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/azure/search/semantic-search-overview",
+    "seconds": 0.77
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/server-sent-events.html",
+    "ids": [
+      "AI14",
+      "K06-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/server-sent-events.html",
+    "seconds": 1.89
+  },
+  {
+    "url": "https://encoding.spec.whatwg.org/",
+    "ids": [
+      "AI14"
+    ],
+    "status": 200,
+    "finalUrl": "https://encoding.spec.whatwg.org/",
+    "seconds": 2.59
+  },
+  {
+    "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety",
+    "ids": [
+      "AI15"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/api/docs/guides/agent-builder-safety",
+    "seconds": 0.99
+  },
+  {
+    "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+    "ids": [
+      "AI16"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/api/docs/guides/agent-evals",
+    "seconds": 0.97
+  },
+  {
+    "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "ids": [
+      "AI17"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "seconds": 1.57
+  },
+  {
+    "url": "https://developers.openai.com/api/docs/guides/latency-optimization",
+    "ids": [
+      "AI18"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/api/docs/guides/latency-optimization",
+    "seconds": 0.84
+  },
+  {
+    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "ids": [
+      "AI18"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "seconds": 0.85
+  },
+  {
+    "url": "https://developers.openai.com/blog/eval-skills",
+    "ids": [
+      "AI19"
+    ],
+    "status": 200,
+    "finalUrl": "https://developers.openai.com/blog/eval-skills",
+    "seconds": 0.82
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html",
+    "ids": [
+      "K01-01",
+      "K01-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html",
+    "seconds": 1.37
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/abstract-operations.html",
+    "ids": [
+      "K01-01",
+      "K01-01",
+      "K01-01",
+      "K01-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/abstract-operations.html",
+    "seconds": 1.45
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness",
+    "ids": [
+      "K01-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness",
+    "seconds": 1.0
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/structured-data.html",
+    "ids": [
+      "K01-01",
+      "K02-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/structured-data.html",
+    "seconds": 1.75
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html",
+    "ids": [
+      "K01-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html",
+    "seconds": 0.99
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html",
+    "ids": [
+      "K01-02",
+      "K01-03",
+      "K01-03",
+      "K01-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html",
+    "seconds": 1.69
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+    "ids": [
+      "K01-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+    "seconds": 0.56
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let",
+    "ids": [
+      "K01-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let",
+    "seconds": 1.04
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for",
+    "ids": [
+      "K01-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for",
+    "seconds": 0.45
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval",
+    "ids": [
+      "K01-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval",
+    "seconds": 1.96
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html",
+    "ids": [
+      "K01-03",
+      "K01-04",
+      "K01-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html",
+    "seconds": 0.61
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this",
+    "ids": [
+      "K01-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this",
+    "seconds": 0.54
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/ecmascript-language-functions-and-classes.html",
+    "ids": [
+      "K01-04",
+      "K02-03",
+      "K02-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/ecmascript-language-functions-and-classes.html",
+    "seconds": 0.77
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
+    "ids": [
+      "K01-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain",
+    "seconds": 0.66
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/fundamental-objects.html",
+    "ids": [
+      "K01-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/fundamental-objects.html",
+    "seconds": 0.54
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty",
+    "ids": [
+      "K01-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty",
+    "seconds": 1.25
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/control-abstraction-objects.html",
+    "ids": [
+      "K01-06",
+      "K01-06",
+      "K02-02",
+      "K02-02",
+      "K02-02",
+      "K02-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/control-abstraction-objects.html",
+    "seconds": 0.56
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators",
+    "ids": [
+      "K01-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators",
+    "seconds": 1.07
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/ecmascript-language-scripts-and-modules.html",
+    "ids": [
+      "K01-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/ecmascript-language-scripts-and-modules.html",
+    "seconds": 0.55
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "ids": [
+      "K01-07",
+      "K13-01",
+      "K14-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "seconds": 1.41
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "ids": [
+      "K01-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/keyed-collections.html",
+    "ids": [
+      "K01-08",
+      "K16-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/keyed-collections.html",
+    "seconds": 1.14
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/managing-memory.html",
+    "ids": [
+      "K01-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/managing-memory.html",
+    "seconds": 0.91
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Memory_management",
+    "ids": [
+      "K01-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Memory_management",
+    "seconds": 1.41
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/webappapis.html",
+    "ids": [
+      "K02-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/webappapis.html",
+    "seconds": 1.38
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth",
+    "ids": [
+      "K02-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth",
+    "seconds": 1.46
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "ids": [
+      "K02-01",
+      "K16-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "seconds": 0.45
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "ids": [
+      "K02-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "seconds": 0.43
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function",
+    "ids": [
+      "K02-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function",
+    "seconds": 1.36
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all",
+    "ids": [
+      "K02-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all",
+    "seconds": 1.98
+  },
+  {
+    "url": "https://dom.spec.whatwg.org/",
+    "ids": [
+      "K02-05",
+      "K02-05",
+      "K04-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://dom.spec.whatwg.org/",
+    "seconds": 2.38
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal",
+    "ids": [
+      "K02-05",
+      "K14-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal",
+    "seconds": 1.04
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429",
+    "ids": [
+      "K02-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429",
+    "seconds": 1.09
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc9110",
+    "ids": [
+      "K02-06",
+      "K06-07",
+      "K06-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc9110/",
+    "seconds": 5.05
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/workers.html",
+    "ids": [
+      "K02-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/workers.html",
+    "seconds": 1.76
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage",
+    "ids": [
+      "K02-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage",
+    "seconds": 1.17
+  },
+  {
+    "url": "https://www.w3.org/TR/hr-time-3/",
+    "ids": [
+      "K02-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/TR/hr-time-3/",
+    "seconds": 1.52
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Performance/now",
+    "ids": [
+      "K02-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Performance/now",
+    "seconds": 1.16
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+    "ids": [
+      "K03-01",
+      "K03-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+    "seconds": 1.29
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+    "ids": [
+      "K03-01",
+      "K12-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+    "seconds": 1.22
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+    "ids": [
+      "K03-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+    "seconds": 1.16
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+    "ids": [
+      "K03-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+    "seconds": 0.61
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/2/functions.html",
+    "ids": [
+      "K03-03",
+      "K03-05",
+      "K03-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/2/functions.html",
+    "seconds": 0.52
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/2/conditional-types.html",
+    "ids": [
+      "K03-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/2/conditional-types.html",
+    "seconds": 0.57
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/2/mapped-types.html",
+    "ids": [
+      "K03-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/2/mapped-types.html",
+    "seconds": 0.54
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/type-compatibility.html",
+    "ids": [
+      "K03-05",
+      "K03-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/type-compatibility.html",
+    "seconds": 0.6
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/utility-types.html",
+    "ids": [
+      "K03-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/utility-types.html",
+    "seconds": 0.55
+  },
+  {
+    "url": "https://www.typescriptlang.org/tsconfig/exactOptionalPropertyTypes.html",
+    "ids": [
+      "K03-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/tsconfig/exactOptionalPropertyTypes.html",
+    "seconds": 0.63
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html",
+    "ids": [
+      "K03-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html",
+    "seconds": 0.56
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+    "ids": [
+      "K03-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+    "seconds": 0.54
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/wiki/Performance",
+    "ids": [
+      "K03-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://github.com/microsoft/TypeScript/wiki/Performance",
+    "seconds": 0.81
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html",
+    "ids": [
+      "K03-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html",
+    "seconds": 1.1
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work",
+    "ids": [
+      "K04-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work",
+    "seconds": 1.36
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Critical_rendering_path",
+    "ids": [
+      "K04-01",
+      "K04-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Critical_rendering_path",
+    "seconds": 1.27
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect",
+    "ids": [
+      "K04-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener",
+    "ids": [
+      "K04-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener",
+    "seconds": 0.32
+  },
+  {
+    "url": "https://storage.spec.whatwg.org/",
+    "ids": [
+      "K04-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://storage.spec.whatwg.org/",
+    "seconds": 2.69
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB",
+    "ids": [
+      "K04-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB",
+    "seconds": 1.18
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria",
+    "ids": [
+      "K04-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://w3c.github.io/IntersectionObserver/",
+    "ids": [
+      "K04-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://w3c.github.io/IntersectionObserver/",
+    "seconds": 0.66
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver",
+    "ids": [
+      "K04-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver",
+    "seconds": 1.09
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver",
+    "ids": [
+      "K04-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver",
+    "seconds": 0.35
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/nav-history-apis.html",
+    "ids": [
+      "K04-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/nav-history-apis.html",
+    "seconds": 1.41
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event",
+    "ids": [
+      "K04-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event",
+    "seconds": 1.17
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event",
+    "ids": [
+      "K04-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event",
+    "seconds": 1.21
+  },
+  {
+    "url": "https://w3c.github.io/ServiceWorker/",
+    "ids": [
+      "K04-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://w3c.github.io/ServiceWorker/",
+    "seconds": 0.86
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers",
+    "ids": [
+      "K04-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers",
+    "seconds": 1.33
+  },
+  {
+    "url": "https://www.w3.org/TR/permissions/",
+    "ids": [
+      "K04-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/TR/permissions/",
+    "seconds": 4.75
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API",
+    "ids": [
+      "K04-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API",
+    "seconds": 1.28
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement",
+    "ids": [
+      "K04-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement",
+    "seconds": 1.04
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button",
+    "ids": [
+      "K05-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label",
+    "ids": [
+      "K05-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label",
+    "seconds": 1.28
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit",
+    "ids": [
+      "K05-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit",
+    "seconds": 1.06
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model",
+    "ids": [
+      "K05-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model",
+    "seconds": 1.05
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Positioned_layout/Stacking_context",
+    "ids": [
+      "K05-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Positioned_layout/Stacking_context",
+    "seconds": 1.49
+  },
+  {
+    "url": "https://drafts.csswg.org/css-flexbox-1/",
+    "ids": [
+      "K05-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-flexbox-1/",
+    "seconds": 1.34
+  },
+  {
+    "url": "https://drafts.csswg.org/css-grid-1/",
+    "ids": [
+      "K05-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-grid-1/",
+    "seconds": 1.24
+  },
+  {
+    "url": "https://drafts.csswg.org/css-conditional-5/",
+    "ids": [
+      "K05-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-conditional-5/",
+    "seconds": 1.17
+  },
+  {
+    "url": "https://drafts.csswg.org/mediaqueries-5/",
+    "ids": [
+      "K05-04",
+      "K05-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/mediaqueries-5/",
+    "seconds": 1.05
+  },
+  {
+    "url": "https://drafts.csswg.org/css-cascade-5/",
+    "ids": [
+      "K05-05",
+      "K05-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-cascade-5/",
+    "seconds": 0.86
+  },
+  {
+    "url": "https://drafts.csswg.org/web-animations-1/",
+    "ids": [
+      "K05-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/web-animations-1/",
+    "seconds": 0.7
+  },
+  {
+    "url": "https://drafts.csswg.org/css-logical-1/",
+    "ids": [
+      "K05-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-logical-1/",
+    "seconds": 0.62
+  },
+  {
+    "url": "https://drafts.csswg.org/css-writing-modes-4/",
+    "ids": [
+      "K05-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-writing-modes-4/",
+    "seconds": 0.54
+  },
+  {
+    "url": "https://drafts.csswg.org/css-position-3/",
+    "ids": [
+      "K05-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-position-3/",
+    "seconds": 0.57
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/popover.html",
+    "ids": [
+      "K05-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/popover.html",
+    "seconds": 1.63
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching",
+    "ids": [
+      "K06-01",
+      "K14-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching",
+    "seconds": 0.31
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control",
+    "ids": [
+      "K06-01",
+      "K09-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control",
+    "seconds": 0.31
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "ids": [
+      "K06-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Glossary/Idempotent",
+    "ids": [
+      "K06-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Glossary/Idempotent",
+    "seconds": 0.32
+  },
+  {
+    "url": "https://httpwg.org/specs/rfc9113.html",
+    "ids": [
+      "K06-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://httpwg.org/specs/rfc9113.html",
+    "seconds": 1.63
+  },
+  {
+    "url": "https://httpwg.org/specs/rfc9114.html",
+    "ids": [
+      "K06-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://httpwg.org/specs/rfc9114.html",
+    "seconds": 2.23
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc6265.html",
+    "ids": [
+      "K06-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/rfc/rfc6265.html",
+    "seconds": 1.29
+  },
+  {
+    "url": "https://fetch.spec.whatwg.org/",
+    "ids": [
+      "K06-04",
+      "K06-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://fetch.spec.whatwg.org/",
+    "seconds": 1.75
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/browsers.html",
+    "ids": [
+      "K06-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/browsers.html",
+    "seconds": 1.42
+  },
+  {
+    "url": "https://websockets.spec.whatwg.org/",
+    "ids": [
+      "K06-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://websockets.spec.whatwg.org/",
+    "seconds": 2.1
+  },
+  {
+    "url": "https://w3c.github.io/FileAPI/",
+    "ids": [
+      "K06-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://w3c.github.io/FileAPI/",
+    "seconds": 0.93
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc3339",
+    "ids": [
+      "K06-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc3339/",
+    "seconds": 2.19
+  },
+  {
+    "url": "https://react.dev/learn/state-as-a-snapshot",
+    "ids": [
+      "K07-01",
+      "K13-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/state-as-a-snapshot",
+    "seconds": 1.84
+  },
+  {
+    "url": "https://react.dev/learn/queueing-a-series-of-state-updates",
+    "ids": [
+      "K07-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/queueing-a-series-of-state-updates",
+    "seconds": 1.79
+  },
+  {
+    "url": "https://react.dev/learn/synchronizing-with-effects",
+    "ids": [
+      "K07-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/synchronizing-with-effects",
+    "seconds": 1.75
+  },
+  {
+    "url": "https://react.dev/reference/react/useEffect",
+    "ids": [
+      "K07-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react/useEffect",
+    "seconds": 1.48
+  },
+  {
+    "url": "https://react.dev/learn/preserving-and-resetting-state",
+    "ids": [
+      "K07-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/preserving-and-resetting-state",
+    "seconds": 1.42
+  },
+  {
+    "url": "https://react.dev/learn/rendering-lists",
+    "ids": [
+      "K07-03",
+      "K16-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/rendering-lists",
+    "seconds": 1.09
+  },
+  {
+    "url": "https://react.dev/learn/sharing-state-between-components",
+    "ids": [
+      "K07-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/sharing-state-between-components",
+    "seconds": 1.0
+  },
+  {
+    "url": "https://react.dev/learn/choosing-the-state-structure",
+    "ids": [
+      "K07-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/choosing-the-state-structure",
+    "seconds": 0.88
+  },
+  {
+    "url": "https://react.dev/reference/react/useTransition",
+    "ids": [
+      "K07-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react/useTransition",
+    "seconds": 0.85
+  },
+  {
+    "url": "https://react.dev/reference/react/Suspense",
+    "ids": [
+      "K07-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react/Suspense",
+    "seconds": 0.85
+  },
+  {
+    "url": "https://react.dev/learn/reusing-logic-with-custom-hooks",
+    "ids": [
+      "K07-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/reusing-logic-with-custom-hooks",
+    "seconds": 0.85
+  },
+  {
+    "url": "https://react.dev/reference/rules/rules-of-hooks",
+    "ids": [
+      "K07-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/rules/rules-of-hooks",
+    "seconds": 0.86
+  },
+  {
+    "url": "https://react.dev/reference/rsc/server-components",
+    "ids": [
+      "K07-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/rsc/server-components",
+    "seconds": 0.84
+  },
+  {
+    "url": "https://react.dev/reference/rsc/use-client",
+    "ids": [
+      "K07-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/rsc/use-client",
+    "seconds": 0.85
+  },
+  {
+    "url": "https://react.dev/reference/react/memo",
+    "ids": [
+      "K07-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react/memo",
+    "seconds": 0.85
+  },
+  {
+    "url": "https://react.dev/reference/react/useMemo",
+    "ids": [
+      "K07-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react/useMemo",
+    "seconds": 0.86
+  },
+  {
+    "url": "https://vuejs.org/guide/extras/reactivity-in-depth",
+    "ids": [
+      "K08-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/extras/reactivity-in-depth",
+    "seconds": 1.89
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+    "ids": [
+      "K08-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+    "seconds": 1.56
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/computed",
+    "ids": [
+      "K08-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/computed",
+    "seconds": 1.38
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/watchers",
+    "ids": [
+      "K08-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/watchers",
+    "seconds": 1.32
+  },
+  {
+    "url": "https://vuejs.org/guide/components/props.html",
+    "ids": [
+      "K08-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/props.html",
+    "seconds": 1.1
+  },
+  {
+    "url": "https://vuejs.org/guide/components/events.html",
+    "ids": [
+      "K08-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/events.html",
+    "seconds": 0.82
+  },
+  {
+    "url": "https://vuejs.org/guide/components/v-model.html",
+    "ids": [
+      "K08-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/v-model.html",
+    "seconds": 0.82
+  },
+  {
+    "url": "https://vuejs.org/guide/components/provide-inject.html",
+    "ids": [
+      "K08-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/provide-inject.html",
+    "seconds": 0.84
+  },
+  {
+    "url": "https://vuejs.org/guide/scaling-up/state-management.html",
+    "ids": [
+      "K08-03",
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/scaling-up/state-management.html",
+    "seconds": 1.1
+  },
+  {
+    "url": "https://vuejs.org/guide/scaling-up/ssr.html",
+    "ids": [
+      "K08-03",
+      "K08-04",
+      "K08-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/scaling-up/ssr.html",
+    "seconds": 0.92
+  },
+  {
+    "url": "https://vuejs.org/guide/reusability/composables.html",
+    "ids": [
+      "K08-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/reusability/composables.html",
+    "seconds": 0.9
+  },
+  {
+    "url": "https://vuejs.org/api/composition-api-lifecycle.html",
+    "ids": [
+      "K08-04",
+      "K08-07",
+      "K08-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/composition-api-lifecycle.html",
+    "seconds": 1.06
+  },
+  {
+    "url": "https://vuejs.org/api/reactivity-advanced.html",
+    "ids": [
+      "K08-04",
+      "K08-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/reactivity-advanced.html",
+    "seconds": 1.07
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/watchers.html",
+    "ids": [
+      "K08-04",
+      "K08-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/watchers.html",
+    "seconds": 0.89
+  },
+  {
+    "url": "https://vuejs.org/api/reactivity-utilities.html",
+    "ids": [
+      "K08-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/reactivity-utilities.html",
+    "seconds": 1.19
+  },
+  {
+    "url": "https://vuejs.org/api/sfc-script-setup.html",
+    "ids": [
+      "K08-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/sfc-script-setup.html",
+    "seconds": 0.82
+  },
+  {
+    "url": "https://vuejs.org/guide/built-ins/keep-alive.html",
+    "ids": [
+      "K08-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/built-ins/keep-alive.html",
+    "seconds": 1.01
+  },
+  {
+    "url": "https://vuejs.org/guide/extras/rendering-mechanism.html",
+    "ids": [
+      "K08-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/extras/rendering-mechanism.html",
+    "seconds": 1.04
+  },
+  {
+    "url": "https://vuejs.org/guide/best-practices/performance.html",
+    "ids": [
+      "K08-05",
+      "K08-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/best-practices/performance.html",
+    "seconds": 1.03
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/list.html",
+    "ids": [
+      "K08-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/list.html",
+    "seconds": 0.83
+  },
+  {
+    "url": "https://vuejs.org/api/built-in-directives.html",
+    "ids": [
+      "K08-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/built-in-directives.html",
+    "seconds": 1.17
+  },
+  {
+    "url": "https://vuejs.org/guide/extras/render-function.html",
+    "ids": [
+      "K08-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/extras/render-function.html",
+    "seconds": 0.98
+  },
+  {
+    "url": "https://vuejs.org/guide/best-practices/security.html",
+    "ids": [
+      "K08-05",
+      "K08-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/best-practices/security.html",
+    "seconds": 0.97
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/dynamic-matching.html",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/dynamic-matching.html",
+    "seconds": 2.0
+  },
+  {
+    "url": "https://router.vuejs.org/guide/advanced/composition-api.html",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/advanced/composition-api.html",
+    "seconds": 1.97
+  },
+  {
+    "url": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+    "seconds": 2.06
+  },
+  {
+    "url": "https://router.vuejs.org/guide/advanced/navigation-failures.html",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/advanced/navigation-failures.html",
+    "seconds": 2.04
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/navigation.html",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/navigation.html",
+    "seconds": 1.93
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/history-mode.html",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/history-mode.html",
+    "seconds": 1.82
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/forms.html",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/forms.html",
+    "seconds": 0.87
+  },
+  {
+    "url": "https://pinia.vuejs.org/core-concepts/",
+    "ids": [
+      "K08-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://pinia.vuejs.org/core-concepts/",
+    "seconds": 1.37
+  },
+  {
+    "url": "https://vuejs.org/api/ssr.html",
+    "ids": [
+      "K08-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/ssr.html",
+    "seconds": 0.91
+  },
+  {
+    "url": "https://vuejs.org/api/application.html",
+    "ids": [
+      "K08-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/application.html",
+    "seconds": 1.07
+  },
+  {
+    "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+    "ids": [
+      "K08-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+    "seconds": 1.05
+  },
+  {
+    "url": "https://developer.chrome.com/docs/devtools/performance",
+    "ids": [
+      "K08-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.chrome.com/docs/devtools/performance",
+    "seconds": 0.92
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark",
+    "ids": [
+      "K08-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark",
+    "seconds": 1.07
+  },
+  {
+    "url": "https://vite.dev/guide/features.html",
+    "ids": [
+      "K09-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/features.html",
+    "seconds": 1.47
+  },
+  {
+    "url": "https://vite.dev/guide/build",
+    "ids": [
+      "K09-01",
+      "K09-04",
+      "K09-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/build",
+    "seconds": 1.43
+  },
+  {
+    "url": "https://vite.dev/guide/dep-pre-bundling.html",
+    "ids": [
+      "K09-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/dep-pre-bundling.html",
+    "seconds": 1.57
+  },
+  {
+    "url": "https://docs.npmjs.com/cli/commands/npm-ci/",
+    "ids": [
+      "K09-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.npmjs.com/cli/commands/npm-ci/",
+    "seconds": 0.67
+  },
+  {
+    "url": "https://docs.npmjs.com/cli/configuring-npm/package-lock-json/",
+    "ids": [
+      "K09-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.npmjs.com/cli/configuring-npm/package-lock-json/",
+    "seconds": 0.41
+  },
+  {
+    "url": "https://rolldown.rs/in-depth/dead-code-elimination",
+    "ids": [
+      "K09-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://rolldown.rs/in-depth/dead-code-elimination",
+    "seconds": 2.65
+  },
+  {
+    "url": "https://rolldown.rs/reference/InputOptions.treeshake",
+    "ids": [
+      "K09-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://rolldown.rs/reference/InputOptions.treeshake",
+    "seconds": 2.41
+  },
+  {
+    "url": "https://webpack.js.org/guides/tree-shaking/",
+    "ids": [
+      "K09-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://webpack.js.org/guides/tree-shaking/",
+    "seconds": 1.63
+  },
+  {
+    "url": "https://www.typescriptlang.org/tsconfig/target.html",
+    "ids": [
+      "K09-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/tsconfig/target.html",
+    "seconds": 0.73
+  },
+  {
+    "url": "https://www.typescriptlang.org/tsconfig/lib.html",
+    "ids": [
+      "K09-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/tsconfig/lib.html",
+    "seconds": 0.55
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API",
+    "ids": [
+      "K09-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API",
+    "seconds": 0.8
+  },
+  {
+    "url": "https://vite.dev/guide/backend-integration",
+    "ids": [
+      "K09-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/backend-integration",
+    "seconds": 1.09
+  },
+  {
+    "url": "https://rolldown.rs/reference/Interface.OutputOptions",
+    "ids": [
+      "K09-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://rolldown.rs/reference/Interface.OutputOptions",
+    "seconds": 4.37
+  },
+  {
+    "url": "https://docs.npmjs.com/cli/using-npm/workspaces/",
+    "ids": [
+      "K09-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.npmjs.com/cli/using-npm/workspaces/",
+    "seconds": 0.57
+  },
+  {
+    "url": "https://nodejs.org/api/packages.html",
+    "ids": [
+      "K09-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://nodejs.org/api/packages.html",
+    "seconds": 0.24
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/project-references.html",
+    "ids": [
+      "K09-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/project-references.html",
+    "seconds": 0.57
+  },
+  {
+    "url": "https://rolldown.rs/reference/OutputOptions.sourcemap",
+    "ids": [
+      "K09-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://rolldown.rs/reference/OutputOptions.sourcemap",
+    "seconds": 1.23
+  },
+  {
+    "url": "https://nodejs.org/api/module.html",
+    "ids": [
+      "K09-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://nodejs.org/api/module.html",
+    "seconds": 0.2
+  },
+  {
+    "url": "https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments",
+    "ids": [
+      "K09-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments",
+    "seconds": 0.91
+  },
+  {
+    "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency",
+    "ids": [
+      "K09-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency",
+    "seconds": 0.73
+  },
+  {
+    "url": "https://docs.npmjs.com/cli/commands/npm-ci",
+    "ids": [
+      "K09-08",
+      "K11-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://docs.npmjs.com/cli/commands/npm-ci/",
+    "seconds": 0.83
+  },
+  {
+    "url": "https://web.dev/articles/vitals",
+    "ids": [
+      "K10-01",
+      "K10-07",
+      "K10-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://web.dev/articles/vitals",
+    "seconds": 1.31
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/User_timing",
+    "ids": [
+      "K10-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/User_timing",
+    "seconds": 1.17
+  },
+  {
+    "url": "https://web.dev/articles/optimize-long-tasks",
+    "ids": [
+      "K10-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://web.dev/articles/optimize-long-tasks",
+    "seconds": 1.23
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Scheduler/yield",
+    "ids": [
+      "K10-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Scheduler/yield",
+    "seconds": 1.07
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers",
+    "ids": [
+      "K10-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://web.dev/articles/optimize-lcp",
+    "ids": [
+      "K10-03",
+      "K10-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://web.dev/articles/optimize-lcp",
+    "seconds": 1.23
+  },
+  {
+    "url": "https://web.dev/articles/preload-critical-assets",
+    "ids": [
+      "K10-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://web.dev/articles/preload-critical-assets",
+    "seconds": 1.22
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display",
+    "ids": [
+      "K10-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face/font-display",
+    "seconds": 2.18
+  },
+  {
+    "url": "https://drafts.csswg.org/css-fonts/",
+    "ids": [
+      "K10-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://drafts.csswg.org/css-fonts/",
+    "seconds": 0.56
+  },
+  {
+    "url": "https://web.dev/articles/content-visibility",
+    "ids": [
+      "K10-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://web.dev/articles/content-visibility",
+    "seconds": 1.41
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement",
+    "ids": [
+      "K10-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement",
+    "seconds": 1.22
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching",
+    "ids": [
+      "K10-05",
+      "K14-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching",
+    "seconds": 1.03
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control",
+    "ids": [
+      "K10-05",
+      "K14-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control",
+    "seconds": 0.76
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary",
+    "ids": [
+      "K10-05",
+      "K14-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Vary",
+    "seconds": 1.57
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/prefetch",
+    "ids": [
+      "K10-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/prefetch",
+    "seconds": 1.69
+  },
+  {
+    "url": "https://web.dev/articles/reduce-javascript-payloads-with-code-splitting",
+    "ids": [
+      "K10-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://web.dev/articles/reduce-javascript-payloads-with-code-splitting",
+    "seconds": 1.22
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload",
+    "ids": [
+      "K10-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload",
+    "seconds": 1.73
+  },
+  {
+    "url": "https://web.dev/articles/performance-budgets-101",
+    "ids": [
+      "K10-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://web.dev/articles/performance-budgets-101",
+    "seconds": 1.22
+  },
+  {
+    "url": "https://developer.chrome.com/docs/devtools/performance/overview",
+    "ids": [
+      "K10-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.chrome.com/docs/devtools/performance/overview",
+    "seconds": 0.58
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS",
+    "ids": [
+      "K11-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS",
+    "seconds": 1.24
+  },
+  {
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+    "ids": [
+      "K11-02",
+      "K13-04"
+    ],
+    "error": "URLError: <urlopen error _ssl.c:1112: The handshake operation timed out>",
+    "seconds": 18.79
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF",
+    "ids": [
+      "K11-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF",
+    "seconds": 1.38
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP",
+    "ids": [
+      "K11-03",
+      "K11-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+    "seconds": 0.94
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src",
+    "ids": [
+      "K11-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src",
+    "seconds": 0.99
+  },
+  {
+    "url": "https://www.w3.org/TR/CSP3/",
+    "ids": [
+      "K11-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/TR/CSP3/",
+    "seconds": 2.58
+  },
+  {
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html",
+    "ids": [
+      "K11-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html",
+    "seconds": 1.86
+  },
+  {
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html",
+    "ids": [
+      "K11-05",
+      "K11-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html",
+    "seconds": 6.16
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/URL",
+    "ids": [
+      "K11-05",
+      "K11-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/URL",
+    "seconds": 1.17
+  },
+  {
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html",
+    "ids": [
+      "K11-06",
+      "K11-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html",
+    "seconds": 1.13
+  },
+  {
+    "url": "https://url.spec.whatwg.org/",
+    "ids": [
+      "K11-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://url.spec.whatwg.org/",
+    "seconds": 2.24
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy",
+    "ids": [
+      "K11-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy",
+    "seconds": 0.68
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe",
+    "ids": [
+      "K11-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe",
+    "seconds": 1.08
+  },
+  {
+    "url": "https://html.spec.whatwg.org/multipage/iframe-embed-object.html",
+    "ids": [
+      "K11-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://html.spec.whatwg.org/multipage/iframe-embed-object.html",
+    "seconds": 1.37
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage",
+    "ids": [
+      "K11-07",
+      "K13-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage",
+    "seconds": 0.54
+  },
+  {
+    "url": "https://owasp.org/www-community/Threat_Modeling",
+    "ids": [
+      "K11-08"
+    ],
+    "status": 308,
+    "finalUrl": "https://owasp.org/www-community/Threat_Modeling",
+    "seconds": 0.94
+  },
+  {
+    "url": "https://playwright.dev/docs/best-practices",
+    "ids": [
+      "K12-01",
+      "K12-02",
+      "K12-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://playwright.dev/docs/best-practices",
+    "seconds": 1.09
+  },
+  {
+    "url": "https://testing-library.com/docs/guiding-principles/",
+    "ids": [
+      "K12-01",
+      "K12-02",
+      "K12-03"
+    ],
+    "error": "URLError: <urlopen error _ssl.c:1112: The handshake operation timed out>",
+    "seconds": 18.82
+  },
+  {
+    "url": "https://martinfowler.com/articles/mocksArentStubs.html",
+    "ids": [
+      "K12-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://martinfowler.com/articles/mocksArentStubs.html",
+    "seconds": 1.49
+  },
+  {
+    "url": "https://martinfowler.com/bliki/ContractTest.html",
+    "ids": [
+      "K12-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://martinfowler.com/bliki/ContractTest.html",
+    "seconds": 1.45
+  },
+  {
+    "url": "https://playwright.dev/docs/clock",
+    "ids": [
+      "K12-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://playwright.dev/docs/clock",
+    "seconds": 0.87
+  },
+  {
+    "url": "https://jestjs.io/docs/timer-mocks",
+    "ids": [
+      "K12-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://jestjs.io/docs/timer-mocks",
+    "seconds": 2.93
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide",
+    "ids": [
+      "K12-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide",
+    "seconds": 1.45
+  },
+  {
+    "url": "https://testing-library.com/docs/queries/about",
+    "ids": [
+      "K12-05"
+    ],
+    "error": "URLError: <urlopen error _ssl.c:1112: The handshake operation timed out>",
+    "seconds": 27.93
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/button_role",
+    "ids": [
+      "K12-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/button_role",
+    "seconds": 1.28
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+    "ids": [
+      "K12-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+    "seconds": 1.21
+  },
+  {
+    "url": "https://playwright.dev/docs/browser-contexts",
+    "ids": [
+      "K12-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://playwright.dev/docs/browser-contexts",
+    "seconds": 0.29
+  },
+  {
+    "url": "https://playwright.dev/docs/test-retries",
+    "ids": [
+      "K12-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://playwright.dev/docs/test-retries",
+    "seconds": 0.73
+  },
+  {
+    "url": "https://hypothesis.works/articles/what-is-property-based-testing/",
+    "ids": [
+      "K12-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://hypothesis.works/articles/what-is-property-based-testing/",
+    "seconds": 1.15
+  },
+  {
+    "url": "https://fast-check.dev/docs/introduction/",
+    "ids": [
+      "K12-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://fast-check.dev/docs/introduction/",
+    "seconds": 1.82
+  },
+  {
+    "url": "https://stryker-mutator.io/docs/",
+    "ids": [
+      "K12-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://stryker-mutator.io/docs/",
+    "seconds": 3.96
+  },
+  {
+    "url": "https://eslint.org/docs/latest/use/core-concepts",
+    "ids": [
+      "K12-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://eslint.org/docs/latest/use/core-concepts",
+    "seconds": 1.18
+  },
+  {
+    "url": "https://playwright.dev/docs/test-assertions",
+    "ids": [
+      "K12-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://playwright.dev/docs/test-assertions",
+    "seconds": 0.62
+  },
+  {
+    "url": "https://react.dev/learn/thinking-in-react",
+    "ids": [
+      "K13-01",
+      "K13-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/learn/thinking-in-react",
+    "seconds": 0.85
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation",
+    "ids": [
+      "K13-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation",
+    "seconds": 1.63
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation",
+    "ids": [
+      "K13-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation",
+    "seconds": 1.25
+  },
+  {
+    "url": "https://react.dev/reference/react-dom/components/form",
+    "ids": [
+      "K13-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react-dom/components/form",
+    "seconds": 0.84
+  },
+  {
+    "url": "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+    "ids": [
+      "K13-04"
+    ],
+    "status": 308,
+    "finalUrl": "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+    "seconds": 0.37
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403",
+    "ids": [
+      "K13-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403",
+    "seconds": 0.65
+  },
+  {
+    "url": "https://semver.org/",
+    "ids": [
+      "K13-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://semver.org/",
+    "seconds": 0.84
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements",
+    "ids": [
+      "K13-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements",
+    "seconds": 1.32
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components",
+    "ids": [
+      "K13-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components",
+    "seconds": 1.22
+  },
+  {
+    "url": "https://micro-frontends.org/",
+    "ids": [
+      "K13-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://micro-frontends.org/",
+    "seconds": 4.8
+  },
+  {
+    "url": "https://webpack.js.org/concepts/module-federation/",
+    "ids": [
+      "K13-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://webpack.js.org/concepts/module-federation/",
+    "seconds": 0.86
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl",
+    "ids": [
+      "K13-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://www.w3.org/International/questions/qa-i18n",
+    "ids": [
+      "K13-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/International/questions/qa-i18n",
+    "seconds": 2.32
+  },
+  {
+    "url": "https://www.unicode.org/reports/tr35/tr35.html",
+    "ids": [
+      "K13-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.unicode.org/reports/tr35/tr35.html",
+    "seconds": 2.16
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Performance",
+    "ids": [
+      "K13-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Performance",
+    "seconds": 1.3
+  },
+  {
+    "url": "https://www.w3.org/TR/resource-timing-2/",
+    "ids": [
+      "K13-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/TR/resource-timing/",
+    "seconds": 4.58
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/503",
+    "ids": [
+      "K13-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/503",
+    "seconds": 0.45
+  },
+  {
+    "url": "https://nodejs.org/api/globals.html",
+    "ids": [
+      "K14-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://nodejs.org/api/globals.html",
+    "seconds": 0.19
+  },
+  {
+    "url": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick",
+    "ids": [
+      "K14-01"
+    ],
+    "status": 200,
+    "finalUrl": "https://nodejs.org/learn/asynchronous-work/event-loop-timers-and-nexttick",
+    "seconds": 0.47
+  },
+  {
+    "url": "https://react.dev/reference/react-dom/client/hydrateRoot",
+    "ids": [
+      "K14-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react-dom/client/hydrateRoot",
+    "seconds": 0.86
+  },
+  {
+    "url": "https://nodejs.org/api/stream.html",
+    "ids": [
+      "K14-03",
+      "K14-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://nodejs.org/api/stream.html",
+    "seconds": 0.47
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Streams_API",
+    "ids": [
+      "K14-03",
+      "K14-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Streams_API",
+    "seconds": 1.19
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends",
+    "ids": [
+      "K14-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends",
+    "seconds": 1.16
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+    "ids": [
+      "K14-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+    "seconds": 0.32
+  },
+  {
+    "url": "https://react.dev/reference/react-dom/server/renderToReadableStream",
+    "ids": [
+      "K14-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://react.dev/reference/react-dom/server/renderToReadableStream",
+    "seconds": 0.87
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream",
+    "ids": [
+      "K14-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://nodejs.org/api/fs.html",
+    "ids": [
+      "K14-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://nodejs.org/api/fs.html",
+    "seconds": 0.21
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+    "ids": [
+      "K14-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://wintercg.org/",
+    "ids": [
+      "K14-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://wintertc.org/",
+    "seconds": 3.85
+  },
+  {
+    "url": "https://www.w3.org/TR/trace-context/",
+    "ids": [
+      "K14-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/TR/trace-context/",
+    "seconds": 2.01
+  },
+  {
+    "url": "https://opentelemetry.io/docs/concepts/signals/",
+    "ids": [
+      "K14-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://opentelemetry.io/docs/concepts/signals/",
+    "seconds": 1.41
+  },
+  {
+    "url": "https://opentelemetry.io/docs/concepts/context-propagation/",
+    "ids": [
+      "K14-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://opentelemetry.io/docs/concepts/context-propagation/",
+    "seconds": 1.51
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/",
+    "ids": [
+      "K15-01",
+      "K15-02",
+      "K15-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/",
+    "seconds": 0.89
+  },
+  {
+    "url": "https://www.w3.org/WAI/tutorials/forms/labels/",
+    "ids": [
+      "K15-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/tutorials/forms/labels/",
+    "seconds": 2.06
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+    "ids": [
+      "K15-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+    "seconds": 1.28
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html",
+    "ids": [
+      "K15-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html",
+    "seconds": 1.6
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid",
+    "ids": [
+      "K15-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid",
+    "seconds": 1.16
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+    "ids": [
+      "K15-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+    "seconds": 3.07
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/status_role",
+    "ids": [
+      "K15-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/status_role",
+    "seconds": 1.29
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+    "ids": [
+      "K15-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+    "seconds": 3.42
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+    "ids": [
+      "K15-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+    "seconds": 2.07
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html",
+    "ids": [
+      "K15-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html",
+    "seconds": 2.35
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport",
+    "ids": [
+      "K15-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport",
+    "seconds": 0.33
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+    "ids": [
+      "K15-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+    "seconds": 1.31
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html",
+    "ids": [
+      "K15-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html",
+    "seconds": 1.31
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+    "ids": [
+      "K15-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+    "seconds": 1.3
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion",
+    "ids": [
+      "K15-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion",
+    "seconds": 0.3
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+    "ids": [
+      "K15-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+    "seconds": 1.27
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "ids": [
+      "K15-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "seconds": 1.35
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table",
+    "ids": [
+      "K15-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table",
+    "seconds": 0.32
+  },
+  {
+    "url": "https://www.w3.org/WAI/test-evaluate/",
+    "ids": [
+      "K15-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/test-evaluate/",
+    "seconds": 1.23
+  },
+  {
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/conformance.html",
+    "ids": [
+      "K15-08"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.w3.org/WAI/WCAG22/Understanding/conformance.html",
+    "seconds": 1.4
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "ids": [
+      "K16-01",
+      "K16-02",
+      "K16-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "seconds": 0.41
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "ids": [
+      "K16-02"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "seconds": 1.18
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Depth-first_search",
+    "ids": [
+      "K16-03"
+    ],
+    "status": 200,
+    "finalUrl": "https://en.wikipedia.org/wiki/Depth-first_search",
+    "seconds": 1.72
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort",
+    "ids": [
+      "K16-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort",
+    "seconds": 1.36
+  },
+  {
+    "url": "https://tc39.es/ecma262/multipage/indexed-collections.html",
+    "ids": [
+      "K16-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://tc39.es/ecma262/multipage/indexed-collections.html",
+    "seconds": 0.56
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Binary_search_algorithm",
+    "ids": [
+      "K16-04"
+    ],
+    "status": 200,
+    "finalUrl": "https://en.wikipedia.org/wiki/Binary_search_algorithm",
+    "seconds": 1.56
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice",
+    "ids": [
+      "K16-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice",
+    "seconds": 0.31
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Substring",
+    "ids": [
+      "K16-05"
+    ],
+    "status": 200,
+    "finalUrl": "https://en.wikipedia.org/wiki/Substring",
+    "seconds": 3.4
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push",
+    "ids": [
+      "K16-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push",
+    "seconds": 1.06
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Stack_(abstract_data_type)",
+    "ids": [
+      "K16-06"
+    ],
+    "status": 200,
+    "finalUrl": "https://en.wikipedia.org/wiki/Stack_(abstract_data_type)",
+    "seconds": 2.83
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Dynamic_programming",
+    "ids": [
+      "K16-07"
+    ],
+    "status": 200,
+    "finalUrl": "https://en.wikipedia.org/wiki/Dynamic_programming",
+    "seconds": 1.63
+  }
+]

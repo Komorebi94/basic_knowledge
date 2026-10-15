@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const connectionsTlsProtocolsArticle: Article = {
+  "revision": 2,
   "id": "K06-03",
   "kind": "knowledge",
   "domainSlug": "networking",
@@ -10,7 +11,7 @@ export const connectionsTlsProtocolsArticle: Article = {
   "aliases": ["HTTP/2", "HTTP/3", "TLS", "ALPN", "head-of-line blocking", "连接复用"],
   "tags": ["网络", "HTTP", "连接、TLS 与协议演进"],
   "estimatedMinutes": 23,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -22,10 +23,10 @@ export const connectionsTlsProtocolsArticle: Article = {
     },
     {
       "id": "origin",
-      "title": "连接首先按源划分，端口和方案都会拆开",
+      "title": "先判断同源，再核对连接复用的协议条件",
       "paragraphs": [
-        "浏览器能够复用的连接，至少要属于同一个源。源由方案、主机和端口组成。https://api.example.test/v1 与显式写成 443 端口的另一个路径是同一源；换成 http，或换成 cdn 主机，就不是同一源。默认端口不会出现在 origin 字符串里，所以 443 不会把 https 源拆成两个。",
-        "不同源即使解析到同一 IP，也不能凭 IP 合并成一条浏览器连接。HTTP/2 还有证书和合并连接的额外规则，那是在同源连接之外的优化；排查“为什么又新建了连接”时，先比较 origin，再看协议和证书。"
+        "同源 URL 通常是分析连接复用的起点。源由方案、主机和端口组成：https://api.example.test/v1 与显式写 443 的另一路径同源，http 或 cdn 主机则不同源。这个 URL 比较不等于连接复用的完整判据。",
+        "HTTP/2 允许在服务器对目标权威、证书覆盖目标主机等条件满足时跨不同 authority 合并连接。同一 IP 或通配证书单独存在都不足以保证浏览器合并，代理、地址验证与客户端策略也可能限制它。应分别记录 origin、证书及实际连接，而不是从“不同源”直接推出“一定新建连接”。"
       ],
       "examples": [
         {
@@ -106,7 +107,7 @@ export const connectionsTlsProtocolsArticle: Article = {
       "title": "先写源，再写协议前提和阻塞范围",
       "paragraphs": [
         "给三个 URL，先判断它们是否同一源。再给“TCP、无 TLS、希望 h2”和“UDP、TLS 1.3、已发现”两组输入，预测协议。最后预测 loss:a 之后，b 流在 TCP 和 QUIC 两种模式里是否还能交付。",
-        "E11、E12、E13、E23、E24 已有可做练习，但它们验证的是重试、去重、最新请求、超时和串行队列，不会替你完成协议协商。E36、E37 仍未制作。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。模型题不执行浏览器协议协商、CORS 或连接复用；这些条件须结合目标浏览器和服务端记录核对。"
       ]
     }
   ],

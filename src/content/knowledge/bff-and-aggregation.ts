@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const bffAggregationArticle: Article = {
+  "revision": 2,
   id: "K14-04",
   kind: "knowledge",
   domainSlug: "server",
@@ -10,14 +11,14 @@ export const bffAggregationArticle: Article = {
   aliases: ["BFF", "backend for frontend", "aggregation", "接口聚合"],
   tags: ["服务端", "聚合", "边界"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
       title: "页面自己拼了三个接口，为什么令牌和邮箱也进了浏览器？",
       paragraphs: [
         "笔记页需要标题列表和订单摘要。浏览器先后请求两个内部接口，把用户令牌原样带给每一个，再从完整记录里取出标题。某个接口变慢，页面一直空白；某个接口多返回了邮箱，前端若直接渲染对象，邮箱就出现在不该看的界面里。",
-        "面向页面的聚合层可以替这一屏收齐数据、控制等待时间，并只返回页面要用的字段。它不拥有笔记的授权规则，也不能为了省事把令牌转发给下游。本篇用固定调用结果演示，不发起真实请求。"
+        "聚合层替这一屏收齐必要字段、限制总预算，并继续遵守每个下游的授权合同。前半篇使用固定结果模型；后面的完整 Node 示例发起本地 HTTP 请求，验证 503、取消、部分成功和字段整形，不访问外部服务。"
       ]
     },
     {
@@ -117,6 +118,30 @@ console.log('缺标题:' + shape({ email: 'a@example.com' }));`,
         "ms 由作者写入，函数不发请求，也不使用 AbortSignal。真实超时要取消仍在进行的下游调用，避免用户已经看到部分结果，下游仍继续做有副作用的写入。",
         "shape 只影响返回给这一屏的对象。它不删除下游数据库里的邮箱。若聚合层把原始对象放进缓存，丢字段的承诺就破了。",
         "partial 和 timeout 都带着已得到的标题。没有标题时它们不带冒号后缀。界面要能区分还没开始、部分成功和全部成功。"
+      ]
+    },
+    {
+      "id": "http-aggregate",
+      "title": "本地 HTTP 聚合：一项失败或取消，保留另一项的可用标题",
+      "paragraphs": [
+        "以下完整 ES 模块在 Node 22 创建仅监听 127.0.0.1 的作者服务。notes 返回多余 email 字段，orders 可返回 503 或保持连接不结束。BFF 在已核对的查看者上下文中发起并发读取，只返回必要字段。没有访问外网或传递用户令牌。",
+        "为了稳定验证超时分支，测试在笔记结果已解析、orders 已发起之后主动触发预算信号；这是真实 fetch 的取消，不测量一条人为毫秒门槛。产品入口应从同一个截止时间生成 AbortSignal.timeout，或组合客户断开与预算信号，而不是给每个下游无限重置预算。"
+      ],
+      "examples": [
+        {
+          "language": "node",
+          "code": "import { createServer } from 'node:http';\nimport { once } from 'node:events';\nfunction deferred() { let resolve; const promise = new Promise(done => { resolve = done; }); return { promise, resolve }; }\nlet requests = 0;\nconst server = createServer((request, response) => {\n  requests += 1;\n  if (request.url === '/notes') {\n    response.setHeader('Content-Type', 'application/json');\n    response.end(JSON.stringify({ title: '草稿', email: 'fixture@example.test' }));\n  } else if (request.url === '/orders?fail') { response.writeHead(503); response.end(); }\n  // /orders?wait 故意保持打开，直到 fetch 被取消。\n});\nserver.listen(0, '127.0.0.1'); await once(server, 'listening');\nconst origin = 'http://127.0.0.1:' + server.address().port;\nasync function aggregate(viewer, mode, signal, noteReady) {\n  if (viewer !== 'owner') return { status: 'denied', titles: [] };\n  const jobs = ['/notes', '/orders?' + mode].map(async path => {\n    const response = await fetch(origin + path, { signal });\n    if (!response.ok) throw new Error('downstream-status');\n    const raw = await response.json();\n    if (!raw || typeof raw.title !== 'string' || !raw.title.trim()) throw new TypeError('Invalid title');\n    const title = raw.title.trim();\n    if (path === '/notes') noteReady?.resolve();\n    return title;\n  });\n  const outcomes = await Promise.allSettled(jobs);\n  return { status: outcomes.every(item => item.status === 'fulfilled') ? 'ok' : signal?.aborted ? 'timeout' : 'partial', titles: outcomes.filter(item => item.status === 'fulfilled').map(item => item.value) };\n}\ntry {\n  console.log((await aggregate('other', 'fail')).status + ':' + requests);\n  const partial = await aggregate('owner', 'fail');\n  console.log(partial.status + ':' + partial.titles.join('+'));\n  const controller = new AbortController();\n  const noteReady = deferred();\n  const pending = aggregate('owner', 'wait', controller.signal, noteReady);\n  await noteReady.promise; controller.abort(new DOMException('Budget exceeded', 'TimeoutError'));\n  const timed = await pending;\n  console.log(timed.status + ':' + timed.titles.join('+'));\n  console.log('无多余字段:' + !JSON.stringify(timed).includes('email'));\n} finally { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }",
+          "expectedOutput": [
+            "denied:0",
+            "partial:草稿",
+            "timeout:草稿",
+            "无多余字段:true"
+          ],
+          "explanation": [
+            "other 在发起请求前被拒绝，requests 仍是 0。owner 的笔记成功、订单返回 503，allSettled 保留草稿并将整体标为 partial，不能渲染成全部完成。",
+            "等待实验先保留笔记结果，再取消仍在途的 orders，得到 timeout:草稿；成功的结果没有被取消抹掉。返回值只有经过结构检查的标题，email 没进入 DTO。viewer 在此由测试固定，生产身份必须来自认证层；真实下游仍独立授权，本例不是完整认证服务。"
+          ]
+        }
       ]
     },
     {

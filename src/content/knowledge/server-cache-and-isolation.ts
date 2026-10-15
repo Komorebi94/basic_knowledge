@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const serverCacheIsolationArticle: Article = {
+  "revision": 2,
   id: "K14-06",
   kind: "knowledge",
   domainSlug: "server",
@@ -10,14 +11,14 @@ export const serverCacheIsolationArticle: Article = {
   aliases: ["private cache", "cache key", "Vary", "缓存隔离"],
   tags: ["服务端", "缓存", "隔离"],
   estimatedMinutes: 22,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
       title: "只按路径缓存了笔记，为什么下一个登录用户看见了别人的草稿？",
       paragraphs: [
         "服务端把 /notes 的响应存进共享缓存，键只有路径。u1 的草稿先被放入，u2 请求同一路径时直接命中。页面是服务端渲染的，HTML 里已经包含 u1 的标题。浏览器缓存和 CDN 若再按这个 URL 共享，泄漏面会更大。",
-        "私有响应的键必须包含查看者。没有身份时不能写入私有条目。把私有正文标成公开，则会按公开键共享。本篇用一张 Map 演示键的选择，不配置真实的 Cache-Control 或 CDN。"
+        "前半篇以 Map 演示私有键与公开键的差别，后面的本地 HTTP 服务验证会话、分区缓存和真实 Cache-Control。它不配置 CDN，也不把响应头当成资源授权。"
       ]
     },
     {
@@ -137,6 +138,30 @@ console.log('样式命中:' + read(store, { visibility: 'public', path: '/app.cs
         "函数不发送 Cache-Control、Vary 或 Set-Cookie。hit 只说明这张 Map 里有这个键。真实共享缓存还有规范化 URL、查询参数和压缩变体。",
         "viewer 由参数传入。若它来自用户可以修改的查询参数，私有键会被伪造。身份必须来自服务端已经核对的会话。",
         "模型覆盖写入时不检查正文是否含有令牌。公开样式可以缓存；若有人把含令牌的 HTML 放进 public 路径，函数仍会存储。写入前要先决定可见性，而不是依赖键函数发现秘密。"
+      ]
+    },
+    {
+      "id": "http-private-cache",
+      "title": "本地 HTTP 缓存：可信会话先验证，命中也不能跳过退出检查",
+      "paragraphs": [
+        "在 Node 22 启动本机作者服务，用两份仅在此进程有效的测试会话模拟认证结果。每次请求先验证会话，再按内部 subject 与路径分区缓存，响应明确 private, no-store。这里是真实 HTTP 头与请求，不配置 CDN；没有声称客户端会自动理解服务器 Map 的键。"
+      ],
+      "examples": [
+        {
+          "language": "node",
+          "code": "import { createServer } from 'node:http';\nimport { once } from 'node:events';\nconst sessions = new Map([['test-a', 'A'], ['test-b', 'B']]);\nconst cache = new Map();\nconst server = createServer((request, response) => {\n  response.setHeader('Cache-Control', 'private, no-store');\n  response.setHeader('Content-Type', 'application/json; charset=utf-8');\n  const subject = sessions.get(request.headers.authorization?.replace('Bearer ', ''));\n  if (!subject) { response.writeHead(401); response.end('{}'); return; }\n  if (request.url !== '/notes') { response.writeHead(404); response.end('{}'); return; }\n  const key = JSON.stringify([subject, request.url]);\n  if (!cache.has(key)) cache.set(key, { title: '草稿' + subject });\n  response.end(JSON.stringify(cache.get(key)));\n});\nserver.listen(0, '127.0.0.1'); await once(server, 'listening');\nconst url = 'http://127.0.0.1:' + server.address().port + '/notes';\nconst get = token => fetch(url, { headers: { Authorization: 'Bearer ' + token } });\ntry {\n  const a = await get('test-a'); const b = await get('test-b');\n  console.log('A:' + (await a.json()).title);\n  console.log('B:' + (await b.json()).title);\n  console.log('响应头:' + a.headers.get('cache-control'));\n  sessions.delete('test-a');\n  console.log('退出:' + (await get('test-a')).status);\n  console.log('缓存分区:' + cache.size);\n} finally { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }",
+          "expectedOutput": [
+            "A:草稿A",
+            "B:草稿B",
+            "响应头:private, no-store",
+            "退出:401",
+            "缓存分区:2"
+          ],
+          "explanation": [
+            "同一路径按服务端会话得到的 A、B 生成不同缓存键，所以两次响应没有交叉。删除 A 的会话之后，即使它的缓存仍存在，也先返回 401；不能用缓存命中绕过当前身份检查。",
+            "private 限制共享缓存，no-store 要求不存储此响应，二者没有实现授权或清除已经存在的旧副本。生产缓存还需容量、TTL、租户、权限版本及失效策略；测试会话表只演示边界，不是可用于生产的令牌校验。"
+          ]
+        }
       ]
     },
     {

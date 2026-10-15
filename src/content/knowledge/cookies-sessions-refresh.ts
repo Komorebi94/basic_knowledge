@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const cookiesSessionsRefreshArticle: Article = {
+  "revision": 2,
   "id": "K06-04",
   "kind": "knowledge",
   "domainSlug": "networking",
@@ -10,7 +11,7 @@ export const cookiesSessionsRefreshArticle: Article = {
   "aliases": ["cookie", "HttpOnly", "SameSite", "refresh token", "session", "令牌"],
   "tags": ["网络", "认证", "Cookie、认证与会话"],
   "estimatedMinutes": 23,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -102,7 +103,7 @@ export const cookiesSessionsRefreshArticle: Article = {
       "title": "预测三次 401 会启动几次刷新",
       "paragraphs": [
         "写出 HttpOnly Cookie 和 localStorage 在“脚本能否读取、谁来附带、重新加载后还在不在”三列上的差异。再预测三个同步调用的 refresh 会打印的 starts。若第二次调用发生在第一次 Promise 已经清空 flight 之后，预测 starts 会变成多少。",
-        "已发布的 E12 练习的是在途去重，和这里的共享刷新是同一类所有权；E36、E37 的接口练习尚未制作。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。模型题不执行浏览器协议协商、CORS 或连接复用；这些条件须结合目标浏览器和服务端记录核对。"
       ]
     }
   ],

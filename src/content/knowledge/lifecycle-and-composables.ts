@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const lifecycleComposablesArticle: Article = {
+  "revision": 2,
   "id": "K08-04",
   "kind": "knowledge",
   "domainSlug": "vue",
@@ -23,7 +24,7 @@ export const lifecycleComposablesArticle: Article = {
     "组合式函数"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -253,7 +254,7 @@ export const lifecycleComposablesArticle: Article = {
       "paragraphs": [
         "先预测“打开 → 收到消息 → 关闭 → 再收到消息 → 重新打开”的输出：已经卸载的旧面板不能继续累计，新面板是否从零开始由状态创建位置决定。把订阅示例的卸载移到挂载之前不会得到同一条生命周期；如果延迟初始化，在开始前检查 disposed，结束后也要检查迟到回调。",
         "再给读取示例增加一个返回失败的旧 B，让新的 C 成功先到，预测最终 phase。不要只测试成功路径：旧失败同样不能覆盖当前成功；当前失败要能展示原因并通过新一轮读取恢复。E13「最新请求结果提交」已经提供独立练习，可在动手练习中用它验证成功、失败和取消的身份边界。",
-        "本篇没有新增 Vue 框架编码题。规划中的 E32 与 E38 尚未开放，不显示空入口。回忆卡关注资源责任、同步归属和响应式来源；实际运行输出与手机阅读检查记录在仓库内部验证报告中。"
+        "本主题当前没有专属判题练习，先运行本文完整示例，再改变输入验证失败路径。练习页已发布的相邻模型不能代替本主题的验收。这些 JavaScript 练习不挂载 Vue；框架机制仍按本文注明的真实实验核对。"
       ]
     }
   ],

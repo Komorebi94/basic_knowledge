@@ -1,11 +1,12 @@
 import type { Article } from "../articles";
 
 export const iteratorArticle: Article = {
+  "revision": 2,
   id: "K01-06", kind: "knowledge", domainSlug: "javascript", slug: "iterators",
   title: "迭代器与生成器",
   summary: "迭代器按需给出下一项；生成器把计算停在 yield。提前结束时要调用 return，否则清理代码不会因为循环停了就自动执行。",
   aliases: ["iterator", "generator", "Symbol.iterator", "迭代器", "生成器"],
-  tags: ["JavaScript", "迭代器", "生成器"], estimatedMinutes: 22, verifiedAt: "2026-09-30",
+  tags: ["JavaScript", "迭代器", "生成器"], estimatedMinutes: 22, verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem", title: "从一个问题开始：序列已经创建，为什么第一项还没产生？",
@@ -29,8 +30,8 @@ console.log(seq.next().value);`, expectedOutput: ["created", "produce-0", "0"], 
     {
       id: "protocol", title: "可迭代对象负责发出迭代器，迭代器负责给出 next",
       paragraphs: [
-        "for...of、展开和 Array.from 需要的是可迭代对象。它实现 Symbol.iterator，调用后返回迭代器。迭代器的 next 返回 { value, done }。done 为 true 表示没有更多项，此后再 next 仍应返回完成状态，而不是从头开始。",
-        "数组本身可以多次 for...of，因为每次都会向数组要一个新的迭代器。已经拿在手里的那一个迭代器被消费完，就不会自动重置。",
+        "for...of 与数组展开读取 Symbol.iterator 取得迭代器；Array.from 还支持只有下标和 length 的类数组对象。可迭代与类数组是两种合同：前者规定怎样产生下一项，后者描述下标和长度；一个对象可以只满足其中一个。迭代器 next 返回 {value,done}，正常完成后应保持完成状态。",
+        "数组本身可以多次 for...of，因为每次都会向数组要一个新的迭代器。已经拿在手里的那一个迭代器被消费完，就不会自动重置。"
       ],
       examples: [{ code: `const values = ["a", "b"];
 const iterator = values[Symbol.iterator]();
@@ -129,6 +130,28 @@ console.log(seq.next().done);`, expectedOutput: ["1", "boom", "true"], explanati
         "for...in 遍历的是对象的可枚举字符串键，不是迭代器协议。数组若只想要元素，用 for...of。不要因为两个关键字相近，就把键的遍历当成值的惰性序列。",
         "写完一个迭代器后，用三种消费方式试它：读完、中途 break、只 next 一次就丢掉。第三种如果让资源一直开着，清理就还没接上协议。",
       ],
+    },
+    {
+      "id": "array-like",
+      "title": "Array.from 的两条入口：有迭代器时优先使用迭代器",
+      "paragraphs": [
+        "现代浏览器与 Node 都能运行下面例子。先给只有下标和 length 的对象，再为同样对象增加 Symbol.iterator。比较 Array.from、数组展开和 for...of 的要求，避免把“像数组”误认为已经实现迭代协议。"
+      ],
+      "examples": [
+        {
+          "code": "const source = { 0: 'a', 1: 'b', length: 2 };\nconsole.log(Array.from(source).join(','));\ntry { console.log([...source]); } catch (error) { console.log(error.name); }\nsource[Symbol.iterator] = function* () { yield 'from-iterator'; };\nconsole.log(Array.from(source).join(','));\nconsole.log([...source].join(','));",
+          "expectedOutput": [
+            "a,b",
+            "TypeError",
+            "from-iterator",
+            "from-iterator"
+          ],
+          "explanation": [
+            "第一行走类数组入口，读取 length 和两个下标。数组展开没有 length 降级路径，缺少迭代器就抛 TypeError。",
+            "添加生成器后，两种操作都使用它，Array.from 不再取 a、b。数组上的空槽、getter、无限迭代器仍有各自成本和边界；不能把转换理解成任意输入都安全或有限。"
+          ]
+        }
+      ]
     },
     {
       id: "recall", title: "遇到一段新代码，按这四步推导",

@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const observersViewportArticle: Article = {
+  "revision": 2,
   "id": "K04-05",
   "kind": "knowledge",
   "domainSlug": "browser",
@@ -20,7 +21,7 @@ export const observersViewportArticle: Article = {
     "观察器与视口"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -124,7 +125,7 @@ export const observersViewportArticle: Article = {
       "title": "把观察结果翻译成业务事实之前",
       "paragraphs": [
         "第一条边界是后台和渲染调度：通知不是硬实时，不能靠它实现精确倒计时。第二条边界是观察对象不同：Mutation 不证明几何变了，Intersection 不证明用户看了，Resize 不证明内容语义变了。业务统计和状态更新必须采用真正对应的证据。",
-        "动手改第一个例子：把目标高度改为 200，预测完整可见比例；改第二个例子为无条件宽度加 1，先在纸上推演为何不收敛，不要在主站执行失控代码。E25 图片懒加载和 E30 虚拟列表仍待制作，本文不把它们当已支持的 DOM 运行题。"
+        "动手改第一个例子：把目标高度改为 200，预测完整可见比例；改第二个例子为无条件宽度加 1，先在纸上推演为何不收敛，不要在主站执行失控代码。E25 的图片状态模型与 E30 的窗口计算已经开放；它们在 JavaScript Worker 中运行，不将通过结果计作真实观察器、图片加载或 DOM 虚拟列表验收。"
       ]
     }
   ],

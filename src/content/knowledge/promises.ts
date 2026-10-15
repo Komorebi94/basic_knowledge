@@ -1,11 +1,12 @@
 import type { Article } from "../articles";
 
 export const promiseArticle: Article = {
+  "revision": 2,
   id: "K02-02", kind: "knowledge", domainSlug: "async", slug: "promises",
   title: "Promise、错误传播与组合",
   summary: "每次 then 都返回新的 Promise。拒绝会沿着这条链传递；all、allSettled、race 和 any 对失败的处理并不相同。",
   aliases: ["Promise", "Promise.all", "Promise.allSettled", "Promise.race", "Promise.any", "错误传播"],
-  tags: ["JavaScript", "Promise", "异步"], estimatedMinutes: 22, verifiedAt: "2026-09-30",
+  tags: ["JavaScript", "Promise", "异步"], estimatedMinutes: 22, verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem", title: "从一个问题开始：catch 前面还有一行 then，为什么它没有执行？",
@@ -58,31 +59,23 @@ forwarded().then((value) => console.log("forwarded " + value));`, expectedOutput
         "Promise.all 在每一个都兑现时，按输入顺序给出结果数组。任何一个拒绝，all 就拒绝，并且不再等待其余成员。一个永远不结束的成员不会挡住已经发生的拒绝，但在全部都还没拒绝时，它会让 all 一直挂着。",
         "Promise.allSettled 等所有成员都结束，每一项是 fulfilled 或 rejected，它本身不会因为成员拒绝而拒绝。Promise.race 采用最先结束的那一个，不论兑现还是拒绝。Promise.any 采用最先兑现的那一个；若全部拒绝，它拒绝为一个 AggregateError。",
       ],
-      examples: [{ code: `const pending = new Promise(() => {});
-Promise.all([
-  Promise.resolve("a"),
-  Promise.reject(new Error("b")),
-  pending,
-]).then(() => console.log("all-ok")).catch((error) => console.log("all " + error.message));
-Promise.allSettled([
-  Promise.resolve("a"),
-  Promise.reject(new Error("b")),
-]).then((items) => console.log(items.map((item) => item.status).join(",")));
-Promise.race([
-  Promise.resolve("first"),
-  pending,
-]).then((value) => console.log("race " + value));
-Promise.any([
-  Promise.reject(new Error("x")),
-  Promise.resolve("y"),
-]).then((value) => console.log("any " + value));
-Promise.any([
-  Promise.reject(new Error("x")),
-  Promise.reject(new Error("z")),
-]).catch((error) => console.log(error.name));`, expectedOutput: ["fulfilled,rejected", "race first", "any y", "AggregateError", "all b"], explanation: [
-        "all 因为 b 拒绝，打印 all b，没有打印 all-ok。pending 一直不结束，也没有阻止这次拒绝先传出来。页面不能据此认为 pending 里的请求已经停止，它只是不再影响 all 的结果。",
-        "allSettled 给出 fulfilled,rejected，两次成员都算结束。race 采用已经兑现的 first，不等 pending。any 在有一个 y 兑现时就得到 y；两个都拒绝时，错误名是 AggregateError，不是第一个 Error 的名字。选方法之前要写明：需要全部成功、需要每一项的结局、需要最先结束，还是需要最先成功。",
-      ] }],
+      examples: [
+        {
+          "code": "const pending = new Promise(() => {});\nPromise.all([\n  Promise.resolve(\"a\"),\n  Promise.reject(new Error(\"b\")),\n  pending,\n]).then(() => console.log(\"all-ok\")).catch((error) => console.log(\"all \" + error.message));\nPromise.allSettled([\n  Promise.resolve(\"a\"),\n  Promise.reject(new Error(\"b\")),\n]).then((items) => console.log(items.map((item) => item.status).join(\",\")));\nPromise.race([\n  Promise.resolve(\"first\"),\n  pending,\n]).then((value) => console.log(\"race \" + value));\nPromise.any([\n  Promise.reject(new Error(\"x\")),\n  Promise.resolve(\"y\"),\n]).then((value) => console.log(\"any \" + value));\nPromise.any([\n  Promise.reject(new Error(\"x\")),\n  Promise.reject(new Error(\"z\")),\n]).catch((error) => console.log(error.name));",
+          "expectedOutput": [
+            "fulfilled,rejected",
+            "race first",
+            "any y",
+            "AggregateError",
+            "all b"
+          ],
+          "explanation": [
+            "all 因为 b 拒绝，打印 all b，没有打印 all-ok。pending 一直不结束，也没有阻止这次拒绝先传出来。页面不能据此认为 pending 里的请求已经停止，它只是不再影响 all 的结果。",
+            "allSettled 给出 fulfilled,rejected，两次成员都算结束。race 采用已经兑现的 first，不等 pending。any 在有一个 y 兑现时就得到 y；两个都拒绝时，错误名是 AggregateError，不是第一个 Error 的名字。选方法之前要写明：需要全部成功、需要每一项的结局、需要最先结束，还是需要最先成功。",
+            "这五行的顺序由注册的 Promise reaction 和链条长度决定。成员 reaction 先使各组 Promise 结束；allSettled、race、两个 any 的日志回调依次进入微任务队列，所以先打印前四行。all 的拒绝先经过没有拒绝处理器的 then，把拒绝传给下一层 Promise，才排入末尾 catch；这个额外步骤使 all b 最后出现。这不是说拒绝总比兑现慢，去掉中间 then 或换输入就要重新推导。"
+          ]
+        }
+      ],
     },
     {
       id: "choices", title: "怎么选：失败要停掉整组，还是要留下每一项的结局",

@@ -61,13 +61,14 @@ try {
 
   const routes = await page.evaluate(async () => {
     const { articles, articleHref } = await import("/src/content/articles.ts");
-    return articles.map((article) => ({ href: articleHref(article), title: article.title }));
+    return articles.map((article) => ({ href: articleHref(article), title: article.title, outputs: article.sections.flatMap(section => (section.examples ?? []).map(example => example.expectedOutput.length > 0 ? example.expectedOutput.join("\n") : "（无控制台输出）")) }));
   });
   for (const article of routes) {
     await page.goto(origin + article.href + "#problem", { waitUntil: "networkidle" });
     await page.getByRole("heading", { name: article.title, exact: true }).waitFor();
     assert.equal(await page.locator("#problem").evaluate((element) => document.activeElement === element), true);
     assert.equal(await page.locator(".note-editor, .article-toc, .article-mobile-toc, .article-sources").count(), 0);
+    assert.deepEqual(await page.locator(".example-output code").allTextContents(), article.outputs, `${article.href}: complete expected output must be visible`);
   }
   await page.setViewportSize({ width: 390, height: 844 });
   for (const article of routes) {

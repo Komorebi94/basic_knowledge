@@ -20,6 +20,7 @@
     "verify:store": "node scripts/verify-personal-store.mjs",
     "verify:search": "node scripts/verify-search.mjs",
     "verify:content": "node scripts/verify-content.mjs",
+    "verify:content-corrections": "node scripts/verify-content-corrections.mjs",
     "verify:visual": "node scripts/capture-reading.mjs",
     "sync:catalog": "python3 scripts/sync-catalog.py",
     "verify:catalog": "node scripts/verify-catalog.mjs",

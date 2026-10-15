@@ -777,7 +777,8 @@
       "boundaries": "连续调用、独立实例、取消、flush 后不重复、异常、wait=0",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 25
+      "minutes": 25,
+      "aliases": []
     },
     {
       "id": "E02",
@@ -786,7 +787,8 @@
       "boundaries": "边界时刻、只有一次调用、尾调用参数、取消、this",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 25
+      "minutes": 25,
+      "aliases": []
     },
     {
       "id": "E03",
@@ -795,7 +797,8 @@
       "boundaries": "空输入、普通值、乱序完成、拒绝、迭代错误、then getter 抛错",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 30
+      "minutes": 30,
+      "aliases": []
     },
     {
       "id": "E04",
@@ -804,7 +807,8 @@
       "boundaries": "同步抛错、异步拒绝、空数组、limit 无效、已经启动任务的拒绝处理",
       "environment": "JavaScript",
       "difficulty": "挑战",
-      "minutes": 40
+      "minutes": 40,
+      "aliases": []
     },
     {
       "id": "E05",
@@ -813,7 +817,8 @@
       "boundaries": "空输入、普通值、同步 thenable、输入迭代本身抛错使整体拒绝",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 25
+      "minutes": 25,
+      "aliases": []
     },
     {
       "id": "E06",
@@ -822,7 +827,8 @@
       "boundaries": "共享引用不拆散、循环、Symbol 键、稀疏数组；访问器和未知原型显式报错",
       "environment": "JavaScript",
       "difficulty": "挑战",
-      "minutes": 40
+      "minutes": 40,
+      "aliases": []
     },
     {
       "id": "E07",
@@ -831,7 +837,8 @@
       "boundaries": "once 重入前解绑、监听中增删、异常继续执行并收集、顺序稳定",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 30
+      "minutes": 30,
+      "aliases": []
     },
     {
       "id": "E08",
@@ -840,7 +847,8 @@
       "boundaries": "arity=0、分批多参数、独立分支、this 取最终调用",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 20
+      "minutes": 20,
+      "aliases": []
     },
     {
       "id": "E09",
@@ -849,7 +857,8 @@
       "boundaries": "空组合返回原值、单函数、异常透传、不修改输入列表",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 20
+      "minutes": 20,
+      "aliases": []
     },
     {
       "id": "E10",
@@ -858,7 +867,8 @@
       "boundaries": "提前已取消、等待中取消、完成后取消、ms=0、无效毫秒参数",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 20
+      "minutes": 20,
+      "aliases": []
     },
     {
       "id": "E11",
@@ -867,7 +877,8 @@
       "boundaries": "attempts=1、成功即停、不重试错误、取消、上限、任务同步抛错",
       "environment": "JavaScript",
       "difficulty": "挑战",
-      "minutes": 35
+      "minutes": 35,
+      "aliases": []
     },
     {
       "id": "E12",
@@ -876,7 +887,8 @@
       "boundaries": "key 隔离、失败后重试、同步抛错、执行期间再次调用、无处理拒绝",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 30
+      "minutes": 30,
+      "aliases": []
     },
     {
       "id": "E13",
@@ -885,7 +897,8 @@
       "boundaries": "旧慢新快、旧失败、新失败、取消时不提交、计数单调",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 30
+      "minutes": 30,
+      "aliases": []
     },
     {
       "id": "E14",
@@ -894,7 +907,8 @@
       "boundaries": "容量 1、重复键、undefined 值与未命中区分、淘汰顺序、O(1) 目标",
       "environment": "JavaScript",
       "difficulty": "挑战",
-      "minutes": 35
+      "minutes": 35,
+      "aliases": []
     },
     {
       "id": "E15",
@@ -903,7 +917,8 @@
       "boundaries": "重复 ID 报错、自环/跨节点环报错、不修改输入、乱序父子",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 30
+      "minutes": 30,
+      "aliases": []
     },
     {
       "id": "E16",
@@ -912,7 +927,8 @@
       "boundaries": "空树、多根、深层、顺序；循环不在题目数据域",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 20
+      "minutes": 20,
+      "aliases": []
     },
     {
       "id": "E17",
@@ -921,7 +937,8 @@
       "boundaries": "null 中间层、0/false/undefined、数组下标、危险原型片段拒绝",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 20
+      "minutes": 20,
+      "aliases": []
     },
     {
       "id": "E18",
@@ -930,7 +947,8 @@
       "boundaries": "depth=0、空数组、混合值、无效深度、输入环明确拒绝",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 20
+      "minutes": 20,
+      "aliases": []
     },
     {
       "id": "E19",
@@ -939,7 +957,8 @@
       "boundaries": "NaN、±0、对象身份、重复 key、空输入、keyFn 抛错",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 15
+      "minutes": 15,
+      "aliases": []
     },
     {
       "id": "E20",
@@ -948,7 +967,8 @@
       "boundaries": "空输入、重复值、全小/全大、不修改数组；NaN 不在数据域",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 20
+      "minutes": 20,
+      "aliases": []
     },
     {
       "id": "E21",
@@ -957,7 +977,8 @@
       "boundaries": "空文本、交叉嵌套、未闭合、多余闭合、大输入",
       "environment": "JavaScript",
       "difficulty": "基础",
-      "minutes": 15
+      "minutes": 15,
+      "aliases": []
     },
     {
       "id": "E22",
@@ -966,7 +987,8 @@
       "boundaries": "多参数碰撞、undefined 结果、异常不缓存、对象身份、清理",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 30
+      "minutes": 30,
+      "aliases": []
     },
     {
       "id": "E23",
@@ -975,7 +997,8 @@
       "boundaries": "先完成、先超时、预取消、迟到拒绝、资源释放；不可假设任务会响应 abort",
       "environment": "JavaScript",
       "difficulty": "进阶",
-      "minutes": 25
+      "minutes": 25,
+      "aliases": []
     },
     {
       "id": "E24",
@@ -984,151 +1007,190 @@
       "boundaries": "同步异常、空闲重启、执行中入队、顺序、失败恢复",
       "environment": "JavaScript",
       "difficulty": "挑战",
-      "minutes": 35
+      "minutes": 35,
+      "aliases": []
     },
     {
       "id": "E25",
-      "title": "图片懒加载",
-      "summary": "观察器、占位和清理",
+      "title": "图片懒加载状态模型",
+      "summary": "用显式观察事件模拟视口进入、失败重试和卸载，不创建真实图片或观察器。",
       "boundaries": "重复触发、失败、卸载、无观察器降级",
-      "environment": "DOM",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "图片懒加载"
+      ]
     },
     {
       "id": "E26",
-      "title": "事件委托",
-      "summary": "事件路径与目标匹配",
+      "title": "事件委托路径模型",
+      "summary": "沿父链查找第一个匹配角色，并处理取消订阅与后加入节点。",
       "boundaries": "子元素点击、越界匹配、取消订阅、动态节点",
-      "environment": "DOM",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "事件委托"
+      ]
     },
     {
       "id": "E27",
-      "title": "可访问 Tabs",
-      "summary": "角色、焦点、键盘",
+      "title": "Tabs 键盘状态模型",
+      "summary": "在普通对象上实现标签选择：方向键跳过禁用项，首尾键落到可用项，面板 id 与当前标签对应。",
       "boundaries": "左右/首尾键、禁用项、内容关联",
-      "environment": "DOM",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "可访问 Tabs"
+      ]
     },
     {
       "id": "E28",
-      "title": "对话框",
-      "summary": "焦点约束与恢复",
+      "title": "对话框焦点状态模型",
+      "summary": "用栈模拟多层对话框的焦点循环、Esc、遮罩和触发器恢复。",
       "boundaries": "Esc、遮罩、多个触发器、背景不可交互",
-      "environment": "DOM",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "对话框"
+      ]
     },
     {
       "id": "E29",
-      "title": "表单校验器",
-      "summary": "校验状态与错误恢复",
+      "title": "表单校验状态模型",
+      "summary": "提交时校验标题和金额，失焦只延后，旧一代异步结果不能覆盖新提交。",
       "boundaries": "提交、异步校验竞态、失焦策略、读屏反馈",
-      "environment": "DOM",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "表单校验器"
+      ]
     },
     {
       "id": "E30",
-      "title": "固定高度虚拟列表",
-      "summary": "可视范围与 overscan",
+      "title": "固定行高窗口计算",
+      "summary": "按固定行高、滚动位置和 overscan 切出可见 id，滚动超出末尾时停在最后一屏。",
       "boundaries": "空列表、滚动边界、容器变化、条目身份",
-      "environment": "DOM",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "固定高度虚拟列表"
+      ]
     },
     {
       "id": "E31",
-      "title": "useAsyncResource",
-      "summary": "请求生命周期与状态联合",
+      "title": "异步资源状态模型",
+      "summary": "用代次模拟请求开始、成功、失败、重试和卸载，旧结果不能覆盖新请求。",
       "boundaries": "参数变化、卸载、旧结果、重试、开发模式重复执行",
-      "environment": "React",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "useAsyncResource"
+      ]
     },
     {
       "id": "E32",
       "title": "简化响应式依赖系统",
-      "summary": "track/trigger、effect、cleanup",
+      "summary": "在 effect 执行期间记录读取，写入时只重新运行仍依赖该属性的 effect。",
       "boundaries": "条件依赖、嵌套、重复依赖、停止；明确不等于 Vue 完整实现",
-      "environment": "JS",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": []
     },
     {
       "id": "E33",
-      "title": "基础工具类型",
-      "summary": "Pick、Readonly、Awaited 的受限模型",
+      "title": "属性投影、浅冻结与 Promise 吸收",
+      "summary": "在运行时复制指定自身键、冻结浅副本，并按 Promise 语义递归吸收 thenable；与 TypeScript 类型变换分开验证。",
       "boundaries": "可选项、union、never、thenable；各自限制写入题面",
-      "environment": "TypeScript",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "基础工具类型"
+      ]
     },
     {
       "id": "E34",
-      "title": "类型安全事件映射",
-      "summary": "事件名与参数关联",
+      "title": "事件名称与参数数量校验",
+      "summary": "用参数个数约束事件名，错误名称和错误载荷在运行时抛 TypeError。",
       "boundaries": "无参数、多参数、错误名称、错误载荷的负向类型断言",
-      "environment": "TypeScript",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "类型安全事件映射"
+      ]
     },
     {
       "id": "E35",
       "title": "依赖图拓扑排序",
-      "summary": "入度、循环检测",
+      "summary": "按入度做稳定拓扑排序，循环和缺失节点要明确失败。",
       "boundaries": "多合法顺序采用稳定输入次序、孤立点、缺失依赖",
-      "environment": "JS",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": []
     },
     {
       "id": "E36",
       "title": "分片上传调度",
-      "summary": "并发、恢复、取消",
+      "summary": "用调用方提供的 send 模拟分片上传，限制并发、校验和、失败停止与取消。",
       "boundaries": "部分失败、重复提交、校验、只模拟不连真实服务",
-      "environment": "模拟接口",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": []
     },
     {
       "id": "E37",
       "title": "SSE 消息解析",
-      "summary": "增量文本缓冲",
+      "summary": "把分块文本缓冲成 SSE 事件，处理半行、注释、空行和多行 data。",
       "boundaries": "跨 chunk 行、空行、注释、多 data、断流残片",
-      "environment": "JS",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": []
     },
     {
       "id": "E38",
-      "title": "乐观更新与回滚",
-      "summary": "变更日志和状态恢复",
+      "title": "乐观更新与回滚模型",
+      "summary": "用变更日志保留较新的乐观值，旧成功不能覆盖它，失败时回到已提交值。",
       "boundaries": "多请求交错、服务器拒绝、不可覆盖较新成功",
-      "environment": "React 或 Vue",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "乐观更新与回滚"
+      ]
     },
     {
       "id": "E39",
       "title": "最长无重复子串",
-      "summary": "滑动窗口",
+      "summary": "按 Unicode code point 找最长无重复子串，不按 grapheme cluster 切分。",
       "boundaries": "按 Unicode code point 定义，不按 grapheme；空串、重复字符",
-      "environment": "JS",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": []
     },
     {
       "id": "E40",
-      "title": "分帧任务执行",
-      "summary": "调度与响应性",
+      "title": "分帧预算规划",
+      "summary": "按预算把任务装进帧里，取消的跳过，超预算的单项不能拆开，隐藏时预算减半。",
       "boundaries": "取消、长单项、后台节流；不能承诺硬实时",
-      "environment": "DOM",
+      "environment": "JavaScript",
       "difficulty": null,
-      "minutes": null
+      "minutes": null,
+      "aliases": [
+        "分帧任务执行"
+      ]
     }
   ],
   "ai": [

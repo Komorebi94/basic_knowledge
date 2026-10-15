@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const complexWidgetsArticle: Article = {
+  "revision": 2,
   id: "K15-07",
   kind: "knowledge",
   domainSlug: "accessibility",
@@ -10,7 +11,7 @@ export const complexWidgetsArticle: Article = {
   aliases: ["APG tabs", "data grid", "contenteditable", "复杂控件"],
   tags: ["无障碍", "键盘", "控件"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-14",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -137,7 +138,7 @@ console.log('按钮忽略方向键:' + press('submit', 'ArrowRight'));`,
       title: "先选控件种类，再写它的离开方式",
       paragraphs: [
         "笔记列表应是 native:table，方向键为 ignore。需要逐格编辑时才用 sheet，ArrowRight 为 next-cell，Tab 为 leave。编辑器在 edit 里 Tab 为 indent 时，必须还能用 Escape 进入 navigate，再 Tab 离开。",
-        "本主题没有已开放的独立练习。示例不创建表格或编辑器 DOM，也不代替创作实践里的人工键盘走查。"
+        "E27 已提供可运行练习；具体入口见文末关联。DOM、焦点和框架主题的当前练习以 JavaScript 行为模型为范围，真实平台行为请按本文实验复核；通过模型不代表完成设备或框架集成验收。"
       ]
     }
   ],

@@ -56,8 +56,8 @@ export const recallCards: readonly RecallCard[] = [...existingCards, ...knowledg
     ...card,
     cardId: `${card.catalogId}:recall:${order}`,
     sourceContentId: article.id,
-    sourceRevision: 1,
-    cardRevision: 1,
+    sourceRevision: article.revision,
+    cardRevision: "cardRevision" in card && typeof card.cardRevision === "number" ? card.cardRevision : 1,
     order,
   };
 });

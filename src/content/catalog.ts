@@ -37,7 +37,10 @@ for (const article of publishedArticles) {
 }
 
 export const knowledgeTopics = catalogSource.knowledge;
-export const exerciseTopics = catalogSource.practice;
+export const exerciseTopics = catalogSource.practice.map((topic) => {
+  const published = publicMetadata.exercises.find((exercise) => exercise.id === topic.id);
+  return { ...topic, title: published?.title ?? topic.title };
+});
 export const aiTopics = catalogSource.ai;
 
 export const aiCategories = [

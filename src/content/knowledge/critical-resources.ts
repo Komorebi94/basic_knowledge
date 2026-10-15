@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const criticalResourcesArticle: Article = {
+  "revision": 2,
   id: "K10-03",
   kind: "knowledge",
   domainSlug: "performance",
@@ -10,7 +11,7 @@ export const criticalResourcesArticle: Article = {
   aliases: ["LCP", "preload", "font-display", "关键资源", "首屏"],
   tags: ["性能工程", "首屏与关键资源"],
   estimatedMinutes: 24,
-  verifiedAt: "2026-10-13",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -70,14 +71,14 @@ export const criticalResourcesArticle: Article = {
       id: "fonts",
       title: "字体策略决定文字何时出现，而不只是字体文件何时到达",
       paragraphs: [
-        "标题若是 LCP，文字自己的绘制时间就进入关键路径。下面按 CSS Fonts 对 font-display 的块周期和交换周期建模：block 为 3s 与无限交换，swap 为 0s 与无限交换，fallback 为 100ms 与 3s，optional 为 100ms 与 0。到达时间落在块周期内就等到字体再画；交换周期为 0 时，错过块周期就保留后备字体。预期 swap:paint:0,fallback-then-swap:400、optional晚:paint:100,fallback-kept、optional早:paint:50,font、block早:paint:400,font、block晚:paint:3000,fallback-then-swap:5000、fallback中:paint:100,fallback-then-swap:200、fallback晚:paint:100,fallback-kept、非法:invalid。",
-        "单位沿用规范里的毫秒周期，但输入是作者给定的到达时间，不是一次字体请求的测量。auto 交给用户代理，本模型拒绝它，而不是猜一个周期。浏览器还可以决定 optional 字体根本不下载；模型只处理已经给出的到达时间。"
+        "标题若是 LCP，字体可用性会影响文字何时出现。下面只为推导选择一组固定周期：block 的阻塞期 3000ms，swap 为 0；fallback 为 100ms 阻塞及 3000ms 交换，optional 为 100ms 阻塞且不交换。CSS Fonts 规定周期类别并给出推荐值，具体时长由用户代理决定；这些数字是本例假设，不是所有浏览器的精确绘制保证。",
+        "在这个模型中，到达时刻落在阻塞期内就等字体；错过阻塞期后，只有仍在交换期内才替换后备字体。输入是人为到达时刻，没有测量字体下载、布局或绘制。auto 交给用户代理，本模型不推算它；optional 也可能由浏览器决定根本不下载。"
       ],
       examples: [
         {
-          language: "javascript",
-          code: "const periods = {\n  block: { block: 3000, swap: Infinity },\n  swap: { block: 0, swap: Infinity },\n  fallback: { block: 100, swap: 3000 },\n  optional: { block: 100, swap: 0 }\n};\nfunction textPaint(display, arrive) {\n  const period = periods[display];\n  if (!period || !Number.isSafeInteger(arrive) || arrive < 0) return 'invalid';\n  if (arrive <= period.block) return 'paint:' + arrive + ',font';\n  if (period.swap === 0) return 'paint:' + period.block + ',fallback-kept';\n  if (arrive <= period.block + period.swap) return 'paint:' + period.block + ',fallback-then-swap:' + arrive;\n  return 'paint:' + period.block + ',fallback-kept';\n}\nconsole.log('swap:' + textPaint('swap', 400));\nconsole.log('optional晚:' + textPaint('optional', 400));\nconsole.log('optional早:' + textPaint('optional', 50));\nconsole.log('block早:' + textPaint('block', 400));\nconsole.log('block晚:' + textPaint('block', 5000));\nconsole.log('fallback中:' + textPaint('fallback', 200));\nconsole.log('fallback晚:' + textPaint('fallback', 4000));\nconsole.log('非法:' + textPaint('auto', 10));",
-          expectedOutput: [
+          "language": "javascript",
+          "code": "const periods = {\n  block: { block: 3000, swap: Infinity },\n  swap: { block: 0, swap: Infinity },\n  fallback: { block: 100, swap: 3000 },\n  optional: { block: 100, swap: 0 }\n};\nfunction textPaint(display, arrive) {\n  const period = periods[display];\n  if (!period || !Number.isSafeInteger(arrive) || arrive < 0) return 'invalid';\n  if (arrive <= period.block) return 'paint:' + arrive + ',font';\n  if (period.swap === 0) return 'paint:' + period.block + ',fallback-kept';\n  if (arrive <= period.block + period.swap) return 'paint:' + period.block + ',fallback-then-swap:' + arrive;\n  return 'paint:' + period.block + ',fallback-kept';\n}\nconsole.log('swap:' + textPaint('swap', 400));\nconsole.log('optional晚:' + textPaint('optional', 400));\nconsole.log('optional早:' + textPaint('optional', 50));\nconsole.log('block早:' + textPaint('block', 400));\nconsole.log('block晚:' + textPaint('block', 5000));\nconsole.log('fallback中:' + textPaint('fallback', 200));\nconsole.log('fallback晚:' + textPaint('fallback', 4000));\nconsole.log('非法:' + textPaint('auto', 10));",
+          "expectedOutput": [
             "swap:paint:0,fallback-then-swap:400",
             "optional晚:paint:100,fallback-kept",
             "optional早:paint:50,font",
@@ -87,9 +88,9 @@ export const criticalResourcesArticle: Article = {
             "fallback晚:paint:100,fallback-kept",
             "非法:invalid"
           ],
-          explanation: [
-            "swap 的块周期是 0，所以文字立刻用后备字体绘制，400 时再交换。block 在字体于 400 到达前不绘制文字，文字 LCP 会被字体拖到 400；5000 才到达时，先在 3000 用后备字体画出，之后仍可交换。",
-            "optional 若 400 才到达，块周期已过且交换周期为 0，这次导航保留后备字体。fallback 只在 100ms 后的 3s 交换窗内替换。把 block 改成 swap 可以让文字更早出现，但会发生一次字体替换，需要另看布局偏移。"
+          "explanation": [
+            "在上述固定周期假设下，swap 的块周期是 0，所以文字立刻用后备字体绘制，400 时再交换。block 在字体于 400 到达前不绘制文字，文字 LCP 会被字体拖到 400；5000 才到达时，先在 3000 用后备字体画出，之后仍可交换。",
+            "在上述固定周期假设下，optional 若 400 才到达，块周期已过且交换周期为 0，这次导航保留后备字体。fallback 只在 100ms 后的 3s 交换窗内替换。把 block 改成 swap 可以让文字更早出现，但会发生一次字体替换，需要另看布局偏移。"
           ]
         }
       ]
@@ -127,7 +128,7 @@ export const criticalResourcesArticle: Article = {
       title: "先标出 LCP 候选，再改发现顺序",
       paragraphs: [
         "给订单页记下 LCP 是主图还是标题。若是主图，列出它的 URL 第一次出现在预加载、img 还是样式里；若是标题，写下 font-display 和后备字体的尺寸是否稳定。然后只改这一处，用同一设备和网络比较发现时间，而不是同时压缩所有图片。",
-        "E25、E30、E40 仍未开放，本篇不提供练习入口。模型单位也不能当作性能预算的通过线。"
+        "E25 的懒加载状态、E30 的窗口计算与 E40 的分帧预算规划已经开放。它们不测量真实图片加载和帧调度；模型单位不能当作性能预算的通过线。"
       ]
     }
   ],

@@ -44,6 +44,10 @@ export function ArticleView({ article, backTo, backLabel }: { article: Article; 
             {section.code && <CodeBlock code={section.code} />}
             {section.examples?.map((example) => <div className="article-example" key={example.code}>
               <CodeBlock code={example.code} />
+              <figure className="example-output">
+                <figcaption>预期输出</figcaption>
+                <pre><code>{example.expectedOutput.length > 0 ? example.expectedOutput.join("\n") : "（无控制台输出）"}</code></pre>
+              </figure>
               {example.explanation.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>)}
             {section.diagram && <figure className="article-diagram">

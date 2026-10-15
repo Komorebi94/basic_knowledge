@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const systemDesignCapacityArticle: Article = {
+  "revision": 2,
   id: "K13-08",
   kind: "knowledge",
   domainSlug: "architecture",
@@ -10,7 +11,7 @@ export const systemDesignCapacityArticle: Article = {
   aliases: ["capacity", "degradation", "system design", "容量"],
   tags: ["架构", "容量", "失败"],
   estimatedMinutes: 23,
-  verifiedAt: "2026-10-13",
+  verifiedAt: "2026-10-15",
   sections: [
     {
       id: "problem",
@@ -114,6 +115,29 @@ console.log('未知故障:' + degrade('slow'));`,
         "chooseStore 不估算磁盘、内存、地区和副本。local-cache 可能在真实配额下失败，那是另一项约束。函数输出不能写成已经选型完成的基础设施。",
         "degrade 不渲染页面，也不重试。list-recent 假设最近列表来自另一条仍可用的读取路径；如果最近列表和搜索共用一个已经挂掉的存储，这个降级不成立。",
         "整数笔记数忽略了单篇大小和附件。写入频率忽略了突发。超过平均值之前，峰值仍可能需要队列。模型没有峰值参数，就不能声称已经覆盖突发。"
+      ]
+    },
+    {
+      "id": "capacity-derivation",
+      "title": "把记录数阈值换成一次可复算的容量推导",
+      "paragraphs": [
+        "前面的 80、50000 等数字只定义教学分支。真实选型先给规模单位：记录数、每条 UTF-8 字节、分页大小、同时请求数、峰值请求率及可接受陈旧时间。下面用固定作者记录实际编码一次，估算原始正文总量与单页传输；这不是数据库索引、压缩或 JavaScript 堆的精确容量。"
+      ],
+      "examples": [
+        {
+          "language": "javascript",
+          "code": "const sample = { id: 'note-a', text: '笔记'.repeat(200) };\nconst bytesPerRow = new TextEncoder().encode(JSON.stringify(sample)).byteLength;\nconst totalRows = 100000;\nconst pageRows = 50;\nconst totalBytes = bytesPerRow * totalRows;\nconst pageBytes = bytesPerRow * pageRows;\nconst peakRequestsPerSecond = 90 / 60 * 10;\nconst averageSeconds = 0.05;\nconsole.log('正文超过8MiB:' + (totalBytes > 8 * 1024 * 1024));\nconsole.log('单页小于256KiB:' + (pageBytes < 256 * 1024));\nconsole.log('峰值每秒请求:' + peakRequestsPerSecond);\nconsole.log('平均在途估计:' + peakRequestsPerSecond * averageSeconds);",
+          "expectedOutput": [
+            "正文超过8MiB:true",
+            "单页小于256KiB:true",
+            "峰值每秒请求:15",
+            "平均在途估计:0.75"
+          ],
+          "explanation": [
+            "UTF-8 编码把汉字与 JSON 结构都计入样本字节；乘以十万条后，整批正文超过自定的 8MiB 下载预算，而 50 条分页仍低于自定的 256KiB。由此优先验证分页和按需查询，不是从记录数直接宣布必须采用某个数据库。",
+            "90 次/分钟乘 10 倍突发得到 15 次/秒；在稳定流量与平均耗时 0.05 秒的粗略假设下，在途均值约 0.75。均值不覆盖突发尾部、排队、索引、权限和故障恢复。接下来要测 P95、写入冲突、真实配额及停服后的草稿恢复；没有这些证据就保留未知，而不是调整阈值让结论通过。"
+          ]
+        }
       ]
     },
     {

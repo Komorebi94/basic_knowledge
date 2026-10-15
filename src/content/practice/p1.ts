@@ -19,9 +19,9 @@ function cases(id: string, rows: readonly { name: string; purpose: string; code:
 
 export const p1Exercises: readonly Exercise[] = [
   {
-    id: "E25", slug: "image-lazy-loading", title: "图片懒加载",
+    id: "E25", slug: "image-lazy-loading", title: "图片懒加载状态模型",
     summary: "用显式观察事件模拟视口进入、失败重试和卸载，不创建真实图片或观察器。",
-    runtime, estimatedMinutes: 25, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 25, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createLazy(items, observer) 接收 {id,src} 列表。observer 为 true 时初始状态是 placeholder；see(id) 首次进入记 loaded 且 loads 加一，重复进入返回 repeat。fail(id) 记 error，之后 see 可再次加载。destroy() 后忽略 see，并把仍是 placeholder 的项改为 dropped。observer 为 false 时全部直接 loaded，see 返回 ignored。",
     problem: ["真实页面会用观察器决定何时给图片赋值，但隔离环境没有视口和图片元素。本题把“进入视口、加载失败、组件卸载、没有观察器”收成可断言的状态记录。", "同一资源进入两次不能把 loads 累加成两次。失败后的再次进入才是重试。卸载后的旧通知必须被忽略，未加载项也不能继续假装还在等待。"],
     allowedApis: ["数组与对象", "字符串", "严格相等"],
@@ -55,9 +55,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E26", slug: "event-delegation", title: "事件委托",
+    id: "E26", slug: "event-delegation", title: "事件委托路径模型",
     summary: "沿父链查找第一个匹配角色，并处理取消订阅与后加入节点。",
-    runtime, estimatedMinutes: 25, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 25, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createDelegate(selector) 返回 add(id, parentId, role)、click(id) 和 unsubscribe()。click 从目标向父节点查找，返回第一个 role 等于 selector 的 id；到根仍没有则返回 none。未知 id 或取消订阅后返回 ignored。parentId 为 null 表示根，后加入的节点仍可命中。",
     problem: ["委托的关键是从事件目标向上找，而不是只比较被点击节点本身。子节点可以命中祖先上的选择器。", "取消订阅后，旧路径不能继续命中。订阅之后新增的节点只要父链完整，也应被同一次订阅处理。"],
     allowedApis: ["Map", "Set", "字符串"],
@@ -91,9 +91,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E27", slug: "accessible-tabs", title: "可访问 Tabs",
+    id: "E27", slug: "accessible-tabs", title: "Tabs 键盘状态模型",
     summary: "在普通对象上实现标签选择：方向键跳过禁用项，首尾键落到可用项，面板 id 与当前标签对应。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createTabs(items) 接收 {id, disabled} 列表。active 是第一个未禁用项；全部禁用时为空字符串。key('ArrowRight'|'ArrowLeft') 在可用项上循环，key('Home'|'End') 到第一个或最后一个可用项，其他键返回 ignored。panel() 返回 panel- 加当前 id。",
     problem: ["标签页的键盘顺序不是数组下标顺序。禁用项要跳过，到末尾后从另一端继续，Home 和 End 只落在可用项上。", "当前标签和面板用同一个 id 关联。这里不创建真实 tab、tabpanel 或焦点，只返回应激活的 id 和面板名。"],
     allowedApis: ["数组", "字符串"],
@@ -127,9 +127,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E28", slug: "dialog-focus", title: "对话框",
+    id: "E28", slug: "dialog-focus", title: "对话框焦点状态模型",
     summary: "用栈模拟多层对话框的焦点循环、Esc、遮罩和触发器恢复。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createDialogs() 提供 addTrigger、removeTrigger、open、tab、escape、backdrop、background 和 depth。open(triggerId) 压入一层，初始焦点是 close。tab 只在 close 与 body 间切换。escape 和 backdrop 关闭最上层，并返回仍存在的触发器 id；触发器已移除时返回 fallback。打开时 background 返回 blocked。",
     problem: ["对话框打开后，Tab 不应跑到背景里。关闭时要把焦点还给打开它的触发器；触发器已经不在时，只能回到事先约定的 fallback。", "多层对话框按栈关闭。后打开的先关闭，背景在仍有对话框时不可交互。本题不创建真实 dialog 或焦点陷阱。"],
     allowedApis: ["数组", "Set", "字符串"],
@@ -163,9 +163,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E29", slug: "form-validator", title: "表单校验器",
+    id: "E29", slug: "form-validator", title: "表单校验状态模型",
     summary: "提交时校验标题和金额，失焦只延后，旧一代异步结果不能覆盖新提交。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createValidator() 有 title 和 amount 两个字符串字段。set 写入值。blur 返回 defer，不产生错误。submit 增加代次，title 去掉空白后不能为空，amount 必须匹配 ^[1-9][0-9]*$。返回 {generation, errors, focus, status}，focus 是第一个错误字段或空字符串，status 为 pending。settle(generation, ok) 在代次不符时返回 stale；ok 且无错误返回 saved，ok 且有错误返回 invalid，失败返回 rejected。",
     problem: ["失焦可以提醒调用方稍后检查，但不应在用户还没提交时就定下错误列表。提交才生成一代校验结果，并把 focus 指到第一个错误字段，供调用方做文字反馈。", "异步校验返回时，如果用户已经再次提交，旧结果必须是 stale。本题不设置 aria，也不移动 document 焦点。"],
     allowedApis: ["字符串", "正则", "数字"],
@@ -199,9 +199,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E30", slug: "fixed-virtual-list", title: "固定高度虚拟列表",
+    id: "E30", slug: "fixed-virtual-list", title: "固定行高窗口计算",
     summary: "按固定行高、滚动位置和 overscan 切出可见 id，滚动超出末尾时停在最后一屏。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "sliceWindow(ids, {itemHeight, scrollTop, viewport, overscan}) 返回 {start, end, ids}。end 不含。空列表返回 start 0、end 0 和空 ids。scrollTop 超过内容末尾时夹到最后一行所在窗口。返回的 ids 必须是输入数组里的原值。itemHeight 和 viewport 是不小于 1 的整数，scrollTop 和 overscan 是不小于 0 的整数。",
     problem: ["固定行高可以把滚动位置换成行号，overscan 再向两侧多取几行，减少快滚时的空白。", "滚过末尾时不能算出一个空窗口。容器变矮要减少可见行。返回值使用输入 id，而不是重新生成的下标。本题不创建滚动容器。"],
     allowedApis: ["数组", "整数运算"],
@@ -235,9 +235,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E31", slug: "async-resource", title: "useAsyncResource",
+    id: "E31", slug: "async-resource", title: "异步资源状态模型",
     summary: "用代次模拟请求开始、成功、失败、重试和卸载，旧结果不能覆盖新请求。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createResource() 初始 read() 为 idle。start(key) 在未卸载时把状态改为 pending 并返回递增 id；连续 start 代表参数变化或重复执行。succeed(id, value) 和 fail(id, message) 只接受当前 id，否则返回 stale。retry() 以当前 key 再 start 一次。dispose() 后 start 返回 null，后续 succeed 返回 disposed，read().status 为 disposed。",
     problem: ["请求的结果必须和发起它的那一次对应。参数变了，或同一次渲染里 start 被调用两次，先返回的结果都是旧的。", "卸载后不能再写入 ready。retry 不是把旧 id 重新结算，而是开始新的一代。这不是 React Hook，也不会模拟 StrictMode 的组件树。"],
     allowedApis: ["对象", "数字", "字符串"],
@@ -307,19 +307,33 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E33", slug: "utility-type-model", title: "基础工具类型",
-    summary: "用运行时函数表达 Pick、Readonly 和 Awaited 的有限规则，不运行 TypeScript 编译器。",
-    runtime, estimatedMinutes: 25, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
-    entryContract: "pick(source, keys) 只复制自身的字符串键，缺失键不出现，空 keys 得到 {}。readonlyCopy(source) 返回浅层冻结副本，修改副本抛 TypeError。unwrap(value) 对带 then 函数的对象展开一层，其他值原样放进 Promise；then 抛错时 Promise 拒绝。非对象 source、非字符串 key 抛 TypeError。",
-    problem: ["隔离环境不能做类型检查。本题用三个函数表示 Pick 的选键、Readonly 的不可写，以及 Awaited 只展开一层 thenable。", "空 keys 对应没有可保留键的 never。缺失的可选键不要写成 undefined。union 在这里只表现为：结果里只有请求过且实际存在的键。负向约束用抛错表示，不是编译错误。"],
+    id: "E33", slug: "utility-type-model", title: "属性投影、浅冻结与 Promise 吸收",
+    summary: "在运行时复制指定自身键、冻结浅副本，并按 Promise 语义递归吸收 thenable；与 TypeScript 类型变换分开验证。",
+    runtime, estimatedMinutes: 25, revision: 2, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
+    entryContract: "pick(source, keys) 复制选中的自身字符串键，缺失键不出现，空 keys 得到 {}。包括 __proto__ 在内的键都创建自身数据属性，不改变结果原型。readonlyCopy(source) 复制自身可枚举字符串键并浅冻结新对象，严格模式修改副本抛 TypeError。unwrap(value) 返回 Promise，递归吸收 Promise/thenable，then getter 或调用抛错都变成拒绝。非对象 source、非字符串 key 抛 TypeError。",
+    problem: [
+      "本题训练运行时属性投影、浅冻结和 Promise 吸收，不实现 TypeScript 的 Pick、Readonly 或 Awaited。类型在编译时约束程序，不会自动复制字段或冻结对象；真实类型实现与编译练习见 K03-06。",
+      "空 keys 表示本次不选择属性。缺失键与存在且值为 undefined 的键不同；__proto__ 也是可能出现在 JSON 数据中的自身键，不能用普通赋值调用目标继承的 setter。"
+    ],
     allowedApis: ["对象", "Promise", "Object.freeze", "Object.hasOwn"],
-    unsupportedBehavior: ["不运行 tsc，不能产生类型错误。", "readonly 只冻结返回的浅副本，不递归冻结属性值。", "unwrap 只识别对象上的 then 函数，不等待嵌套多层之外的自定义 thenable 链。"],
+    unsupportedBehavior: [
+      "不运行 tsc，不以运行时抛错代替负向类型诊断。",
+      "冻结只作用于副本顶层，嵌套对象保持原引用，不复制完整描述符或原型。",
+      "Promise 吸收遵守递归语义，不实现只解包一层后仍直接兑现 thenable 的另一种协议。"
+    ],
     starterArtifact: "function pick() {\n  throw new Error(\"未实现\");\n}\nfunction readonlyCopy() {\n  throw new Error(\"未实现\");\n}\nfunction unwrap() {\n  throw new Error(\"未实现\");\n}\n",
-    hints: ["pick 遇到不存在的键就跳过，不要给结果补 undefined。", "readonlyCopy 先复制自身可枚举字符串键，再 Object.freeze。", "unwrap 发现 then 是函数时返回 Promise.resolve(value).then(item => item)，否则 Promise.resolve(value)。"] as const,
-    referenceArtifact: "function pick(source, keys) {\n  if (source === null || typeof source !== \"object\" || Array.isArray(source) || !Array.isArray(keys)) throw new TypeError(\"Invalid pick\");\n  const result = {};\n  for (const key of keys) {\n    if (typeof key !== \"string\") throw new TypeError(\"Invalid key\");\n    if (Object.hasOwn(source, key)) result[key] = source[key];\n  }\n  return result;\n}\nfunction readonlyCopy(source) {\n  if (source === null || typeof source !== \"object\" || Array.isArray(source)) throw new TypeError(\"Invalid source\");\n  const copy = {};\n  for (const key of Object.keys(source)) copy[key] = source[key];\n  return Object.freeze(copy);\n}\nfunction unwrap(value) {\n  if (value && typeof value === \"object\" && typeof value.then === \"function\") return Promise.resolve(value).then(item => item);\n  return Promise.resolve(value);\n}\n",
-    explanation: ["pick({a:1}, ['a','missing']) 只有 a，因为 missing 不是自身键。空数组得到空对象。readonlyCopy 的副本被冻结，赋值抛 TypeError，原对象仍可修改。", "unwrap(1) 解析为 1。带 then 的对象展开一层得到 then 传入的值。then 抛 TypeError 时，返回的 Promise 以 TypeError 拒绝。这些都是运行时结果，不是编译器诊断。"],
-    alternative: "可以用 TypeScript 的类型测试配合 tsc。那样能看到真正的类型错误，但当前 Worker 没有编译器，所以负例改成可执行的抛错。",
-    complexity: "pick 和 readonlyCopy 都是 O(k)，k 是键的数量；unwrap 是一次 Promise。",
+    hints: [
+      "用 Object.hasOwn 区分缺失键。用 Object.defineProperty 创建自身数据属性，避免 __proto__ 触发目标 setter。",
+      "readonlyCopy 用 Object.keys 选择自身可枚举字符串键，逐项创建新属性，最后冻结副本。",
+      "unwrap 直接使用 Promise.resolve；不要提前读取 then，原生吸收会把 getter 及 then 调用异常转成拒绝。"
+    ],
+    referenceArtifact: "function pick(source, keys) {\n  if (source === null || typeof source !== \"object\" || Array.isArray(source) || !Array.isArray(keys)) throw new TypeError(\"Invalid pick\");\n  const result = {};\n  for (const key of keys) {\n    if (typeof key !== \"string\") throw new TypeError(\"Invalid key\");\n    if (Object.hasOwn(source, key)) Object.defineProperty(result, key, { value: source[key], enumerable: true, writable: true, configurable: true });\n  }\n  return result;\n}\nfunction readonlyCopy(source) {\n  if (source === null || typeof source !== \"object\" || Array.isArray(source)) throw new TypeError(\"Invalid source\");\n  const copy = {};\n  for (const key of Object.keys(source)) Object.defineProperty(copy, key, { value: source[key], enumerable: true, writable: true, configurable: true });\n  return Object.freeze(copy);\n}\nfunction unwrap(value) {\n  return Promise.resolve(value);\n}\n",
+    explanation: [
+      "pick({a:1}, [\"a\",\"missing\"]) 只有 a；选择自身存在的 undefined 字段仍要保留这个键。defineProperty 对 __proto__ 建立数据属性，返回对象仍以 Object.prototype 为原型。readonlyCopy 冻结新副本，不冻结原对象；嵌套引用仍可变化。",
+      "unwrap(1) 兑现为 1；thenable 若交付另一个 thenable，会继续吸收到最终值。Promise.resolve 的吸收过程处理 then getter 和调用失败，统一返回拒绝。TypeScript Awaited 的递归类型关系可与此类比，但编译器类型与运行时操作分别验收。"
+    ],
+    alternative: "需要保留完整属性描述符时可使用 getOwnPropertyDescriptors/defineProperties；这与本题把选定值写成可写数据属性的合同不同。只需声明静态字段形状时使用 TypeScript 工具类型，不额外执行复制或冻结。",
+    complexity: "pick 为 O(keys.length)，readonlyCopy 为 O(自身可枚举字符串键数)，均另计属性读取成本。Promise 的等待和 thenable 链长不受此函数固定常数约束；复制所需空间与保留键数相关。",
     commonMistakes: ["缺失键被写成 undefined，可选属性变成了显式空值。", "冻结原对象，调用方失去对输入的修改能力。"],
     knowledgeIds: ["K03-06"], timeoutMs: 2000,
     examples: [
@@ -328,14 +342,66 @@ export const p1Exercises: readonly Exercise[] = [
       { code: "const value = await unwrap({ then(ok) { ok(2); } });\nconsole.log(String(value));", expectedOutput: "2", expectedLogs: ["2"], explanation: "thenable 被展开一层，得到 then 交出去的 2。" }
     ],
     testCases: cases("E33", [
-      { name: "选择存在的键", purpose: "只保留请求且拥有的键", code: "equal(pick({ a: 1, b: 2 }, [\"a\"]), { a: 1 });" },
-      { name: "可选键缺失", purpose: "没有的键不写入 undefined", code: "equal(pick({ a: 1 }, [\"b\"]), {});" },
-      { name: "空键", purpose: "空 keys 得到空对象", code: "equal(pick({ a: 1 }, []), {});" },
-      { name: "只读副本", purpose: "修改副本抛错且原对象不变", code: "const source = { a: 1 }; const copy = readonlyCopy(source); expectThrow(() => { copy.a = 2; }, \"TypeError\"); source.a = 3; equal(source.a, 3);" },
-      { name: "普通值", purpose: "非 thenable 原样解析", code: "equal(await unwrap(1), 1); equal(await unwrap(\"ok\"), \"ok\");" },
-      { name: "一层 thenable", purpose: "展开 then 交出的值", code: "equal(await unwrap({ then(ok) { ok({ n: 2 }); } }), { n: 2 });" },
-      { name: "then 抛错", purpose: "展开失败时拒绝", code: "await expectReject(unwrap({ then() { throw new TypeError(\"bad\"); } }), \"TypeError\");" },
-      { name: "非法键", purpose: "非字符串键被拒绝", code: "expectThrow(() => pick({ a: 1 }, [1]), \"TypeError\"); expectThrow(() => pick(null, []), \"TypeError\");" }
+      {
+        "name": "选择存在的键",
+        "purpose": "只保留请求且拥有的键",
+        "code": "equal(pick({ a: 1, b: 2 }, [\"a\"]), { a: 1 });"
+      },
+      {
+        "name": "可选键缺失",
+        "purpose": "没有的键不写入 undefined",
+        "code": "equal(pick({ a: 1 }, [\"b\"]), {});"
+      },
+      {
+        "name": "空键",
+        "purpose": "空 keys 得到空对象",
+        "code": "equal(pick({ a: 1 }, []), {});"
+      },
+      {
+        "name": "只读副本",
+        "purpose": "修改副本抛错且原对象不变",
+        "code": "const source = { a: 1 }; const copy = readonlyCopy(source); expectThrow(() => { copy.a = 2; }, \"TypeError\"); source.a = 3; equal(source.a, 3);"
+      },
+      {
+        "name": "普通值",
+        "purpose": "非 thenable 原样解析",
+        "code": "equal(await unwrap(1), 1); equal(await unwrap(\"ok\"), \"ok\");"
+      },
+      {
+        "name": "一层 thenable",
+        "purpose": "展开 then 交出的值",
+        "code": "equal(await unwrap({ then(ok) { ok({ n: 2 }); } }), { n: 2 });"
+      },
+      {
+        "name": "then 抛错",
+        "purpose": "展开失败时拒绝",
+        "code": "await expectReject(unwrap({ then() { throw new TypeError(\"bad\"); } }), \"TypeError\");"
+      },
+      {
+        "name": "非法键",
+        "purpose": "非字符串键被拒绝",
+        "code": "expectThrow(() => pick({ a: 1 }, [1]), \"TypeError\"); expectThrow(() => pick(null, []), \"TypeError\");"
+      },
+      {
+        "name": "特殊自身键",
+        "purpose": "__proto__ 是数据属性而非原型修改",
+        "code": "const source = JSON.parse('{\"__proto__\":{\"injected\":true}}'); for (const copy of [pick(source,[\"__proto__\"]), readonlyCopy(source)]) { equal(Object.getPrototypeOf(copy), Object.prototype); equal(Object.hasOwn(copy,\"__proto__\"),true); equal(copy.injected,undefined); equal(copy.__proto__.injected,true); }"
+      },
+      {
+        "name": "嵌套 thenable",
+        "purpose": "递归吸收到最终值",
+        "code": "equal(await unwrap({then(resolve){resolve({then(done){done(42);}});}}),42);"
+      },
+      {
+        "name": "then getter 失败",
+        "purpose": "返回拒绝 Promise，不提前同步抛错",
+        "code": "const result = unwrap({get then(){throw new TypeError(\"getter\");}}); await expectReject(result,\"TypeError\");"
+      },
+      {
+        "name": "空原型与 undefined",
+        "purpose": "自身键和值分别保留",
+        "code": "const source = Object.create(null); source.a=undefined; const copy=pick(source,[\"a\",\"missing\"]); equal(Object.hasOwn(copy,\"a\"),true); equal(Object.hasOwn(copy,\"missing\"),false);"
+      }
     ]),
     wrongImplementations: [
       { name: "缺失变 undefined", code: "function pick(source, keys) { const result = {}; for (const key of keys) result[key] = source[key]; return result; }\nfunction readonlyCopy(source) { return { ...source }; }\nfunction unwrap(value) { return Promise.resolve(value); }\n" },
@@ -343,18 +409,21 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E34", slug: "typed-event-map", title: "类型安全事件映射",
+    id: "E34", slug: "typed-event-map", title: "事件名称与参数数量校验",
     summary: "用参数个数约束事件名，错误名称和错误载荷在运行时抛 TypeError。",
-    runtime, estimatedMinutes: 25, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 25, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createTypedEvents(schema) 的 schema 把事件名映射到非负整数参数个数。on(name, handler) 返回取消函数。emit(name, ...args) 在名称不存在或参数个数不符时抛 TypeError。零参数事件不能接收额外参数，多参数事件必须给满。",
-    problem: ["类型系统里，事件名决定了参数。隔离环境不能做负向类型断言，所以用参数个数在运行时拒绝错误名称和错误载荷。", "零参数和多参数都按 schema 检查。取消订阅后，同一次 emit 不再调用该处理函数。"],
+    problem: [
+      "本题只在运行时检查已登记事件名和参数数量，不证明载荷类型正确。save 需要两个参数时，两个数字或两个对象都可能满足个数；字段类型要由运行时 schema 或 TypeScript 事件元组类型另行约束。",
+      "零参数和多参数都按 schema 检查。取消订阅后，同一次 emit 不再调用该处理函数。K03-05 的编译练习会用事件名关联参数元组，拒绝同数量但类型错误的调用。"
+    ],
     allowedApis: ["Map", "Set", "函数"],
     unsupportedBehavior: ["不运行 TypeScript，也不生成类型错误。", "不校验参数的字段形状，只校验个数。", "不提供通配事件或异步 emit。"],
     starterArtifact: "function createTypedEvents() {\n  throw new Error(\"未实现\");\n}\n",
     hints: ["构造时把每个事件名放进 Map，值是监听集合。", "emit 先确认名称存在，再比较 args.length 和 schema 中的个数。", "on 返回的函数从对应集合删除 handler。"] as const,
     referenceArtifact: "function createTypedEvents(schema) {\n  if (!schema || typeof schema !== \"object\" || Array.isArray(schema)) throw new TypeError(\"Invalid schema\");\n  const listeners = new Map();\n  for (const [name, count] of Object.entries(schema)) {\n    if (!Number.isInteger(count) || count < 0) throw new TypeError(\"Invalid schema\");\n    listeners.set(name, new Set());\n  }\n  return {\n    on(name, handler) {\n      if (!listeners.has(name) || typeof handler !== \"function\") throw new TypeError(\"Invalid listener\");\n      listeners.get(name).add(handler);\n      return () => listeners.get(name).delete(handler);\n    },\n    emit(name, ...args) {\n      if (!listeners.has(name)) throw new TypeError(\"Unknown event\");\n      if (args.length !== schema[name]) throw new TypeError(\"Invalid payload\");\n      for (const handler of [...listeners.get(name)]) handler(...args);\n    }\n  };\n}\n",
     explanation: ["tick 的个数是 0，emit('tick') 可以调用监听；emit('tick', 1) 因多了一个参数抛 TypeError。save 需要两个参数，少一个同样抛 TypeError。", "未知名称在 on 和 emit 时都抛 TypeError。取消函数执行后，再 emit 不会调用已移除的处理函数。"],
-    alternative: "可以为每个事件保存示例参数并做深度比较。个数检查更小，也更接近“参数列表长度”这个类型约束。",
+    alternative: "为每个事件配置运行时解析器，可以继续验证字段与值；编译期事件映射则使用事件名到参数元组的泛型关系。这两种方式各自承担边界，比较一份示例参数不能替代类型或 schema 校验。",
     complexity: "emit 为 O(k)，k 是该事件的监听数。",
     commonMistakes: ["未知事件被静默忽略，调用方不知道名称写错。", "不检查参数个数，零参数事件仍接收额外载荷。"],
     knowledgeIds: ["K03-05"], timeoutMs: 2000,
@@ -381,7 +450,7 @@ export const p1Exercises: readonly Exercise[] = [
   {
     id: "E35", slug: "dependency-topo-sort", title: "依赖图拓扑排序",
     summary: "按入度做稳定拓扑排序，循环和缺失节点要明确失败。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "topo(nodes, edges) 中 edge 是 [node, dependency]，表示 dependency 必须排在 node 前面。同一时刻多个入度为 0 的节点按 nodes 的原始顺序取出，不按字母排序。没有边的孤立点保留输入顺序。重复节点、指向未知 id 的边抛 Error，消息分别是 Duplicate node 和 Missing node。存在环时抛 Error，消息是 Cycle。",
     problem: ["构建或任务依赖常有多个合法顺序。本题在入度相同的节点之间固定使用输入顺序，这样结果可以重复断言。", "孤立点也要出现。缺依赖和环不能排成一个残缺数组，必须抛错。"],
     allowedApis: ["Map", "数组", "字符串"],
@@ -391,7 +460,7 @@ export const p1Exercises: readonly Exercise[] = [
     referenceArtifact: "function topo(nodes, edges) {\n  if (!Array.isArray(nodes) || !Array.isArray(edges)) throw new TypeError(\"Invalid graph\");\n  const index = new Map();\n  nodes.forEach((id, position) => {\n    if (typeof id !== \"string\" || index.has(id)) throw new Error(\"Duplicate node\");\n    index.set(id, position);\n  });\n  const indegree = new Map(nodes.map(id => [id, 0]));\n  const next = new Map(nodes.map(id => [id, []]));\n  for (const edge of edges) {\n    if (!Array.isArray(edge) || edge.length !== 2) throw new TypeError(\"Invalid edge\");\n    const node = edge[0];\n    const dependency = edge[1];\n    if (!index.has(node) || !index.has(dependency)) throw new Error(\"Missing node\");\n    next.get(dependency).push(node);\n    indegree.set(node, indegree.get(node) + 1);\n  }\n  const ready = nodes.filter(id => indegree.get(id) === 0);\n  const result = [];\n  while (ready.length) {\n    ready.sort((left, right) => index.get(left) - index.get(right));\n    const id = ready.shift();\n    result.push(id);\n    for (const to of next.get(id)) {\n      indegree.set(to, indegree.get(to) - 1);\n      if (indegree.get(to) === 0) ready.push(to);\n    }\n  }\n  if (result.length !== nodes.length) throw new Error(\"Cycle\");\n  return result;\n}\n",
     explanation: ["没有边时，所有节点入度为 0，按输入下标排序后就是原顺序，孤立点因此保留。c 同时被 a 和 b 依赖时，c 先出，a 和 b 同时就绪，a 的输入位置更靠前，所以顺序是 c、a、b。", "a 依赖 b 且 b 依赖 a 时，没有任何入度为 0 的起点，结果长度不够，抛 Cycle。边指向未出现的 z 时抛 Missing node，不会把 z 悄悄加进图里。"],
     alternative: "深度优先搜索也能检测环，但后序反转不等于输入稳定顺序。入度队列更容易按原始下标打破平局。",
-    complexity: "节点 n、边 m 时，每次从就绪集合选择最小值是 O(n log n) 量级；整体适合本题的小图。",
+    complexity: "按比较排序每轮 O(k log k) 的常用成本模型，最多 n 轮反复排序及移除队首，调度上界 O(m+n² log n)，空间 O(n+m)，另计回调和引擎实现。若用原始下标最小堆维护就绪节点，可达 O(m+n log n)；普通 FIFO 虽可线性，却不保证本题每一步都取当前最小输入下标。",
     commonMistakes: ["入度相同就按字母排序，输入顺序被打乱。", "遇到环时返回已经排出的前缀，调用方误以为排序成功。"],
     knowledgeIds: ["K16-03"], timeoutMs: 2000,
     examples: [
@@ -453,17 +522,25 @@ export const p1Exercises: readonly Exercise[] = [
   {
     id: "E37", slug: "sse-parser", title: "SSE 消息解析",
     summary: "把分块文本缓冲成 SSE 事件，处理半行、注释、空行和多行 data。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
-    entryContract: "createSse() 返回 push(chunk) 和 rest()。push 把 \\r\\n 和单独的 \\r 规范成 \\n，只在遇到空行时派发事件。以冒号开头的行是注释。多行 data 用 \\n 连接。没有 event 字段时名称为 message。没有 data 的块不产生事件。半行留在 rest()，下一次 push 继续拼接。",
+    runtime, estimatedMinutes: 30, revision: 2, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
+    entryContract: "createSse() 返回 push(chunk) 和 rest()。输入是已解码文本；CRLF、单独 CR、LF 都作为行结束，CRLF 即使跨两次 push 也只算一次。只有完整空行才派发事件。冒号开头的行是注释，多行 data 用换行连接；没有 event 或 event 值为空时名称为 message。没有 data 的块不产生事件。rest 返回规范化后尚未派发的文本，不会在 EOF 提交残片。",
     problem: ["网络分块不会对齐 SSE 的行。解析器必须自己保存没有换行结尾的残片，不能把残片当成一条事件。", "注释、空行和多行 data 都有固定含义。本题只解析文本，不创建 EventSource，也不在断流时补一条假事件。"],
     allowedApis: ["字符串", "数组"],
     unsupportedBehavior: ["不创建 EventSource，不发起网络请求。", "不处理 retry、id 字段的重连状态。", "flush 或 rest 不会把末尾残片变成事件。"],
     starterArtifact: "function createSse() {\n  throw new Error(\"未实现\");\n}\n",
-    hints: ["先把换行规范成 \\n，再按 \\n\\n 切完整块，最后一块留给缓冲区。", "注释行和空行跳过；data 可以出现多次，最后用 \\n 连接。", "只有出现过 data 字段才返回事件，默认名称是 message。"] as const,
-    referenceArtifact: "function createSse() {\n  let buffer = \"\";\n  function take(block) {\n    let event = \"message\";\n    const data = [];\n    let has = false;\n    for (const line of block.split(\"\\n\")) {\n      if (line === \"\" || line.startsWith(\":\")) continue;\n      const index = line.indexOf(\":\");\n      const field = index === -1 ? line : line.slice(0, index);\n      let value = index === -1 ? \"\" : line.slice(index + 1);\n      if (value.startsWith(\" \")) value = value.slice(1);\n      if (field === \"event\") event = value;\n      else if (field === \"data\") { data.push(value); has = true; }\n    }\n    return has ? { event, data: data.join(\"\\n\") } : null;\n  }\n  return {\n    push(chunk) {\n      if (typeof chunk !== \"string\") throw new TypeError(\"Invalid chunk\");\n      buffer += chunk.replaceAll(\"\\r\\n\", \"\\n\").replaceAll(\"\\r\", \"\\n\");\n      const events = [];\n      let at = buffer.indexOf(\"\\n\\n\");\n      while (at !== -1) {\n        const event = take(buffer.slice(0, at));\n        buffer = buffer.slice(at + 2);\n        if (event) events.push(event);\n        at = buffer.indexOf(\"\\n\\n\");\n      }\n      return events;\n    },\n    rest() { return buffer; }\n  };\n}\n",
-    explanation: ["第一次 push 只有 data: a 和一个换行时，缓冲区还没有空行，返回空数组，rest 仍是这行。下一次补上 data: b 和空行后，两条 data 合成 a\\nb。", "冒号开头的行被忽略。event 字段把默认的 message 改成 note。末尾没有空行的残片一直留在 rest，不会被补成事件。"],
+    hints: [
+      "保存待派发文本和 skipLf 标记。读到 CR 时产生一个换行，再记住下个字符若是 LF 就跳过。",
+      "只提取遇到完整空行的块。data 行可以有空值，多行用换行拼接；event 空值要回到 message。",
+      "同一份协议文本在任意位置切成两块，合并两次 push 的事件应与一次 push 相同；rest 只观察残片，不提交。"
+    ],
+    referenceArtifact: "function createSse() {\n  let buffer = \"\";\n  let skipLf = false;\n  function take(block) {\n    let event = \"message\";\n    const data = [];\n    let has = false;\n    for (const line of block.split(\"\\n\")) {\n      if (line === \"\" || line.startsWith(\":\")) continue;\n      const index = line.indexOf(\":\");\n      const field = index === -1 ? line : line.slice(0, index);\n      let value = index === -1 ? \"\" : line.slice(index + 1);\n      if (value.startsWith(\" \")) value = value.slice(1);\n      if (field === \"event\") event = value;\n      else if (field === \"data\") { data.push(value); has = true; }\n    }\n    return has ? { event: event || \"message\", data: data.join(\"\\n\") } : null;\n  }\n  return {\n    push(chunk) {\n      if (typeof chunk !== \"string\") throw new TypeError(\"Invalid chunk\");\n      for (const char of chunk) {\n        if (skipLf) {\n          skipLf = false;\n          if (char === \"\\n\") continue;\n        }\n        if (char === \"\\r\") { buffer += \"\\n\"; skipLf = true; }\n        else buffer += char;\n      }\n      const events = [];\n      let at = buffer.indexOf(\"\\n\\n\");\n      while (at !== -1) {\n        const event = take(buffer.slice(0, at));\n        buffer = buffer.slice(at + 2);\n        if (event) events.push(event);\n        at = buffer.indexOf(\"\\n\\n\");\n      }\n      return events;\n    },\n    rest() { return buffer; }\n  };\n}\n",
+    explanation: [
+      "第一次 push 只有 data: a 和一个换行时，缓冲区还没有空行，返回空数组，rest 仍是这行。下一次补上 data: b 和空行后，两条 data 合成 a\\nb。",
+      "冒号开头的行被忽略。event 字段把默认的 message 改成 note。末尾没有空行的残片一直留在 rest，不会被补成事件。",
+      "CR 是有效行结束，但后面的 LF 可能还没到达。skipLf 跨 push 保存这份记忆，避免把同一 CRLF 的两半误当两次换行。event: 空值在派发时回退为 message。末尾只有 data 行或单个行结束时，没有事件空行，不能在流断开时补发。"
+    ],
     alternative: "可以按单个换行增量解析并记到临时字段里。块切分更容易看清空行才是派发边界。",
-    complexity: "每个 chunk 按其中的完整块线性解析，未完成部分保留到下次。",
+    complexity: "一次 push 扫描新 chunk 及本次合并缓冲，成本 O(新块长度+保留长度)，额外空间与未完成事件及本次输出相关。长残片被许多小块反复拼接可能累计二次成本；生产流应限制事件长度或采用分段缓冲。",
     commonMistakes: ["每个 chunk 都立刻产出事件，半行被当成完整 data。", "多行 data 只保留最后一行，前面的内容丢失。"],
     knowledgeIds: ["K06-06"], timeoutMs: 2000,
     examples: [
@@ -472,14 +549,61 @@ export const p1Exercises: readonly Exercise[] = [
       { code: "const parser = createSse();\nconsole.log(parser.push(\": keep\\n\\nevent: note\\ndata: x\\n\\n\")[0].event);", expectedOutput: "note", expectedLogs: ["note"], explanation: "注释块没有 data，不产生事件；后面的块使用 event 字段 note。" }
     ],
     testCases: cases("E37", [
-      { name: "跨 chunk", purpose: "半行留到下一次", code: "const parser = createSse(); equal(parser.push(\"data: a\\n\").length, 0); equal(parser.push(\"data: b\\n\\n\")[0].data, \"a\\nb\");" },
-      { name: "注释", purpose: "冒号行不产生 data", code: "const parser = createSse(); equal(parser.push(\": keep\\n\\n\").length, 0); equal(parser.push(\"data: x\\n\\n\")[0].data, \"x\");" },
-      { name: "事件名", purpose: "event 字段覆盖 message", code: "const parser = createSse(); equal(parser.push(\"event: note\\ndata: 1\\n\\n\")[0].event, \"note\");" },
-      { name: "默认名称", purpose: "没有 event 时是 message", code: "equal(createSse().push(\"data: hi\\n\\n\")[0].event, \"message\");" },
-      { name: "多 data", purpose: "多行 data 用换行连接", code: "equal(createSse().push(\"data: a\\ndata: b\\n\\n\")[0].data, \"a\\nb\");" },
-      { name: "断流残片", purpose: "没有空行的文本留在 rest", code: "const parser = createSse(); parser.push(\"data: hi\"); equal(parser.rest(), \"data: hi\"); equal(parser.push(\"\").length, 0);" },
-      { name: "回车换行", purpose: "CRLF 按空行派发", code: "equal(createSse().push(\"data: x\\r\\n\\r\\n\")[0].data, \"x\");" },
-      { name: "非法块", purpose: "chunk 必须是字符串", code: "expectThrow(() => createSse().push(1), \"TypeError\");" }
+      {
+        "name": "跨 chunk",
+        "purpose": "半行留到下一次",
+        "code": "const parser = createSse(); equal(parser.push(\"data: a\\n\").length, 0); equal(parser.push(\"data: b\\n\\n\")[0].data, \"a\\nb\");"
+      },
+      {
+        "name": "注释",
+        "purpose": "冒号行不产生 data",
+        "code": "const parser = createSse(); equal(parser.push(\": keep\\n\\n\").length, 0); equal(parser.push(\"data: x\\n\\n\")[0].data, \"x\");"
+      },
+      {
+        "name": "事件名",
+        "purpose": "event 字段覆盖 message",
+        "code": "const parser = createSse(); equal(parser.push(\"event: note\\ndata: 1\\n\\n\")[0].event, \"note\");"
+      },
+      {
+        "name": "默认名称",
+        "purpose": "没有 event 时是 message",
+        "code": "equal(createSse().push(\"data: hi\\n\\n\")[0].event, \"message\");"
+      },
+      {
+        "name": "多 data",
+        "purpose": "多行 data 用换行连接",
+        "code": "equal(createSse().push(\"data: a\\ndata: b\\n\\n\")[0].data, \"a\\nb\");"
+      },
+      {
+        "name": "断流残片",
+        "purpose": "没有空行的文本留在 rest",
+        "code": "const parser = createSse(); parser.push(\"data: hi\"); equal(parser.rest(), \"data: hi\"); equal(parser.push(\"\").length, 0);"
+      },
+      {
+        "name": "回车换行",
+        "purpose": "CRLF 按空行派发",
+        "code": "equal(createSse().push(\"data: x\\r\\n\\r\\n\")[0].data, \"x\");"
+      },
+      {
+        "name": "非法块",
+        "purpose": "chunk 必须是字符串",
+        "code": "expectThrow(() => createSse().push(1), \"TypeError\");"
+      },
+      {
+        "name": "CRLF 任意分块",
+        "purpose": "任意两段切分保持同一条多行事件",
+        "code": "const text = \"data: a\\r\\ndata: b\\r\\n\\r\\n\"; for (let cut = 0; cut <= text.length; cut++) { const parser = createSse(); equal([...parser.push(text.slice(0, cut)), ...parser.push(text.slice(cut))], [{event:\"message\",data:\"a\\nb\"}]); }"
+      },
+      {
+        "name": "空事件名称",
+        "purpose": "空 event 回退 message，空 data 仍是事件",
+        "code": "equal(createSse().push(\"event:\\ndata: a\\n\\n\"), [{event:\"message\",data:\"a\"}]); equal(createSse().push(\"data:\\n\\n\"), [{event:\"message\",data:\"\"}]);"
+      },
+      {
+        "name": "跨块 CR 后不是 LF",
+        "purpose": "单独 CR 仍有效，下一个普通字符不能丢",
+        "code": "const parser = createSse(); equal(parser.push(\"data: a\\r\"), []); equal(parser.push(\"data: b\\r\\r\"), [{event:\"message\",data:\"a\\nb\"}]);"
+      }
     ]),
     wrongImplementations: [
       { name: "半行也派发", code: "function createSse() {\n  return { push(chunk) { return [{ event: \"message\", data: String(chunk).replaceAll(\"\\n\", \"\") }]; }, rest() { return \"\"; } };\n}\n" },
@@ -487,9 +611,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E38", slug: "optimistic-update", title: "乐观更新与回滚",
+    id: "E38", slug: "optimistic-update", title: "乐观更新与回滚模型",
     summary: "用变更日志保留较新的乐观值，旧成功不能覆盖它，失败时回到已提交值。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "createOptimistic(initial) 的 view() 是最新未结算变更的值，没有未结算变更时是 committed()。change(value) 返回递增 id。settle(id, true) 在存在更大 id 时返回 ignored-stale 且不修改 committed；若它是最新变更，则提交该值并返回 committed。settle(id, false) 在存在更大 id 时返回 kept-newer；若它是最新变更，则清空未结算变更并返回 rolled-back。未知 id 返回 unknown。",
     problem: ["乐观更新先改界面，再等服务器。多个请求交错时，旧请求成功不能覆盖已经显示的更新值。", "最新一次被服务器拒绝时，界面回到最近一次已提交值。这不是 React useOptimistic，也不是 Vue 的响应式更新。"],
     allowedApis: ["数组", "数字"],
@@ -559,9 +683,9 @@ export const p1Exercises: readonly Exercise[] = [
     ]
   },
   {
-    id: "E40", slug: "frame-scheduler", title: "分帧任务执行",
+    id: "E40", slug: "frame-scheduler", title: "分帧预算规划",
     summary: "按预算把任务装进帧里，取消的跳过，超预算的单项不能拆开，隐藏时预算减半。",
-    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-14", verifiedAt: "2026-10-14",
+    runtime, estimatedMinutes: 30, revision: 1, updatedAt: "2026-10-15", verifiedAt: "2026-10-15",
     entryContract: "runFrames(tasks, {budget, hidden, cancelled}) 中 task 是 {id, cost}，cost 是不小于 1 的整数，budget 是不小于 1 的整数。cancelled 里的 id 跳过。hidden 为 true 时有效预算是 max(1, floor(budget / 2))。任一未取消任务的 cost 大于有效预算时返回 {status:'unsplittable', id, frames:[]}。否则按输入顺序装箱，返回 {status:'done', frames}，每帧是 {ids, used}。空任务返回 done 和空 frames。",
     problem: ["长任务可以分成多帧，让每一帧的成本不超过预算。单个任务如果自己就超过预算，不能把它拆开后假装满足预算。", "取消的任务不占预算。页面隐藏时有效预算下降，原来放得下的任务可能变成不可拆。本题不调用 requestAnimationFrame，也不承诺硬实时。"],
     allowedApis: ["数组", "Set", "整数运算"],

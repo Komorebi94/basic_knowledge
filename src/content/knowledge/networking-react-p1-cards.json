@@ -177,9 +177,10 @@
   {
     "catalogId": "K07-05",
     "sourceHeadingId": "suspense",
-    "question": "Suspense 边界在子树尚未完成和出错时分别显示什么？",
-    "answerPoints": ["尚未完成时显示该边界的后备内容", "完成后显示子树内容", "错误交给错误边界，而不是 Suspense 自己"],
-    "pitfalls": ["在每次渲染中直接发请求，却没有稳定缓存"]
+    "question": "Effect 里的 fetch 会自动触发 Suspense 后备吗？",
+    "answerPoints": ["不会；边界需要受支持的挂起来源", "lazy 或 use 读取稳定 Promise 可以激活挂起", "客户端渲染错误由错误边界处理"],
+    "pitfalls": ["在每次渲染中直接发请求，却没有稳定缓存"],
+    "cardRevision": 2
   },
   {
     "catalogId": "K07-05",
@@ -227,8 +228,9 @@
     "catalogId": "K07-07",
     "sourceHeadingId": "props",
     "question": "为什么服务器不能把事件函数当作普通属性传给客户端组件？",
-    "answerPoints": ["跨边界的属性必须能被协议序列化", "函数和服务器资源对象不能当普通属性传递", "事件处理应定义在客户端模块内"],
-    "pitfalls": ["用 structuredClone 成功代替完整的 Flight 序列化测试"]
+    "answerPoints": ["跨边界的属性必须能被协议序列化", "普通闭包与服务器资源不能作为普通属性传递；框架支持的 Server Function 引用是专门例外", "点击事件处理通常定义在客户端；Server Function 的调用仍须服务器鉴权"],
+    "pitfalls": ["用 structuredClone 成功代替完整的 Flight 序列化测试"],
+    "cardRevision": 2
   },
   {
     "catalogId": "K07-08",

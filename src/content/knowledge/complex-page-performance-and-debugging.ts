@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const complexPagePerformanceArticle: Article = {
+  "revision": 2,
   "id": "K08-08",
   "kind": "knowledge",
   "domainSlug": "vue",
@@ -23,7 +24,7 @@ export const complexPagePerformanceArticle: Article = {
     "调试"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -224,7 +225,7 @@ export const complexPagePerformanceArticle: Article = {
       "paragraphs": [
         "合上代码，预测 A 分支中修改 second 是否会触发渲染；切到 B 后再改 first，依赖集合应怎样变化？把 computed 的对象增加另一输出字段，检查只比较 even 会漏掉什么。将 shallowRef 例子改为只 push 新行，再解释为什么界面可能没更新。",
         "给窗口例子输入空数据、超末尾滚动、零视口与无效行高，核对范围与 DOM，再说明可变行高需要额外维护什么。给虚拟行加入未提交输入，指出为什么草稿要以业务 ID 保存在窗口之外，不能完全依靠会被回收的行组件。",
-        "本篇没有新增已交付虚拟列表题，规划 E30、E32、E38 仍未开放，不显示空练习入口。先用完整作者示例验证机制，再在自己的生产构建中测真实场景；文末回忆卡核对依赖、浅层策略和列表边界。"
+        "E30 的窗口计算、E32 的简化依赖系统和 E38 的乐观更新模型已经开放；它们各自验证纯逻辑合同，不替代真实 Vue 列表、渲染与异步集成。先用完整作者示例验证机制，再在自己的生产构建中测真实场景；文末回忆卡核对依赖、浅层策略和列表边界。"
       ]
     }
   ],

@@ -1,6 +1,7 @@
 import type { Article } from "../articles";
 
 export const functionVarianceArticle: Article = {
+  "revision": 2,
   "id": "K03-05",
   "kind": "knowledge",
   "domainSlug": "typescript",
@@ -21,7 +22,7 @@ export const functionVarianceArticle: Article = {
     "函数类型与变型"
   ],
   "estimatedMinutes": 25,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "sections": [
     {
       "id": "problem",
@@ -131,7 +132,28 @@ export const functionVarianceArticle: Article = {
       "title": "用最小危险调用检查替换是否成立",
       "paragraphs": [
         "第一条边界是方法双向兼容，编译通过可能放宽了真实要求。第二条边界是重载和实现差异，调用方只看到导出的签名。还要注意 void 回调允许返回一个被忽略的值，不代表这个返回值可被调用方使用；异步函数传入 void 回调时，拒绝也未必由调用者处理。",
-        "评估回调先列出调用者所有合法参数，再看被替换函数能否逐一处理。用最小输入和错误签名检验，而不是只传一份完整订单。E34 类型安全事件映射仍待制作；可以先把负向参数例子改成函数属性接口，复现编译器如何暴露危险方向。"
+        "评估回调先列出调用者所有合法参数，再看被替换函数能否逐一处理。用最小输入和错误签名检验，而不是只传一份完整订单。E34 已开放事件名称与参数数量的运行时校验；本篇另有事件元组的真实编译练习，验证同数量但类型错误的载荷确实被拒绝。"
+      ]
+    },
+    {
+      "id": "event-type-exercise",
+      "title": "事件映射练习：相同参数数量仍可能是错误类型",
+      "paragraphs": [
+        "E34 的运行时参数个数校验不负责 TypeScript 类型安全。下面将事件名映射为参数元组，并把所有合法调用组成判别元组联合。每次调用必须整体匹配一个成员，避免把独立的名称联合与参数联合随意组合。"
+      ],
+      "examples": [
+        {
+          "language": "typescript",
+          "code": "type Events = { tick: []; save: [id: string, count: number] };\ntype Invocation = { [Name in keyof Events]: [Name, ...Events[Name]] }[keyof Events];\nfunction emit(...call: Invocation): void {\n  console.log(call[0] + ':' + (call.length - 1));\n}\nemit('tick');\nemit('save', 'note-a', 2);\nif (false) {\n  // @ts-expect-error: 参数数量对，但两个字段类型不对。\n  emit('save', 2, 'note-a');\n  // @ts-expect-error: tick 不接收载荷。\n  emit('tick', 1);\n  // @ts-expect-error: 未声明的事件名称。\n  emit('remove');\n}",
+          "expectedOutput": [
+            "tick:0",
+            "save:2"
+          ],
+          "explanation": [
+            "调用 save 需要先给字符串 id 再给数字 count；交换后仍是两个参数，却不能匹配该元组。因此编译器能发现只数 args.length 的模型发现不了的问题。tick 对应空元组，不允许多传参数。",
+            "类型在生成 JavaScript 后被擦除；从 JSON、插件或网络收到事件时，仍需运行时 schema 检查名称、字段和权限。这里的函数只记录调用形状，没有实现监听器生命周期；可把该公开签名与 E07 的运行时订阅责任分别验证。"
+          ]
+        }
       ]
     }
   ],

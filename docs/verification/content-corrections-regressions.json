@@ -1,0 +1,51 @@
+{
+  "verifiedAt": "2026-10-15T03:14:14.138Z",
+  "baseline": false,
+  "node": "v22.22.3",
+  "results": [
+    {
+      "name": "F01 problem: sync throw releases slot and ordinary value completes",
+      "passed": true
+    },
+    {
+      "name": "F01 problem: invalid limit rejected",
+      "passed": true
+    },
+    {
+      "name": "F01 failure: sync throw releases slot and ordinary value completes",
+      "passed": true
+    },
+    {
+      "name": "F01 failure: invalid limit rejected",
+      "passed": true
+    },
+    {
+      "name": "F01 sync-failure: sync throw releases slot and ordinary value completes",
+      "passed": true
+    },
+    {
+      "name": "F01 sync-failure: invalid limit rejected",
+      "passed": true
+    },
+    {
+      "name": "F02 E37: all CRLF split positions, character chunks and empty event type",
+      "passed": true
+    },
+    {
+      "name": "F03 E33: special own keys never change result prototype",
+      "passed": true
+    },
+    {
+      "name": "F04 E33: nested thenable and throwing getter use Promise semantics",
+      "passed": true
+    },
+    {
+      "name": "F05 K06-06: EOF cannot dispatch an incomplete event",
+      "passed": true
+    },
+    {
+      "name": "F11: published exercises are not described as unavailable",
+      "passed": true
+    }
+  ]
+}
