@@ -96,14 +96,16 @@ npm run verify:k16-ui
 
 ## 代码位置
 
-- src/app/：路由、通用布局、总览与搜索。
+- src/app/：路由、顶栏布局与搜索。
 - src/features/knowledge/：专题元数据与知识目录。
-- src/features/practice/、ai/、review/、personal/：各业务区域的页面入口。
+- src/features/practice/：练习目录与工作台。
+- src/features/ai/：AI 工程目录。
+- src/features/personal/：读取已保存的学习偏好，供顶栏正文字号使用。
 - src/styles.css：设计 tokens 在当前界面中的基础实现。
 - src/content/catalog.json：完整结构化目录；来自设计文档的已确认条目，不包含答案。
 - docs/design/：完整产品规格、内容蓝图、数据与安全边界、验收标准及设计图。
 
-后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；Cloudflare Pages 生产部署已完成 [Chrome 专项验收](docs/verification/cloudflare-pages-2026-10-10.json)，完整浏览器矩阵及人工读屏仍未验收。复习计划与我的积累已移出产品。
+后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；Cloudflare Pages 生产部署已完成 [Chrome 专项验收](docs/verification/cloudflare-pages-2026-10-10.json)，完整浏览器矩阵及人工读屏仍未验收。总览、侧栏、复习计划、我的积累和设置页已移出产品。
 
 维护目录时先更新设计文档 07、08、09 中的表格，再运行 `npm run sync:catalog`（需要 Python 3）生成结构化目录，最后运行 `npm run verify:catalog` 验证数量、唯一 ID、分类、页面和搜索定位。正文按稳定目录 ID 关联，不通过标题猜测已开放状态。
 

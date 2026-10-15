@@ -57,7 +57,6 @@ export class ReviewConflictError extends Error {
 }
 const intervals = [0, 1, 3, 7, 14, 30, 60] as const;
 const ratingOrder: Record<ReviewRating, number> = { forgotten: 0, unstable: 1, remembered: 2, fluent: 3 };
-export const ratingLabels: Record<ReviewRating, string> = { forgotten: "忘记了", unstable: "不太稳", remembered: "记住了", fluent: "很熟悉" };
 export function emptyReviewState(): ReviewState {
   return { progress: {}, events: [], sessions: {}, activeSessionId: null, latestSessionId: null };
 }
@@ -235,11 +234,6 @@ export function undoLastReview(state: ReviewState, sessionId: string, expectedRe
 export function endReviewSession(state: ReviewState, sessionId: string, expectedRevision: number, now: string, cards: readonly RecallCard[]): ReviewState {
   const session = activeSession(state, sessionId, expectedRevision);
   return synchronizeCards({ ...state, sessions: { ...state.sessions, [sessionId]: { ...session, status: "ended", finishedAt: now, revision: session.revision + 1 } }, activeSessionId: null }, cards);
-}
-export function progressLabel(progress: CardProgress | undefined): string {
-  if (!progress || progress.lastRating === null) return "新卡";
-  if (progress.lastRating === "forgotten" || progress.lastRating === "unstable") return "待补强";
-  return progress.stage >= 4 ? "较熟悉" : "巩固中";
 }
 function object(value: unknown): value is Record<string, unknown> { return value !== null && typeof value === "object" && !Array.isArray(value); }
 function nonempty(value: unknown): value is string { return typeof value === "string" && value.length > 0 && value.length <= 200 && !["__proto__", "constructor", "prototype"].includes(value); }

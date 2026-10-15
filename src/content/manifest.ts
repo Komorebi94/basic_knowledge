@@ -1,5 +1,5 @@
 import { articles, articleHref } from "./articles";
-import { recallCards, reviewCases, p1AiIds } from "./learningContent";
+import { reviewCases, p1AiIds } from "./learningContent";
 import exercises from "./exerciseMetadata.json";
 import retrievalStreamEvidence from "./ai/p1-retrieval-stream.json";
 import collaborationCostEvidence from "./ai/p1-collaboration-cost.json";
@@ -181,5 +181,3 @@ export const contentManifest: readonly PublishedContent[] = [
     href: `/practice/${exercise.slug}`,
   })),
 ];
-
-export const publishedCardCount = recallCards.length;

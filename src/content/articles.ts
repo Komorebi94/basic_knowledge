@@ -328,7 +328,3 @@ export const articles: readonly Article[] = [
 export function articleHref(article: Article): string {
   return article.kind === "ai" ? `/ai/${article.slug}` : `/knowledge/${article.domainSlug}/${article.slug}`;
 }
-
-export function findArticle(kind: Article["kind"], slug: string | undefined, domainSlug?: string): Article | undefined {
-  return articles.find((article) => article.kind === kind && article.slug === slug && (kind === "ai" || article.domainSlug === domainSlug));
-}

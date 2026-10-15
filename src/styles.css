@@ -496,14 +496,6 @@ a.catalog-topic-title {
   line-height: 1.7;
 }
 
-.article-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  color: #64736d;
-  font-size: 13px;
-}
-
 .article-section {
   padding-top: 32px;
 }
@@ -691,13 +683,6 @@ a.catalog-topic-title {
 
 .practice-heading .heading-bar {
   margin-bottom: 10px;
-}
-
-.practice-heading-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-left: auto;
 }
 
 .practice-panel .article-section {
