@@ -8,7 +8,7 @@
 - 运行器：<https://zhixu-komorebi94-runner.pages.dev>
 - 两个项目均连接仓库的 `master` 分支，推送后自动构建部署。
 
-2026-10-10 已完成生产环境 Chrome 专项验收，范围与未验证项见 [验收记录](verification/cloudflare-pages-2026-10-10.json)。
+2026-10-10 已用本机 Chrome 的临时上下文验收生产 origin：文章深链接与刷新、练习参考实现和错误实现、运行器 CSP、跨源隔离、网络阻断、超时和主动停止。未验证完整浏览器矩阵、人工读屏、用户真实私人数据迁移，以及成对 origin 的预览部署。原始 JSON 记录未纳入仓库。
 
 ## 创建项目
 

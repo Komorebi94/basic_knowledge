@@ -2,7 +2,7 @@
 
 原审查报告的 F01—F11 已修正，四项优先补强已落到正文、完整示例和验证脚本中。修复过程中额外发现 6 处过期练习说明，与原报告的 26 处合计修正 32 处。当前工作区通过类型、lint、构建、文章示例、练习、阅读页面和相关状态回归检查。
 
-本文对应 [原始审查基线](content-audit-2026-10-15.md)。原审查结果和失败探针保留，不能用本轮结果倒改历史记录。本次修改本地项目，没有执行生产发布。
+本文对应 [原始审查基线](content-audit-2026-10-15.md)。原审查结论保留在该记录中，不能用本轮结果倒改历史叙述。本次修改本地项目，没有执行生产发布。
 
 ## F01—F11 逐项处理
 
@@ -53,17 +53,7 @@ React 作者示例通过单独的本机运行时夹具执行，Node 示例在验
 
 执行环境：Node v22.22.3、Chrome 155.0.8059.40、TypeScript 6.0.3、React 19.3.0。浏览器页面验收使用本轮临时本地服务与独立上下文，不读写用户正在使用的浏览器数据。
 
-全量文章运行后，最终调整了 K07-05 的错误原因断言及 K14-08 的指标输入，并补充若干正文解释。因此保留全量与最终补验两组原始记录，不把它们伪装成同一次执行。[证据索引](content-corrections-evidence-index.json) 将当前每个示例的代码哈希和完整输出对应到实际成功记录。
-
-证据：
-
-- [全量文章执行](content-corrections-articles.json)
-- [最终 Promise、React 与 SSR 补验](content-corrections-final-examples.json)
-- [最终可观测性补验](content-corrections-observability-final.json)
-- [修复后独立回归](content-corrections-regressions.json)
-- [修复前预期失败基线](content-corrections-baseline.json)
-- [练习执行记录](exercises.json)
-- [类型与包消费记录](k03-types-report.json)
+全量文章运行后，最终调整了 K07-05 的错误原因断言及 K14-08 的指标输入，并补充若干正文解释。全量运行和最终补验是两次执行。原始 JSON 未纳入仓库，上表保留当时的通过结论。
 
 ## 验证边界与后续选题
 

@@ -54,7 +54,7 @@ export const aiContentContracts: readonly AiContentContract[] = articles.filter(
     guardrails: boundaries.flatMap((section) => section.paragraphs),
     verificationChecklist: [...evidence.flatMap((section) => section.paragraphs), ...cases.flatMap((item) => item.questions)],
     failurePatterns: [...failures.flatMap((section) => section.paragraphs), ...cases.flatMap((item) => item.findings)],
-    evidenceArtifacts: ["scripts/verify-articles.mjs", ["AI13", "AI14", "AI17", "AI18"].includes(catalogId) ? "docs/verification/article-examples-report.json" : "src/content/ai/p0-verification.json"],
+    evidenceArtifacts: ["scripts/verify-articles.mjs", ...(["AI13", "AI14", "AI17", "AI18"].includes(catalogId) ? [] : ["src/content/ai/p0-verification.json"])],
     toolScope: "原创示例用于本地机制验证；不连接模型、不自动操作远端仓库。真实工具调用依任务授权与宿主权限执行。",
   };
 });

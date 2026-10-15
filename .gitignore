@@ -12,3 +12,5 @@ coverage/
 !.env.example
 *.log
 src/content/searchIndex.json
+docs/verification/*.json
+docs/verification/*.png

@@ -8,7 +8,7 @@ E01—E40 的参考代码、样例和测试是仓库维护的内容。E25—E40 
 node scripts/verify-exercises.mjs
 ```
 
-成功时输出题目数、行为用例数、样例数及检测到的错误实现数。任一参考用例失败、样例输出不一致或错误实现未被识别，命令会以非零状态结束，并在控制台指出题目及用例。报告保存至 `docs/verification/exercises.json`，包括：
+成功时输出题目数、行为用例数、样例数及检测到的错误实现数。任一参考用例失败、样例输出不一致或错误实现未被识别，命令会以非零状态结束，并在控制台指出题目及用例。命令会在本机写出 `docs/verification/exercises.json`，该 JSON 不纳入仓库。报告包括：
 
 - `runtime`、`verifiedAt`：实际 Node.js 版本与执行时间。
 - `verifierSha256`：本次验证器源码指纹。
@@ -103,6 +103,6 @@ B 先完成，但 all 按输入索引保存，因此最终仍为 A、B。不要�
 
 启动主站 `npm run dev` 和独立服务 `npm run dev:runner`，默认分别为 `http://127.0.0.1:5173` 与 `http://127.0.0.1:5174`。主站配置 `VITE_RUNNER_ORIGIN`，独立服务配置 `ZHIXU_PARENT_ORIGIN`；部署时两个 origin 必须不同，静态服务必须保留 runner 的 CSP 响应头。主站不会回退到本页面执行用户代码。
 
-运行 `node scripts/verify-practice-runner.mjs` 可在本机 Chrome 中复现全部 24 个参考与 48 个错误实现，报告为 `docs/verification/practice-browser.json`。`node scripts/verify-runner.mjs` 另检查跨源主页面/IndexedDB 不可访问、网络阻断和死循环终止。`node scripts/verify-practice-ui.mjs` 使用全新浏览器上下文检查保存、刷新、辅助证据、冲突、路由保护、停止与不可用恢复，报告为 `docs/verification/practice-ui-report.json`。这些浏览器脚本需要 Playwright 与本机 Chrome，服务应使用上述默认地址。
+运行 `node scripts/verify-practice-runner.mjs` 可在本机 Chrome 中复现参考实现与错误实现。`node scripts/verify-runner.mjs` 另检查跨源主页面/IndexedDB 不可访问、网络阻断和死循环终止。`node scripts/verify-practice-ui.mjs` 使用全新浏览器上下文检查保存、刷新、辅助证据、冲突、路由保护、停止与不可用恢复。这些浏览器脚本需要 Playwright 与本机 Chrome，服务应使用上述默认地址。它们写出的 JSON 与截图只留在本机。
 
 浏览器使用 `runner/harness.js` 的词法辅助参数，并在独立 origin 的 Worker 内执行代码；每条用例有新时钟与入口，每次运行创建新 Worker。浏览器 `equal` 检查本批题目使用的普通对象/数组、日期和基础 Map/Set 结构与身份边界；它并非 Node `deepStrictEqual` 对任意对象（例如含对象键的 Map）的通用替代。当前题目经过 Node 与浏览器双验证，复杂度与更广泛输入仍须按合同人工审查。Worker 让出一个原生任务后检查未处理的 Promise 拒绝；虚拟 `flush()` 仍只负责微任务，不模拟网络或原生任务。

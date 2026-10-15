@@ -105,7 +105,7 @@ npm run verify:k16-ui
 - src/content/catalog.json：完整结构化目录；来自设计文档的已确认条目，不包含答案。
 - docs/design/：完整产品规格、内容蓝图、数据与安全边界、验收标准及设计图。
 
-后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；Cloudflare Pages 生产部署已完成 [Chrome 专项验收](docs/verification/cloudflare-pages-2026-10-10.json)，完整浏览器矩阵及人工读屏仍未验收。总览、侧栏、复习计划、我的积累和设置页已移出产品。
+后续以 [设计总览](docs/design/README.md) 为准推进。P0 内容与功能已接入并完成本机 Chrome 专项验证。真实配额拒绝已通过受控浏览器额度验证；Cloudflare Pages 生产部署已在 2026-10-10 用本机 Chrome 做过专项验收，完整浏览器矩阵及人工读屏仍未验收。总览、侧栏、复习计划、我的积累和设置页已移出产品。
 
 维护目录时先更新设计文档 07、08、09 中的表格，再运行 `npm run sync:catalog`（需要 Python 3）生成结构化目录，最后运行 `npm run verify:catalog` 验证数量、唯一 ID、分类、页面和搜索定位。正文按稳定目录 ID 关联，不通过标题猜测已开放状态。
 
@@ -113,7 +113,7 @@ npm run verify:k16-ui
 
 [产品定位](docs/design/01-product.md) · [页面规格](docs/design/05-pages.md) · [设计图](docs/design/visuals/README.md) · [交接说明](docs/design/15-handoff.md)
 
-当前 148 篇正文按深入教程标准编写。原 60 篇文章已验证 207 个浏览器示例及其中 9 个 TypeScript 示例的严格类型检查；2026-10-12 又为 AI04、AI06、AI16、AI20 追加 4 个示例并通过定向检查。4 篇 AI P1 现有 11 个示例，见 [执行报告](docs/verification/article-examples-report.json)。可用 `ZHIXU_ARTICLE_IDS=AI13,AI14,AI17,AI18 npm run verify:articles` 复现新增检查，不指定 ID 则检查全部作者示例。`npm run verify:exercises` 已验证 182 个行为用例、72 个可见样例，并击败 48 个典型错误实现。练习复现说明见 [harness 文档](docs/verification/exercise-harness.md)。模块示例以 ES 模块执行。闭包教程的 12 个示例另可运行 `npm run verify:closures` 验证；详细内容制作与阅读修订标准见 [D14](docs/design/15-handoff.md)。
+当前 148 篇正文按深入教程标准编写。原 60 篇文章已验证 207 个浏览器示例及其中 9 个 TypeScript 示例的严格类型检查；2026-10-12 又为 AI04、AI06、AI16、AI20 追加 4 个示例并通过定向检查。4 篇 AI P1 现有 11 个示例。可用 `ZHIXU_ARTICLE_IDS=AI13,AI14,AI17,AI18 npm run verify:articles` 复现新增检查，不指定 ID 则检查全部作者示例。`npm run verify:exercises` 已验证 182 个行为用例、72 个可见样例，并击败 48 个典型错误实现。练习复现说明见 [harness 文档](docs/verification/exercise-harness.md)。验证命令写出的 JSON 与截图只留在本机，不纳入仓库。模块示例以 ES 模块执行。闭包教程的 12 个示例另可运行 `npm run verify:closures` 验证；详细内容制作与阅读修订标准见 [D14](docs/design/15-handoff.md)。
 
 
 内容发布门禁 `npm run verify:p0` 会验证 P0 数量、稳定 ID、卡片与原文锚点、AI 合同、模板/案例、公开元数据、来源 URL 与双向关联；`npm run build` 自动运行此门禁。参考用例仅执行仓库作者内容，用户输入与导入备份不会进入这些脚本。
@@ -135,4 +135,4 @@ npm run preview
 ZHIXU_PARENT_ORIGIN=http://127.0.0.1:4173 npm run preview:runner
 ```
 
-性能脚本默认生产预览 5192（`npm run preview -- --port 5192`），搜索计时另需开发主站 5173。实验室性能见 [报告](docs/verification/p0-performance.json)。正文按文章拆开加载，搜索索引在搜索时单独请求。验收范围与限制见 [实现记录](docs/implementation-status.md)。
+性能脚本默认生产预览 5192（`npm run preview -- --port 5192`），搜索计时另需开发主站 5173。实验室性能的测量条件与结论见 [实现记录](docs/implementation-status.md)。正文按文章拆开加载，搜索索引在搜索时单独请求。
