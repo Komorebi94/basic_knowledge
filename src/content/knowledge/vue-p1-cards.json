@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K08-03",
+    "sourceHeadingId": "props",
+    "question": "子组件改 props.order.quantity 后父级也变了，为什么仍可能是错误的数据流？",
+    "answerPoints": [
+      "嵌套对象可能与父级共享同一引用，props 顶层约束不是深层冻结",
+      "直接写内部字段绕过父级校验与提交入口",
+      "子级应表达变更请求，由所有者决定接受或拒绝"
+    ],
+    "pitfalls": [
+      "把能触发响应式更新误当成拥有业务修改权"
+    ]
+  },
+  {
+    "catalogId": "K08-03",
+    "sourceHeadingId": "draft",
+    "question": "编辑草稿期间订单已被外部刷新，保存时应该检查什么？",
+    "answerPoints": [
+      "草稿应保存打开时的基础版本",
+      "基础版本与当前版本不一致时拒绝静默覆盖并提示恢复选择",
+      "客户端比较只保护本地流程，服务器并发写入仍需条件更新"
+    ],
+    "pitfalls": [
+      "用 watch 无条件覆盖草稿，或者把浅复制当成嵌套字段完全隔离"
+    ]
+  },
+  {
+    "catalogId": "K08-03",
+    "sourceHeadingId": "injection",
+    "question": "深层组件通过 inject 读取可更新的数量，如何让修改仍由提供者负责？",
+    "answerPoints": [
+      "提供 ref 的只读视图，保留响应式连接",
+      "同时提供经过业务校验的变更命令",
+      "必需上下文缺失时明确处理，不建立隐形备用实例"
+    ],
+    "pitfalls": [
+      "只提供 ref.value 的数字快照，或把注入当成全局广播"
+    ]
+  },
+  {
+    "catalogId": "K08-04",
+    "sourceHeadingId": "subscription",
+    "question": "组件卸载后，外部消息监听器为什么还可能修改旧状态？",
+    "answerPoints": [
+      "组件停止其关联响应式工作，不自动移除外部事件监听器",
+      "订阅所有者必须登记卸载释放，移除时使用同一回调与匹配的 capture",
+      "共享资源应由共享所有者结束，不能让任意消费者关闭"
+    ],
+    "pitfalls": [
+      "把 ref 不再渲染误当成外部回调已经停止"
+    ]
+  },
+  {
+    "catalogId": "K08-04",
+    "sourceHeadingId": "late-watch",
+    "question": "请求完成的回调里创建 watch，为什么可能在组件卸载后继续执行？",
+    "answerPoints": [
+      "异步创建时没有自动继承原组件的同步 setup 归属",
+      "优先同步创建 watcher，在回调内按数据是否就绪决定工作",
+      "确需延迟创建时保留停止句柄，并阻止卸载后才开始初始化"
+    ],
+    "pitfalls": [
+      "只在卸载时调用尚未存在的 stop，却没有结束标记防止迟到创建"
+    ]
+  },
+  {
+    "catalogId": "K08-04",
+    "sourceHeadingId": "inputs",
+    "question": "组合式函数如何让数量输入与解构后的返回值持续响应变化？",
+    "answerPoints": [
+      "输入传 ref 或 getter，在 computed/watch 的追踪范围内读取或 toValue",
+      "返回普通对象中的 ref，解构拿到的仍是 ref",
+      "原始数字快照和直接解构 reactive 原始字段都不会自动重新赋值"
+    ],
+    "pitfalls": [
+      "把 toValue 提前放在追踪回调之外，误认为已经建立依赖"
+    ]
+  },
+  {
+    "catalogId": "K08-05",
+    "sourceHeadingId": "static-blocks",
+    "question": "模板中嵌套很深的动态文字，为什么不必每次全面检查外层静态结构？",
+    "answerPoints": [
+      "编译器分析固定结构，并缓存可证明不变的静态部分",
+      "block 记录需要更新的动态后代，使运行时关注更小的检查集合",
+      "条件与列表结构仍需各自处理，内部标记和集合形状有版本边界"
+    ],
+    "pitfalls": [
+      "把动态集合当成永远不变化的 DOM，或把静态缓存当成业务冻结"
+    ]
+  },
+  {
+    "catalogId": "K08-05",
+    "sourceHeadingId": "keys",
+    "question": "列表排序后草稿跟错订单，为什么应先检查 key 而不是加缓存？",
+    "answerPoints": [
+      "key 表达稳定业务身份，组件本地状态随该身份保留",
+      "索引表示位置，重排后可能让旧组件接收另一个订单但保留旧草稿",
+      "随机 key 会重建并丢失状态，缓存不能修复错误身份"
+    ],
+    "pitfalls": [
+      "把 key 当成性能开关，忽略组件草稿和生命周期"
+    ]
+  },
+  {
+    "catalogId": "K08-05",
+    "sourceHeadingId": "memo",
+    "question": "订单 ID 不变但名称变化，为什么只用 ID 的 v-memo 会保留旧文字？",
+    "answerPoints": [
+      "依赖数组没有变化时缓存子树被复用",
+      "身份相同不能证明影响输出的字段相同",
+      "应覆盖实际输出依赖或完整版本，必要时去掉手动 memo"
+    ],
+    "pitfalls": [
+      "让另一项变化碰巧刷新界面，就误认为缓存依赖已经完整"
+    ]
+  },
+  {
+    "catalogId": "K08-06",
+    "sourceHeadingId": "history",
+    "question": "筛选条件要支持复制链接和返回恢复，怎样避免 URL 与 store 各自维护一份？",
+    "answerPoints": [
+      "以规范化的当前路由查询为已提交筛选的事实源",
+      "输入中的查询可以留在本地，提交后才用于导航与列表读取",
+      "push 保留上一轮入口，replace 替换当前轮，导航失败不能假装新条件已经生效"
+    ],
+    "pitfalls": [
+      "用两个 watcher 双向复制筛选，返回后仍按旧 store 查询"
+    ]
+  },
+  {
+    "catalogId": "K08-06",
+    "sourceHeadingId": "guards",
+    "question": "未保存草稿从订单 A 切到 B，为什么只有 leave 守卫可能不够？",
+    "answerPoints": [
+      "同一动态路由可能复用组件，属于路由更新而不是离开组件",
+      "在业务 ID 改变时用 update 守卫保护，去其他页面另用 leave 守卫",
+      "检查导航结果，aborted 时保留输入，刷新与外部跳转另有边界"
+    ],
+    "pitfalls": [
+      "以为 await router.push 解决就代表一定已经离开"
+    ]
+  },
+  {
+    "catalogId": "K08-06",
+    "sourceHeadingId": "submit",
+    "question": "保存失败后，已提交订单、草稿与 dirty 应怎样变化？",
+    "answerPoints": [
+      "失败保留已提交值与草稿，显示错误并允许按合同重试",
+      "成功并核对响应后才更新已确认副本与编辑基线",
+      "dirty 从实际编辑字段比较派生，提交中重复请求需防护"
+    ],
+    "pitfalls": [
+      "按钮一点击就清 dirty 或清空草稿，把失败伪装成成功"
+    ]
+  },
+  {
+    "catalogId": "K08-07",
+    "sourceHeadingId": "hydrate",
+    "question": "服务端已经输出按钮，水合为什么还需要再创建客户端应用？",
+    "answerPoints": [
+      "HTML 没有传输服务器闭包与 Vue 事件监听器",
+      "客户端以同一组件定义和公开初始状态创建自己的实例",
+      "匹配时接管并复用现有 DOM，再由客户端响应后续交互"
+    ],
+    "pitfalls": [
+      "把可见 HTML 当成客户端组件已经挂载，或用 createApp 重建掩盖水合问题"
+    ]
+  },
+  {
+    "catalogId": "K08-07",
+    "sourceHeadingId": "requests",
+    "question": "SSR 每个请求都创建了新 app，为什么仍可能渲染另一用户的状态？",
+    "answerPoints": [
+      "模块级状态可能仍是多个请求共用的单例",
+      "异步重叠时后请求可能改写前请求尚未渲染的值",
+      "请求相关状态、Router/store 和传输上下文应按请求创建并明确缓存分区"
+    ],
+    "pitfalls": [
+      "只新建组件树却复用含用户字段的可变状态"
+    ]
+  },
+  {
+    "catalogId": "K08-07",
+    "sourceHeadingId": "lifecycle",
+    "question": "服务器 setup 中建立需要清理的副作用，为什么不能等 onUnmounted 释放？",
+    "answerPoints": [
+      "SSR 不执行客户端挂载与卸载生命周期",
+      "客户端专用副作用在 mounted 后建立并按客户端责任释放",
+      "服务端资源随请求结束管理，异步准备后的最终数据才是客户端初始基线"
+    ],
+    "pitfalls": [
+      "把客户端销毁钩子当成服务端计时器或连接的结束机制"
+    ]
+  },
+  {
+    "catalogId": "K08-08",
+    "sourceHeadingId": "dependencies",
+    "question": "修改同一个 reactive 对象的字段，为什么有些变化不触发当前组件？",
+    "answerPoints": [
+      "渲染依赖来自当轮同步实际读取的字段，不是整个对象统一订阅",
+      "条件分支变化会调整读取与订阅范围",
+      "开发钩子可定位读取与触发来源，但不等同于 DOM 修改或绘制次数"
+    ],
+    "pitfalls": [
+      "用“对象响应式”直接推断所有字段变化都该重渲染"
+    ]
+  },
+  {
+    "catalogId": "K08-08",
+    "sourceHeadingId": "shallow",
+    "question": "shallowRef 内部对象的数据变了但 DOM 没变，应先检查什么合同？",
+    "answerPoints": [
+      "shallowRef 只在根引用层通知，内部字段不自动深层追踪",
+      "浅层数据应按明确的不可变替换或外部桥接通知更新",
+      "保持正确输出后再验证开销，偶然刷新不能证明通知完整"
+    ],
+    "pitfalls": [
+      "把没有触发更新当成性能提升，或靠随意 triggerRef 掩盖所有权错误"
+    ]
+  },
+  {
+    "catalogId": "K08-08",
+    "sourceHeadingId": "virtual",
+    "question": "固定高度虚拟列表减少了 DOM，还必须验证哪些行为边界？",
+    "answerPoints": [
+      "范围需要处理空数据、滚动夹取、overscan 与无效高度",
+      "业务 key、草稿保存和回收时的焦点责任不能丢",
+      "可变行高、键盘/读屏与滚动锚点不由固定高度模型自动保证"
+    ],
+    "pitfalls": [
+      "只比较行数与 FPS，忽略编辑、空状态及可访问性"
+    ]
+  }
+]

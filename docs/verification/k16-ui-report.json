@@ -1,0 +1,103 @@
+{
+  "verifiedAt": "2026-10-14T07:31:08.171Z",
+  "browser": "155.0.8059.40",
+  "articles": [
+    {
+      "id": "K16-03",
+      "href": "/knowledge/algorithms/tree-and-graph-traversal",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K16-04",
+      "href": "/knowledge/algorithms/sort-binary-search-stability",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K16-05",
+      "href": "/knowledge/algorithms/sliding-window-and-two-pointers",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K16-06",
+      "href": "/knowledge/algorithms/stack-and-expressions",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K16-07",
+      "href": "/knowledge/algorithms/dynamic-programming-states",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K16-08",
+      "href": "/knowledge/algorithms/frontend-algorithm-choices",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K16-01",
+      "href": "/knowledge/algorithms/complexity-scale",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K16-02",
+      "href": "/knowledge/algorithms/maps-sets-queues-cache",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

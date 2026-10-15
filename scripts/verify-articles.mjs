@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { fileURLToPath } from "node:url";
 import { mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -36,14 +39,47 @@ if (exampleOrigin) {
 }
 for (const id of requestedIds) assert(articles.some(article => (article.catalogId ?? article.id) === id), `Unknown article ID: ${id}`);
 const selectedArticles = requestedIds.length ? articles.filter(article => requestedIds.includes(article.catalogId ?? article.id)) : articles;
+const needsTooling = selectedArticles.some(article => /^K09-0[3-8]$/.test(article.id));
+const toolingEvidence = needsTooling ? {
+  rolldownVersion: JSON.parse(await readFile(new URL('../node_modules/rolldown/package.json', import.meta.url), 'utf8')).version,
+  typescriptVersion: ts.version,
+  fixtureSha256: createHash('sha256').update(await readFile(new URL('./lib/tooling-fixture.mjs', import.meta.url))).digest('hex'),
+} : undefined;
 const needsOrigin = selectedArticles.some(article => ["K04-04", "K04-06", "K04-07"].includes(article.id));
+const needsSsr = selectedArticles.some(article => article.id === 'K08-07');
+const needsRouter = selectedArticles.some(article => article.sections.some(section => section.examples?.some(example => example.code.includes("from '/vue-router.mjs'"))));
+const needsVue = needsSsr || needsRouter || selectedArticles.some(article => article.sections.some(section => section.examples?.some(example => example.code.includes("from '/vue.mjs'"))));
+// Expose the official global build as a local module sharing the same Vue instance.
+const routerRuntime = needsRouter ? "import * as Vue from '/vue.mjs';\n" + await readFile(new URL('../node_modules/vue-router/dist/vue-router.global.js', import.meta.url), 'utf8') + '\nexport const { createRouter, createMemoryHistory, RouterView, useRoute, onBeforeRouteUpdate, onBeforeRouteLeave, isNavigationFailure, NavigationFailureType } = VueRouter;\n' : undefined;
+const routerVersion = needsRouter ? JSON.parse(await readFile(new URL('../node_modules/vue-router/package.json', import.meta.url), 'utf8')).version : undefined;
+const vueRuntime = needsVue ? await readFile(new URL('../node_modules/vue/dist/vue.esm-browser.js', import.meta.url), 'utf8') : undefined;
+const vueVersion = needsVue ? JSON.parse(await readFile(new URL('../node_modules/vue/package.json', import.meta.url), 'utf8')).version : undefined;
+let ssrFixture;
+if (needsSsr) {
+  const { createSSRApp, h } = await import('vue');
+  const { renderToString } = await import('vue/server-renderer');
+  const { createOrderApp, parseOrderState } = await import('./lib/ssr-order-app.mjs');
+  const source = await readFile(new URL('./lib/ssr-order-app.mjs', import.meta.url), 'utf8');
+  assert.equal(selectedArticles.find(article => article.id === 'K08-07').sections.find(section => section.id === 'app-factory').code, source.trim(), 'SSR shared source differs from published lesson');
+  const initial = parseOrderState({ id: 'A', title: '订单 A', quantity: 1 });
+  ssrFixture = {
+    source,
+    order: { initial, html: await renderToString(createOrderApp(initial).app) },
+    nesting: {
+      invalid: await renderToString(createSSRApp({ render: () => h('p', [h('div', '内容')]) })),
+      valid: await renderToString(createSSRApp({ render: () => h('div', [h('p', '内容')]) })),
+    },
+  };
+}
 const worker = articles.find(article => article.id === "K04-07")?.sections.find(section => section.id === "worker")?.code;
 const offlinePage = articles.find(article => article.id === "K04-07")?.sections.find(section => section.id === "offline-page")?.code;
-const fixture = !exampleOrigin && needsOrigin ? await startArticleFixture(worker, offlinePage) : undefined;
+const fixture = !exampleOrigin && (needsOrigin || needsVue || needsRouter) ? await startArticleFixture(worker, offlinePage, vueRuntime, routerRuntime, ssrFixture) : undefined;
 exampleOrigin ??= fixture?.origin;
 const evidence = [];
 let checked = 0;
 let typed = 0;
+let nodeChecked = 0;
+const runNode = promisify(execFile);
 let browser;
 try {
   browser = await chromium.launch({ channel: "chrome", headless: true });
@@ -53,6 +89,19 @@ try {
         const label = `${article.id}/${section.id}/${checked}`;
         console.log(`Checking ${label}`);
         let code = example.code;
+        if (example.language === 'node') {
+          // Reviewed repository examples only; never accepts reader code or backups.
+          const { stdout, stderr } = await runNode(process.execPath, ['--input-type=module', '--eval', code], {
+            cwd: fileURLToPath(new URL('..', import.meta.url)), timeout: 10000, maxBuffer: 1024 * 1024,
+          });
+          const output = stdout.trimEnd().split(/\r?\n/);
+          assert.equal(stderr, '', `${label}: unexpected Node diagnostics`);
+          assert.deepEqual(output, Array.from(example.expectedOutput), label);
+          evidence.push({ articleId: article.catalogId ?? article.id, sectionId: section.id, language: 'node', codeSha256: createHash('sha256').update(code).digest('hex'), output, passed: true });
+          checked += 1;
+          nodeChecked += 1;
+          continue;
+        }
         if (example.language === "typescript") {
           const file = join(temp, `example-${typed}.ts`);
           await writeFile(file, `${code}\nexport {};\n`);
@@ -76,8 +125,10 @@ try {
         if (exampleOrigin) await page.goto(exampleOrigin);
         const output = [];
         const errors = [];
+        const diagnostics = [];
         page.on("console", (message) => {
           if (message.type() === "log") output.push(message.text());
+          if (['warning', 'error'].includes(message.type())) diagnostics.push({ type: message.type(), text: message.text() });
         });
         page.on("pageerror", (error) => errors.push(error.message));
         const completed = page.waitForEvent("console", {
@@ -95,7 +146,7 @@ try {
         }
         assert.deepEqual(errors, [], `${label}: unexpected browser error`);
         assert.deepEqual(output.filter((line) => line !== "__zhixu_example_complete__"), Array.from(example.expectedOutput), label);
-        evidence.push({ articleId: article.catalogId ?? article.id, sectionId: section.id, language: example.language ?? "javascript", codeSha256: createHash("sha256").update(example.code).digest("hex"), output: output.filter(line => line !== "__zhixu_example_complete__"), passed: true });
+        evidence.push({ articleId: article.catalogId ?? article.id, sectionId: section.id, language: example.language ?? "javascript", codeSha256: createHash("sha256").update(example.code).digest("hex"), output: output.filter(line => line !== "__zhixu_example_complete__"), diagnostics, passed: true });
         await page.close();
         checked += 1;
       }
@@ -103,8 +154,8 @@ try {
   }
   const report = process.env.ZHIXU_ARTICLE_REPORT ?? "article-examples-report.json";
   assert(/^[a-z0-9-]+\.json$/.test(report), "Report must be a JSON filename");
-  await writeFile(new URL(`../docs/verification/${report}`, import.meta.url), JSON.stringify({ verifiedAt: new Date().toISOString(), browser: browser.version(), articleIds: selectedArticles.map(article => article.catalogId ?? article.id), examples: checked, strictTypeScriptExamples: typed, evidence, limitations: ["Only author-maintained examples; no model API or live backend validation"] }, null, 2) + "\n");
-  console.log(`Verified ${selectedArticles.length} articles / ${checked} browser examples / ${typed} strict TypeScript examples.`);
+  await writeFile(new URL(`../docs/verification/${report}`, import.meta.url), JSON.stringify({ verifiedAt: new Date().toISOString(), browser: browser.version(), toolingEvidence, vueVersion, routerVersion, nodeVersion: nodeChecked ? process.version : undefined, ssrAppSha256: ssrFixture ? createHash('sha256').update(ssrFixture.source).digest('hex') : undefined, articleIds: selectedArticles.map(article => article.catalogId ?? article.id), examples: checked, browserExamples: checked - nodeChecked, nodeExamples: nodeChecked, strictTypeScriptExamples: typed, evidence, limitations: ["Only author-maintained examples; no model API or live backend validation"] }, null, 2) + "\n");
+  console.log(`Verified ${selectedArticles.length} articles / ${checked - nodeChecked} browser + ${nodeChecked} Node examples / ${typed} strict TypeScript examples.`);
 } finally {
   await browser?.close();
   await fixture?.close();

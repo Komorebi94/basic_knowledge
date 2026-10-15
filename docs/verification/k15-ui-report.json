@@ -1,0 +1,103 @@
+{
+  "verifiedAt": "2026-10-14T07:02:38.332Z",
+  "browser": "155.0.8059.40",
+  "articles": [
+    {
+      "id": "K15-03",
+      "href": "/knowledge/accessibility/form-validation-and-recovery",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K15-04",
+      "href": "/knowledge/accessibility/async-feedback-and-rollback",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K15-05",
+      "href": "/knowledge/accessibility/touch-zoom-and-reflow",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K15-06",
+      "href": "/knowledge/accessibility/contrast-and-motion",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K15-07",
+      "href": "/knowledge/accessibility/complex-widgets-and-keyboard",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K15-08",
+      "href": "/knowledge/accessibility/accessibility-verification",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K15-01",
+      "href": "/knowledge/accessibility/keyboard-focus",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K15-02",
+      "href": "/knowledge/accessibility/semantics-names-feedback",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

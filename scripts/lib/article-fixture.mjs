@@ -2,13 +2,28 @@ import { createServer } from 'node:http';
 import { URL } from 'node:url';
 
 // A disposable origin for reviewed browser examples; no application or personal data.
-export async function startArticleFixture(worker, offlinePage) {
+export async function startArticleFixture(worker, offlinePage, vueRuntime, routerRuntime, ssrFixture) {
   if (typeof worker !== 'string' || typeof offlinePage !== 'string') throw new TypeError('Missing reviewed Service Worker source');
   let version = 1;
   const server = createServer((request, response) => {
     const path = new URL(request.url, 'http://127.0.0.1').pathname;
     response.setHeader('Cache-Control', 'no-store');
-    if (path === '/k04-sw.js') {
+    if (path === '/vue.mjs' && typeof vueRuntime === 'string') {
+      response.setHeader('Content-Type', 'text/javascript');
+      response.end(vueRuntime);
+    } else if (path === '/vue-router.mjs' && typeof routerRuntime === 'string') {
+      response.setHeader('Content-Type', 'text/javascript');
+      response.end(routerRuntime);
+    } else if (path === '/ssr-order-app.mjs' && ssrFixture) {
+      response.setHeader('Content-Type', 'text/javascript');
+      response.end(ssrFixture.source.replace("from 'vue'", "from '/vue.mjs'"));
+    } else if (path === '/ssr-order.json' && ssrFixture) {
+      response.setHeader('Content-Type', 'application/json; charset=utf-8');
+      response.end(JSON.stringify(ssrFixture.order));
+    } else if (path === '/ssr-nesting.json' && ssrFixture) {
+      response.setHeader('Content-Type', 'application/json; charset=utf-8');
+      response.end(JSON.stringify(ssrFixture.nesting));
+    } else if (path === '/k04-sw.js') {
       response.setHeader('Content-Type', 'text/javascript');
       response.end(worker.replaceAll('k04-shell-v1', `k04-shell-v${version}`));
     } else if (path === '/offline.html') {

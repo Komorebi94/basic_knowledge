@@ -1,6 +1,138 @@
 {
   "articles": [
     {
+      "id": "K09-03",
+      "catalogId": "K09-03",
+      "kind": "knowledge",
+      "title": "Tree shaking 与副作用",
+      "summary": "从导入一个格式化函数却带入注册代码出发，实际检查未使用导出、模块副作用与纯调用标注，解释为什么可分析的导入仍不能任意删除行为。",
+      "domainSlug": "tooling",
+      "slug": "tree-shaking-and-side-effects",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/tooling/tree-shaking-and-side-effects"
+    },
+    {
+      "id": "K09-04",
+      "catalogId": "K09-04",
+      "kind": "knowledge",
+      "title": "转译、polyfill 与目标环境",
+      "summary": "用真实 TypeScript 转换与隔离运行时区分语法降级、类型声明和运行时 API，解释目标环境、补齐策略与依赖代码的兼容边界。",
+      "domainSlug": "tooling",
+      "slug": "transpilation-polyfills-and-targets",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/tooling/transpilation-polyfills-and-targets"
+    },
+    {
+      "id": "K09-05",
+      "catalogId": "K09-05",
+      "kind": "knowledge",
+      "title": "代码分割与资源缓存",
+      "summary": "从旧订单页打开报表失败出发，实际检查动态 chunk、内容 hash 与资源响应，解释分割时机、入口更新、旧资源保留和加载失败恢复。",
+      "domainSlug": "tooling",
+      "slug": "code-splitting-and-resource-caching",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/tooling/code-splitting-and-resource-caching"
+    },
+    {
+      "id": "K09-06",
+      "catalogId": "K09-06",
+      "kind": "knowledge",
+      "title": "Monorepo 与包边界",
+      "summary": "从工作区中能引用却发布后找不到文件的问题出发，验证包导出、任务图与缓存输入，解释工作区链接、增量构建和版本交付的责任。",
+      "domainSlug": "tooling",
+      "slug": "monorepo-and-package-boundaries",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/tooling/monorepo-and-package-boundaries"
+    },
+    {
+      "id": "K09-07",
+      "catalogId": "K09-07",
+      "kind": "knowledge",
+      "title": "Source map 与线上排查",
+      "summary": "实际生成并查询源码映射，从产物身份、坐标换算和日志最小化出发，建立可复现的线上错误排查流程。",
+      "domainSlug": "tooling",
+      "slug": "source-maps-and-production-debugging",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/tooling/source-maps-and-production-debugging"
+    },
+    {
+      "id": "K09-08",
+      "catalogId": "K09-08",
+      "kind": "knowledge",
+      "title": "CI/CD 与发布策略",
+      "summary": "从失败门禁和旧流水线覆盖新版本出发，验证构建产物身份、发布顺序与灰度决策，说明持续交付和可恢复发布的边界。",
+      "domainSlug": "tooling",
+      "slug": "ci-cd-and-release-strategies",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/tooling/ci-cd-and-release-strategies"
+    },
+    {
+      "id": "K08-08",
+      "catalogId": "K08-08",
+      "kind": "knowledge",
+      "title": "复杂页面性能与调试",
+      "summary": "从订单列表输入卡顿出发，追踪实际依赖、计算结果身份和调度范围，验证浅响应式与固定高度窗口的行为，并说明测量、对象身份和恢复边界。",
+      "domainSlug": "vue",
+      "slug": "complex-page-performance-and-debugging",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/vue/complex-page-performance-and-debugging"
+    },
+    {
+      "id": "K08-07",
+      "catalogId": "K08-07",
+      "kind": "knowledge",
+      "title": "SSR 与水合",
+      "summary": "从已显示却尚不可交互的订单按钮出发，实际生成服务器 HTML 并验证客户端接管，解释首次状态一致、请求隔离、生命周期与公开状态序列化的边界。",
+      "domainSlug": "vue",
+      "slug": "ssr-and-hydration",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/vue/ssr-and-hydration"
+    },
+    {
+      "id": "K08-06",
+      "catalogId": "K08-06",
+      "kind": "knowledge",
+      "title": "路由、表单与状态管理",
+      "summary": "沿订单列表与详情编辑流程，分清 URL、已提交订单和本地草稿的事实源，解释参数复用、导航保护、表单校验与共享存储，并验证失败后的恢复。",
+      "domainSlug": "vue",
+      "slug": "routing-forms-and-state",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/vue/routing-forms-and-state"
+    },
+    {
+      "id": "K08-05",
+      "catalogId": "K08-05",
+      "kind": "knowledge",
+      "title": "模板编译与更新优化",
+      "summary": "从订单页的一次数量更新出发，观察模板编译、静态缓存、补丁标记与动态集合，解释稳定 props 和列表身份，并用旧界面反例检查手动缓存的边界。",
+      "domainSlug": "vue",
+      "slug": "template-compilation-and-updates",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/vue/template-compilation-and-updates"
+    },
+    {
+      "id": "K08-04",
+      "catalogId": "K08-04",
+      "kind": "knowledge",
+      "title": "生命周期与组合式函数",
+      "summary": "从关闭后仍收到消息的订单面板出发，区分组件卸载、请求失效与作用域停止，解释组合式函数的状态归属、响应式输入和同步调用约束。",
+      "domainSlug": "vue",
+      "slug": "lifecycle-and-composables",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/vue/lifecycle-and-composables"
+    },
+    {
+      "id": "K08-03",
+      "catalogId": "K08-03",
+      "kind": "knowledge",
+      "title": "组件通信与状态所有权",
+      "summary": "从侧栏与编辑器的数量不同步出发，解释 props、事件、v-model 和注入如何传递值与修改请求，并用独立草稿保留取消、校验与冲突边界。",
+      "domainSlug": "vue",
+      "slug": "component-communication-and-ownership",
+      "estimatedMinutes": 25,
+      "href": "/knowledge/vue/component-communication-and-ownership"
+    },
+    {
       "id": "K04-03",
       "catalogId": "K04-03",
       "kind": "knowledge",
@@ -495,6 +627,72 @@
       "href": "/knowledge/html-css/boxes-and-stacking"
     },
     {
+      "id": "K14-03",
+      "catalogId": "K14-03",
+      "kind": "knowledge",
+      "title": "流、背压与资源释放",
+      "summary": "用有限队列接收笔记附件的分块，队列满时停下，关闭后取完剩余块，释放时丢掉还没读的块。",
+      "domainSlug": "server",
+      "slug": "streams-backpressure-and-release",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/server/streams-backpressure-and-release"
+    },
+    {
+      "id": "K14-04",
+      "catalogId": "K14-04",
+      "kind": "knowledge",
+      "title": "BFF 与接口聚合",
+      "summary": "用笔记页的聚合说明先核对所有者和预算，超时与下游失败留下已得到的标题，令牌不转发出去。",
+      "domainSlug": "server",
+      "slug": "bff-and-aggregation",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/server/bff-and-aggregation"
+    },
+    {
+      "id": "K14-05",
+      "catalogId": "K14-05",
+      "kind": "knowledge",
+      "title": "流式渲染与加载边界",
+      "summary": "用外壳、笔记和订单三段说明外壳失败就停止，某一段失败留空洞，脚本接续前页面只有可见内容。",
+      "domainSlug": "server",
+      "slug": "streaming-render-and-resume",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/server/streaming-render-and-resume"
+    },
+    {
+      "id": "K14-06",
+      "catalogId": "K14-06",
+      "kind": "knowledge",
+      "title": "服务端缓存与隔离",
+      "summary": "用私有笔记的缓存键带上查看者，避免另一个用户命中同一路径，没有身份的私有写入直接拒绝。",
+      "domainSlug": "server",
+      "slug": "server-cache-and-isolation",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/server/server-cache-and-isolation"
+    },
+    {
+      "id": "K14-07",
+      "catalogId": "K14-07",
+      "kind": "knowledge",
+      "title": "部署运行时与边缘计算",
+      "summary": "用固定能力表区分边缘和 Node：文件与长连接留在 Node，跳转可以放在边缘，空闲边缘要付启动成本。",
+      "domainSlug": "server",
+      "slug": "deployment-runtimes-and-edge",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/server/deployment-runtimes-and-edge"
+    },
+    {
+      "id": "K14-08",
+      "catalogId": "K14-08",
+      "kind": "knowledge",
+      "title": "全链路可观测性",
+      "summary": "用同一请求编号串起日志、指标和跨度，缺少编号或字段里出现令牌时不记，不同编号不能当成同一次请求。",
+      "domainSlug": "server",
+      "slug": "request-observability",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/server/request-observability"
+    },
+    {
       "id": "K14-01",
       "catalogId": "K14-01",
       "kind": "knowledge",
@@ -504,6 +702,72 @@
       "slug": "browser-node-boundaries",
       "estimatedMinutes": 22,
       "href": "/knowledge/server/browser-node-boundaries"
+    },
+    {
+      "id": "K16-03",
+      "catalogId": "K16-03",
+      "kind": "knowledge",
+      "title": "树与图的遍历",
+      "summary": "先序和后序走完笔记树，依赖图用访问中的标记找出环；树函数不查环，无边和自环分别给出 none 与回到自身的路径。",
+      "domainSlug": "algorithms",
+      "slug": "tree-and-graph-traversal",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/algorithms/tree-and-graph-traversal"
+    },
+    {
+      "id": "K16-04",
+      "catalogId": "K16-04",
+      "kind": "knowledge",
+      "title": "排序、二分与稳定性",
+      "summary": "二分查找先拒绝未按分数升序的列表，命中只返回一个 id；分数相同的笔记用原下标保持先后，改按 id 比较会换掉这个顺序。",
+      "domainSlug": "algorithms",
+      "slug": "sort-binary-search-stability",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/algorithms/sort-binary-search-stability"
+    },
+    {
+      "id": "K16-05",
+      "catalogId": "K16-05",
+      "kind": "knowledge",
+      "title": "滑动窗口与双指针",
+      "summary": "有序数组从两端收拢找一对和，窗口只向前移动来保留最长无重复片段；两端交叉或窗口回退都会漏掉或重复检查。",
+      "domainSlug": "algorithms",
+      "slug": "sliding-window-and-two-pointers",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/algorithms/sliding-window-and-two-pointers"
+    },
+    {
+      "id": "K16-06",
+      "catalogId": "K16-06",
+      "kind": "knowledge",
+      "title": "栈与表达式处理",
+      "summary": "括号用栈配对，多出来或交叉都不是平衡；编辑撤销把旧文本压栈，新的输入会清掉重做栈。",
+      "domainSlug": "algorithms",
+      "slug": "stack-and-expressions",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/algorithms/stack-and-expressions"
+    },
+    {
+      "id": "K16-07",
+      "catalogId": "K16-07",
+      "kind": "knowledge",
+      "title": "动态规划与状态定义",
+      "summary": "拆帧的状态是填满前 i 项的方法数，选择笔记的状态是容量内的最大价值；相等时保留先选中的组合，不另换一套。",
+      "domainSlug": "algorithms",
+      "slug": "dynamic-programming-states",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/algorithms/dynamic-programming-states"
+    },
+    {
+      "id": "K16-08",
+      "catalogId": "K16-08",
+      "kind": "knowledge",
+      "title": "前端场景的算法设计",
+      "summary": "长列表只取窗口内的下标，按键比较保留同一 id，重复查询才建索引；超过一帧的任务标成不可拆，而不是硬塞进去。",
+      "domainSlug": "algorithms",
+      "slug": "frontend-algorithm-choices",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/algorithms/frontend-algorithm-choices"
     },
     {
       "id": "K16-01",
@@ -627,6 +891,72 @@
       "href": "/knowledge/react/effects-and-synchronization"
     },
     {
+      "id": "K10-03",
+      "catalogId": "K10-03",
+      "kind": "knowledge",
+      "title": "首屏与关键资源",
+      "summary": "从主图发现太晚出发，说明预加载、阻塞脚本、字体显示和带宽排队如何改变首屏路径，并区分教学模型与真实浏览器调度。",
+      "domainSlug": "performance",
+      "slug": "critical-resources",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/performance/critical-resources"
+    },
+    {
+      "id": "K10-04",
+      "catalogId": "K10-04",
+      "kind": "knowledge",
+      "title": "列表、渲染与内存",
+      "summary": "用固定高度订单列表比较全量节点和可视窗口，说明按下标复用会错配草稿，以及可变行高不能沿用固定偏移。",
+      "domainSlug": "performance",
+      "slug": "lists-rendering-and-memory",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/performance/lists-rendering-and-memory"
+    },
+    {
+      "id": "K10-05",
+      "catalogId": "K10-05",
+      "kind": "knowledge",
+      "title": "缓存与预取策略",
+      "summary": "用订单页 URL、Cache-Control 和小容量缓存说明何时可以复用响应，以及预取怎样挤掉主图或占满预算。",
+      "domainSlug": "performance",
+      "slug": "cache-and-prefetch",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/performance/cache-and-prefetch"
+    },
+    {
+      "id": "K10-06",
+      "catalogId": "K10-06",
+      "kind": "knowledge",
+      "title": "包体分析与依赖治理",
+      "summary": "用固定模块的真实构建比较重依赖和重复副本，并把传输变小与初始解析变小分成两种不同收益。",
+      "domainSlug": "performance",
+      "slug": "bundle-analysis-and-dependencies",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/performance/bundle-analysis-and-dependencies"
+    },
+    {
+      "id": "K10-07",
+      "catalogId": "K10-07",
+      "kind": "knowledge",
+      "title": "性能预算与回归",
+      "summary": "用固定样本的 75 分位决定预算是否失败，样本不足时拒绝放行，并把单次变快和落在噪声带里的差异分开。",
+      "domainSlug": "performance",
+      "slug": "performance-budgets",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/performance/performance-budgets"
+    },
+    {
+      "id": "K10-08",
+      "catalogId": "K10-08",
+      "kind": "knowledge",
+      "title": "大型页面诊断案例",
+      "summary": "用一份虚拟订单页记录把移动端与桌面分开，逐条检验预加载和压缩页脚，并在 LCP 改善后继续保留未解决的交互问题。",
+      "domainSlug": "performance",
+      "slug": "large-page-diagnosis",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/performance/large-page-diagnosis"
+    },
+    {
       "id": "K10-01",
       "catalogId": "K10-01",
       "kind": "knowledge",
@@ -647,6 +977,72 @@
       "slug": "http-cache-validation",
       "estimatedMinutes": 22,
       "href": "/knowledge/networking/http-cache-validation"
+    },
+    {
+      "id": "K15-03",
+      "catalogId": "K15-03",
+      "kind": "knowledge",
+      "title": "表单验证与恢复",
+      "summary": "提交笔记或订单后，用第一条错误定位字段，摘要保留其余错误；只变红或未关联的提示不算可恢复，输入过程中先不打断。",
+      "domainSlug": "accessibility",
+      "slug": "form-validation-and-recovery",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/accessibility/form-validation-and-recovery"
+    },
+    {
+      "id": "K15-04",
+      "catalogId": "K15-04",
+      "kind": "knowledge",
+      "title": "异步交互与乐观更新",
+      "summary": "保存先把新标题标成待确认，重复提交不再写第二次；失败把界面退回服务端仍保存的草稿，撤销只在确认之后可用。",
+      "domainSlug": "accessibility",
+      "slug": "async-feedback-and-rollback",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/accessibility/async-feedback-and-rollback"
+    },
+    {
+      "id": "K15-05",
+      "catalogId": "K15-05",
+      "kind": "knowledge",
+      "title": "触控、缩放与响应式",
+      "summary": "用 24 CSS 像素和间距的固定规则判断点击目标，用缩放和软键盘的结果表区分被裁切、改排和被挡住。这些结果不是实测。",
+      "domainSlug": "accessibility",
+      "slug": "touch-zoom-and-reflow",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/accessibility/touch-zoom-and-reflow"
+    },
+    {
+      "id": "K15-06",
+      "catalogId": "K15-06",
+      "kind": "knowledge",
+      "title": "对比度与动态效果",
+      "summary": "用相对亮度计算文字和界面的对比比值，没有文字的颜色状态直接拒绝；减少动态效果时停掉装饰旋转，焦点提示仍然保留。",
+      "domainSlug": "accessibility",
+      "slug": "contrast-and-motion",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/accessibility/contrast-and-motion"
+    },
+    {
+      "id": "K15-07",
+      "catalogId": "K15-07",
+      "kind": "knowledge",
+      "title": "编辑器、表格与复杂控件",
+      "summary": "提交和数据表用原生控件，选项卡和表格编辑才增加方向键；编辑器在编辑模式里 Tab 缩进，必须有 Esc 回到可离开的导航模式。",
+      "domainSlug": "accessibility",
+      "slug": "complex-widgets-and-keyboard",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/accessibility/complex-widgets-and-keyboard"
+    },
+    {
+      "id": "K15-08",
+      "catalogId": "K15-08",
+      "kind": "knowledge",
+      "title": "可用性验证与取舍",
+      "summary": "缺名称和低对比会挡住发布，只做了自动检查不能算通过；键盘任务没跑或读屏没跑时结果是未完成，而不是已接受。",
+      "domainSlug": "accessibility",
+      "slug": "accessibility-verification",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/accessibility/accessibility-verification"
     },
     {
       "id": "K15-01",
@@ -680,6 +1076,72 @@
       "slug": "maps-sets-queues-cache",
       "estimatedMinutes": 22,
       "href": "/knowledge/algorithms/maps-sets-queues-cache"
+    },
+    {
+      "id": "K13-03",
+      "catalogId": "K13-03",
+      "kind": "knowledge",
+      "title": "复杂表单与工作流",
+      "summary": "用笔记和订单草稿分开校验、撤销和在途提交，迟到的失败响应不能改掉已经结束的流程。",
+      "domainSlug": "architecture",
+      "slug": "complex-forms-and-workflows",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/architecture/complex-forms-and-workflows"
+    },
+    {
+      "id": "K13-04",
+      "catalogId": "K13-04",
+      "kind": "knowledge",
+      "title": "权限、路由与菜单",
+      "summary": "用菜单是否显示和操作是否允许分开判断，隐藏删除入口不能代替服务端对笔记所有者的检查。",
+      "domainSlug": "architecture",
+      "slug": "permissions-routes-and-menus",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/architecture/permissions-routes-and-menus"
+    },
+    {
+      "id": "K13-05",
+      "catalogId": "K13-05",
+      "kind": "knowledge",
+      "title": "设计系统与组件契约",
+      "summary": "用按钮契约拒绝未知变体和类名逃生口，并区分增加可选项与删除属性、改默认值的破坏性。",
+      "domainSlug": "architecture",
+      "slug": "design-system-and-component-contracts",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/architecture/design-system-and-component-contracts"
+    },
+    {
+      "id": "K13-06",
+      "catalogId": "K13-06",
+      "kind": "knowledge",
+      "title": "微前端与渐进迁移",
+      "summary": "用发布节奏和运行时份数决定模块、包或隔离，拒绝跨应用共享可变状态，消息只收约定频道。",
+      "domainSlug": "architecture",
+      "slug": "microfrontends-and-migration",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/architecture/microfrontends-and-migration"
+    },
+    {
+      "id": "K13-07",
+      "catalogId": "K13-07",
+      "kind": "knowledge",
+      "title": "国际化与多租户配置",
+      "summary": "用租户和语言的查找顺序取文案与布局，缺字段逐级回退，配置值只接受字面量而不执行函数。",
+      "domainSlug": "architecture",
+      "slug": "i18n-and-tenant-config",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/architecture/i18n-and-tenant-config"
+    },
+    {
+      "id": "K13-08",
+      "catalogId": "K13-08",
+      "kind": "knowledge",
+      "title": "系统设计与容量推演",
+      "summary": "用笔记数量、写入频率和搜索需求选择存储形状，并给搜索、写入、读取失败各自留下可见的降级。",
+      "domainSlug": "architecture",
+      "slug": "system-design-and-capacity",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/architecture/system-design-and-capacity"
     },
     {
       "id": "K13-01",
@@ -803,6 +1265,72 @@
       "href": "/knowledge/architecture/state-ownership"
     },
     {
+      "id": "K12-03",
+      "catalogId": "K12-03",
+      "kind": "knowledge",
+      "title": "Mock、替身与契约",
+      "summary": "用笔记保存说明固定成功替身何时只够检查界面反应，何时会藏住缺字段、冲突和超长正文。",
+      "domainSlug": "testing",
+      "slug": "mocks-and-contracts",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/testing/mocks-and-contracts"
+    },
+    {
+      "id": "K12-04",
+      "catalogId": "K12-04",
+      "kind": "knowledge",
+      "title": "异步测试与可控时间",
+      "summary": "用虚拟时钟推进笔记防抖和重试等待，核对到期前、改写、取消和只改标记时分别发生什么。",
+      "domainSlug": "testing",
+      "slug": "async-tests-and-time",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/testing/async-tests-and-time"
+    },
+    {
+      "id": "K12-05",
+      "catalogId": "K12-05",
+      "kind": "knowledge",
+      "title": "组件交互与可访问性测试",
+      "summary": "在空白页区分真实按钮、样式像按钮的元素、原生禁用和可访问名称，键盘激活不靠内部状态。",
+      "domainSlug": "testing",
+      "slug": "component-accessibility-tests",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/testing/component-accessibility-tests"
+    },
+    {
+      "id": "K12-06",
+      "catalogId": "K12-06",
+      "kind": "knowledge",
+      "title": "E2E 稳定性与环境",
+      "summary": "用共享笔记库比较隔离和清理时机，并把重试后通过的失败分成产品、共享状态、计时和环境。",
+      "domainSlug": "testing",
+      "slug": "e2e-stability",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/testing/e2e-stability"
+    },
+    {
+      "id": "K12-07",
+      "catalogId": "K12-07",
+      "kind": "knowledge",
+      "title": "属性测试与变异测试",
+      "summary": "用稳定去重的不变量和下界查找的比较符变异，说明一组样例通过时哪些错误实现仍会留下。",
+      "domainSlug": "testing",
+      "slug": "property-and-mutation-tests",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/testing/property-and-mutation-tests"
+    },
+    {
+      "id": "K12-08",
+      "catalogId": "K12-08",
+      "kind": "knowledge",
+      "title": "质量门禁与测试诊断",
+      "summary": "用类型、lint、构建和测试四项记录区分跳过与失败，并写明每项检查能支持哪一类结论。",
+      "domainSlug": "testing",
+      "slug": "quality-gates",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/testing/quality-gates"
+    },
+    {
       "id": "K12-01",
       "catalogId": "K12-01",
       "kind": "knowledge",
@@ -812,6 +1340,72 @@
       "slug": "testing-levels",
       "estimatedMinutes": 20,
       "href": "/knowledge/testing/testing-levels"
+    },
+    {
+      "id": "K11-03",
+      "catalogId": "K11-03",
+      "kind": "knowledge",
+      "title": "CSP 与可信资源",
+      "summary": "用订单页脚本策略说明 nonce、哈希和精确来源如何决定脚本能否运行，以及只报告不执行拦截时页面仍会运行被拒绝的脚本。",
+      "domainSlug": "security",
+      "slug": "csp-and-trusted-resources",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/security/csp-and-trusted-resources"
+    },
+    {
+      "id": "K11-04",
+      "catalogId": "K11-04",
+      "kind": "knowledge",
+      "title": "依赖与第三方脚本风险",
+      "summary": "从安装时的来源、哈希和安装脚本，到页面里的经典脚本与沙箱框架，说明第三方代码实际得到的能力取决于加载方式。",
+      "domainSlug": "security",
+      "slug": "dependency-and-third-party-scripts",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/security/dependency-and-third-party-scripts"
+    },
+    {
+      "id": "K11-05",
+      "catalogId": "K11-05",
+      "kind": "knowledge",
+      "title": "敏感数据与日志",
+      "summary": "在订单错误记录里替换令牌和授权头，并在写入日志前处理回跳地址中的授权码，避免调试信息变成另一份凭据副本。",
+      "domainSlug": "security",
+      "slug": "sensitive-data-and-logs",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/security/sensitive-data-and-logs"
+    },
+    {
+      "id": "K11-06",
+      "catalogId": "K11-06",
+      "kind": "knowledge",
+      "title": "URL 与跳转边界",
+      "summary": "把登录后的 next 限制在本源 https 路径内，并与可以指向外部文档的参考链接分开，拒绝协议、主机和用户信息不符合目的的地址。",
+      "domainSlug": "security",
+      "slug": "url-and-redirect-boundaries",
+      "estimatedMinutes": 23,
+      "href": "/knowledge/security/url-and-redirect-boundaries"
+    },
+    {
+      "id": "K11-07",
+      "catalogId": "K11-07",
+      "kind": "knowledge",
+      "title": "客户端隔离与沙箱",
+      "summary": "用订单页、子域和嵌入框架比较源、iframe sandbox 与 Worker 消息，说明同时允许脚本和同源时，同源框架不再构成隔离边界。",
+      "domainSlug": "security",
+      "slug": "client-isolation-and-sandbox",
+      "estimatedMinutes": 24,
+      "href": "/knowledge/security/client-isolation-and-sandbox"
+    },
+    {
+      "id": "K11-08",
+      "catalogId": "K11-08",
+      "kind": "knowledge",
+      "title": "安全设计与验证",
+      "summary": "把订单页的跨用户修改、站外跳转和令牌入日志写成可失败的检查，没有对应威胁的清单项不能单独当作通过。",
+      "domainSlug": "security",
+      "slug": "security-design-and-verification",
+      "estimatedMinutes": 22,
+      "href": "/knowledge/security/security-design-and-verification"
     },
     {
       "id": "K11-01",
@@ -1183,6 +1777,118 @@
       "slug": "serial-queue",
       "revision": 1,
       "href": "/practice/serial-queue"
+    },
+    {
+      "id": "E25",
+      "title": "图片懒加载",
+      "slug": "image-lazy-loading",
+      "revision": 1,
+      "href": "/practice/image-lazy-loading"
+    },
+    {
+      "id": "E26",
+      "title": "事件委托",
+      "slug": "event-delegation",
+      "revision": 1,
+      "href": "/practice/event-delegation"
+    },
+    {
+      "id": "E27",
+      "title": "可访问 Tabs",
+      "slug": "accessible-tabs",
+      "revision": 1,
+      "href": "/practice/accessible-tabs"
+    },
+    {
+      "id": "E28",
+      "title": "对话框",
+      "slug": "dialog-focus",
+      "revision": 1,
+      "href": "/practice/dialog-focus"
+    },
+    {
+      "id": "E29",
+      "title": "表单校验器",
+      "slug": "form-validator",
+      "revision": 1,
+      "href": "/practice/form-validator"
+    },
+    {
+      "id": "E30",
+      "title": "固定高度虚拟列表",
+      "slug": "fixed-virtual-list",
+      "revision": 1,
+      "href": "/practice/fixed-virtual-list"
+    },
+    {
+      "id": "E31",
+      "title": "useAsyncResource",
+      "slug": "async-resource",
+      "revision": 1,
+      "href": "/practice/async-resource"
+    },
+    {
+      "id": "E32",
+      "title": "简化响应式依赖系统",
+      "slug": "mini-reactive",
+      "revision": 1,
+      "href": "/practice/mini-reactive"
+    },
+    {
+      "id": "E33",
+      "title": "基础工具类型",
+      "slug": "utility-type-model",
+      "revision": 1,
+      "href": "/practice/utility-type-model"
+    },
+    {
+      "id": "E34",
+      "title": "类型安全事件映射",
+      "slug": "typed-event-map",
+      "revision": 1,
+      "href": "/practice/typed-event-map"
+    },
+    {
+      "id": "E35",
+      "title": "依赖图拓扑排序",
+      "slug": "dependency-topo-sort",
+      "revision": 1,
+      "href": "/practice/dependency-topo-sort"
+    },
+    {
+      "id": "E36",
+      "title": "分片上传调度",
+      "slug": "chunk-upload",
+      "revision": 1,
+      "href": "/practice/chunk-upload"
+    },
+    {
+      "id": "E37",
+      "title": "SSE 消息解析",
+      "slug": "sse-parser",
+      "revision": 1,
+      "href": "/practice/sse-parser"
+    },
+    {
+      "id": "E38",
+      "title": "乐观更新与回滚",
+      "slug": "optimistic-update",
+      "revision": 1,
+      "href": "/practice/optimistic-update"
+    },
+    {
+      "id": "E39",
+      "title": "最长无重复子串",
+      "slug": "longest-unique-substring",
+      "revision": 1,
+      "href": "/practice/longest-unique-substring"
+    },
+    {
+      "id": "E40",
+      "title": "分帧任务执行",
+      "slug": "frame-scheduler",
+      "revision": 1,
+      "href": "/practice/frame-scheduler"
     }
   ]
 }

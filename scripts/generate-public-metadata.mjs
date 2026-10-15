@@ -29,12 +29,28 @@ function load(file) {
   return exports;
 }
 
-const { articles, articleHref } = load(resolve(root, "src/content/articles.ts"));
-const { exercises } = load(resolve(root, "src/content/practice/index.ts"));
-const metadata = {
-  articles: articles.map(({id,catalogId,kind,title,summary,domainSlug,slug,estimatedMinutes}) => ({id,catalogId:catalogId ?? id,kind,title,summary,domainSlug,slug,estimatedMinutes,href:articleHref({kind,domainSlug,slug})})),
-  exercises: exercises.map(({id,title,slug,revision}) => ({id,title,slug,revision,href:`/practice/${slug}`})),
-};
-writeFileSync(resolve(root,"src/content/publicMetadata.json"),JSON.stringify(metadata,null,2)+"\n");
-writeFileSync(resolve(root,"src/content/exerciseMetadata.json"),JSON.stringify(exercises.map(({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}) => ({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract})),null,2)+"\n");
-console.log(`Generated ${metadata.articles.length} article + ${metadata.exercises.length} exercise summaries.`);
+function writeIfChanged(path, text) {
+  if (existsSync(path) && readFileSync(path, "utf8") === text) return false;
+  writeFileSync(path, text);
+  return true;
+}
+
+export function generatePublicMetadata() {
+  const { articles, articleHref } = load(resolve(root, "src/content/articles.ts"));
+  const { exercises } = load(resolve(root, "src/content/practice/index.ts"));
+  const metadata = {
+    articles: articles.map(({id,catalogId,kind,title,summary,domainSlug,slug,estimatedMinutes}) => ({id,catalogId:catalogId ?? id,kind,title,summary,domainSlug,slug,estimatedMinutes,href:articleHref({kind,domainSlug,slug})})),
+    exercises: exercises.map(({id,title,slug,revision}) => ({id,title,slug,revision,href:`/practice/${slug}`})),
+  };
+  writeIfChanged(resolve(root,"src/content/publicMetadata.json"), JSON.stringify(metadata,null,2)+"\n");
+  writeIfChanged(resolve(root,"src/content/exerciseMetadata.json"), JSON.stringify(exercises.map(({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}) => ({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract})),null,2)+"\n");
+  const { publicSearchDocuments } = load(resolve(root, "src/content/searchDocuments.ts"));
+  const searchIndex = JSON.stringify(publicSearchDocuments);
+  writeIfChanged(resolve(root, "src/content/searchIndex.json"), searchIndex);
+  console.log(`Generated ${metadata.articles.length} article + ${metadata.exercises.length} exercise summaries and ${publicSearchDocuments.length} search documents.`);
+  return { articles: metadata.articles.length, exercises: metadata.exercises.length, searchDocuments: publicSearchDocuments.length };
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  generatePublicMetadata();
+}

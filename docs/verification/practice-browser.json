@@ -1,6 +1,6 @@
 {
-  "verifiedAt": "2026-10-09T02:13:38.320Z",
-  "browser": "154.0.8037.99",
+  "verifiedAt": "2026-10-14T10:13:24.163Z",
+  "browser": "155.0.8059.40",
   "references": [
     {
       "id": "E01",
@@ -165,6 +165,118 @@
     },
     {
       "id": "E24",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E25",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E26",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E27",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E28",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E29",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E30",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E31",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E32",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E33",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E34",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E35",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E36",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E37",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E38",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E39",
+      "status": "passed",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "id": "E40",
       "status": "passed",
       "passed": 8,
       "total": 8,
@@ -506,6 +618,230 @@
       "name": "提前启动工厂",
       "status": "failed",
       "passed": 4,
+      "total": 8
+    },
+    {
+      "id": "E25",
+      "name": "重复计数",
+      "status": "failed",
+      "passed": 2,
+      "total": 8
+    },
+    {
+      "id": "E25",
+      "name": "卸载后继续加载",
+      "status": "failed",
+      "passed": 4,
+      "total": 8
+    },
+    {
+      "id": "E26",
+      "name": "只看目标",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E26",
+      "name": "取消无效",
+      "status": "failed",
+      "passed": 4,
+      "total": 8
+    },
+    {
+      "id": "E27",
+      "name": "不停用项",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E27",
+      "name": "End 不看禁用",
+      "status": "failed",
+      "passed": 4,
+      "total": 8
+    },
+    {
+      "id": "E28",
+      "name": "一次关完",
+      "status": "failed",
+      "passed": 1,
+      "total": 8
+    },
+    {
+      "id": "E28",
+      "name": "背景仍可交互",
+      "status": "failed",
+      "passed": 2,
+      "total": 8
+    },
+    {
+      "id": "E29",
+      "name": "失焦就失败",
+      "status": "failed",
+      "passed": 4,
+      "total": 8
+    },
+    {
+      "id": "E29",
+      "name": "忽略代次",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E30",
+      "name": "越界变空",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E30",
+      "name": "返回下标",
+      "status": "failed",
+      "passed": 1,
+      "total": 8
+    },
+    {
+      "id": "E31",
+      "name": "旧结果覆盖",
+      "status": "failed",
+      "passed": 2,
+      "total": 8
+    },
+    {
+      "id": "E31",
+      "name": "卸载后仍写入",
+      "status": "failed",
+      "passed": 5,
+      "total": 8
+    },
+    {
+      "id": "E32",
+      "name": "不清依赖",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E32",
+      "name": "停止无效",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E33",
+      "name": "缺失变 undefined",
+      "status": "failed",
+      "passed": 5,
+      "total": 8
+    },
+    {
+      "id": "E33",
+      "name": "冻结原对象",
+      "status": "failed",
+      "passed": 6,
+      "total": 8
+    },
+    {
+      "id": "E34",
+      "name": "不校验个数",
+      "status": "failed",
+      "passed": 5,
+      "total": 8
+    },
+    {
+      "id": "E34",
+      "name": "未知事件静默",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E35",
+      "name": "字母序",
+      "status": "failed",
+      "passed": 2,
+      "total": 8
+    },
+    {
+      "id": "E35",
+      "name": "环也返回",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E36",
+      "name": "一次全发",
+      "status": "failed",
+      "passed": 0,
+      "total": 8
+    },
+    {
+      "id": "E36",
+      "name": "不校验",
+      "status": "failed",
+      "passed": 1,
+      "total": 8
+    },
+    {
+      "id": "E37",
+      "name": "半行也派发",
+      "status": "failed",
+      "passed": 1,
+      "total": 8
+    },
+    {
+      "id": "E37",
+      "name": "只留最后一行",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E38",
+      "name": "旧成功覆盖",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E38",
+      "name": "失败不回滚",
+      "status": "failed",
+      "passed": 0,
+      "total": 8
+    },
+    {
+      "id": "E39",
+      "name": "原样返回",
+      "status": "failed",
+      "passed": 2,
+      "total": 8
+    },
+    {
+      "id": "E39",
+      "name": "只取首个",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E40",
+      "name": "忽略取消",
+      "status": "failed",
+      "passed": 3,
+      "total": 8
+    },
+    {
+      "id": "E40",
+      "name": "拆开长任务",
+      "status": "failed",
+      "passed": 2,
       "total": 8
     }
   ],

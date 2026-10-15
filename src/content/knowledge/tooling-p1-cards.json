@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K09-03",
+    "sourceHeadingId": "module-effects",
+    "question": "导入注册模块却不使用它的导出，为什么仍可能必须保留？",
+    "answerPoints": [
+      "导入会执行模块顶层代码，注册是可观察副作用",
+      "moduleSideEffects/sideEffects 是可删除性的责任信息",
+      "错误标注可能让消费端缺初始化，应运行发布产物验证"
+    ],
+    "pitfalls": [
+      "把没有使用导出等同于模块没有行为"
+    ]
+  },
+  {
+    "catalogId": "K09-03",
+    "sourceHeadingId": "namespace",
+    "question": "测试只调用 light，为什么运行时 key 选择仍可能保留 heavy？",
+    "answerPoints": [
+      "公开选择函数允许其他 key，构建需考虑未来消费路径",
+      "固定属性读取与动态 key 不同",
+      "缩小接口要尊重真实调用方，不能用一次测试证明不可达"
+    ],
+    "pitfalls": [
+      "把命名空间导入一概当成无法优化"
+    ]
+  },
+  {
+    "catalogId": "K09-03",
+    "sourceHeadingId": "pure",
+    "question": "PURE 提示的调用返回值没被使用，为何仍要审查它的效果？",
+    "answerPoints": [
+      "提示允许工具省略调用，不会自动审核作者承诺",
+      "注册、写全局、抛错或参数副作用需要单独判断",
+      "误标会改变运行行为，体积与执行证据需同时检查"
+    ],
+    "pitfalls": [
+      "用未使用返回值证明函数纯度"
+    ]
+  },
+  {
+    "catalogId": "K09-04",
+    "sourceHeadingId": "runtime",
+    "question": "target 已降级语法，为何调用新 API 仍可能抛错？",
+    "answerPoints": [
+      "转换语法不自动提供运行时方法",
+      "lib 仅提供类型声明，不能安装 API",
+      "按真实能力选择局部 fallback、合规 polyfill 或目标限制"
+    ],
+    "pitfalls": [
+      "把现代 Node 执行通过当成所有旧浏览器能力证据"
+    ]
+  },
+  {
+    "catalogId": "K09-04",
+    "sourceHeadingId": "lib",
+    "question": "把 lib 改成 ES2023 后类型不报错，实际部署合同增加了什么责任？",
+    "answerPoints": [
+      "声明环境预期存在更多 API",
+      "输出语法仍受 target 独立影响",
+      "部署必须提供声明所承诺的能力或恢复方式"
+    ],
+    "pitfalls": [
+      "用类型声明消失的错误证明运行时自动支持"
+    ]
+  },
+  {
+    "catalogId": "K09-04",
+    "sourceHeadingId": "typecheck",
+    "question": "transpileModule 有 JavaScript 输出，为何仍要检查整个程序类型？",
+    "answerPoints": [
+      "单文件转换主要处理语法与移除类型",
+      "类型赋值等语义错误可仍留下可执行输出",
+      "使用真实语义检查与实际行为验证分担责任"
+    ],
+    "pitfalls": [
+      "只看打包结束就宣称类型正确"
+    ]
+  },
+  {
+    "catalogId": "K09-05",
+    "sourceHeadingId": "hashes",
+    "question": "feature 改了而入口源码没改，为什么入口产物名字仍可能变化？",
+    "answerPoints": [
+      "动态资源内容改变其版本路径",
+      "引用该路径的入口最终内容或依赖 hash 也变化",
+      "新引用可区分版本，但不证明旧引用仍可加载"
+    ],
+    "pitfalls": [
+      "用源码没变推断入口缓存身份必然不变"
+    ]
+  },
+  {
+    "catalogId": "K09-05",
+    "sourceHeadingId": "http",
+    "question": "新首页成功，但旧页晚加载得到 404，部署缺了哪项合同？",
+    "answerPoints": [
+      "旧 HTML 与模块仍引用旧资源图",
+      "发布需先保证新图完整可用，再切换入口",
+      "按页面寿命保留旧资源或提供保护草稿的恢复路径"
+    ],
+    "pitfalls": [
+      "发布后立即删除旧哈希资源，或把缺失 JS 回退为 HTML"
+    ]
+  },
+  {
+    "catalogId": "K09-05",
+    "sourceHeadingId": "recovery",
+    "question": "清空应用变量里的 rejected Promise，为什么不等于重置标准 import 缓存？",
+    "answerPoints": [
+      "应用 loader 缓存与模块系统记录属于不同层",
+      "网络加载与执行错误需要分类恢复",
+      "刷新或重试需保护输入并限制重复动作"
+    ],
+    "pitfalls": [
+      "把手写 Promise 模型当成浏览器模块缓存 API"
+    ]
+  },
+  {
+    "catalogId": "K09-06",
+    "sourceHeadingId": "exports",
+    "question": "工作区里文件存在，为什么通过包名导入内部路径仍可能失败？",
+    "answerPoints": [
+      "消费者按 package exports 使用公开入口",
+      "源码相对路径与包名子路径不是同一解析合同",
+      "发布包需包含入口产物与匹配声明，exports 不是文件权限墙"
+    ],
+    "pitfalls": [
+      "用仓库相对引用成功证明发布包可消费"
+    ]
+  },
+  {
+    "catalogId": "K09-06",
+    "sourceHeadingId": "tasks",
+    "question": "schema、sdk、app 都有 build，为什么不能默认同时启动？",
+    "answerPoints": [
+      "后任务可能读取前任务的新产物",
+      "按实际输出关系建立任务图并检测循环与缺失节点",
+      "安装图与任务图相关但不自动相同"
+    ],
+    "pitfalls": [
+      "只按工作区列表顺序或无条件并行"
+    ]
+  },
+  {
+    "catalogId": "K09-06",
+    "sourceHeadingId": "cache",
+    "question": "应用源码没变而依赖产物变了，增量缓存为什么必须失效？",
+    "answerPoints": [
+      "输出依赖输入不止本包源码",
+      "缓存键需包括依赖摘要、目标、工具与有效配置",
+      "完整输入与可信产物都要验证，哈希不会发现漏项"
+    ],
+    "pitfalls": [
+      "用只含 app 文件的键复用旧依赖构建"
+    ]
+  },
+  {
+    "catalogId": "K09-07",
+    "sourceHeadingId": "coordinates",
+    "question": "堆栈行列与 SourceMap 查询坐标为什么不能直接混用？",
+    "answerPoints": [
+      "先确认报告与 API 各自的零基或一基约定",
+      "使用实际生成文件位置查询配对映射",
+      "映射是位置证据，不还原变量和业务根因"
+    ],
+    "pitfalls": [
+      "统一减一却不核对每个坐标来源"
+    ]
+  },
+  {
+    "catalogId": "K09-07",
+    "sourceHeadingId": "exposure",
+    "question": "hidden source map 是否意味着公开部署时 map 无法访问？",
+    "answerPoints": [
+      "hidden 省略代码里的映射注释，map 仍生成",
+      "sourcesContent 控制正文携带，另有职责",
+      "访问与留存策略才约束映射可见性"
+    ],
+    "pitfalls": [
+      "用没有注释证明源码证据不可公开访问"
+    ]
+  },
+  {
+    "catalogId": "K09-07",
+    "sourceHeadingId": "identity",
+    "question": "为什么不能用同名的新 map 解释旧版本异常？",
+    "answerPoints": [
+      "映射必须对应用户实际运行的生成字节",
+      "记录版本、资源与代码/map 摘要及可信构建来源",
+      "错配应拒绝，避免产生可信外观的错误位置"
+    ],
+    "pitfalls": [
+      "仅凭文件名或 release 标签配对"
+    ]
+  },
+  {
+    "catalogId": "K09-08",
+    "sourceHeadingId": "gates",
+    "question": "为什么失败日志存在还不能证明发布被阻止？",
+    "answerPoints": [
+      "publish 必须依赖必要门禁及其成功状态",
+      "失败条件和错误传播决定是否继续执行",
+      "真实命令检查与教学调度模型分别提供证据"
+    ],
+    "pitfalls": [
+      "吞掉失败或使用无条件部署继续发布"
+    ]
+  },
+  {
+    "catalogId": "K09-08",
+    "sourceHeadingId": "artifacts",
+    "question": "测试后重新 build 再发布，为什么验证对象可能已改变？",
+    "answerPoints": [
+      "字节受工具、目标、配置和环境输入影响",
+      "尽量晋级同一份不可变、已验证产物",
+      "摘要核对身份，不替代可信来源与权限"
+    ],
+    "pitfalls": [
+      "把同提交重新构建视为完全相同产物"
+    ]
+  },
+  {
+    "catalogId": "K09-08",
+    "sourceHeadingId": "concurrency",
+    "question": "慢的旧任务晚完成，如何避免覆盖新发布或破坏回滚？",
+    "answerPoints": [
+      "用版本门禁或原子条件提交约束部署意图",
+      "取消工作流不能撤销已经发出的外部写入",
+      "回滚是新发布意图，继续受并发和兼容合同约束"
+    ],
+    "pitfalls": [
+      "将完成顺序当作版本顺序或直接放开旧任务"
+    ]
+  }
+]

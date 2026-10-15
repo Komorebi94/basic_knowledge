@@ -1,9 +1,8 @@
 import { Link, useParams } from "react-router";
 import { UnavailablePage } from "../../app/pages";
-import { ArticleView } from "../../content/ArticleView";
-import { articles, findArticle, articleHref } from "../../content/articles";
+import { ArticleLink } from "../../content/ArticleLink";
+import { findCatalogArticle, publishedArticles, knowledgeTopics, topicDepth } from "../../content/catalog";
 import { findKnowledgeDomain, knowledgeDomains } from "./catalog";
-import { findCatalogArticle, knowledgeTopics, topicDepth } from "../../content/catalog";
 
 export function KnowledgeMapPage() {
   return (
@@ -14,7 +13,7 @@ export function KnowledgeMapPage() {
         <p>从语言机制到工程决策，按主题建立完整理解。以下为规划目录，首版每个专题的前两篇已补齐，其余正文按目录继续扩展。</p>
       </div>
       <div className="catalog-note" role="status">
-        {knowledgeDomains.length} 个专题 · {knowledgeTopics.length} 个知识单元 · {articles.filter((article) => article.kind === "knowledge").length} 篇教程。首版正文已补齐，后续内容继续扩展。
+        {knowledgeDomains.length} 个专题 · {knowledgeTopics.length} 个知识单元 · {publishedArticles.filter((article) => article.kind === "knowledge").length} 篇教程。首版正文已补齐，后续内容继续扩展。
       </div>
       <div className="domain-grid">
         {knowledgeDomains.map((domain) => (
@@ -22,7 +21,7 @@ export function KnowledgeMapPage() {
             <span className="domain-id">{domain.id} · {domain.topics.length} 个知识单元</span>
             <h2>{domain.title}</h2>
             <p>{domain.summary}</p>
-            <p>已发布 {articles.filter((a) => a.domainSlug === domain.slug).length} 篇教程</p>
+            <p>已发布 {publishedArticles.filter((article) => article.domainSlug === domain.slug).length} 篇教程</p>
             <span className="text-link">查看专题 <span aria-hidden="true">→</span></span>
           </Link>
         ))}
@@ -34,7 +33,7 @@ export function KnowledgeMapPage() {
 export function KnowledgeDomainPage() {
   const { domain: slug } = useParams();
   const domain = findKnowledgeDomain(slug);
-  const published = articles.filter((article) => article.kind === "knowledge" && article.domainSlug === slug);
+  const published = publishedArticles.filter((article) => article.kind === "knowledge" && article.domainSlug === slug);
 
   if (!domain) {
     return (
@@ -69,7 +68,7 @@ export function KnowledgeDomainPage() {
               <span className="topic-index">{String(index + 1).padStart(2, "0")}</span>
               <div className="catalog-topic-main">
                 <span className="catalog-topic-meta">{topic.id} · {topicDepth(topic.id)}</span>
-                {article ? <Link className="catalog-topic-title" to={articleHref(article)}>{topic.title}</Link> : <span className="catalog-topic-title">{topic.title}</span>}
+                {article ? <ArticleLink className="catalog-topic-title" article={article}>{topic.title}</ArticleLink> : <span className="catalog-topic-title">{topic.title}</span>}
                 <p>{topic.summary}</p>
               </div>
               <span className="topic-status">{article ? "正文已补齐" : "待编写"}</span>
@@ -82,16 +81,3 @@ export function KnowledgeDomainPage() {
   );
 }
 
-export function KnowledgeArticlePage() {
-  const { domain, slug } = useParams();
-  const article = findArticle("knowledge", slug, domain);
-  if (article) return <ArticleView article={article} backTo={`/knowledge/${domain}`} backLabel="返回专题" />;
-  return (
-    <UnavailablePage
-      title="文章尚未发布"
-      message="目前只开放知识专题目录。正式文章经过内容审核后会出现在这里。"
-      backTo="/knowledge"
-      backLabel="返回知识地图"
-    />
-  );
-}

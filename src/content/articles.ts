@@ -1,3 +1,27 @@
+import { treeShakingEffectsArticle } from "./knowledge/tree-shaking-and-side-effects";
+import { transpilationTargetsArticle } from "./knowledge/transpilation-polyfills-and-targets";
+import { codeSplittingCacheArticle } from "./knowledge/code-splitting-and-resource-caching";
+import { monorepoBoundariesArticle } from "./knowledge/monorepo-and-package-boundaries";
+import { sourceMapsDebuggingArticle } from "./knowledge/source-maps-and-production-debugging";
+import { ciCdReleaseArticle } from "./knowledge/ci-cd-and-release-strategies";
+import { criticalResourcesArticle } from "./knowledge/critical-resources";
+import { listsRenderingMemoryArticle } from "./knowledge/lists-rendering-and-memory";
+import { cachePrefetchArticle } from "./knowledge/cache-and-prefetch";
+import { bundleAnalysisArticle } from "./knowledge/bundle-analysis-and-dependencies";
+import { performanceBudgetsArticle } from "./knowledge/performance-budgets";
+import { largePageDiagnosisArticle } from "./knowledge/large-page-diagnosis";
+import { cspTrustedResourcesArticle } from "./knowledge/csp-and-trusted-resources";
+import { dependencyThirdPartyArticle } from "./knowledge/dependency-and-third-party-scripts";
+import { sensitiveDataLogsArticle } from "./knowledge/sensitive-data-and-logs";
+import { urlRedirectBoundariesArticle } from "./knowledge/url-and-redirect-boundaries";
+import { clientIsolationArticle } from "./knowledge/client-isolation-and-sandbox";
+import { securityDesignVerificationArticle } from "./knowledge/security-design-and-verification";
+import { complexPagePerformanceArticle } from "./knowledge/complex-page-performance-and-debugging";
+import { ssrHydrationArticle } from "./knowledge/ssr-and-hydration";
+import { routingFormsStateArticle } from "./knowledge/routing-forms-and-state";
+import { templateCompilationUpdatesArticle } from "./knowledge/template-compilation-and-updates";
+import { lifecycleComposablesArticle } from "./knowledge/lifecycle-and-composables";
+import { componentCommunicationOwnershipArticle } from "./knowledge/component-communication-and-ownership";
 import { genericsConstraintsArticle } from "./knowledge/generics-and-constraints";
 import { conditionalMappedArticle } from "./knowledge/conditional-and-mapped-types";
 import { functionVarianceArticle } from "./knowledge/function-types-variance";
@@ -32,7 +56,19 @@ import { authAuthorizationArticle } from "./knowledge/auth-authorization-csrf";
 import { behaviorBoundaryArticle } from "./knowledge/behavior-boundary-tests";
 import { boxesAndStackingArticle } from "./knowledge/boxes-and-stacking";
 import { runtimeBoundariesArticle } from "./knowledge/browser-node-boundaries";
+import { streamsBackpressureArticle } from "./knowledge/streams-backpressure-and-release";
+import { bffAggregationArticle } from "./knowledge/bff-and-aggregation";
+import { streamingRenderArticle } from "./knowledge/streaming-render-and-resume";
+import { serverCacheIsolationArticle } from "./knowledge/server-cache-and-isolation";
+import { deploymentRuntimesArticle } from "./knowledge/deployment-runtimes-and-edge";
+import { requestObservabilityArticle } from "./knowledge/request-observability";
 import { complexityScaleArticle } from "./knowledge/complexity-scale";
+import { treeGraphArticle } from "./knowledge/tree-and-graph-traversal";
+import { sortStabilityArticle } from "./knowledge/sort-binary-search-stability";
+import { slidingWindowArticle } from "./knowledge/sliding-window-and-two-pointers";
+import { stackExpressionsArticle } from "./knowledge/stack-and-expressions";
+import { dynamicProgrammingArticle } from "./knowledge/dynamic-programming-states";
+import { frontendAlgorithmsArticle } from "./knowledge/frontend-algorithm-choices";
 import { computedAndWatchArticle } from "./knowledge/computed-and-watch";
 import { dependenciesAndLockfilesArticle } from "./knowledge/dependencies-and-lockfiles";
 import { discriminatedStateArticle } from "./knowledge/discriminated-state";
@@ -40,9 +76,21 @@ import { effectsAndSynchronizationArticle } from "./knowledge/effects-and-synchr
 import { experienceMetricsArticle } from "./knowledge/experience-metrics";
 import { httpCacheValidationArticle } from "./knowledge/http-cache-validation";
 import { keyboardFocusArticle } from "./knowledge/keyboard-focus";
+import { formValidationArticle } from "./knowledge/form-validation-and-recovery";
+import { asyncFeedbackArticle } from "./knowledge/async-feedback-and-rollback";
+import { touchZoomArticle } from "./knowledge/touch-zoom-and-reflow";
+import { contrastMotionArticle } from "./knowledge/contrast-and-motion";
+import { complexWidgetsArticle } from "./knowledge/complex-widgets-and-keyboard";
+import { accessibilityVerificationArticle } from "./knowledge/accessibility-verification";
 import { mainThreadLongTasksArticle } from "./knowledge/main-thread-long-tasks";
 import { mapsSetsQueuesArticle } from "./knowledge/maps-sets-queues-cache";
 import { moduleBoundariesArticle } from "./knowledge/module-boundaries";
+import { complexFormsArticle } from "./knowledge/complex-forms-and-workflows";
+import { permissionsRoutesArticle } from "./knowledge/permissions-routes-and-menus";
+import { designSystemContractsArticle } from "./knowledge/design-system-and-component-contracts";
+import { microfrontendsMigrationArticle } from "./knowledge/microfrontends-and-migration";
+import { i18nTenantConfigArticle } from "./knowledge/i18n-and-tenant-config";
+import { systemDesignCapacityArticle } from "./knowledge/system-design-and-capacity";
 import { moduleGraphsAndLoadingArticle } from "./knowledge/module-graphs-and-loading";
 import { navigationToPixelsArticle } from "./knowledge/navigation-to-pixels";
 import { reactivityTrackingArticle } from "./knowledge/reactivity-tracking";
@@ -54,6 +102,12 @@ import { semanticInteractionsArticle } from "./knowledge/semantic-interactions";
 import { semanticsFeedbackArticle } from "./knowledge/semantics-names-feedback";
 import { stateOwnershipArticle } from "./knowledge/state-ownership";
 import { testingLevelsArticle } from "./knowledge/testing-levels";
+import { mocksAndContractsArticle } from "./knowledge/mocks-and-contracts";
+import { asyncTestsTimeArticle } from "./knowledge/async-tests-and-time";
+import { componentAccessibilityTestsArticle } from "./knowledge/component-accessibility-tests";
+import { e2eStabilityArticle } from "./knowledge/e2e-stability";
+import { propertyMutationTestsArticle } from "./knowledge/property-and-mutation-tests";
+import { qualityGatesArticle } from "./knowledge/quality-gates";
 import { xssOutputArticle } from "./knowledge/xss-output-context";
 import { aiBugInvestigationArticle } from "./ai/ai-bug-investigation";
 import { aiFeatureDevelopmentArticle } from "./ai/ai-feature-development";
@@ -98,7 +152,7 @@ export interface ArticleSection {
   title: string;
   paragraphs: readonly string[];
   code?: string;
-  examples?: readonly { language?: "javascript" | "typescript" | "module"; code: string; explanation: readonly string[]; expectedOutput: readonly string[] }[];
+  examples?: readonly { language?: "javascript" | "typescript" | "module" | "node"; code: string; explanation: readonly string[]; expectedOutput: readonly string[] }[];
   diagram?: { caption: string; lines: readonly string[] };
 }
 
@@ -119,6 +173,18 @@ export interface Article {
 }
 
 export const articles: readonly Article[] = [
+  treeShakingEffectsArticle,
+  transpilationTargetsArticle,
+  codeSplittingCacheArticle,
+  monorepoBoundariesArticle,
+  sourceMapsDebuggingArticle,
+  ciCdReleaseArticle,
+  complexPagePerformanceArticle,
+  ssrHydrationArticle,
+  routingFormsStateArticle,
+  templateCompilationUpdatesArticle,
+  lifecycleComposablesArticle,
+  componentCommunicationOwnershipArticle,
   eventPropagationArticle,
   storageQuotasArticle,
   observersViewportArticle,
@@ -165,7 +231,19 @@ export const articles: readonly Article[] = [
   authAuthorizationArticle,
   behaviorBoundaryArticle,
   boxesAndStackingArticle,
+  streamsBackpressureArticle,
+  bffAggregationArticle,
+  streamingRenderArticle,
+  serverCacheIsolationArticle,
+  deploymentRuntimesArticle,
+  requestObservabilityArticle,
   runtimeBoundariesArticle,
+  treeGraphArticle,
+  sortStabilityArticle,
+  slidingWindowArticle,
+  stackExpressionsArticle,
+  dynamicProgrammingArticle,
+  frontendAlgorithmsArticle,
   complexityScaleArticle,
   computedAndWatchArticle,
   dependenciesAndLockfilesArticle,
@@ -178,11 +256,29 @@ export const articles: readonly Article[] = [
   maintainableTypesArticle,
 
   effectsAndSynchronizationArticle,
+  criticalResourcesArticle,
+  listsRenderingMemoryArticle,
+  cachePrefetchArticle,
+  bundleAnalysisArticle,
+  performanceBudgetsArticle,
+  largePageDiagnosisArticle,
   experienceMetricsArticle,
   httpCacheValidationArticle,
+  formValidationArticle,
+  asyncFeedbackArticle,
+  touchZoomArticle,
+  contrastMotionArticle,
+  complexWidgetsArticle,
+  accessibilityVerificationArticle,
   keyboardFocusArticle,
   mainThreadLongTasksArticle,
   mapsSetsQueuesArticle,
+  complexFormsArticle,
+  permissionsRoutesArticle,
+  designSystemContractsArticle,
+  microfrontendsMigrationArticle,
+  i18nTenantConfigArticle,
+  systemDesignCapacityArticle,
   moduleBoundariesArticle,
   moduleGraphsAndLoadingArticle,
   navigationToPixelsArticle,
@@ -194,7 +290,19 @@ export const articles: readonly Article[] = [
   semanticInteractionsArticle,
   semanticsFeedbackArticle,
   stateOwnershipArticle,
+  mocksAndContractsArticle,
+  asyncTestsTimeArticle,
+  componentAccessibilityTestsArticle,
+  e2eStabilityArticle,
+  propertyMutationTestsArticle,
+  qualityGatesArticle,
   testingLevelsArticle,
+  cspTrustedResourcesArticle,
+  dependencyThirdPartyArticle,
+  sensitiveDataLogsArticle,
+  urlRedirectBoundariesArticle,
+  clientIsolationArticle,
+  securityDesignVerificationArticle,
   xssOutputArticle,
   aiBugInvestigationArticle,
   aiFeatureDevelopmentArticle,

@@ -15,7 +15,7 @@ export const computedAndWatchArticle: Article = {
     "vue"
   ],
   "estimatedMinutes": 22,
-  "verifiedAt": "2026-10-08",
+  "verifiedAt": "2026-10-13",
   "sections": [
     {
       "id": "problem",
@@ -70,7 +70,8 @@ export const computedAndWatchArticle: Article = {
       "id": "vue-code",
       "title": "完整场景：派生列表与可停止的请求分开",
       "paragraphs": [
-        "下面代码用于 Vue 3 项目，列表 computed 负责本地派生，watch 负责 query 的远程同步。cleanup 取消旧等待，active 同时保护成功和失败路径。网络端点必须由调用方提供，没有虚构服务地址。"
+        "下面代码用于 Vue 3 项目，列表 computed 负责本地派生，watch 负责 query 的远程同步。cleanup 取消旧等待，active 同时保护成功和失败路径。网络端点必须由调用方提供，没有虚构服务地址。",
+        "下面第二个代码块是实际验证的完整 ES 模块，使用 Vue 3.5.43 与调用方提供的教学 Promise；fetchItems 的合同是返回含 title 字符串条目的数组 Promise，并接受 signal。旧任务故意忽略取消后再失败，用来核对失败也不会覆盖 B；当前 C 失败显示错误，停止后 D 不再启动。可运行 npm run verify:k08 复现。"
       ],
       "examples": [
         {
@@ -83,9 +84,23 @@ export const computedAndWatchArticle: Article = {
             "旧轮已清理且身份过期，无法改值。当前轮可以更新。清理只解除本轮责任，真实网络仍需服务器权限和写操作幂等合同。"
           ],
           "language": "javascript"
+        },
+        {
+          "language": "module",
+          "code": "import { nextTick } from '/vue.mjs';\nimport { ref, computed, watch } from '/vue.mjs';\nexport function useSearch(fetchItems) {\n  const query = ref('');\n  const items = ref([]);\n  const error = ref('');\n  const visible = computed(() => items.value.filter(item => item.title.includes(query.value)));\n  const stop = watch(query, (value, _old, onCleanup) => {\n    const controller = new AbortController();\n    let active = true;\n    onCleanup(() => { active = false; controller.abort(); });\n    error.value = '';\n    fetchItems(value, controller.signal).then(result => {\n      if (active) items.value = result;\n    }).catch(reason => {\n      if (active) error.value = reason instanceof Error ? reason.message : '请求失败';\n    });\n  });\n  return { query, items, visible, error, stop };\n}\nconst pending = new Map();\nfunction fetchItems(query, signal) {\n  let resolve, reject;\n  const promise = new Promise((yes, no) => { resolve = yes; reject = no; });\n  pending.set(query, { resolve, reject, signal });\n  return promise;\n}\nconst search = useSearch(fetchItems);\nasync function flush() { await Promise.resolve(); await Promise.resolve(); await nextTick(); }\nsearch.query.value = 'A'; await nextTick();\nsearch.query.value = 'B'; await nextTick();\nconsole.log('旧轮取消:' + pending.get('A').signal.aborted);\npending.get('B').resolve([{ title: 'B' }]); await flush();\nconsole.log('当前:' + search.items.value[0].title + ':' + search.visible.value.length);\npending.get('A').reject(new Error('旧失败')); await flush();\nconsole.log('旧失败忽略:' + (search.error.value === ''));\nsearch.query.value = 'C'; await nextTick();\npending.get('C').reject(new Error('C失败')); await flush();\nconsole.log('当前失败:' + search.error.value + ':' + search.visible.value.length);\nsearch.stop(); search.query.value = 'D'; await nextTick();\nconsole.log('停止后无新请求:' + !pending.has('D'));",
+          "expectedOutput": [
+            "旧轮取消:true",
+            "当前:B:1",
+            "旧失败忽略:true",
+            "当前失败:C失败:0",
+            "停止后无新请求:true"
+          ],
+          "explanation": [
+            "A 到 B 的切换先清理 A，signal 变成 aborted；B 成功后 items 为 B，本地 computed 用当前查询过滤，visible 有一项。旧 A 的 Promise 仍失败，但 active 已为 false，所以错误不会覆盖当前轮。",
+            "C 的当前失败会显示 C失败，items 保留最近成功的 B，而以 C 查询的 visible 为空；失败与空匹配不是同一状态。stop 执行当前轮清理并停止观察，D 不再发请求。教学替身未验证真实网络、服务端权限或任意返回结构。"
+          ]
         }
-      ],
-      "code": "import { ref, computed, watch } from 'vue';\nexport function useSearch(fetchItems) {\n  const query = ref('');\n  const items = ref([]);\n  const error = ref('');\n  const visible = computed(() => items.value.filter(item => item.title.includes(query.value)));\n  const stop = watch(query, (value, _old, onCleanup) => {\n    const controller = new AbortController();\n    let active = true;\n    onCleanup(() => { active = false; controller.abort(); });\n    error.value = '';\n    fetchItems(value, controller.signal).then(result => {\n      if (active) items.value = result;\n    }).catch(reason => {\n      if (active) error.value = reason instanceof Error ? reason.message : '请求失败';\n    });\n  });\n  return { query, items, visible, error, stop };\n}"
+      ]
     },
     {
       "id": "timing",

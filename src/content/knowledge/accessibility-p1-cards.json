@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K15-03",
+    "sourceHeadingId": "review",
+    "question": "订单同时缺标题且数量为 0 时，为什么 focus 仍是 title？",
+    "answerPoints": [
+      "错误按检查顺序进入列表，标题先于数量",
+      "focus 取第一条错误的字段",
+      "摘要用竖线保留 amount，所以第二项没有被丢掉"
+    ],
+    "pitfalls": [
+      "只把焦点放到第一项，摘要里却不再提到数量"
+    ]
+  },
+  {
+    "catalogId": "K15-03",
+    "sourceHeadingId": "cue",
+    "question": "message 已经写了原因，为什么 linked 为 false 时仍是 unlinked？",
+    "answerPoints": [
+      "文字存在还不等于它和 title 建立了关联",
+      "只有 linked 为 true 才返回 linked 加原因",
+      "没有文字的红色单独返回 color-only"
+    ],
+    "pitfalls": [
+      "把边框变红当成用户已经知道怎么改"
+    ]
+  },
+  {
+    "catalogId": "K15-03",
+    "sourceHeadingId": "boundaries",
+    "question": "结果里出现 focus:title 时，为什么还不能说焦点已经移到标题？",
+    "answerPoints": [
+      "函数只返回字段名，没有调用 focus",
+      "控件是否存在、可见、被挡住，要另查",
+      "linked 标记也不是某一种读屏的播报记录"
+    ],
+    "pitfalls": [
+      "看到 focus:title 就写成键盘用户已经到达输入框"
+    ]
+  },
+  {
+    "catalogId": "K15-04",
+    "sourceHeadingId": "play",
+    "question": "第一次提交还在 pending 时又提交了另一个标题，为什么结果是 busy？",
+    "answerPoints": [
+      "pending 期间的 submit 不再接受新标题",
+      "view 保持第一次的标题，第二个标题不入队",
+      "fail 退回的仍是还没被 ok 改写的草稿"
+    ],
+    "pitfalls": [
+      "把第二次点击排进队列，失败后又显示另一个标题"
+    ]
+  },
+  {
+    "catalogId": "K15-04",
+    "sourceHeadingId": "feedback",
+    "question": "回滚和正在保存为什么不是同一种反馈？",
+    "answerPoints": [
+      "pending 和 confirmed 使用 status，用户留在原处",
+      "rolled-back 使用 alert，因为可见标题被改了回去",
+      "这四句都以 keep-focus 结束"
+    ],
+    "pitfalls": [
+      "保存过程中把焦点跳到页顶来表示已保存"
+    ]
+  },
+  {
+    "catalogId": "K15-04",
+    "sourceHeadingId": "boundaries",
+    "question": "撤销把两边都改回草稿之后，为什么再来的 ok 是 ignored？",
+    "answerPoints": [
+      "undo 之后状态不再是 pending",
+      "ok 只在 pending 时写入 server",
+      "函数没有请求身份，只能拒绝当前不在途的成功"
+    ],
+    "pitfalls": [
+      "迟到的成功响应把已经撤销的草稿又写成新标题"
+    ]
+  },
+  {
+    "catalogId": "K15-05",
+    "sourceHeadingId": "target",
+    "question": "20×20 且 gap 为 24 时为什么是 spaced，gap 为 8 时为什么是 too-small？",
+    "answerPoints": [
+      "两边都小于 24 时才看间距",
+      "这个模型把 gap >= 24 收成 spaced",
+      "8 像素不够，返回 too-small"
+    ],
+    "pitfalls": [
+      "把 gap >= 24 写成已经做完直径 24 的圆相交测试"
+    ]
+  },
+  {
+    "catalogId": "K15-05",
+    "sourceHeadingId": "reflow",
+    "question": "同样是 200 这一档，为什么 fixed 是 clipped，reflow 是 stacked？",
+    "answerPoints": [
+      "fixed 保持原宽度，放大后按钮被裁切",
+      "reflow 改成纵向排列，按钮仍在文档流里",
+      "400 档的表格双向滚动不能套到工具栏上"
+    ],
+    "pitfalls": [
+      "整页都用 two-axis-ok 来解释横向滚动"
+    ]
+  },
+  {
+    "catalogId": "K15-05",
+    "sourceHeadingId": "boundaries",
+    "question": "keyboard 返回 above-keyboard 时，为什么还不能说软键盘已经避开了输入框？",
+    "answerPoints": [
+      "函数只根据传入的锚点名字返回标签",
+      "它不监听 visualViewport",
+      "固定导航和焦点是否可见要另行查看"
+    ],
+    "pitfalls": [
+      "把 above-keyboard 当成某台手机上的测量结果"
+    ]
+  },
+  {
+    "catalogId": "K15-06",
+    "sourceHeadingId": "contrast",
+    "question": "#777777 对白底的正文失败了，为什么同色的界面结果仍是 pass？",
+    "answerPoints": [
+      "显示比值是 4.48",
+      "正文门槛是 4.5，界面门槛是 3",
+      "种类由调用方传入，函数没有测量字号"
+    ],
+    "pitfalls": [
+      "界面控件通过后，把旁边的正文也标成通过"
+    ]
+  },
+  {
+    "catalogId": "K15-06",
+    "sourceHeadingId": "motion",
+    "question": "偏好是 reduce 时，为什么 spinner 停止而 focus 仍是 visible？",
+    "answerPoints": [
+      "spinner 在 reduce 下返回 stopped",
+      "fade 收成 opacity-only",
+      "focus 不读取偏好，固定返回 visible"
+    ],
+    "pitfalls": [
+      "为了减少动画而去掉键盘焦点轮廓"
+    ]
+  },
+  {
+    "catalogId": "K15-06",
+    "sourceHeadingId": "boundaries",
+    "question": "把正文种类改成 large 之后通过了，为什么这不能说明字变大了？",
+    "answerPoints": [
+      "large 是参数，不是量到的字号或字重",
+      "pass 只表示比值达到该种类的门槛",
+      "函数也不读取 prefers-reduced-motion"
+    ],
+    "pitfalls": [
+      "用改标签的方式让 4.48 的正文通过"
+    ]
+  },
+  {
+    "catalogId": "K15-07",
+    "sourceHeadingId": "choose",
+    "question": "笔记列表为什么是 native:table，而不是 grid？",
+    "answerPoints": [
+      "只读的一行笔记不需要逐格编辑",
+      "sheet 才映射为 grid:arrow-cells",
+      "menu 这种还没说明的控件返回 invalid"
+    ],
+    "pitfalls": [
+      "给普通数据表加上方向键，让页面不能滚动"
+    ]
+  },
+  {
+    "catalogId": "K15-07",
+    "sourceHeadingId": "keys",
+    "question": "编辑器在 edit 模式里按 Tab 得到 indent 时，用户怎样离开？",
+    "answerPoints": [
+      "edit 里的 Escape 进入 navigate",
+      "navigate 里的 Tab 才是 leave",
+      "没有模式时 Tab 返回 invalid，不默认成某一种"
+    ],
+    "pitfalls": [
+      "只把 Tab 用作缩进，却不提供退出编辑的键"
+    ]
+  },
+  {
+    "catalogId": "K15-07",
+    "sourceHeadingId": "boundaries",
+    "question": "press 返回 next 时，为什么还不能说焦点已经移到下一个标签？",
+    "answerPoints": [
+      "返回值只是动作名",
+      "函数没有改 tabindex，也没有移动 activeElement",
+      "Home、End 和回绕都没有实现"
+    ],
+    "pitfalls": [
+      "用这一张键表代替创作实践的键盘走查"
+    ]
+  },
+  {
+    "catalogId": "K15-08",
+    "sourceHeadingId": "scan",
+    "question": "为什么 speech 放进 scan 会得到 invalid，而不是一种通过或失败？",
+    "answerPoints": [
+      "扫描只认识名称和对比四种发现",
+      "读屏不是这张表里的自动结果",
+      "键盘陷阱的优先级是 block，但那是另一张表"
+    ],
+    "pitfalls": [
+      "自动扫描没有报错，就把读屏也写成通过"
+    ]
+  },
+  {
+    "catalogId": "K15-08",
+    "sourceHeadingId": "gate",
+    "question": "名称和键盘任务都是 pass 时，为什么带 untested:speech 的列表仍是 incomplete？",
+    "answerPoints": [
+      "没有 fail 或 block 时才看 untested",
+      "untested 得到 incomplete，而不是 accepted",
+      "空列表是 empty，同样不是接受"
+    ],
+    "pitfalls": [
+      "把没做的读屏留空，然后宣布整条路径通过"
+    ]
+  },
+  {
+    "catalogId": "K15-08",
+    "sourceHeadingId": "boundaries",
+    "question": "gate 返回 accepted 时，为什么还不能写成符合性已经满足？",
+    "answerPoints": [
+      "accepted 只表示列表中每一项都以 pass 开头",
+      "函数不记录扫描器、浏览器或辅助技术",
+      "untested 是没做，不能改写成 fail 或 pass"
+    ],
+    "pitfalls": [
+      "用 accepted 代替一份写明环境和路径的人工记录"
+    ]
+  }
+]

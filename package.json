@@ -47,7 +47,31 @@
     "verify:k06-ui": "node scripts/verify-knowledge-topic-ui.mjs K06",
     "verify:k07": "ZHIXU_ARTICLE_IDS=K07-03,K07-04,K07-05,K07-06,K07-07,K07-08 ZHIXU_ARTICLE_REPORT=k07-article-examples.json node scripts/verify-articles.mjs",
     "verify:k07-ui": "node scripts/verify-knowledge-topic-ui.mjs K07",
-    "verify:ai-p1-ui": "node scripts/verify-ai-p1-ui.mjs"
+    "verify:ai-p1-ui": "node scripts/verify-ai-p1-ui.mjs",
+    "verify:k08-03": "ZHIXU_ARTICLE_IDS=K08-03 ZHIXU_ARTICLE_REPORT=k08-03-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k08-ui": "node scripts/verify-knowledge-topic-ui.mjs K08",
+    "verify:k08-04": "ZHIXU_ARTICLE_IDS=K08-04 ZHIXU_ARTICLE_REPORT=k08-04-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k08-05": "ZHIXU_ARTICLE_IDS=K08-05 ZHIXU_ARTICLE_REPORT=k08-05-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k08-06": "ZHIXU_ARTICLE_IDS=K08-06 ZHIXU_ARTICLE_REPORT=k08-06-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k08-07": "ZHIXU_ARTICLE_IDS=K08-07 ZHIXU_ARTICLE_REPORT=k08-07-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k08-08": "ZHIXU_ARTICLE_IDS=K08-08 ZHIXU_ARTICLE_REPORT=k08-08-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k08": "ZHIXU_ARTICLE_IDS=K08-01,K08-02,K08-03,K08-04,K08-05,K08-06,K08-07,K08-08 ZHIXU_ARTICLE_REPORT=k08-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k09": "ZHIXU_ARTICLE_IDS=K09-01,K09-02,K09-03,K09-04,K09-05,K09-06,K09-07,K09-08 ZHIXU_ARTICLE_REPORT=k09-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k09-ui": "node scripts/verify-knowledge-topic-ui.mjs K09",
+    "verify:k10": "ZHIXU_ARTICLE_IDS=K10-01,K10-02,K10-03,K10-04,K10-05,K10-06,K10-07,K10-08 ZHIXU_ARTICLE_REPORT=k10-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k10-ui": "node scripts/verify-knowledge-topic-ui.mjs K10",
+    "verify:k11": "ZHIXU_ARTICLE_IDS=K11-01,K11-02,K11-03,K11-04,K11-05,K11-06,K11-07,K11-08 ZHIXU_ARTICLE_REPORT=k11-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k11-ui": "node scripts/verify-knowledge-topic-ui.mjs K11",
+    "verify:k12": "ZHIXU_ARTICLE_IDS=K12-01,K12-02,K12-03,K12-04,K12-05,K12-06,K12-07,K12-08 ZHIXU_ARTICLE_REPORT=k12-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k12-ui": "node scripts/verify-knowledge-topic-ui.mjs K12",
+    "verify:k13": "ZHIXU_ARTICLE_IDS=K13-01,K13-02,K13-03,K13-04,K13-05,K13-06,K13-07,K13-08 ZHIXU_ARTICLE_REPORT=k13-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k13-ui": "node scripts/verify-knowledge-topic-ui.mjs K13",
+    "verify:k14": "ZHIXU_ARTICLE_IDS=K14-01,K14-02,K14-03,K14-04,K14-05,K14-06,K14-07,K14-08 ZHIXU_ARTICLE_REPORT=k14-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k14-ui": "node scripts/verify-knowledge-topic-ui.mjs K14",
+    "verify:k15": "ZHIXU_ARTICLE_IDS=K15-01,K15-02,K15-03,K15-04,K15-05,K15-06,K15-07,K15-08 ZHIXU_ARTICLE_REPORT=k15-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k15-ui": "node scripts/verify-knowledge-topic-ui.mjs K15",
+    "verify:k16": "ZHIXU_ARTICLE_IDS=K16-01,K16-02,K16-03,K16-04,K16-05,K16-06,K16-07,K16-08 ZHIXU_ARTICLE_REPORT=k16-all-article-examples.json node scripts/verify-articles.mjs",
+    "verify:k16-ui": "node scripts/verify-knowledge-topic-ui.mjs K16"
   },
   "dependencies": {
     "react": "19.3.0",
@@ -65,7 +89,9 @@
     "playwright": "1.63.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.0",
-    "vite": "8.3.1"
+    "vite": "8.3.1",
+    "vue": "3.5.43",
+    "vue-router": "4.6.4"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"

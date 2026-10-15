@@ -15,7 +15,7 @@ export const reactivityTrackingArticle: Article = {
     "vue"
   ],
   "estimatedMinutes": 22,
-  "verifiedAt": "2026-10-08",
+  "verifiedAt": "2026-10-13",
   "sections": [
     {
       "id": "problem",
@@ -71,7 +71,8 @@ export const reactivityTrackingArticle: Article = {
       "id": "vue-code",
       "title": "保持属性关联，使用 toRef 或 toRefs",
       "paragraphs": [
-        "以下 Vue 3 示例在项目模块中运行。toRef 建立与特定属性相连的 ref，后续通过该 ref 读取和修改都对应 state.count。只想保留一次快照时，普通解构反而正是所需语义。"
+        "以下 Vue 3 示例在项目模块中运行。toRef 建立与特定属性相连的 ref，后续通过该 ref 读取和修改都对应 state.count。只想保留一次快照时，普通解构反而正是所需语义。",
+        "下面第二个代码块在独立 Vue 3.5.43 浏览器模块中实际运行，/vue.mjs 由 npm run verify:k08 提供的隔离服务加载。先观察初始 1 与调度后的 2，再停止 watcher；最后修改为 3，链接仍读到 3，但已停止的 watcher 不再输出。"
       ],
       "examples": [
         {
@@ -84,9 +85,21 @@ export const reactivityTrackingArticle: Article = {
             "普通 getter/setter 说明关联容器的含义：读取时再访问原属性，写入也返回原属性。这不含 Vue 的依赖追踪，但准确区分链接与快照。"
           ],
           "language": "javascript"
+        },
+        {
+          "language": "module",
+          "code": "import { reactive, toRef, watchEffect, nextTick } from '/vue.mjs';\nconst state = reactive({ count: 1 });\nconst count = toRef(state, 'count');\nconst stop = watchEffect(() => console.log(count.value));\nstate.count = 2;\n// 默认调度可能合并更新；组件中由生命周期停止，独立使用时需 stop()。\nawait nextTick();\nstop();\nstate.count = 3;\nawait nextTick();\nconsole.log('停止后:' + count.value);",
+          "expectedOutput": [
+            "1",
+            "2",
+            "停止后:3"
+          ],
+          "explanation": [
+            "toRef 每次通过 value 访问同一代理属性，所以初次 watchEffect 读到 1；state.count 改成 2 后，默认调度在 nextTick 前完成本轮重算并输出 2。",
+            "stop 只停止观察工作，不删除 ref 与原属性的链接。随后写 3，count.value 仍为 3，但没有第三次 watcher 输出。独立模块显式停止，组件同步创建的 watcher 则由其生命周期管理。"
+          ]
         }
-      ],
-      "code": "import { reactive, toRef, watchEffect } from 'vue';\nconst state = reactive({ count: 1 });\nconst count = toRef(state, 'count');\nconst stop = watchEffect(() => console.log(count.value));\nstate.count = 2;\n// 默认调度可能合并更新；组件中由生命周期停止，独立使用时需 stop()。\n"
+      ]
     },
     {
       "id": "failure",

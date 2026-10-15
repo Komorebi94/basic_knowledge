@@ -1,0 +1,103 @@
+{
+  "verifiedAt": "2026-10-13T03:43:53.427Z",
+  "browser": "155.0.8059.40",
+  "articles": [
+    {
+      "id": "K09-03",
+      "href": "/knowledge/tooling/tree-shaking-and-side-effects",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K09-04",
+      "href": "/knowledge/tooling/transpilation-polyfills-and-targets",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K09-05",
+      "href": "/knowledge/tooling/code-splitting-and-resource-caching",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K09-06",
+      "href": "/knowledge/tooling/monorepo-and-package-boundaries",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K09-07",
+      "href": "/knowledge/tooling/source-maps-and-production-debugging",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K09-08",
+      "href": "/knowledge/tooling/ci-cd-and-release-strategies",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K09-02",
+      "href": "/knowledge/tooling/dependencies-and-lockfiles",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K09-01",
+      "href": "/knowledge/tooling/module-graphs-and-loading",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

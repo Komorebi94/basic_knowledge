@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router";
 import { useLearning } from "../features/personal/useLearning";
+import { loadSearchIndex } from "../content/searchIndex";
 
 const navigation = [
   { label: "知识地图", to: "/knowledge" },
@@ -65,6 +66,7 @@ export function Layout() {
               placeholder="搜索知识、练习、AI 或英文别名"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
+              onFocus={() => { void loadSearchIndex().catch(() => undefined); }}
             />
             <button type="submit" aria-label="搜索">搜索</button>
           </form>

@@ -6,7 +6,7 @@ import { registerUnsavedDataGuard } from '../../infrastructure/persistence/perso
 import { startAttempt, markAssistance, finishRun, type PracticeRun, type CaseResult } from "../../domain/practice";
 import type { Exercise } from "../../content/practice";
 import { UnavailablePage } from "../../app/pages";
-import { articleHref } from "../../content/articles";
+import { ArticleLink } from "../../content/ArticleLink";
 import { exerciseTopics, findCatalogArticle } from "../../content/catalog";
 import { CodeBlock } from "../../content/CodeBlock";
 import { exercises } from "../../content/practice";
@@ -31,7 +31,7 @@ export function PracticeListPage() {
         <p>先独立实现，运行行为用例，再用解析检查边界。</p>
       </div>
       <div className="catalog-note" role="status">
-        {exercises.length} 道核心练习已补齐题面、三层提示、参考实现与行为用例。可恢复草稿、运行隔离用例并记录独立或参考通过证据。其余 {exerciseTopics.length - exercises.length} 道为后续规划。
+        {exercises.length} 道练习已补齐题面、三层提示、参考实现与行为用例。可恢复草稿、运行隔离用例并记录独立或参考通过证据。
       </div>
       <div className="practice-list">
         {exerciseTopics.map((topic) => {
@@ -192,7 +192,7 @@ function Workspace({exercise}:{exercise:Exercise}) {
         <h2>回看关联知识</h2>
         <ul>{exercise.knowledgeIds.map((id) => {
           const article = findCatalogArticle(id);
-          return article ? <li key={id}><Link className="text-link" to={articleHref(article)}>{id} · {article.title}</Link></li> : <li key={id}>{id} · 正文待补齐</li>;
+          return article ? <li key={id}><ArticleLink className="text-link" article={article}>{id} · {article.title}</ArticleLink></li> : <li key={id}>{id} · 正文待补齐</li>;
         })}</ul>
       </section>
       </>}

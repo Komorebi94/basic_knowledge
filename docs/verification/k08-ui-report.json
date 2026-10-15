@@ -1,0 +1,103 @@
+{
+  "verifiedAt": "2026-10-13T03:17:42.301Z",
+  "browser": "155.0.8059.40",
+  "articles": [
+    {
+      "id": "K08-08",
+      "href": "/knowledge/vue/complex-page-performance-and-debugging",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K08-07",
+      "href": "/knowledge/vue/ssr-and-hydration",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K08-06",
+      "href": "/knowledge/vue/routing-forms-and-state",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K08-05",
+      "href": "/knowledge/vue/template-compilation-and-updates",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K08-04",
+      "href": "/knowledge/vue/lifecycle-and-composables",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K08-03",
+      "href": "/knowledge/vue/component-communication-and-ownership",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K08-02",
+      "href": "/knowledge/vue/computed-and-watch",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K08-01",
+      "href": "/knowledge/vue/reactivity-tracking",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

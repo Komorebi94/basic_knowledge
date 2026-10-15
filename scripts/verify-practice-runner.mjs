@@ -23,8 +23,8 @@ try{
  });
  for(const r of report.references){assert.equal(r.status,'passed',JSON.stringify(r));assert.equal(r.passed,r.total)}
  for(const r of report.mutations)assert.notEqual(r.status,'passed',JSON.stringify(r));
- assert.equal(report.references.length,24);assert.equal(report.mutations.length,48);
+ assert.equal(report.references.length,40);assert.equal(report.mutations.length,80);
  assert.equal(report.guards[0].status,'timeout');assert.equal(report.guards[1].status,'stopped');assert.equal(report.guards[2].status,'failed');assert.equal(report.guards[3].value,0);
  await writeFile('docs/verification/practice-browser.json',JSON.stringify({verifiedAt:new Date().toISOString(),browser:browser.version(),...report},null,2)+'\n');
- console.log('Browser practice: 24 references passed, 48 wrong implementations rejected; independent timeout, stop and iframe cleanup passed.');
+ console.log('Browser practice: 40 references passed, 80 wrong implementations rejected; independent timeout, stop and iframe cleanup passed.');
 }finally{await browser.close()}

@@ -43,7 +43,7 @@ assert.equal(new Set(articles.map((article) => article.id)).size, articles.lengt
 assert.equal(new Set(articles.map(articleHref)).size, articles.length, "Article routes must be unique");
 assert.equal(p0KnowledgeIds.length, 32);
 assert.equal(p0AiIds.length, 16);
-assert.equal(exercises.length, 24);
+assert.equal(exercises.length, 40);
 const p0Ids = [...p0KnowledgeIds, ...p0AiIds];
 const browserP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K04" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
 assert.equal(browserP1Ids.length, 6);
@@ -55,8 +55,26 @@ const networkingP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K06"
 assert.equal(networkingP1Ids.length, 6);
 const reactP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K07" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
 assert.equal(reactP1Ids.length, 6);
+const vueP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K08" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(vueP1Ids.length, 6);
+const toolingP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K09" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(toolingP1Ids.length, 6);
+const performanceP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K10" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(performanceP1Ids.length, 6);
+const securityP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K11" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(securityP1Ids.length, 6);
+const testingP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K12" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(testingP1Ids.length, 6);
+const architectureP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K13" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(architectureP1Ids.length, 6);
+const serverP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K14" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(serverP1Ids.length, 6);
+const accessibilityP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K15" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(accessibilityP1Ids.length, 6);
+const algorithmsP1Ids = knowledgeTopics.filter(topic => topic.domainId === "K16" && !p0KnowledgeIds.includes(topic.id)).map(topic => topic.id);
+assert.equal(algorithmsP1Ids.length, 6);
 assert.equal(p1AiIds.length, 4);
-for (const id of [...p0Ids, ...p1AiIds, ...browserP1Ids, ...typescriptP1Ids, ...htmlCssP1Ids, ...networkingP1Ids, ...reactP1Ids]) {
+for (const id of [...p0Ids, ...p1AiIds, ...browserP1Ids, ...typescriptP1Ids, ...htmlCssP1Ids, ...networkingP1Ids, ...reactP1Ids, ...vueP1Ids, ...toolingP1Ids, ...performanceP1Ids, ...securityP1Ids, ...testingP1Ids, ...architectureP1Ids, ...serverP1Ids, ...accessibilityP1Ids, ...algorithmsP1Ids]) {
   const article = articleById.get(id);
   assert(article, `${id}: missing published article`);
   assert(article.sections.length >= 4, `${id}: incomplete body`);
@@ -75,10 +93,10 @@ for (const card of recallCards) {
   assert(article.sections.some((section) => section.id === card.sourceHeadingId), `${card.cardId}: missing source heading ${card.sourceHeadingId}`);
   assert(card.question && card.answerPoints.length >= 2 && card.answerPoints.length <= 5 && card.pitfalls.length > 0, `${card.cardId}: incomplete card`);
 }
-for (let number = 1; number <= 24; number += 1) {
+for (let number = 1; number <= 40; number += 1) {
   const id = `E${String(number).padStart(2, "0")}`;
   const exercise = exercises.find((item) => item.id === id);
-  assert(exercise, `${id}: missing P0 exercise`);
+  assert(exercise, `${id}: missing exercise`);
   assert.equal(exercise.examples.length, 3, `${id}: needs 3 examples`);
   assert(exercise.testCases.length >= 6, `${id}: missing boundary tests`);
   assert.equal(exercise.hints.length, 3, `${id}: needs 3 hints`);
@@ -127,6 +145,10 @@ for (const record of contentManifest) {
 }
 assert.equal(contentManifest.length, articles.length + exercises.length);
 assert.equal(new Set(contentManifest.map((record) => record.id)).size, contentManifest.length);
+const searchIndexPath = resolve(root, "src/content/searchIndex.json");
+assert.equal(existsSync(searchIndexPath), true, "Run npm run generate:metadata before verify:p0");
+const searchIndex = JSON.parse(readFileSync(searchIndexPath, "utf8"));
+assert.equal(JSON.stringify(searchIndex), JSON.stringify(publicSearchDocuments), "Generated search index is stale");
 assert.equal(publicSearchDocuments.length, 204);
 assert.equal(new Set(publicSearchDocuments.map((document) => document.id)).size, 204);
 for (const exercise of exercises) {
@@ -143,4 +165,4 @@ assert.equal(JSON.stringify(metadata.articles), JSON.stringify(articles.map(({id
 const exerciseMetadata = load(resolve(root,"src/content/exerciseMetadata.json"));
 assert.equal(JSON.stringify(exerciseMetadata),JSON.stringify(exercises.map(({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}) => ({id,title,slug,summary,revision,estimatedMinutes,updatedAt,verifiedAt,knowledgeIds,problem,entryContract}))),"Generated exercise summaries are stale");
 assert(exerciseMetadata.every((entry) => !("referenceArtifact" in entry) && !("hints" in entry)),"Reading summaries must not load practice answers");
-console.log(`Published content verified: P0 ${p0KnowledgeIds.length} knowledge + ${p0AiIds.length} AI + ${exercises.length} exercises; P1 ${browserP1Ids.length + typescriptP1Ids.length + htmlCssP1Ids.length + networkingP1Ids.length + reactP1Ids.length} K03–K07 knowledge + ${p1AiIds.length} AI; ${recallCards.length} cards (${recallCards.filter((card) => p0Ids.includes(card.catalogId)).length} P0); ${aiContentContracts.filter(contract => contract.taskTemplate).length} templates; ${reviewCases.length} cases; 204 unique search documents.`);
+console.log(`Published content verified: P0 ${p0KnowledgeIds.length} knowledge + ${p0AiIds.length} AI + 24 exercises; P1 ${browserP1Ids.length + typescriptP1Ids.length + htmlCssP1Ids.length + networkingP1Ids.length + reactP1Ids.length + vueP1Ids.length + toolingP1Ids.length + performanceP1Ids.length + securityP1Ids.length + testingP1Ids.length + architectureP1Ids.length + serverP1Ids.length + accessibilityP1Ids.length + algorithmsP1Ids.length} K03–K16 knowledge + ${p1AiIds.length} AI + ${exercises.length - 24} exercises; ${recallCards.length} cards (${recallCards.filter((card) => p0Ids.includes(card.catalogId)).length} P0); ${aiContentContracts.filter(contract => contract.taskTemplate).length} templates; ${reviewCases.length} cases; 204 unique search documents.`);

@@ -7,7 +7,7 @@ import ts from 'typescript';
 
 // Author-controlled exercise sources only. This is not a user code execution service.
 const exercises = [];
-for (const group of ['async', 'data', 'functions']) {
+for (const group of ['async', 'data', 'functions', 'p1']) {
   const source = await readFile(new URL(`../src/content/practice/${group}.ts`, import.meta.url), 'utf8');
   const compiled = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText;
   const module = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`);
@@ -59,7 +59,7 @@ async function runCase(exercise, reference, test) {
   };
   vm.runInContext(bootstrap+reference,context,{timeout:100});
   const before=unhandled.length;
-  const result=vm.runInContext(`(async()=>{${test.code}\n})()`,context,{timeout:100});
+  const result=vm.runInContext(`"use strict";(async()=>{${test.code}\n})()`,context,{timeout:100});
   let guard;
   try {
     await Promise.race([result,new Promise((_,reject)=>{guard=setTimeout(()=>reject(new Error('Unsettled test promise')),250);})]);

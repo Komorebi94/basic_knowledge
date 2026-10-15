@@ -1,5 +1,15 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import { generatePublicMetadata } from "./scripts/generate-public-metadata.mjs";
+
+function contentMetadata(): Plugin {
+  return {
+    name: "content-metadata",
+    buildStart() {
+      generatePublicMetadata();
+    },
+  };
+}
 
 declare const console: { info(message: string): void };
 
@@ -40,7 +50,7 @@ async function devPort(): Promise<number> {
 }
 
 export default defineConfig(async ({ command, isPreview }) => ({
-  plugins: [react()],
+  plugins: [contentMetadata(), react()],
   server: {
     host: "127.0.0.1",
     port: command === "serve" && !isPreview ? await devPort() : preferredPort,

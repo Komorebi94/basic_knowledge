@@ -1,0 +1,118 @@
+{
+  "verifiedAt": "2026-10-13T02:13:18.708Z",
+  "browser": "155.0.8059.40",
+  "vueVersion": "3.5.43",
+  "articleIds": [
+    "K08-04"
+  ],
+  "examples": 8,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K08-04",
+      "sectionId": "lifecycle",
+      "language": "module",
+      "codeSha256": "608b79fce1b16d6cc39be69452f63fa4131120ebd2ab6acf15cff4130138f270",
+      "output": [
+        "setup:null",
+        "mounted:1",
+        "before-update:1",
+        "updated:2",
+        "before-unmount:true",
+        "unmounted:false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "subscription",
+      "language": "module",
+      "codeSha256": "41871f8cbf4e78811e3696804369044d5ee10073719616ddfb7dc5618777f479",
+      "output": [
+        "1,1",
+        "1,2",
+        "1,2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "state",
+      "language": "module",
+      "codeSha256": "42c6737eeef6241818b2353104bdec1b3e2c8081a1efa118b88d82a082522be1",
+      "output": [
+        "独立:1,0",
+        "共享:1,1"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "inputs",
+      "language": "module",
+      "codeSha256": "731587256c840d614fb5ec3222168ad364f01478b795b0cadb192d9cae00bbc3",
+      "output": [
+        "4,4,4",
+        "6,6,4",
+        "1:2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "registration",
+      "language": "module",
+      "codeSha256": "bc06b5cca6da7faa10082e2daf173c998a66e4cd8ae90f265ce465df3651f792",
+      "output": [
+        "同步:true",
+        "延迟:false",
+        "正确清理",
+        "错误清理次数:0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "late-watch",
+      "language": "module",
+      "codeSha256": "2499fda6f61f5130bc8ea1f38f8b28457b8689660dd3b89c0978a451b79a090f",
+      "output": [
+        "错误:1,2",
+        "修复:1,1",
+        "提前卸载:0,0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "request-cleanup",
+      "language": "module",
+      "codeSha256": "1d09c3c4a120cf0be19d4cd0b4e76509a4eae5ad2abcfe35fd638243a8a74c3c",
+      "output": [
+        "idle",
+        "loading",
+        "ready:B:true",
+        "ready:B",
+        "error:读取失败",
+        "empty",
+        "卸载后:loading:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-04",
+      "sectionId": "scope",
+      "language": "module",
+      "codeSha256": "9eba419df9c118077729357b7f7d73dbe071e6eb83e5962c70d001ca75fe198a",
+      "output": [
+        "活动:1,1",
+        "停止:1,1,1",
+        "无作用域:必须在活动作用域中订阅"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

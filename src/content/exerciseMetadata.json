@@ -456,5 +456,294 @@
       "入队不立即同步调用工厂，而在微任务开始。队列保证执行顺序，不强制撤销失败项副作用；任务若等待排在自己后面的项会自依赖，不在支持范围。不修改任务，不支持 this 或取消。"
     ],
     "entryContract": "createQueue() → {enqueue}；enqueue(task) 返回每项独立 Promise，task 无参数、无 this，在轮到时调用。始终只有一个任务在途，单项同步/异步失败不阻断后续；非函数任务返回拒绝 TypeError。"
+  },
+  {
+    "id": "E25",
+    "title": "图片懒加载",
+    "slug": "image-lazy-loading",
+    "summary": "用显式观察事件模拟视口进入、失败重试和卸载，不创建真实图片或观察器。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K04-05"
+    ],
+    "problem": [
+      "真实页面会用观察器决定何时给图片赋值，但隔离环境没有视口和图片元素。本题把“进入视口、加载失败、组件卸载、没有观察器”收成可断言的状态记录。",
+      "同一资源进入两次不能把 loads 累加成两次。失败后的再次进入才是重试。卸载后的旧通知必须被忽略，未加载项也不能继续假装还在等待。"
+    ],
+    "entryContract": "createLazy(items, observer) 接收 {id,src} 列表。observer 为 true 时初始状态是 placeholder；see(id) 首次进入记 loaded 且 loads 加一，重复进入返回 repeat。fail(id) 记 error，之后 see 可再次加载。destroy() 后忽略 see，并把仍是 placeholder 的项改为 dropped。observer 为 false 时全部直接 loaded，see 返回 ignored。"
+  },
+  {
+    "id": "E26",
+    "title": "事件委托",
+    "slug": "event-delegation",
+    "summary": "沿父链查找第一个匹配角色，并处理取消订阅与后加入节点。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K04-03"
+    ],
+    "problem": [
+      "委托的关键是从事件目标向上找，而不是只比较被点击节点本身。子节点可以命中祖先上的选择器。",
+      "取消订阅后，旧路径不能继续命中。订阅之后新增的节点只要父链完整，也应被同一次订阅处理。"
+    ],
+    "entryContract": "createDelegate(selector) 返回 add(id, parentId, role)、click(id) 和 unsubscribe()。click 从目标向父节点查找，返回第一个 role 等于 selector 的 id；到根仍没有则返回 none。未知 id 或取消订阅后返回 ignored。parentId 为 null 表示根，后加入的节点仍可命中。"
+  },
+  {
+    "id": "E27",
+    "title": "可访问 Tabs",
+    "slug": "accessible-tabs",
+    "summary": "在普通对象上实现标签选择：方向键跳过禁用项，首尾键落到可用项，面板 id 与当前标签对应。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K15-07"
+    ],
+    "problem": [
+      "标签页的键盘顺序不是数组下标顺序。禁用项要跳过，到末尾后从另一端继续，Home 和 End 只落在可用项上。",
+      "当前标签和面板用同一个 id 关联。这里不创建真实 tab、tabpanel 或焦点，只返回应激活的 id 和面板名。"
+    ],
+    "entryContract": "createTabs(items) 接收 {id, disabled} 列表。active 是第一个未禁用项；全部禁用时为空字符串。key('ArrowRight'|'ArrowLeft') 在可用项上循环，key('Home'|'End') 到第一个或最后一个可用项，其他键返回 ignored。panel() 返回 panel- 加当前 id。"
+  },
+  {
+    "id": "E28",
+    "title": "对话框",
+    "slug": "dialog-focus",
+    "summary": "用栈模拟多层对话框的焦点循环、Esc、遮罩和触发器恢复。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K15-01"
+    ],
+    "problem": [
+      "对话框打开后，Tab 不应跑到背景里。关闭时要把焦点还给打开它的触发器；触发器已经不在时，只能回到事先约定的 fallback。",
+      "多层对话框按栈关闭。后打开的先关闭，背景在仍有对话框时不可交互。本题不创建真实 dialog 或焦点陷阱。"
+    ],
+    "entryContract": "createDialogs() 提供 addTrigger、removeTrigger、open、tab、escape、backdrop、background 和 depth。open(triggerId) 压入一层，初始焦点是 close。tab 只在 close 与 body 间切换。escape 和 backdrop 关闭最上层，并返回仍存在的触发器 id；触发器已移除时返回 fallback。打开时 background 返回 blocked。"
+  },
+  {
+    "id": "E29",
+    "title": "表单校验器",
+    "slug": "form-validator",
+    "summary": "提交时校验标题和金额，失焦只延后，旧一代异步结果不能覆盖新提交。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K15-03"
+    ],
+    "problem": [
+      "失焦可以提醒调用方稍后检查，但不应在用户还没提交时就定下错误列表。提交才生成一代校验结果，并把 focus 指到第一个错误字段，供调用方做文字反馈。",
+      "异步校验返回时，如果用户已经再次提交，旧结果必须是 stale。本题不设置 aria，也不移动 document 焦点。"
+    ],
+    "entryContract": "createValidator() 有 title 和 amount 两个字符串字段。set 写入值。blur 返回 defer，不产生错误。submit 增加代次，title 去掉空白后不能为空，amount 必须匹配 ^[1-9][0-9]*$。返回 {generation, errors, focus, status}，focus 是第一个错误字段或空字符串，status 为 pending。settle(generation, ok) 在代次不符时返回 stale；ok 且无错误返回 saved，ok 且有错误返回 invalid，失败返回 rejected。"
+  },
+  {
+    "id": "E30",
+    "title": "固定高度虚拟列表",
+    "slug": "fixed-virtual-list",
+    "summary": "按固定行高、滚动位置和 overscan 切出可见 id，滚动超出末尾时停在最后一屏。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K10-04"
+    ],
+    "problem": [
+      "固定行高可以把滚动位置换成行号，overscan 再向两侧多取几行，减少快滚时的空白。",
+      "滚过末尾时不能算出一个空窗口。容器变矮要减少可见行。返回值使用输入 id，而不是重新生成的下标。本题不创建滚动容器。"
+    ],
+    "entryContract": "sliceWindow(ids, {itemHeight, scrollTop, viewport, overscan}) 返回 {start, end, ids}。end 不含。空列表返回 start 0、end 0 和空 ids。scrollTop 超过内容末尾时夹到最后一行所在窗口。返回的 ids 必须是输入数组里的原值。itemHeight 和 viewport 是不小于 1 的整数，scrollTop 和 overscan 是不小于 0 的整数。"
+  },
+  {
+    "id": "E31",
+    "title": "useAsyncResource",
+    "slug": "async-resource",
+    "summary": "用代次模拟请求开始、成功、失败、重试和卸载，旧结果不能覆盖新请求。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K07-02",
+      "K07-06"
+    ],
+    "problem": [
+      "请求的结果必须和发起它的那一次对应。参数变了，或同一次渲染里 start 被调用两次，先返回的结果都是旧的。",
+      "卸载后不能再写入 ready。retry 不是把旧 id 重新结算，而是开始新的一代。这不是 React Hook，也不会模拟 StrictMode 的组件树。"
+    ],
+    "entryContract": "createResource() 初始 read() 为 idle。start(key) 在未卸载时把状态改为 pending 并返回递增 id；连续 start 代表参数变化或重复执行。succeed(id, value) 和 fail(id, message) 只接受当前 id，否则返回 stale。retry() 以当前 key 再 start 一次。dispose() 后 start 返回 null，后续 succeed 返回 disposed，read().status 为 disposed。"
+  },
+  {
+    "id": "E32",
+    "title": "简化响应式依赖系统",
+    "slug": "mini-reactive",
+    "summary": "在 effect 执行期间记录读取，写入时只重新运行仍依赖该属性的 effect。",
+    "revision": 1,
+    "estimatedMinutes": 35,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K08-01"
+    ],
+    "problem": [
+      "依赖应来自这次执行实际读过的属性。条件从真变假后，不再读取的属性就不能继续触发它。",
+      "嵌套 effect 由外层本次运行拥有，外层重跑前要停掉上一轮内层。停止函数要同时去掉依赖。这是一个教学模型，不是 Vue 的响应式实现。"
+    ],
+    "entryContract": "createReactive() 返回 reactive(object) 和 effect(fn)。effect 返回停止函数。读取发生在 effect 内才记录依赖；写入变化后重新运行对应 effect。下一次运行前清掉上一轮依赖和它创建的嵌套 effect。同一 effect 重复读取同一属性，一次写入只运行一次。停止后不再运行。"
+  },
+  {
+    "id": "E33",
+    "title": "基础工具类型",
+    "slug": "utility-type-model",
+    "summary": "用运行时函数表达 Pick、Readonly 和 Awaited 的有限规则，不运行 TypeScript 编译器。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K03-06"
+    ],
+    "problem": [
+      "隔离环境不能做类型检查。本题用三个函数表示 Pick 的选键、Readonly 的不可写，以及 Awaited 只展开一层 thenable。",
+      "空 keys 对应没有可保留键的 never。缺失的可选键不要写成 undefined。union 在这里只表现为：结果里只有请求过且实际存在的键。负向约束用抛错表示，不是编译错误。"
+    ],
+    "entryContract": "pick(source, keys) 只复制自身的字符串键，缺失键不出现，空 keys 得到 {}。readonlyCopy(source) 返回浅层冻结副本，修改副本抛 TypeError。unwrap(value) 对带 then 函数的对象展开一层，其他值原样放进 Promise；then 抛错时 Promise 拒绝。非对象 source、非字符串 key 抛 TypeError。"
+  },
+  {
+    "id": "E34",
+    "title": "类型安全事件映射",
+    "slug": "typed-event-map",
+    "summary": "用参数个数约束事件名，错误名称和错误载荷在运行时抛 TypeError。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K03-05"
+    ],
+    "problem": [
+      "类型系统里，事件名决定了参数。隔离环境不能做负向类型断言，所以用参数个数在运行时拒绝错误名称和错误载荷。",
+      "零参数和多参数都按 schema 检查。取消订阅后，同一次 emit 不再调用该处理函数。"
+    ],
+    "entryContract": "createTypedEvents(schema) 的 schema 把事件名映射到非负整数参数个数。on(name, handler) 返回取消函数。emit(name, ...args) 在名称不存在或参数个数不符时抛 TypeError。零参数事件不能接收额外参数，多参数事件必须给满。"
+  },
+  {
+    "id": "E35",
+    "title": "依赖图拓扑排序",
+    "slug": "dependency-topo-sort",
+    "summary": "按入度做稳定拓扑排序，循环和缺失节点要明确失败。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K16-03"
+    ],
+    "problem": [
+      "构建或任务依赖常有多个合法顺序。本题在入度相同的节点之间固定使用输入顺序，这样结果可以重复断言。",
+      "孤立点也要出现。缺依赖和环不能排成一个残缺数组，必须抛错。"
+    ],
+    "entryContract": "topo(nodes, edges) 中 edge 是 [node, dependency]，表示 dependency 必须排在 node 前面。同一时刻多个入度为 0 的节点按 nodes 的原始顺序取出，不按字母排序。没有边的孤立点保留输入顺序。重复节点、指向未知 id 的边抛 Error，消息分别是 Duplicate node 和 Missing node。存在环时抛 Error，消息是 Cycle。"
+  },
+  {
+    "id": "E36",
+    "title": "分片上传调度",
+    "slug": "chunk-upload",
+    "summary": "用调用方提供的 send 模拟分片上传，限制并发、校验和、失败停止与取消。",
+    "revision": 1,
+    "estimatedMinutes": 35,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K06-07"
+    ],
+    "problem": [
+      "上传调度要限制同时发送的片数。某一片校验失败或 send 拒绝后，不再开始后面的片，已经在飞的片可以自然结束。",
+      "取消发生在开始前时，一片都不发。重复 id 直接拒绝，避免同一片被提交两次。send 由测试注入，实现里不能调用 fetch 或连接真实服务。"
+    ],
+    "entryContract": "uploadAll(parts, {limit, send, signal}) 中 part 是 {id, sum}。重复 id 在调用 send 前抛 Error，消息 Duplicate part。limit 是不小于 1 的整数。send 返回的 sum 必须等于 part.sum，否则该片进入 failed，尚未开始的片进入 skipped。signal 在开始前已 aborted 时全部 skipped 且不调用 send。运行中 abort 后不再开始新片，已经开始且校验通过的片可以进入 done。再次调用 uploadAll 并只传入未完成片表示恢复。"
+  },
+  {
+    "id": "E37",
+    "title": "SSE 消息解析",
+    "slug": "sse-parser",
+    "summary": "把分块文本缓冲成 SSE 事件，处理半行、注释、空行和多行 data。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K06-06"
+    ],
+    "problem": [
+      "网络分块不会对齐 SSE 的行。解析器必须自己保存没有换行结尾的残片，不能把残片当成一条事件。",
+      "注释、空行和多行 data 都有固定含义。本题只解析文本，不创建 EventSource，也不在断流时补一条假事件。"
+    ],
+    "entryContract": "createSse() 返回 push(chunk) 和 rest()。push 把 \\r\\n 和单独的 \\r 规范成 \\n，只在遇到空行时派发事件。以冒号开头的行是注释。多行 data 用 \\n 连接。没有 event 字段时名称为 message。没有 data 的块不产生事件。半行留在 rest()，下一次 push 继续拼接。"
+  },
+  {
+    "id": "E38",
+    "title": "乐观更新与回滚",
+    "slug": "optimistic-update",
+    "summary": "用变更日志保留较新的乐观值，旧成功不能覆盖它，失败时回到已提交值。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K15-04"
+    ],
+    "problem": [
+      "乐观更新先改界面，再等服务器。多个请求交错时，旧请求成功不能覆盖已经显示的更新值。",
+      "最新一次被服务器拒绝时，界面回到最近一次已提交值。这不是 React useOptimistic，也不是 Vue 的响应式更新。"
+    ],
+    "entryContract": "createOptimistic(initial) 的 view() 是最新未结算变更的值，没有未结算变更时是 committed()。change(value) 返回递增 id。settle(id, true) 在存在更大 id 时返回 ignored-stale 且不修改 committed；若它是最新变更，则提交该值并返回 committed。settle(id, false) 在存在更大 id 时返回 kept-newer；若它是最新变更，则清空未结算变更并返回 rolled-back。未知 id 返回 unknown。"
+  },
+  {
+    "id": "E39",
+    "title": "最长无重复子串",
+    "slug": "longest-unique-substring",
+    "summary": "按 Unicode code point 找最长无重复子串，不按 grapheme cluster 切分。",
+    "revision": 1,
+    "estimatedMinutes": 25,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K16-05"
+    ],
+    "problem": [
+      "无重复子串的“字符”在本题里是 Unicode code point。组合用的附加记号单独占一个位置，不能先按用户看到的字素合并。",
+      "空串没有窗口。全是同一个 code point 时结果就是它本身。两个等长窗口保留左边那个。"
+    ],
+    "entryContract": "longestUnique(text) 用 Array.from 得到 code point 序列。窗口内 code point 不重复，长度相同时保留更早的窗口。空字符串返回空字符串。组合记号是独立 code point，不和前面的字符合成 grapheme。非字符串抛 TypeError。"
+  },
+  {
+    "id": "E40",
+    "title": "分帧任务执行",
+    "slug": "frame-scheduler",
+    "summary": "按预算把任务装进帧里，取消的跳过，超预算的单项不能拆开，隐藏时预算减半。",
+    "revision": 1,
+    "estimatedMinutes": 30,
+    "updatedAt": "2026-10-14",
+    "verifiedAt": "2026-10-14",
+    "knowledgeIds": [
+      "K16-08"
+    ],
+    "problem": [
+      "长任务可以分成多帧，让每一帧的成本不超过预算。单个任务如果自己就超过预算，不能把它拆开后假装满足预算。",
+      "取消的任务不占预算。页面隐藏时有效预算下降，原来放得下的任务可能变成不可拆。本题不调用 requestAnimationFrame，也不承诺硬实时。"
+    ],
+    "entryContract": "runFrames(tasks, {budget, hidden, cancelled}) 中 task 是 {id, cost}，cost 是不小于 1 的整数，budget 是不小于 1 的整数。cancelled 里的 id 跳过。hidden 为 true 时有效预算是 max(1, floor(budget / 2))。任一未取消任务的 cost 大于有效预算时返回 {status:'unsplittable', id, frames:[]}。否则按输入顺序装箱，返回 {status:'done', frames}，每帧是 {ids, used}。空任务返回 done 和空 frames。"
   }
 ]

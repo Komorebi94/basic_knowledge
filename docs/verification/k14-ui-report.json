@@ -1,0 +1,103 @@
+{
+  "verifiedAt": "2026-10-14T06:20:42.586Z",
+  "browser": "155.0.8059.40",
+  "articles": [
+    {
+      "id": "K14-03",
+      "href": "/knowledge/server/streams-backpressure-and-release",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K14-04",
+      "href": "/knowledge/server/bff-and-aggregation",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K14-05",
+      "href": "/knowledge/server/streaming-render-and-resume",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K14-06",
+      "href": "/knowledge/server/server-cache-and-isolation",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K14-07",
+      "href": "/knowledge/server/deployment-runtimes-and-edge",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K14-08",
+      "href": "/knowledge/server/request-observability",
+      "cards": 3,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K14-01",
+      "href": "/knowledge/server/browser-node-boundaries",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    },
+    {
+      "id": "K14-02",
+      "href": "/knowledge/server/rendering-and-hydration",
+      "cards": 2,
+      "checks": [
+        "ID search opens full article",
+        "all sections rendered",
+        "all cards folded initially and source anchors focused",
+        "deep link reload",
+        "1440/390/320px reflow"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

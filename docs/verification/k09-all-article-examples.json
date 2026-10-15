@@ -1,0 +1,381 @@
+{
+  "verifiedAt": "2026-10-13T03:42:36.032Z",
+  "browser": "155.0.8059.40",
+  "toolingEvidence": {
+    "rolldownVersion": "1.2.11",
+    "typescriptVersion": "6.0.3",
+    "fixtureSha256": "e76769382b37a75693a3c75d691c255b2cdb939ef23113676bebb43d5d84ff67"
+  },
+  "nodeVersion": "v22.22.3",
+  "articleIds": [
+    "K09-08",
+    "K09-05",
+    "K09-02",
+    "K09-01",
+    "K09-06",
+    "K09-07",
+    "K09-04",
+    "K09-03"
+  ],
+  "examples": 30,
+  "browserExamples": 6,
+  "nodeExamples": 24,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K09-08",
+      "sectionId": "gates",
+      "language": "node",
+      "codeSha256": "5775da21ddfa72a775619a9c7714900f26d15a4a29b0d3c9fd342adaf0e6c0ea",
+      "output": [
+        "失败轨迹:typecheck,lint",
+        "失败未发布:true",
+        "成功轨迹:typecheck,lint,build,publish"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-08",
+      "sectionId": "artifacts",
+      "language": "node",
+      "codeSha256": "9d55e05d44fd676d35cb3261d501ab8cbcfd3ee9e88027074eee04ea8983de8e",
+      "output": [
+        "同产物晋级:true",
+        "重建已变化:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-08",
+      "sectionId": "concurrency",
+      "language": "node",
+      "codeSha256": "04d3289f19a05f195e6d3d50aaa7fb73e957bbba610664a33dde118eeca9a451",
+      "output": [
+        "新发布:true",
+        "旧发布拒绝:true",
+        "当前:r2",
+        "回滚新意图:true:r1"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-08",
+      "sectionId": "canary",
+      "language": "node",
+      "codeSha256": "5cc3157bbcb05ff2d1515892cbfd54f3ea7c1e3e518f2da6c730da431472e16b",
+      "output": [
+        "小样本:hold",
+        "退化:rollback",
+        "稳定:promote",
+        "无效:invalid"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "chunks",
+      "language": "node",
+      "codeSha256": "a9b1dad04872f9877ae6e73f29664d7084a8dad14e8c78ef35c11d8d32c16c2c",
+      "output": [
+        "chunk数:2",
+        "入口有动态边:1",
+        "调用前:0",
+        "调用后:1:结果6:同模块true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "hashes",
+      "language": "node",
+      "codeSha256": "aadb63a33a6c6a87c5a708a9f3969b398568b05c42afd4a21239d505c19850c2",
+      "output": [
+        "子chunk变化:true",
+        "引用入口变化:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "http",
+      "language": "node",
+      "codeSha256": "3b30cbf9a779d978493ea71ad081fcfb541250f9dbbb50cbff212017f4d51f05",
+      "output": [
+        "旧资源:200",
+        "入口策略:no-cache",
+        "旧页仍可加载:200",
+        "删除旧资源:404",
+        "错误回退:200:text/html"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-05",
+      "sectionId": "recovery",
+      "language": "node",
+      "codeSha256": "7bc411e4a77f411a5791cf0d6d2498731f16ce92c821f345d91e7c3657026528",
+      "output": [
+        "首次:资源不可用",
+        "重试:ready:同结果true:次数2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-02",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "dbe71c34195dc4b6bf5ad435e803f6d8610d004425ac820b915f9b9e64a21338",
+      "output": [
+        "1.2.0",
+        "1.1.0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-02",
+      "sectionId": "integrity",
+      "language": "javascript",
+      "codeSha256": "c545a0256074b69ac504390899c984349c621c1b9674271961a290deb7c95d1b",
+      "output": [
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-02",
+      "sectionId": "upgrade",
+      "language": "javascript",
+      "codeSha256": "0e63fb0e63f43976352cc9ddf76358afc0c84d12cd2730227fc6858d0f651547",
+      "output": [
+        "core:1.1.0,parser:3.0.0",
+        "2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "bff10a6a575db4070c0c36d8d5fe64ad2fe21b4bc8831076475f623cbd0e6a50",
+      "output": [
+        "entry,list,format",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-01",
+      "sectionId": "dynamic",
+      "language": "javascript",
+      "codeSha256": "bf0bca5c047af03db4984c40b7d565e7d9d8c9758b7a4358edaa4837f37637d6",
+      "output": [
+        "6",
+        "true 1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-01",
+      "sectionId": "failure",
+      "language": "javascript",
+      "codeSha256": "1b0a7e47df2083decb58e6cd0cbdb4b6559ad7b16866c3879ca819817c3190f6",
+      "output": [
+        "暂时失败",
+        "完成 2"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "exports",
+      "language": "node",
+      "codeSha256": "e65a059a137cc63f61869c65ea0d01b03b1ecfed470ebf93cebd172bec96ffad",
+      "output": [
+        "公开入口:3",
+        "内部入口:ERR_PACKAGE_PATH_NOT_EXPORTED"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "tasks",
+      "language": "node",
+      "codeSha256": "e65839d602032b499ef3f05eb3825ac2d72d64c0d4fd24c3c3d8d3311c5bab01",
+      "output": [
+        "顺序:schema,sdk,app",
+        "任务循环",
+        "缺失任务:missing"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "cache",
+      "language": "node",
+      "codeSha256": "453407cf5ce7ba51c8c4aa75504d5b8fda9ff433981fc6d6cc0c2857dcf994a4",
+      "output": [
+        "依赖变化失效:true",
+        "目标变化失效:true",
+        "重复输入命中:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-06",
+      "sectionId": "affected",
+      "language": "node",
+      "codeSha256": "c5516adefd298e9c8e4b9ff33fa5c40984d7e88418cd4d6115b2c94871a630cb",
+      "output": [
+        "受影响:shared,app",
+        "错误图:shared"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "coordinates",
+      "language": "node",
+      "codeSha256": "d0e337eb0e70a480a3a1430ad1c693179f389dbfc4c06507a709d66ed8b7affa",
+      "output": [
+        "原始行:2",
+        "原始列:3",
+        "对应入口:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "exposure",
+      "language": "node",
+      "codeSha256": "4bc272be64748b50af1aad24d1658ea829593da7b49c242dcca4435445d54c41",
+      "output": [
+        "普通注释:true",
+        "隐藏注释:false",
+        "隐藏仍有map:true",
+        "没有源正文:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "identity",
+      "language": "node",
+      "codeSha256": "4e6802870a8ade3ce4d503f7f153e12f173c6168dde07ae1672a91607aa754df",
+      "output": [
+        "正确配对:map-r1",
+        "拒绝:产物不匹配"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-07",
+      "sectionId": "evidence",
+      "language": "node",
+      "codeSha256": "9d8b2de088461280c02102552ea5ccb5fddc74915f8f80aa6661fd3f7181b485",
+      "output": [
+        "字段:release,routePattern,errorCode",
+        "包含凭证:false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "syntax",
+      "language": "node",
+      "codeSha256": "181f4debc7f5dfcd72071e94abd4a483c6e2365143049e8d110abf7614579477",
+      "output": [
+        "新语法保留:false",
+        "结果:0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "runtime",
+      "language": "node",
+      "codeSha256": "63a1ca91604f2cf30421891859fb8eca690e07e3ec15629b99079766b08690e2",
+      "output": [
+        "API调用保留:true",
+        "缺失API:TypeError",
+        "局部恢复:1,3"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "lib",
+      "language": "node",
+      "codeSha256": "ba6d6cbebf0f16f4d0f4b8d71e90480a0703b9386ade705fe0ce22a86c9ae7d3",
+      "output": [
+        "旧lib缺声明:true",
+        "新lib错误数:0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-04",
+      "sectionId": "typecheck",
+      "language": "node",
+      "codeSha256": "f6e41dac1f130efcafba2934e35fe1354b22ff37a936b920eb209c8e395f0bcb",
+      "output": [
+        "转译有输出:true",
+        "语义错误:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "reachable",
+      "language": "node",
+      "codeSha256": "78dcdcdebcbea665eb5de0777a969bcd39ad7d37a16a69030a797223da99b8e0",
+      "output": [
+        "未使用代码保留:false",
+        "运行结果:6"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "module-effects",
+      "language": "node",
+      "codeSha256": "8a83a0c4c7ae9eb77633d283521cdb4f88463fd954bcbae88d6e84e278b3c497",
+      "output": [
+        "正常注册:true",
+        "错误标注:false"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "namespace",
+      "language": "node",
+      "codeSha256": "9f7a0860d0aa4f988bbdecf781cfbd4a388466b40a0e3eb82c8623e8d8c2a24b",
+      "output": [
+        "动态可达:true",
+        "light:2"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K09-03",
+      "sectionId": "pure",
+      "language": "node",
+      "codeSha256": "c25035d7f14e97e33c9ea525f2dbc9b74434445348dc96a57f183ba9d1df2369",
+      "output": [
+        "相信错误标注:false",
+        "忽略标注:true"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

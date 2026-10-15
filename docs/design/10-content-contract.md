@@ -108,7 +108,7 @@ draft → 作者自检 → 技术复核 → review → 发布负责人核对元�
 
 ## 文件组织建议
 
-现有文章模块按知识/AI 分目录存放于 src/content/knowledge/ 与 src/content/ai/，统一由 src/content/articles.ts 注册；示例字段可标明 JavaScript/TypeScript，预期输出与解释随正文维护。运行 npm run verify:articles 在临时空白浏览器页面核对输出，并严格检查 TypeScript 示例；提示词模板不是执行代码。这个验证只处理仓库作者样例，不接收用户代码或备份。
+现有文章模块按知识/AI 分目录存放于 src/content/knowledge/ 与 src/content/ai/，统一由 src/content/articles.ts 注册；示例字段可标明 JavaScript/TypeScript，预期输出与解释随正文维护。运行 npm run verify:articles 在临时空白浏览器页面核对输出，并严格检查 TypeScript 示例；提示词模板不是执行代码。服务端示例可标记 language:node，在独立 Node 子进程中核对输出；水合示例使用 Node 真实生成的 HTML 与隔离浏览器，报告分别统计 Node 与浏览器示例。这个验证只处理仓库作者样例，不接收用户代码或备份。
 
 未来内容源独立于 UI：content/knowledge/<domain>/<slug>.md、content/practice/<slug>/、content/ai/<slug>.md、content/cards/、content/manifest。此 Markdown 布局是未来规划，目前采用声明式 TypeScript 内容模块，不支持任意执行脚本。
 

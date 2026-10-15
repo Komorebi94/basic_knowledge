@@ -1,0 +1,101 @@
+{
+  "verifiedAt": "2026-10-13T02:31:25.611Z",
+  "browser": "155.0.8059.40",
+  "vueVersion": "3.5.43",
+  "articleIds": [
+    "K08-05"
+  ],
+  "examples": 7,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K08-05",
+      "sectionId": "pipeline",
+      "language": "module",
+      "codeSha256": "f75cb0a6356d16cac9170e6998b6e1611c3350529624f4736f4243499471cfc9",
+      "output": [
+        "function",
+        "初始:数量:1",
+        "立即:数量:1",
+        "提交:数量:3:更新次数:1",
+        "标题复用:true"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "static-blocks",
+      "language": "module",
+      "codeSha256": "489999aa65c00ae4e24ff2b779688ddf160c04627237998f1592276342187240",
+      "output": [
+        "静态复用:true",
+        "动态集合:1:span",
+        "文字:1->2:标记:1"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "flags",
+      "language": "module",
+      "codeSha256": "2a875d5ae83a4d78765d8dd8ea9f659f0d4b45abbb64648cf7ecfe4032509449",
+      "output": [
+        "固定:11:title",
+        "动态集合:16",
+        "旧属性移除:true:新ID:next"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "props",
+      "language": "module",
+      "codeSha256": "e71c17962f254d6b63eeaa60d75c0c1e1451238721666be7489a559922a343b2",
+      "output": [
+        "传ID:2,2,2",
+        "传布尔:2,2,1"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "keys",
+      "language": "module",
+      "codeSha256": "0b13fe9f68bd67b873d17de7804bdfd1259964f8fccc147350d6aed51d6e699e",
+      "output": [
+        "ID:B:B,A:A草稿",
+        "清空:0",
+        "索引:B:A草稿,A:B",
+        "清空:0"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "once",
+      "language": "module",
+      "codeSha256": "77ffae98ca7369930d9a8cb1ff375cf306ea8df446393324c0d999ec134337cf",
+      "output": [
+        "加载中|加载中",
+        "加载中|20"
+      ],
+      "passed": true
+    },
+    {
+      "articleId": "K08-05",
+      "sectionId": "memo",
+      "language": "module",
+      "codeSha256": "3ca72e43e521f7d67067620c2124aad5e6749d66122abbb534403c10fcd9b14e",
+      "output": [
+        "遗漏:旧|1",
+        "遗漏换ID:新|2",
+        "完整:新|1",
+        "完整换ID:新|2"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

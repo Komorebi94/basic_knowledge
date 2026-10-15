@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K13-03",
+    "sourceHeadingId": "flow",
+    "question": "提交世代还是 1 时，为什么世代 0 的成功响应不能把草稿标成已保存？",
+    "answerPoints": [
+      "settle 只接受当前世代且阶段仍是 pending",
+      "世代 0 返回 stale，阶段保持 pending",
+      "只有世代 1 的结果才能改成 saved 或 failed"
+    ],
+    "pitfalls": [
+      "任何一个成功响应都把整张表写成已保存"
+    ]
+  },
+  {
+    "catalogId": "K13-03",
+    "sourceHeadingId": "linkage",
+    "question": "订单金额是 0 时，为什么校验结果和空字符串一样？",
+    "answerPoints": [
+      "订单金额必须是从 1 开始的十进制文本",
+      "0 不匹配这条规则，返回 amount",
+      "笔记则要求金额为空，非空才是 amount-forbidden"
+    ],
+    "pitfalls": [
+      "隐藏金额输入框后，提交对象里仍留着上一种类的金额"
+    ]
+  },
+  {
+    "catalogId": "K13-03",
+    "sourceHeadingId": "boundaries",
+    "question": "本地撤销回到上一份草稿时，为什么还不能说服务器上的笔记也被撤回了？",
+    "answerPoints": [
+      "撤销栈只保存本地草稿",
+      "saved 之后的远端记录不是这只栈里的一项",
+      "撤回服务器记录需要另一次补偿操作"
+    ],
+    "pitfalls": [
+      "用本地 undo 代替已经提交成功的远端撤销"
+    ]
+  },
+  {
+    "catalogId": "K13-04",
+    "sourceHeadingId": "decision",
+    "question": "编辑者的删除菜单是 shown 时，为什么别人的笔记仍是 denied？",
+    "answerPoints": [
+      "visible 只看角色和动作",
+      "allow 还要比较笔记所有者和操作者",
+      "菜单显示不构成删除许可"
+    ],
+    "pitfalls": [
+      "按钮画出来就在前端放行删除"
+    ]
+  },
+  {
+    "catalogId": "K13-04",
+    "sourceHeadingId": "route",
+    "question": "直接打开删除地址时，为什么 rejected:hidden 和 rejected:shown 都不能渲染编辑页？",
+    "answerPoints": [
+      "openRoute 以 allow 是否为 allowed 决定打开",
+      "hidden 只说明菜单没画入口",
+      "shown 只说明入口过宽，授权仍可能拒绝"
+    ],
+    "pitfalls": [
+      "路由守卫只判断菜单里有没有这个动作"
+    ]
+  },
+  {
+    "catalogId": "K13-04",
+    "sourceHeadingId": "boundaries",
+    "question": "查看者阅读别人的笔记返回 allowed 时，为什么还不能说私密笔记已经做完？",
+    "answerPoints": [
+      "这个模型的 read 不检查所有者",
+      "私密、共享链接和租户都没有写进 allow",
+      "登录过期和跨站请求也要单独检查"
+    ],
+    "pitfalls": [
+      "把这段角色函数当成完整的访问控制"
+    ]
+  },
+  {
+    "catalogId": "K13-05",
+    "sourceHeadingId": "surface",
+    "question": "变体 primary 已经合法时，为什么再传 className 仍是 escape-blocked？",
+    "answerPoints": [
+      "合同的 escape 默认为 false",
+      "类名会把内部样式层交给调用方",
+      "扩展应使用已声明的变体或插槽"
+    ],
+    "pitfalls": [
+      "为了少写一个变体，把 className 透传到组件内部"
+    ]
+  },
+  {
+    "catalogId": "K13-05",
+    "sourceHeadingId": "change",
+    "question": "属性名还在，只把默认尺寸从 md 改成 sm，为什么仍是 breaking？",
+    "answerPoints": [
+      "没写该属性的旧调用会改变外观",
+      "change-default 因此标为破坏性变更",
+      "新增可选属性才是 compatible"
+    ],
+    "pitfalls": [
+      "只要属性名没删，就认为旧页面不会变化"
+    ]
+  },
+  {
+    "catalogId": "K13-05",
+    "sourceHeadingId": "boundaries",
+    "question": "classifyChange 返回 compatible 时，为什么还不能直接升一个补丁版本就发布？",
+    "answerPoints": [
+      "函数只认识五种变更，不扫描调用方",
+      "restyle 会返回 invalid，因为影响面不清楚",
+      "真实发布还要用类型或测试找出旧用法"
+    ],
+    "pitfalls": [
+      "用变更类别代替调用方仓库里的兼容检查"
+    ]
+  },
+  {
+    "catalogId": "K13-06",
+    "sourceHeadingId": "place",
+    "question": "框架不同且独立发布时，为什么共享可变购物车仍然不是 isolate？",
+    "answerPoints": [
+      "place 先检查 shares",
+      "mutable-store 返回 reject-shared-mutable",
+      "隔离不能让两边同时拥有同一份可变对象"
+    ],
+    "pitfalls": [
+      "先嵌入另一套页面，再共用一个购物车对象"
+    ]
+  },
+  {
+    "catalogId": "K13-06",
+    "sourceHeadingId": "runtime",
+    "question": "两份 format 可以是 duplicate-ok，为什么两份 react 却是 duplicate-runtime？",
+    "answerPoints": [
+      "format 没有共享的运行时身份",
+      "react 多于一份会让钩子和上下文各认各的实例",
+      "恰好一份 react 才是 singleton"
+    ],
+    "pitfalls": [
+      "把所有重复依赖都当成必须合成一份，或都当成无所谓"
+    ]
+  },
+  {
+    "catalogId": "K13-06",
+    "sourceHeadingId": "boundaries",
+    "question": "deliver 返回 delivered:n1 时，为什么还不能更新笔记列表？",
+    "answerPoints": [
+      "函数只检查频道和 id 形状",
+      "它不核对消息来自哪个源",
+      "同页脚本可以伪造 notes:saved"
+    ],
+    "pitfalls": [
+      "收到约定频道就把 id 写进列表"
+    ]
+  },
+  {
+    "catalogId": "K13-07",
+    "sourceHeadingId": "lookup",
+    "question": "Acme 没有英文保存文案时，为什么结果是 Save 而不是“提交笔记”？",
+    "answerPoints": [
+      "查找先取当前语言的基础文案",
+      "base:en 的 Save 出现在 acme:zh 之前",
+      "租户的另一种语言不能冒充当前语言的翻译"
+    ],
+    "pitfalls": [
+      "先回退到租户默认语言，让英文界面显示中文按钮"
+    ]
+  },
+  {
+    "catalogId": "K13-07",
+    "sourceHeadingId": "literal",
+    "question": "配置值是 false 时，为什么仍然是 literal 而不是缺配置？",
+    "answerPoints": [
+      "布尔值是允许的标量",
+      "false 表示一个明确的值",
+      "缺配置由字段不存在表示，查找才会返回 missing"
+    ],
+    "pitfalls": [
+      "把 false 或空对象当成还没配置"
+    ]
+  },
+  {
+    "catalogId": "K13-07",
+    "sourceHeadingId": "boundaries",
+    "question": "resolve 返回“保存”时，为什么还不能说明日期和货币也会按该语言格式化？",
+    "answerPoints": [
+      "表里只存文案和布局名字",
+      "模型没有时区、复数和货币舍入",
+      "格式化要交给专门的 Intl 规则并单独测试"
+    ],
+    "pitfalls": [
+      "用字符串表代替日期和数字格式化"
+    ]
+  },
+  {
+    "catalogId": "K13-08",
+    "sourceHeadingId": "shape",
+    "question": "80 条笔记即使需要搜索，为什么选择仍是 local-cache？",
+    "answerPoints": [
+      "索引只在笔记数大于 10000 时启用",
+      "80 条且每分钟 2 次写入仍落在小规模分支",
+      "一个搜索布尔值不能直接引入索引集群"
+    ],
+    "pitfalls": [
+      "只要产品提到搜索，就按全站搜索集群设计"
+    ]
+  },
+  {
+    "catalogId": "K13-08",
+    "sourceHeadingId": "failure",
+    "question": "搜索不可用时可以列最近笔记，为什么读取不可用不能同样做？",
+    "answerPoints": [
+      "搜索失败假设还有另一条最近列表可读",
+      "读取失败时没有可展示的笔记",
+      "所以读取失败返回 show-error，而不是空的成功列表"
+    ],
+    "pitfalls": [
+      "任何依赖失败都显示同一份空列表"
+    ]
+  },
+  {
+    "catalogId": "K13-08",
+    "sourceHeadingId": "boundaries",
+    "question": "chooseStore 返回 queue-write 时，为什么还不能按这个名字购买队列服务？",
+    "answerPoints": [
+      "200、10000 和 600 只是模型里的固定整数",
+      "函数不估算磁盘、副本、地区和突发峰值",
+      "输出只说明在这些输入下教学规则选了哪一档"
+    ],
+    "pitfalls": [
+      "把教学阈值写成服务级别目标或机器规格"
+    ]
+  }
+]

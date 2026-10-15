@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K14-03",
+    "sourceHeadingId": "queue",
+    "question": "队列里还有两块没读时调用 release，为什么之后不能再 pull 到它们？",
+    "answerPoints": [
+      "release 先记下剩余块数再清空队列",
+      "released 之后 pull 只返回 released",
+      "close 才承诺把已入队的块继续交付"
+    ],
+    "pitfalls": [
+      "取消下载时只调用 close，未读块仍留在缓冲里"
+    ]
+  },
+  {
+    "catalogId": "K14-03",
+    "sourceHeadingId": "memory",
+    "question": "三块各 2 个字符、上限是 4 时，为什么整段缓冲返回 exceeded:6？",
+    "answerPoints": [
+      "bufferAll 把每块长度累加",
+      "总和一旦大于 4 就停止并报告当前总和",
+      "逐块处理的 held 只保留当前一块，seen 仍可累计总量"
+    ],
+    "pitfalls": [
+      "先把附件拼成一个字符串，再检查它是不是太大"
+    ]
+  },
+  {
+    "catalogId": "K14-03",
+    "sourceHeadingId": "boundaries",
+    "question": "模型返回 backpressure 时，为什么还不能说 Node 可读流已经暂停？",
+    "answerPoints": [
+      "这个队列同步返回结果，没有 pause 或 drain",
+      "容量 2 不是某个版本的 highWaterMark",
+      "字符数也不等于附件字节数"
+    ],
+    "pitfalls": [
+      "把 queued:2 写成生产流的默认水位"
+    ]
+  },
+  {
+    "catalogId": "K14-04",
+    "sourceHeadingId": "aggregate",
+    "question": "预算 15、两项各 10 毫秒都成功时，为什么结果是 timeout:草稿而不是整页失败？",
+    "answerPoints": [
+      "第一项在预算内，标题先被记下",
+      "第二项使累计耗时超过 15",
+      "返回值带着已得到的草稿，并标明 timeout"
+    ],
+    "pitfalls": [
+      "第二项超时后把已经拿到的标题也丢掉，或把部分结果画成全部完成"
+    ]
+  },
+  {
+    "catalogId": "K14-04",
+    "sourceHeadingId": "shape",
+    "question": "原始记录里有 email 和 token 时，为什么整形结果只有标题和时间？",
+    "answerPoints": [
+      "shape 只复制修剪后的 title",
+      "updated 仅在它是字符串时复制",
+      "其余字段默认不进入返回对象"
+    ],
+    "pitfalls": [
+      "把下游的完整记录原样交给页面"
+    ]
+  },
+  {
+    "catalogId": "K14-04",
+    "sourceHeadingId": "boundaries",
+    "question": "forwardToken 被拒绝时，为什么还不能说下游授权已经完成？",
+    "answerPoints": [
+      "函数只拒绝转发这个标记",
+      "viewer 和 owner 是调用方传入的字符串",
+      "笔记是否允许访问仍要由服务端授权决定"
+    ],
+    "pitfalls": [
+      "聚合层比较了两个 id，就不再让下游检查权限"
+    ]
+  },
+  {
+    "catalogId": "K14-05",
+    "sourceHeadingId": "slots",
+    "question": "订单段失败时，为什么输出仍包含 shell 和 notes？",
+    "answerPoints": [
+      "第一段外壳已经成功，所以不 abort",
+      "notes 状态是 ok，名字照常输出",
+      "orders 变成 orders:hole，位置保留"
+    ],
+    "pitfalls": [
+      "任意一段失败就放弃已经准备好的外壳和笔记"
+    ]
+  },
+  {
+    "catalogId": "K14-05",
+    "sourceHeadingId": "resume",
+    "question": "标记是 html-only 时，为什么结果不是 resumed？",
+    "answerPoints": [
+      "html-only 只表示内容可见",
+      "脚本就绪才是 interactive",
+      "hydrated 才是 resumed"
+    ],
+    "pitfalls": [
+      "外壳字节已经发出，就认为按钮已经能点击"
+    ]
+  },
+  {
+    "catalogId": "K14-05",
+    "sourceHeadingId": "boundaries",
+    "question": "renderSlots 返回 orders:hole 时，为什么还不能说浏览器已经显示了重试按钮？",
+    "answerPoints": [
+      "函数只输出段名称，不生成 HTML",
+      "它也不下载或执行脚本",
+      "空洞如何呈现要由页面另行实现"
+    ],
+    "pitfalls": [
+      "把模型里的 hole 当成一次真实的流式渲染"
+    ]
+  },
+  {
+    "catalogId": "K14-06",
+    "sourceHeadingId": "private",
+    "question": "u1 和 u2 请求的路径都是 /notes，为什么 u2 得到 miss？",
+    "answerPoints": [
+      "私有键包含查看者",
+      "u1 的条目键里是 u1，u2 的查找键里是 u2",
+      "路径相同不会共用这条私有记录"
+    ],
+    "pitfalls": [
+      "服务端缓存只使用 URL 路径"
+    ]
+  },
+  {
+    "catalogId": "K14-06",
+    "sourceHeadingId": "public",
+    "question": "同一份草稿改用 public 写入后，为什么公开读取会 hit？",
+    "answerPoints": [
+      "公开键只有路径，没有查看者",
+      "可见性在写入时就已经选成共享",
+      "样式表可以这样共享，含个人内容的笔记不行"
+    ],
+    "pitfalls": [
+      "为了让缓存命中，把登录后的 HTML 标成公开"
+    ]
+  },
+  {
+    "catalogId": "K14-06",
+    "sourceHeadingId": "boundaries",
+    "question": "私有键把 u1 和 u2 分开后，为什么仍可能在浏览器里泄漏？",
+    "answerPoints": [
+      "模型只分了这一张 Map 的键",
+      "它不发送 Cache-Control 或 Vary",
+      "公共缓存仍可能按 URL 保存私有 HTML"
+    ],
+    "pitfalls": [
+      "服务端 Map 分对了，就认为 CDN 和浏览器也不会共享"
+    ]
+  },
+  {
+    "catalogId": "K14-07",
+    "sourceHeadingId": "capability",
+    "question": "导出要读临时文件时，为什么这张表不把它放到边缘？",
+    "answerPoints": [
+      "边缘的 filesystem 是 unsupported",
+      "Node 的 filesystem 是 allowed",
+      "离用户近不能代替运行时缺少的 API"
+    ],
+    "pitfalls": [
+      "所有请求都放到边缘，包括依赖本地文件的导出"
+    ]
+  },
+  {
+    "catalogId": "K14-07",
+    "sourceHeadingId": "start",
+    "question": "同样空闲 40 毫秒，为什么边缘是 cold-start、Node 是 process-kept？",
+    "answerPoints": [
+      "空闲大于 0 时边缘要重新启动",
+      "这个模型里的 Node 保持进程",
+      "空闲为 0 时两边都是 warm"
+    ],
+    "pitfalls": [
+      "把 cold-start 当成每个请求都要付的固定毫秒数"
+    ]
+  },
+  {
+    "catalogId": "K14-07",
+    "sourceHeadingId": "boundaries",
+    "question": "accept 对边缘跳转返回 allowed 时，为什么还不能跳到任意地址？",
+    "answerPoints": [
+      "allowed 只表示这个运行时可以发出重定向",
+      "它不检查目标 URL",
+      "目的地仍要按跳转边界单独限制"
+    ],
+    "pitfalls": [
+      "运行时允许 redirect，就把用户传入的地址原样写进 Location"
+    ]
+  },
+  {
+    "catalogId": "K14-08",
+    "sourceHeadingId": "record",
+    "question": "日志字段名叫 token 时，为什么结果是 secret 而不是把值记下来？",
+    "answerPoints": [
+      "record 检查字段名是否像凭证",
+      "命中后立即返回 secret",
+      "返回值里不包含字段原来的值"
+    ],
+    "pitfalls": [
+      "为了排查保存失败，把授权字段原样写进日志"
+    ]
+  },
+  {
+    "catalogId": "K14-08",
+    "sourceHeadingId": "trace",
+    "question": "失败日志的编号是 req-2、指标的编号是 req-1 时，为什么结果是 split？",
+    "answerPoints": [
+      "sameTrace 要求数组中的编号全部相同",
+      "req-2 不能并进 req-1",
+      "时间接近不能代替同一个请求编号"
+    ],
+    "pitfalls": [
+      "把同一分钟里的日志和指标当成同一次保存"
+    ]
+  },
+  {
+    "catalogId": "K14-08",
+    "sourceHeadingId": "boundaries",
+    "question": "三条记录都带 req-1 时，为什么还不能说追踪系统已经收下了这次保存？",
+    "answerPoints": [
+      "函数只检查编号和记录形状",
+      "它不生成 traceparent，也不发送跨度",
+      "相同编号若被错误复用，sameTrace 仍会返回 linked"
+    ],
+    "pitfalls": [
+      "本地字符串拼对了，就认为收集器里已经有完整追踪"
+    ]
+  }
+]

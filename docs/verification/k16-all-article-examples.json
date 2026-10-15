@@ -1,0 +1,295 @@
+{
+  "verifiedAt": "2026-10-14T07:27:20.603Z",
+  "browser": "155.0.8059.40",
+  "articleIds": [
+    "K16-01",
+    "K16-07",
+    "K16-08",
+    "K16-02",
+    "K16-05",
+    "K16-04",
+    "K16-06",
+    "K16-03"
+  ],
+  "examples": 19,
+  "browserExamples": 19,
+  "nodeExamples": 0,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K16-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "7b7f9052f4be605cfc706b7a3e827e475834057f4aa14b346be0b5fd015154f5",
+      "output": [
+        "10",
+        "36",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-01",
+      "sectionId": "index",
+      "language": "javascript",
+      "codeSha256": "1124a1688655571e1c24ad0095c2a5f5cee2e253887e6ce45089cb32e82036cf",
+      "output": [
+        "B,A,未分类",
+        "2:3",
+        "2:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-01",
+      "sectionId": "search",
+      "language": "javascript",
+      "codeSha256": "2885104c86bdf87de02ecc27c5ea9b850aed2a05f399190490f3ee11bd69322b",
+      "output": [
+        "{\"index\":1,\"steps\":4}",
+        "{\"index\":8,\"steps\":3}",
+        "{\"index\":0,\"steps\":0}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-07",
+      "sectionId": "frames",
+      "language": "javascript",
+      "codeSha256": "1220e627f25ce59c6aee33f5c22ff6d383a2d4623381695a5f93670608586706",
+      "output": [
+        "零项:ways:1",
+        "一项:ways:1",
+        "两项:ways:2",
+        "三项:ways:3",
+        "四项:ways:5",
+        "负项:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-07",
+      "sectionId": "pick",
+      "language": "javascript",
+      "codeSha256": "77e33943088df72c8c3c0f3a2d3a9fbb5d6bd3a912ca659df47131427fe624ab",
+      "output": [
+        "预算4:value:5:a,b",
+        "预算3:value:4:c",
+        "预算0:value:0:none",
+        "空笔记:value:0:none"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-08",
+      "sectionId": "list",
+      "language": "javascript",
+      "codeSha256": "dc8ff95c46661660d2c125e1d668274bed2bf37638de327773834b09a2e187d1",
+      "output": [
+        "开头:0-10/100",
+        "末尾:95-100/100",
+        "越界:invalid",
+        "按下标:keep,replace:b>c,replace:c>d",
+        "按键:remove:b,insert:d",
+        "换位:keep"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-08",
+      "sectionId": "work",
+      "language": "javascript",
+      "codeSha256": "1cf13b71235443ef45348c7362c53012dbdc5bb1e2544c498c8f8f44b1729959",
+      "output": [
+        "小列表:scan",
+        "重复查:index",
+        "一次查:scan",
+        "三帧:frames:3",
+        "一帧:frames:1",
+        "不可拆:unsplittable:6",
+        "没有任务:frames:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "keys",
+      "language": "javascript",
+      "codeSha256": "c306d34766a7a3b854777bb477c60dee7b719b31723986ca3e1eeac13329e055",
+      "output": [
+        "4",
+        "false",
+        "1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "missing",
+      "language": "javascript",
+      "codeSha256": "5496cd0334f3620fca272c3ca148e01578f67ae4bc251678e5a10237e09fc574",
+      "output": [
+        "true",
+        "true",
+        "false",
+        "true",
+        "0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "queue",
+      "language": "javascript",
+      "codeSha256": "1d85957d30cb6335bb0e89af90c47b3fb0989d15cb33538d77481e3869d07748",
+      "output": [
+        "A",
+        "B",
+        "false",
+        "0:0"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-02",
+      "sectionId": "lru",
+      "language": "javascript",
+      "codeSha256": "7ab600a0f1943a81d51c920fbf61f2f6772174f320a60b7b2ea07deab6f1e211",
+      "output": [
+        "A,C",
+        "false",
+        "1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-05",
+      "sectionId": "pair",
+      "language": "javascript",
+      "codeSha256": "cbb85681e6ad1c1b04de7552338f22b1faefc20398b87e697064a100aca5b21a",
+      "output": [
+        "一对:1+2=6",
+        "没有一对:none",
+        "未排序一对:unsorted"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-05",
+      "sectionId": "window",
+      "language": "javascript",
+      "codeSha256": "67419660f41a0611e04b0cd91ba5f5bf485c11be7b207d2e19e07bda4c8cefc9",
+      "output": [
+        "窗口:abc",
+        "重复:a",
+        "回退:ab",
+        "空串:empty"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-04",
+      "sectionId": "search",
+      "language": "javascript",
+      "codeSha256": "222a2680e689077290adbc77fa9388b8bcd1398aa234b61bcfd35ab438334261",
+      "output": [
+        "命中重复:hit:b",
+        "没有:miss",
+        "未排序:unsorted",
+        "空列表:miss"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-04",
+      "sectionId": "order",
+      "language": "javascript",
+      "codeSha256": "946365bdf7abdf9e9a4ae8f3f78da165be47bb22a5a3fc3f6dbcae2b69897ba8",
+      "output": [
+        "稳定:c,a,b",
+        "按编号:a,c,b",
+        "未知比较:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-06",
+      "sectionId": "match",
+      "language": "javascript",
+      "codeSha256": "4f56ef4451882fd00ce79cc0691621da6eec0bedab97f6ce26b901ef769072ad",
+      "output": [
+        "平衡:balanced",
+        "交叉:mismatch",
+        "未闭合:open",
+        "空括号:balanced",
+        "字母:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-06",
+      "sectionId": "undo",
+      "language": "javascript",
+      "codeSha256": "e8225f9b3fb7f8fb3a3b8ef77b0a6ae5f3e301fede851be3620a1f86080b9c59",
+      "output": [
+        "编辑:type:a",
+        "编辑:type:ab",
+        "编辑:undo:a",
+        "编辑:type:ac",
+        "编辑:redo:blocked",
+        "编辑:undo:a",
+        "编辑:undo:blank",
+        "编辑:undo:blocked"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-03",
+      "sectionId": "tree",
+      "language": "javascript",
+      "codeSha256": "03ca1372e29a08133f5fe50479a2b815e8b0a0a64ffe0230fb9509022970b78f",
+      "output": [
+        "树:pre:notes,draft,published,2026|post:draft,2026,published,notes",
+        "单节点:pre:notes|post:notes"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K16-03",
+      "sectionId": "cycle",
+      "language": "javascript",
+      "codeSha256": "8fbd2b79ced6feee090470346a1eceddf63b9ad08fad6afefdb460ecf1e08a96",
+      "output": [
+        "环:cycle:app>ui>api>app",
+        "无环:none",
+        "自环:cycle:app>app",
+        "空:none",
+        "后一段:cycle:c>c"
+      ],
+      "diagnostics": [],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

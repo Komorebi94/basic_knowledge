@@ -1,5 +1,40 @@
 import catalogSource from "./catalog.json";
-import { articles } from "./articles";
+import publicMetadata from "./publicMetadata.json";
+
+export interface CatalogArticle {
+  readonly id: string;
+  readonly catalogId: string;
+  readonly kind: "knowledge" | "ai";
+  readonly title: string;
+  readonly summary: string;
+  readonly domainSlug?: string;
+  readonly slug: string;
+  readonly estimatedMinutes: number;
+  readonly href: string;
+}
+
+function toCatalogArticle(article: (typeof publicMetadata.articles)[number]): CatalogArticle {
+  if (article.kind !== "knowledge" && article.kind !== "ai") throw new Error(`无效文章类型：${article.id}`);
+  if (article.kind === "knowledge" && typeof article.domainSlug !== "string") throw new Error(`知识文章缺少专题：${article.id}`);
+  return {
+    id: article.id,
+    catalogId: article.catalogId,
+    kind: article.kind,
+    title: article.title,
+    summary: article.summary,
+    ...(typeof article.domainSlug === "string" ? { domainSlug: article.domainSlug } : {}),
+    slug: article.slug,
+    estimatedMinutes: article.estimatedMinutes,
+    href: article.href,
+  };
+}
+
+export const publishedArticles: readonly CatalogArticle[] = publicMetadata.articles.map(toCatalogArticle);
+const articlesByCatalogId = new Map<string, CatalogArticle>();
+for (const article of publishedArticles) {
+  if (articlesByCatalogId.has(article.catalogId)) throw new Error(`目录文章重复：${article.catalogId}`);
+  articlesByCatalogId.set(article.catalogId, article);
+}
 
 export const knowledgeTopics = catalogSource.knowledge;
 export const exerciseTopics = catalogSource.practice;
@@ -14,8 +49,8 @@ export const aiCategories = [
   { id: "application", title: "应用工程与取舍", ids: ["AI13", "AI14", "AI18"] },
 ] as const;
 
-export function findCatalogArticle(id: string) {
-  return articles.find((article) => (article.catalogId ?? article.id) === id);
+export function findCatalogArticle(id: string): CatalogArticle | undefined {
+  return articlesByCatalogId.get(id);
 }
 
 export function topicDepth(id: string): string {

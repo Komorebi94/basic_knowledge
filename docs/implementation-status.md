@@ -1,6 +1,6 @@
 # 实现状态与验证记录
 
-记录日期：2026-10-12。设计目录描述目标合同，本文记录实际交付。
+记录日期：2026-10-14。设计目录描述目标合同，本文记录实际交付。
 
 历史2026-09-30验证浏览器：Chrome 154.0.8037.58；主站 origin：`http://127.0.0.1:5173`。笔记与备份验证使用独立临时上下文。
 
@@ -10,14 +10,14 @@
 | --- | --- |
 | 网站骨架 | React、TypeScript、Vite，深链接路由，桌面与移动布局 |
 | 完整目录 | 16 个专题 × 8 个单元，共 128 个前端知识单元；40 道练习；20 个 AI 单元。均显示标题与学习范围；已补齐正文/题面与待编写状态分别标明 |
-| 阅读内容 | 74 篇知识、20 篇 AI，共94篇完整教程；AI P0/P1 全部补齐。原 207 个作者例子，另加 4 个 AI P0 示例、11 个 AI P1 示例、18 个 K04 示例、18 个 K03 严格 TypeScript 示例、20 个 K05 布局示例、18 个 K06 示例与 17 个 K07 示例；其中原 9 个严格 TypeScript 样例。原内容 ID、URL 和锚点保留 |
-| 学习配套 | 224张回忆卡（P0为96张、AI P1新增14张、K04新增18张、K03新增18张、K05新增18张、K06新增18张、K07新增18张）、任务模板及AI09/10/15审阅案例；卡片原文定位、默认折叠答案、自评说明与双向练习关联可用 |
-| 练习内容与功能 | E01—E24完整题目、代码与复盘自动保存、跨源 Worker 运行、停止/超时、结果与控制台、提示/参考标记、尝试和独立/参考证据历史；182用例、72样例通过，48典型错误实现被拒绝 |
+| 阅读内容 | 128 篇知识、20 篇 AI，共148篇完整教程；AI P0/P1 全部补齐。原 207 个作者例子，另加 4 个 AI P0 示例、11 个 AI P1 示例、18 个 K04 示例、18 个 K03 严格 TypeScript 示例、20 个 K05 布局示例、18 个 K06 示例、17 个 K07 示例与 43 个 K08-03—08 真实 Vue/Router/SSR 示例（含 3 个 Node 示例）及 2 个 K08-01/02 真实 Vue 示例，K09-03—08 新增 24 个 Node 作者示例，K10-03—08 的首屏、列表、缓存、包体、预算和诊断示例，K11-03—08 的 CSP、依赖、日志、跳转、隔离和威胁验证示例，K12-03—08 的替身、虚拟时钟、控件查询、数据隔离、属性变异和门禁示例，K13-03—08 的表单、权限、组件契约、迁移边界、租户配置和容量分档示例，K14-03—08 的流队列、聚合、分段输出、缓存键、运行时能力和请求记录示例，K15-03—08 的错误恢复、保存反馈、目标尺寸、对比度、复杂控件和发布门禁示例，以及 K16-03—08 的树遍历、有序查找、窗口、栈、状态转移和列表窗口示例；其中原 9 个严格 TypeScript 样例。原内容 ID、URL 和锚点保留 |
+| 学习配套 | 386张回忆卡（P0为96张、AI P1新增14张、K04新增18张、K03新增18张、K05新增18张、K06新增18张、K07新增18张、K08-03—08新增18张、K09-03—08新增18张、K10-03—08新增18张、K11-03—08新增18张、K12-03—08新增18张、K13-03—08新增18张、K14-03—08新增18张、K15-03—08新增18张、K16-03—08新增18张）、任务模板及AI09/10/15审阅案例；卡片原文定位、默认折叠答案、自评说明与双向练习关联可用 |
+| 练习内容与功能 | E01—E40 完整题目、代码与复盘自动保存、跨源 Worker 运行、停止/超时、结果与控制台、提示/参考标记、尝试和独立/参考证据历史；310 用例、120 样例通过，80 个典型错误实现被拒绝。E25—E40 是隔离 JavaScript 模型，不创建 DOM，不运行 React、Vue 或 TypeScript 编译器 |
 | 搜索 | 中英别名、内容ID、全半角归一、分档排序；完整目录、正文、练习题面可检索；提示与折叠参考答案不进入练习全文索引，待编写条目定位目录锚点 |
 | 个人数据 | 文章/章节笔记、私人搜索、阅读位置、显式已读、收藏、补强、历史；自动保存、冲突比较、切页保护；schema 2 全量备份，兼容 schema 1、事务替换与恢复 |
 | 复习闭环 | 文章订阅/暂停、每日队列、固定间隔日历调度、时区、回答草稿、显隐恢复、原子评分与撤销、额外回顾、会话恢复 |
 | 设置与统计 | 每日目标、时区、字号、运行快捷键、存储估算/详情清理/清除确认；首页真实已读、独立通过、今日与本周复习数据 |
-| 运行器 | 独立 origin、Worker、超时/停止、消息校验、CSP；已接入全部 24 道题的受信 harness |
+| 运行器 | 独立 origin、Worker、超时/停止、消息校验、CSP；已接入全部 40 道题的受信 harness |
 
 ## 历史验证证据（2026-09-30）
 
@@ -39,7 +39,7 @@
 - 完整浏览器矩阵（桌面及移动端、当前与上一版本）与人工读屏走查未完成，不能声明 M0—M5 全部正式验收通过。
 - 当前仅本机 Chrome 临时上下文验证。受控原生配额拒绝已验证，不等同物理磁盘耗尽或所有设备配额。
 - 目标部署的双 origin、静态服务器 CSP 响应头和恢复路由尚未实测。
-- 首页实验室性能已测，真实用户 INP、完整移动设备性能尚未测；正文延迟包仍触发体积提示。
+- 首页实验室性能已测，真实用户 INP、完整移动设备性能尚未测。
 
 ## 实现约定
 
@@ -168,3 +168,140 @@ K06-03—K06-08、K07-03—K07-08 已补齐，网络与 React 两个专题各八
 - `ZHIXU_MAIN_ORIGIN=http://127.0.0.1:5186 npm run verify:k06-ui` 与 `verify:k07-ui`：本轮专用开发实例分别验证八个可读单元、六篇新增文章的 ID 搜索、完整正文、深链接刷新、18 张卡片默认折叠及原文焦点、1440/390/320px 回流，0 pageerror。见 [K06 界面报告](verification/k06-ui-report.json) 与 [K07 界面报告](verification/k07-ui-report.json)。十二张手机截图已人工查看，文件为 `verification/k06-K06-{03…08}-{1440,390}.png` 与 `verification/k07-K07-{03…08}-{1440,390}.png`。
 
 于 2026-10-12 核对 RFC 9113、RFC 9114、RFC 6265、RFC 9110、RFC 3339、Fetch CORS、HTML 源与服务器发送事件、WebSockets、File API，以及 React 19 文档中的状态、列表、过渡、Suspense、Hook、服务器组件和 memo。来源链接返回 200。空白页里的模型只复现文档中的可观察结果，不代表生产抓包、真实长连接或 RSC 打包器已经验收。完整浏览器矩阵与人工读屏仍未验收。
+
+## 2026-10-13 · 按目录顺序补齐 K08-03
+
+- 新增「组件通信与状态所有权」深入教程，以订单数量为贯穿场景，解释副本与派生值、嵌套 props 修改、显式 modelValue/update:modelValue 合同、带校验的提交、版本化草稿、事件转发、只读注入与作用域。defineModel 只解释编译合同，未宣称执行 SFC 宏。
+- 注册稳定 ID K08-03 与 `/knowledge/vue/component-communication-and-ownership`，补齐前置知识、公开版本/日期、全文搜索和 3 张默认折叠回忆卡。暂无本主题已交付独立题，未虚构练习入口。知识共 75/128 篇、AI 共 20/20 篇、回忆卡 227 张；K08-04—08 仍待编写，知识剩余 53 篇。
+- 增加固定版本 Vue 3.5.43 开发验证依赖，隔离示例 fixture 通过 `/vue.mjs` 提供本地浏览器构建。本站仅展示代码，不挂载这些 Vue 示例，也不加载 Vue 运行时进入主站 bundle。
+- `npm run verify:k08-03`：Chrome 中实际执行 6 个完整 ES 模块示例，核对无效输入、拒绝后恢复、共享嵌套对象绕过提交、草稿版本冲突、组件事件显式转发和必需注入缺失。见 [作者示例报告](verification/k08-03-article-examples.json)。没有调用真实订单接口，也没有验证服务端条件写入或库存权限。
+- `npm run verify:k08-ui`：确认 8 个目录条目中仅前三节可读，五节仍待编写；新增文章 ID 搜索、所有正文节、3 张卡片及原文锚点焦点、深链接刷新、1440/390/320px 回流均通过，页面错误为零。见 [阅读报告](verification/k08-ui-report.json) 与桌面/手机截图；手机首屏已人工查看。本轮未做人工读屏验收。
+- `ZHIXU_ARTICLE_IDS=K04-07,K08-03 ZHIXU_ARTICLE_REPORT=k08-fixture-regression.json npm run verify:articles`：既有 Service Worker 教程与新增 Vue 教程共 9 个作者示例通过，确认共享 fixture 的两种资源可以共存，见 [隔离服务回归报告](verification/k08-fixture-regression.json)。本轮未重新运行所有旧文章。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`npm run verify:search`、`git diff --check` 通过，构建自动执行 `verify:p0`。正文延迟包仍有既有的体积提示（本轮 catalog 969.50 kB），没有改动拆包策略；尚未提交或部署。
+- 官方资料于 2026-10-13 核对：Vue Props、Component Events、Component v-model、Provide / Inject、State Management 与 SSR 指南；链接随文章元数据维护，阅读页面不新增来源模块。
+
+## 2026-10-13 · 按目录顺序补齐 K08-04
+
+- 新增「生命周期与组合式函数」深入教程，沿订单面板讲解 DOM 阶段、订阅释放、函数内独立状态与模块级共享、ref/getter 输入、返回 refs、同步钩子注册、异步 watcher 归属、每轮请求清理和独立 effectScope。对 KeepAlive、SSR、共享连接和 SFC 顶层 await 明确区分适用边界与实际验证范围。
+- 注册 K08-04 与 `/knowledge/vue/lifecycle-and-composables`，补齐前置知识、公开元数据、全文索引和 3 张默认折叠回忆卡。知识现为 76/128 篇、AI 20/20 篇、回忆卡 230 张；知识剩 52 篇，下一节 K08-05。已有 K08-03 及未发布章节的身份和状态保留。
+- `npm run verify:k08-04`：Vue 3.5.43 浏览器运行时中核对 8 个完整作者示例。涵盖卸载后订阅不再回调、状态独立与共享、输入快照、延迟注册错误、异步 watcher 泄漏与修复、初始化前卸载、旧失败不覆盖新成功、当前失败与空结果、卸载后迟到成功、scope 停止与缺失 scope。见 [作者示例报告](verification/k08-04-article-examples.json)。普通 Promise 延迟注册钩子的开发警告属于有意标注的错误实现，验证脚本不将警告当作输出断言；没有吞掉警告或把它称为成功注册。
+- `npm run verify:k08-ui`：K08 八个目录条目中前四节可读、后四节待编写；同时复核 K08-03/04 的 ID 搜索、正文、6 张折叠卡片、原文锚点焦点、深链接刷新和 1440/390/320px 回流，页面错误为零。见 [阅读报告](verification/k08-ui-report.json) 与两篇的桌面/手机截图；K08-04 手机首屏已人工查看。没有人工读屏检查。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过，构建包含公开元数据生成与 `verify:p0`。本轮复用既有 Vue 开发依赖与隔离服务，没有新增运行依赖，也未重新执行所有旧文章；正文延迟包仍有既有体积提示（catalog 997.71 kB）。尚未提交或部署。
+- 官方来源于 2026-10-13 核对：Vue Composables、Lifecycle Hooks、Reactivity Advanced/Utilities、Watchers、script setup、KeepAlive 与 SSR 指南。实际验证为浏览器生命周期与响应式 API，不包含 SFC 编译、KeepAlive、SSR、真实网络连接或真实服务端写入；loader 为显式标注的可控 Promise 教学替身。
+
+## 2026-10-13 · 按目录顺序补齐 K08-05
+
+- 新增「模板编译与更新优化」深入教程，沿订单页解释模板编译/render/mount/patch、静态缓存与提升、block 动态集合、补丁标记、稳定 props、业务 key、v-once 与 v-memo。区分编译优化、响应式调度、组件渲染次数与真实 DOM 更新，不以少更新掩盖旧界面。
+- 注册 K08-05 与 `/knowledge/vue/template-compilation-and-updates`，补齐前置知识、版本边界、公开元数据、正文搜索与 3 张默认折叠回忆卡。知识现为 77/128 篇、AI 20/20 篇、回忆卡 233 张；知识剩 51 篇，下一节 K08-06。K08-06—08 仍待编写，未虚构独立练习入口。
+- `npm run verify:k08-05`：Chrome 155.0.8059.40 与 Vue 3.5.43 完整浏览器构建中运行 7 个完整 ES 模块示例。实际编译作者固定模板，检查静态 VNode 缓存身份、dynamicChildren、TEXT/CLASS/PROPS/FULL_PROPS；实际挂载检查批处理、DOM 身份、旧属性移除、稳定 props 的调用计数、列表重排草稿错配与清空、v-once 冻结加载状态、遗漏 v-memo 依赖与修复。见 [作者示例报告](verification/k08-05-article-examples.json)。数字标记和 VNode 内部形状是本版本观察，不是业务 API 保证。
+- `npm run verify:k08-ui`：K08 八个条目中前五节可读、后三节待编写；复核 K08-03—05 的 ID 搜索、正文渲染、9 张折叠回忆卡、原文锚点焦点、深链接刷新与 1440/390/320px 回流，页面错误为零。见 [阅读报告](verification/k08-ui-report.json) 和三篇的桌面/手机截图；K08-05 手机首屏已人工查看。本轮没有人工读屏检查。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过；构建包含公开元数据生成与 `verify:p0`。复用现有 Vue 开发依赖和隔离服务，未新增依赖，未重新运行所有旧文章；正文延迟包仍有既有体积提示（catalog 1,020.90 kB）。尚未提交或部署。
+- 官方资料于 2026-10-13 核对：Vue Rendering Mechanism、Performance、List Rendering、Built-in Directives、Render Functions 与 Security。另检查已安装 `@vue/compiler-dom` 的真实生成代码；浏览器报告校验同版本完整构建的实际编译与更新。所有模板来自仓库作者固定源码，不编译用户输入或备份；不包含 SFC 构建、SSR、水合或生产性能基准验收，也不宣称性能提升百分比。
+
+## 2026-10-13 · 按目录顺序补齐 K08-06
+
+- 新增「路由、表单与状态管理」深入教程，沿订单列表与详情编辑区分 URL、已确认数据和本地草稿，讲解 query 规范化、push/replace/返回、参数复用、按身份观察、更新与离开守卫、导航失败、数字输入校验、提交基线、失败重试和共享存储作用域。
+- 注册 K08-06 与 `/knowledge/vue/routing-forms-and-state`，补齐前置知识、版本/验证边界、公开元数据、全文搜索及 3 张默认折叠回忆卡。知识现为 78/128 篇、AI 20/20 篇、回忆卡 236 张；知识剩 50 篇，下一节 K08-07「SSR 与水合」。K08-07/08 保持待编写，没有虚构框架练习入口。
+- 新增 Vue Router 4.6.4 固定开发依赖；隔离服务把官方全局构建包装为 `/vue-router.mjs`，与 `/vue.mjs` 共用同一 Vue 实例。仅在作者示例页面使用，未改变主站 React 路由或引入主站运行依赖；报告增加实际 Router 版本记录。
+- `npm run verify:k08-06`：真实 Vue 3.5.43/Router 4.6.4 中验证 7 个完整 ES 模块示例，覆盖重复/空 query、无效页码、内存历史返回、参数复用与无关标签变化、aborted/duplicated 导航、数字修饰符的字符串边界、严格原文校验、失败保留草稿、保存期编辑/重复提交防护、非法响应拒绝与重试、共享视图及应用隔离。见 [作者示例报告](verification/k08-06-article-examples.json)。保存接口是显式教学 Promise，最小 store 是 Vue 模型，未冒充真实 API 或 Pinia 执行。
+- `npm run verify:k08-ui`：8 个 K08 目录条目中前六节可读、后两节待编写；复核 K08-03—06 的 ID 搜索、正文渲染、12 张折叠回忆卡、原文锚点焦点、深链接刷新和 1440/390/320px 回流，页面错误为零。见 [阅读报告](verification/k08-ui-report.json) 与四篇的桌面/手机截图；K08-06 手机首屏已人工查看，未做人工读屏检查。
+- `ZHIXU_ARTICLE_IDS=K04-07,K08-04,K08-06 ZHIXU_ARTICLE_REPORT=k08-router-fixture-regression.json npm run verify:articles`：既有 Service Worker、Vue 生命周期及新路由教程共 18 个作者示例通过，见 [隔离服务兼容性报告](verification/k08-router-fixture-regression.json)；没有重新运行所有旧文章。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过，构建包含公开元数据生成和 `verify:p0`；正文延迟包仍有既有体积提示（catalog 1,050.59 kB）。本轮没有更改拆包策略，尚未提交或部署。
+- 官方资料于 2026-10-13 核对：Vue Router Dynamic Matching、Composition API、Navigation Guards/Failures、Programmatic Navigation、History Modes；Vue Form Input Bindings、State Management；Pinia Defining a Store。实测为内存历史，不包含浏览器后退按钮、重载、外部离开、部署深链接回退、Pinia、持久化、SSR 或服务端权限/并发写入验收；这些边界随正文说明。
+
+## 2026-10-13 · 按目录顺序补齐 K08-07
+
+- 新增「SSR 与水合」深入教程，沿订单按钮区分服务端字符串与客户端交互，讲解共享应用工厂、createSSRApp 接管与 createApp 重建、首次状态不一致、浏览器解析修正、跨请求污染、服务端生命周期与公开 JSON 状态传输。
+- 注册 K08-07 与 `/knowledge/vue/ssr-and-hydration`，补齐前置知识、公开元数据、全文索引和 3 张默认折叠回忆卡。知识现为 79/128 篇、AI 20/20 篇、回忆卡 239 张；知识剩 49 篇，下一节 K08-08「复杂页面性能与调试」。最后一节保持待编写，无空练习入口。
+- 复用已安装 Vue/server-renderer 3.5.43，未新增依赖。新增受审查的 `scripts/lib/ssr-order-app.mjs` 工厂，Node 服务真实生成 SSR HTML，隔离浏览器导入同一工厂；门禁核对正文工厂源码与实际文件一致。主站仅显示代码，没有部署 SSR 服务。
+- 作者示例类型增加 language:node，verify:articles 在固定仓库目录以独立 Node ES 模块进程执行作者源码，限制执行时间并严格核对 stdout/stderr；不接受用户代码或备份。报告分别统计浏览器/Node 示例、记录 Node 版本和工厂源码哈希，并保留浏览器警告/错误诊断。
+- `npm run verify:k08-07`：Chrome 155.0.8059.40、Node v22.22.3、Vue/server-renderer 3.5.43 下，5 个浏览器与 3 个 Node 作者示例通过。实际验证 SSR 字符串与事件未传输、匹配水合保留按钮身份并安装交互、普通挂载重建、文字 mismatch 诊断与交互恢复、HTML 解析结构、并发状态串用与隔离、serverPrefetch 等待、客户端钩子不在服务端执行、script JSON 结束标签边界和状态校验。见 [作者示例报告](verification/k08-07-article-examples.json)。mismatch 是明确标注的错误实现，报告保留警告和水合错误日志，不称其为无诊断正常路径。
+- `npm run verify:k08-ui`：K08 八个条目中前七节可读、最后一节待编写；复核 K08-03—07 的 ID 搜索、正文渲染、15 张折叠卡片、原文锚点焦点、深链接刷新与 1440/390/320px 回流，页面错误为零。见 [阅读报告](verification/k08-ui-report.json) 及五篇桌面/手机截图；K08-07 手机首屏已人工查看，没有人工读屏验收。
+- `ZHIXU_ARTICLE_IDS=K04-07,K08-06,K08-07 ZHIXU_ARTICLE_REPORT=k08-ssr-fixture-regression.json npm run verify:articles`：既有 Service Worker、Vue Router 与新 SSR 教程共 15 个浏览器、3 个 Node 示例通过，见 [兼容性报告](verification/k08-ssr-fixture-regression.json)；没有重新运行全部旧文章。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过，构建包含公开元数据生成与 `verify:p0`。正文延迟包仍有既有体积提示（catalog 1,074.98 kB），本轮不改拆包策略。尚未提交或部署。
+- 官方资料于 2026-10-13 核对：Vue SSR Guide、SSR API、Application API、Lifecycle Hooks 与 Security。实际验证为 Node 渲染和隔离浏览器接管，不包含 SFC 双构建、生产 SSR、真实接口授权、公开缓存分区、流式响应、Teleport、部分水合或所有表单输入保留；无效嵌套仅验证浏览器解析，不声称完整水合恢复。
+
+## 2026-10-13 · K08 全章完成
+
+- 补齐 K08-08「复杂页面性能与调试」，通过 7 个真实 Vue 浏览器示例解释提交测量窗口、分支依赖调试、computed 结果身份、shallowRef 内部修改与根替换、markRaw 嵌套身份、固定高度虚拟窗口、同步与批处理 watcher。覆盖空列表、滚动末端、非法高度和停止后的行为，不把计数或单次窗口当成生产性能提升。
+- K08-01/02 保留原有教学模型、稳定 ID 和 URL，将既有 Vue 项目片段补成完整可执行示例：实际核对 toRef/停止后的属性连接，以及 useSearch 取消、旧失败忽略、当前失败和停止后不再启动请求。确认日期更新为 2026-10-13；没有改变卡片含义与个人数据合同。
+- 注册 K08-08 与 `/knowledge/vue/complex-page-performance-and-debugging`，补齐前置知识、公开元数据、搜索和 3 张回忆卡。K08 八篇全可读，专题有 22 张回忆卡。知识现为 80/128 篇、AI 20/20 篇、正文共 100 篇、全站回忆卡 242 张；知识剩 48 篇（K09—K16 各 6 篇）。
+- 新增 `npm run verify:k08` 整章检查命令。Chrome 155.0.8059.40、Vue 3.5.43、Router 4.6.4、Node v22.22.3 下全部 8 篇、51 个作者示例通过：48 浏览器、3 Node。见 [K08 全章示例报告](verification/k08-all-article-examples.json)。水合与延迟注册的故意错误示例诊断随报告保留；未执行用户输入或真实服务接口。
+- `npm run verify:k08-ui` 扩展为核对全部 8 篇和 22 张卡片：目录无待编写条目、每个 ID 搜索打开正文、所有节渲染、卡片默认折叠及原文锚点焦点、深链接刷新、1440/390/320px 回流通过，页面错误为零。见 [完整阅读报告](verification/k08-ui-report.json) 与八篇桌面/手机截图；K08-08 手机首屏已人工查看，没有人工读屏验收。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过，构建包含公开元数据生成和 `verify:p0`；K08 发布门禁由部分 ID 清单改为校验全部六个扩展单元。没有重新运行 K08 以外全部文章，正文延迟包仍有既有体积提示（catalog 1,101.62 kB）。尚未提交或部署。
+- 官方资料于 2026-10-13 核对：Vue Performance、Reactivity in Depth、Reactivity Advanced、Lifecycle Hooks、Watchers；Chrome Runtime Performance 与 MDN Performance mark。实际性能主题验证为机制与行为，不包含生产耗时/FPS/INP 基准、可变行高、完整虚拟控件焦点/读屏或复杂表格编辑验收，边界随正文明确说明。
+
+## 2026-10-13 · K09 全专题完成
+
+- 补齐 K09-03—08：Tree shaking 与副作用、转译/polyfill/目标环境、代码分割与资源缓存、Monorepo 与包边界、Source map 与线上排查、CI/CD 与发布策略。每篇包含问题场景、完整可复现示例、输出原因、失败路径、适用边界与自检；真实工具实验与教学发布模型分别说明。
+- 注册六篇正文、前置知识、来源与版本，并新增 18 张回忆卡。K09 全部 8 篇、22 张卡片可读；累计知识 86/128、AI 20/20，共 106 篇文章与 260 张卡片。知识剩余 42 篇，即 K10—K16 各 6 篇。
+- `npm run verify:k09`：全部 30 个示例通过（24 Node、6 浏览器）。真实验证 Rolldown 1.2.11 产物、TypeScript 6.0.3 转译/语义诊断、Node 22.22.3 包导出和 SourceMap，以及临时本地 HTTP 响应。任务、缓存键、产物配对、灰度与发布状态为明确教学模型，未连接真实 CI/CD、CDN 或监控账户。报告记录代码和辅助源码摘要，见 [执行报告](verification/k09-all-article-examples.json) 与 [复现说明](verification/tooling-harness.md)。
+- `npm run verify:k09-ui`：八节目录全部可读，八篇均检查 ID 搜索进入、正文渲染、22 张卡片默认折叠/原文焦点、深链接刷新，以及 1440/390/320px 无页面横向溢出。发现长错误码导致 320px 段落溢出，给正文段落补齐与列表一致的换行规则后全量重跑通过。已人工查看六篇新增教程的 390px 首屏；见 [UI 报告](verification/k09-ui-report.json)，截图位于同目录。
+- `typecheck`、`lint`、`build`、内容门禁和 `git diff --check` 通过。构建仍有 catalog chunk 超过 500 kB 的警告，本次不调整构建架构。没有新增可练题、执行线上发布或 Git 提交。
+
+## 2026-10-13 · K10 全专题完成
+
+- 补齐 K10-03—08：首屏与关键资源、列表渲染与内存、缓存与预取、包体分析与依赖治理、性能预算与回归、大型页面诊断案例。每篇从订单页的具体失败写起，示例包含输出原因、失败路径和适用边界。
+- 注册六篇正文、前置知识和 18 张回忆卡。K10 全部 8 篇、22 张卡片可读；累计知识 92/128、AI 20/20，共 112 篇文章与 278 张卡片。知识剩余 36 篇，即 K11—K16 各 6 篇。E25、E30、E40 仍未开放。
+- DOMParser、固定行高窗口和节点计数在隔离空白页执行。K10-06 用 Rolldown 1.2.11 比较固定作者模块的标记和相对大小。发现时钟、字体周期、单队列带宽、缓存容量、预算噪声带和诊断接受条件是明确教学模型，不测量真实用户 LCP/INP，也不连接监控或 CI。
+- `npm run verify:k10`：8 篇、24 个浏览器示例和 1 个 Node 示例通过。见 [执行报告](verification/k10-all-article-examples.json)。没有重新运行 K10 以外的文章。
+- `npm run verify:k10-ui`：八节目录全部可读，八篇均检查 ID 搜索进入、正文渲染、22 张卡片默认折叠及原文焦点、深链接刷新，以及 1440/390/320px 无页面横向溢出，页面错误为零。已人工查看 K10-03—08 的 390px 首屏。见 [UI 报告](verification/k10-ui-report.json)，截图位于同目录。
+- `typecheck`、`lint`、`build`、内容门禁和 `git diff --check` 通过。构建仍有 catalog chunk 超过 500 kB 的警告（本轮 1,235.16 kB），本次不调整构建架构。没有新增可练题、执行线上发布或 Git 提交。
+- 官方资料于 2026-10-13 核对：web.dev 的 LCP、preload、content-visibility、code splitting、performance budgets 与 Web Vitals；MDN 的 font-display、HTTP caching、Cache-Control、Vary、prefetch、preload、DOMParser 与 createElement；CSS Fonts 的 font-display；Chrome DevTools Performance。链接返回 200。
+
+## 2026-10-13 · K11 全专题完成
+
+- 新增 K11-03 至 K11-08 六篇正文与 18 张回忆卡，K11 八个单元全部可读。知识正文 98/128，文章 118，回忆卡 296。剩余知识正文为 K12–K16 各六篇，共 30 篇；E25–E40 仍未开放。
+- `npm run verify:k11`：8 篇文章、19 个浏览器示例通过，报告 `docs/verification/k11-all-article-examples.json`。示例是固定输入上的策略判断，不是完整 CSP 解析器、npm 安装、浏览器沙箱或真实请求。
+- `npm run verify:k11-ui`：八个可读单元、8 篇文章、22 张卡、专题搜索、重载和 1440/390 通过，报告 `docs/verification/k11-ui-report.json`。已查看 K11-03 至 K11-08 的 390px 首屏，标题、摘要和问题段完整，未见横向溢出。没有做屏幕阅读器验收。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过。生产构建目录块 `catalog-45-CD3tA.js` 1,284.49 kB，仍超过 500 kB，未做拆分。文中来源地址已检查为 HTTP 200。下一篇从 K12-03 开始。
+
+## 2026-10-13 · K12 全专题完成
+
+- 新增 K12-03 至 K12-08 六篇正文与 18 张回忆卡，K12 八个单元全部可读。知识正文 104/128，文章 124，回忆卡 314。剩余知识正文为 K13–K16 各六篇，共 24 篇；E25–E40 仍未开放。E01 仍只关联 K12-02，本轮没有新增练习。
+- `npm run verify:k12`：8 篇文章、18 个浏览器示例通过，报告 `docs/verification/k12-all-article-examples.json`。替身、虚拟时钟、隔离计划、属性判断和门禁记录是固定输入上的教学模型。K12-05 在空白页查询真实元素。它们不是测试框架、浏览器事件循环或持续集成。
+- `npm run verify:k12-ui`：八个可读单元、8 篇文章、22 张卡、专题搜索、重载和 1440/390 通过，报告 `docs/verification/k12-ui-report.json`。已查看 K12-03 至 K12-08 的 390px 首屏，标题、摘要和问题段完整，未见横向溢出。阅读检查会计入已关联练习的标题，K12-02 因此包含 E01。没有做屏幕阅读器验收。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过。生产构建目录块 `catalog-CuyazIMg.js` 1,340.43 kB，仍超过 500 kB，未做拆分。文中来源地址已检查为 HTTP 200。下一篇从 K13-03 开始。
+
+## 2026-10-13 · K13 全专题完成
+
+- 新增 K13-03 至 K13-08 六篇正文与 18 张回忆卡，K13 八个单元全部可读。知识正文 110/128，文章 130，回忆卡 332。剩余知识正文为 K14–K16 各六篇，共 18 篇；E25–E40 仍未开放。本轮没有新增练习。
+- `npm run verify:k13`：8 篇文章、18 个浏览器示例通过，报告 `docs/verification/k13-all-article-examples.json`。表单世代、菜单与授权、按钮契约、放置边界、配置回退和容量分档是固定输入上的教学模型，不是生产配置、访问控制或容量评估。
+- `npm run verify:k13-ui`：八个可读单元、8 篇文章、22 张卡、专题搜索、重载和 1440/390 通过，报告 `docs/verification/k13-ui-report.json`。已查看 K13-03 至 K13-08 的 390px 首屏，标题、摘要和问题段完整，未见横向溢出。没有做屏幕阅读器验收。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过。生产构建目录块 `catalog-DShzUWJc.js` 1,387.86 kB，仍超过 500 kB，未做拆分。文中来源地址已检查为 HTTP 200。下一篇从 K14-03 开始。
+
+## 2026-10-14 · K14 全专题完成
+
+- 新增 K14-03 至 K14-08 六篇正文与 18 张回忆卡，K14 八个单元全部可读。知识正文 116/128，文章 136，回忆卡 350。剩余知识正文为 K15–K16 各六篇，共 12 篇；E25–E40 仍未开放。本轮没有新增练习。
+- `npm run verify:k14`：8 篇文章、18 个浏览器示例通过，报告 `docs/verification/k14-all-article-examples.json`。有限队列、聚合与字段整形、分段输出、缓存键、运行时能力表和请求记录是固定输入上的教学模型，不是 Node 流、真实 BFF、React 流式渲染、CDN、边缘平台或追踪收集器。
+- `npm run verify:k14-ui`：八个可读单元、8 篇文章、22 张卡、专题搜索、重载和 1440/390 通过，报告 `docs/verification/k14-ui-report.json`。已查看 K14-03 至 K14-08 的 390px 首屏，标题、摘要和问题段完整，未见横向溢出。没有做屏幕阅读器验收。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过。生产构建目录块 `catalog-B-14QuuF.js` 1,431.92 kB（gzip 520.81 kB），仍超过 500 kB，未做拆分。文中来源地址已检查为 HTTP 200。搜索文档仍为 204。下一篇从 K15-03 开始。
+
+## 2026-10-14 · K15 全专题完成
+
+- 新增 K15-03 至 K15-08 六篇正文与 18 张回忆卡，K15 八个单元全部可读。知识正文 122/128，文章 142，回忆卡 368。剩余知识正文为 K16 六篇；E25–E40 仍未开放。本轮没有新增练习。
+- `npm run verify:k15`：8 篇文章、18 个浏览器示例通过，报告 `docs/verification/k15-all-article-examples.json`。错误恢复、保存步骤、目标尺寸、对比比值、控件键表和发布门禁是固定输入上的教学模型，不是读屏、设备测量、对比度扫描器或 WCAG 符合性结论。间距分支不是直径 24 的圆相交测试。
+- `npm run verify:k15-ui`：八个可读单元、8 篇文章、22 张卡、专题搜索、重载和 1440/390 通过，报告 `docs/verification/k15-ui-report.json`。已查看 K15-03 至 K15-08 的 390px 首屏，标题、摘要和问题段完整，未见横向溢出。没有做屏幕阅读器验收。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过。生产构建目录块 `catalog-CiAP7AZz.js` 1,483.43 kB（gzip 538.40 kB），仍超过 500 kB，未做拆分。文中来源地址已检查为 HTTP 200。搜索文档仍为 204。下一篇从 K16-03 开始。
+
+## 2026-10-14 · K16 全专题完成
+
+- 新增 K16-03 至 K16-08 六篇正文与 18 张回忆卡，K16 八个单元全部可读。知识正文 128/128，文章 148，回忆卡 386。知识目录已全部发布。E25–E40 仍未开放。本轮没有新增练习。
+- `npm run verify:k16`：8 篇文章、19 个浏览器示例通过，报告 `docs/verification/k16-all-article-examples.json`。树遍历、有序查找、窗口、栈、状态转移和列表窗口是固定输入上的教学模型，不是包安装器、排行榜、编辑器历史、虚拟列表或渲染耗时。索引门槛 20 与 1、帧预算 5 是模型整数。
+- `npm run verify:k16-ui`：八个可读单元、8 篇文章、22 张卡、专题搜索、重载和 1440/390 通过，报告 `docs/verification/k16-ui-report.json`。已查看 K16-03 至 K16-08 的 390px 首屏，标题、摘要和问题段完整，未见横向溢出。没有做屏幕阅读器验收。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过。生产构建目录块 `catalog-Uxa0OcE4.js` 1,528.29 kB（gzip 554.55 kB），仍超过 500 kB，未做拆分。文中来源地址已检查为 HTTP 200。搜索文档仍为 204。尚未开放的是练习 E25–E40。
+
+## 2026-10-14 · E25–E40 练习完成
+
+- 新增 E25–E40 共 16 道练习。练习 40/40 开放。知识正文仍是 128/128，文章 148，回忆卡 386。没有新增知识正文。
+- `npm run verify:exercises`：40 道题、310 个行为用例、120 个样例通过，80 个错误实现被拒绝。报告 `docs/verification/exercises.json`。
+- `npm run verify:practice-runner`：40 个参考实现通过，80 个错误实现被拒绝；超时、停止和 iframe 清理通过。
+- 练习目录 40 行均为「题面已补齐」，没有「待编写」。E25 题面、骨架 `未实现` 和关联 K04-05 已在页面打开核对；390px 下该页没有横向溢出。没有做屏幕阅读器验收。
+- E25–E31、E33、E34、E38、E40 在现有隔离 Worker 中用普通对象表达观察器、事件路径、焦点、校验、窗口、请求、类型约束和分帧。它们不调用 IntersectionObserver、DOM、React、Vue、tsc、fetch 或 requestAnimationFrame，也不承诺读屏或硬实时。E32 明确不是 Vue。
+- `npm run typecheck`、`npm run lint`、`npm run build`、`git diff --check` 通过。目录块仍是 `catalog-Uxa0OcE4.js` 1,528.29 kB（gzip 554.55 kB），未做拆分。搜索文档仍为 204。练习块为 `PracticePages-DR00fGys.js` 364.69 kB（gzip 85.48 kB）。
+
+## 2026-10-15 · 正文按需加载
+
+- 知识地图、专题和 AI 目录只使用文章摘要。打开一篇文章时再加载该篇；指向链接时预取。搜索索引在进入搜索后单独请求，不进入首屏。
+- 生产构建不再出现超过 500 kB 的 JavaScript 分块警告。入口约 346 kB（gzip 109 kB），知识目录摘要约 105 kB（gzip 33 kB），单篇文章约 7–30 kB。搜索索引是独立 JSON，约 1,387 kB（gzip 519 kB），只在搜索时下载。
+- 已在本机开发服务器核对：知识地图不请求正文模块；闭包深链接聚焦章节；错误专题不打开闭包正文；搜索 `closure` 命中原文；AI 文章只请求对应模块。真实用户 INP 与移动设备性能仍未测。

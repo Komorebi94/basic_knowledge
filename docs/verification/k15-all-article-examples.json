@@ -1,0 +1,302 @@
+{
+  "verifiedAt": "2026-10-14T07:01:56.029Z",
+  "browser": "155.0.8059.40",
+  "articleIds": [
+    "K15-08",
+    "K15-04",
+    "K15-07",
+    "K15-06",
+    "K15-03",
+    "K15-01",
+    "K15-02",
+    "K15-05"
+  ],
+  "examples": 18,
+  "browserExamples": 18,
+  "nodeExamples": 0,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K15-08",
+      "sectionId": "scan",
+      "language": "javascript",
+      "codeSha256": "f00d8d79be7f3237b047a486c86f5f0fa06e9aa56288157bfa323cabd5cb806a",
+      "output": [
+        "缺名称:fail:name",
+        "低对比:fail:contrast",
+        "名称通过:pass:name",
+        "未知发现:invalid",
+        "陷阱:block",
+        "动效:fix-before-release",
+        "文案:follow-up"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-08",
+      "sectionId": "gate",
+      "language": "javascript",
+      "codeSha256": "24ce74ea05d00452b0ccef3123b79aab280175b6bbbc10ebf73dbc1b38180b77",
+      "output": [
+        "挡住:blocked:fail:contrast",
+        "未完成:incomplete:untested:speech",
+        "接受:accepted",
+        "空:empty",
+        "优先级挡住:blocked:block"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-04",
+      "sectionId": "play",
+      "language": "javascript",
+      "codeSha256": "8c589ec5d52e1162dd0333e296ab00f20d930f7b5f4f6190604c5c94d10bbbf0",
+      "output": [
+        "失败路径:pending:新标题",
+        "失败路径:busy",
+        "失败路径:rolled-back:草稿",
+        "失败路径:no-undo",
+        "成功路径:pending:新标题",
+        "成功路径:confirmed:新标题:1",
+        "成功路径:undo:草稿:0",
+        "成功路径:no-undo",
+        "成功路径:ignored"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-04",
+      "sectionId": "feedback",
+      "language": "javascript",
+      "codeSha256": "c44193097a7c9d2bf074e783c91ed664f1928e39ac553b8c4b44edf9fbf6afb9",
+      "output": [
+        "等待:status:正在保存:keep-focus",
+        "确认:status:已保存:keep-focus",
+        "回滚:alert:已恢复草稿:keep-focus",
+        "重复:status:请等待:keep-focus",
+        "未知反馈:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-07",
+      "sectionId": "choose",
+      "language": "javascript",
+      "codeSha256": "09a7b5800c29fa6ad596e9a6800817b57071ae7fb342411b69b7d3f62ea8ad50",
+      "output": [
+        "submit:native:button",
+        "notes:native:table",
+        "sheet:grid:arrow-cells",
+        "tabs:tabs:one-tabstop",
+        "editor:editor:mode",
+        "date:native:date",
+        "menu:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-07",
+      "sectionId": "keys",
+      "language": "javascript",
+      "codeSha256": "8873ec56f4869366063da8f35c58ff3383b4f93aa73774ff0d1a85583cae0e39",
+      "output": [
+        "选项卡离开:leave",
+        "选项卡下一项:next",
+        "表格忽略方向键:ignore",
+        "网格下一格:next-cell",
+        "网格离开:leave",
+        "编辑缩进:indent",
+        "退出编辑:navigate",
+        "导航离开:leave",
+        "编辑缺模式:invalid",
+        "按钮激活:activate",
+        "按钮忽略方向键:ignore"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-06",
+      "sectionId": "contrast",
+      "language": "javascript",
+      "codeSha256": "146f69f541d308fca28f170b2c194817c0d50bac51ada028d9ab490f7fadaa29",
+      "output": [
+        "正文黑白:pass:21.00:text",
+        "正文灰:fail:4.48:text",
+        "大字灰:pass:4.48:large",
+        "界面灰:pass:4.48:ui",
+        "同色:fail:1.00:text",
+        "短色:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-06",
+      "sectionId": "motion",
+      "language": "javascript",
+      "codeSha256": "cbc722f0c55e4a62a4ce73acad8c287e62a0cbc572cc64f494d632d1439834f2",
+      "output": [
+        "只看颜色:color-only",
+        "有文字:text:失败",
+        "减少旋转:stopped",
+        "减少淡入:opacity-only",
+        "焦点仍在:visible",
+        "允许旋转:spin",
+        "未知效果:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-03",
+      "sectionId": "review",
+      "language": "javascript",
+      "codeSha256": "9bcf8887ffb30432e16d578594c1e1ff338e001d3a356851a8714c49176305c6",
+      "output": [
+        "空白标题:focus:title|title:标题不能只包含空格",
+        "可保存:saved",
+        "两项错误:focus:title|title:标题不能只包含空格|amount:数量必须是正整数",
+        "只剩数量:focus:amount|amount:数量必须是正整数",
+        "订单保存:saved",
+        "未知类型:invalid",
+        "笔记忽略数量:saved"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-03",
+      "sectionId": "cue",
+      "language": "javascript",
+      "codeSha256": "edd58fcd95fc57324ae536bec035c66f1d7a5abc66e4b840d6c397e1df52d75e",
+      "output": [
+        "只变红:color-only",
+        "未关联:unlinked",
+        "已关联:linked:标题不能只包含空格",
+        "输入中:defer",
+        "提交时:summary",
+        "未知时机:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-01",
+      "sectionId": "native",
+      "language": "javascript",
+      "codeSha256": "719f11f4fd554fa3f0c26479f647b727016ccb49a5e60f7c6f044e827d5f31c7",
+      "output": [
+        "0",
+        "-1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-01",
+      "sectionId": "order",
+      "language": "javascript",
+      "codeSha256": "0379231aa0eda11d46a882e73b90cf1d040832dcae7b42895a580b5e92161bfd",
+      "output": [
+        "-1",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-01",
+      "sectionId": "dialog",
+      "language": "javascript",
+      "codeSha256": "565589690af873e8746ffdb637341e9a446e9f090ec2c479fd87fd8dd45a3721",
+      "output": [
+        "true",
+        "true",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-02",
+      "sectionId": "labels",
+      "language": "javascript",
+      "codeSha256": "cdcd6c12e7d9968c969b16b80132fa9ff4b6a0e70c6e88b4c4eeee0a245dfe4b",
+      "output": [
+        "1",
+        "笔记标题",
+        "true"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-02",
+      "sectionId": "errors",
+      "language": "javascript",
+      "codeSha256": "33fcc9ffe635103c3db070019be8b1f9e122b99afe1868bdd42f2209ca7cbd44",
+      "output": [
+        "true",
+        "true",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-02",
+      "sectionId": "status",
+      "language": "javascript",
+      "codeSha256": "b3aad379a4896e8d86c13e11af539f70b5717cdab45277e15a0417e168366438",
+      "output": [
+        "status",
+        "已保存",
+        "-1"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-05",
+      "sectionId": "target",
+      "language": "javascript",
+      "codeSha256": "9495eb0f785124628404fbda76c433976a4a1678e4ffe3e9421c50ed2397c973",
+      "output": [
+        "够大:ok:24x24",
+        "有间距:spaced:20x20:24",
+        "太小:too-small:20x20:8",
+        "坏尺寸:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K15-05",
+      "sectionId": "reflow",
+      "language": "javascript",
+      "codeSha256": "657d843b3093c24b0a5eeaa62cfa1d4d60d12fe0399f7940982fc5f60dc3c442",
+      "output": [
+        "固定放大:clipped",
+        "改排:stacked",
+        "单轴:one-axis",
+        "表格例外:two-axis-ok",
+        "未知缩放:invalid",
+        "软键盘:above-keyboard",
+        "被挡住:covered",
+        "键盘关闭:full"
+      ],
+      "diagnostics": [],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

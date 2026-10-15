@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K16-03",
+    "sourceHeadingId": "tree",
+    "question": "同一棵笔记树，为什么先序是 notes 开头，后序却是 draft 开头？",
+    "answerPoints": [
+      "先序在进入节点时记录 id",
+      "后序要等每个 child 都访问完才记录",
+      "兄弟顺序来自 children 数组，函数不另排字母"
+    ],
+    "pitfalls": [
+      "用先序去删除父节点，子节点还挂在已经删掉的父级上"
+    ]
+  },
+  {
+    "catalogId": "K16-03",
+    "sourceHeadingId": "cycle",
+    "question": "a 到 b 没有环时，为什么后面的 c 到 c 仍然得到 cycle:c>c？",
+    "answerPoints": [
+      "Map 会继续从未访问的节点开始",
+      "自环指向状态仍为 1 的 c",
+      "前一段返回空字符串时不会挡住后一段"
+    ],
+    "pitfalls": [
+      "第一段无环就不再看图里其余的边"
+    ]
+  },
+  {
+    "catalogId": "K16-03",
+    "sourceHeadingId": "boundaries",
+    "question": "orderTree 为什么不能用来判断目录里有没有回到祖先的边？",
+    "answerPoints": [
+      "它不记录已经见过的 id",
+      "子节点指回祖先时递归不会停",
+      "查环要使用带 0、1、2 三种状态的遍历"
+    ],
+    "pitfalls": [
+      "把菜单树和依赖图交给同一个不记状态的递归"
+    ]
+  },
+  {
+    "catalogId": "K16-04",
+    "sourceHeadingId": "search",
+    "question": "分数 1、2、2、4 里查找 2，为什么结果只有 hit:b？",
+    "answerPoints": [
+      "中点下标是 1，b 的分数正好等于目标",
+      "函数在第一次相等时返回，不继续扫描相邻项",
+      "c 的分数也是 2，但这次不在返回值里"
+    ],
+    "pitfalls": [
+      "把一次命中理解成已经列出全部分数相同的笔记"
+    ]
+  },
+  {
+    "catalogId": "K16-04",
+    "sourceHeadingId": "order",
+    "question": "c 和 a 分数都是 1 时，为什么 stable 得到 c,a，id 模式得到 a,c？",
+    "answerPoints": [
+      "分数不等时两种模式都只看分数",
+      "stable 在相等时保留更小的原始下标",
+      "id 模式在相等时比较 id 字符串"
+    ],
+    "pitfalls": [
+      "分数没变，却把 id 次序的变化解释成排名变了"
+    ]
+  },
+  {
+    "catalogId": "K16-04",
+    "sourceHeadingId": "boundaries",
+    "question": "列表里分数有一处下降时，为什么必须返回 unsorted 而不是 miss？",
+    "answerPoints": [
+      "折半假设中点两侧相对目标有序",
+      "下降时这个假设不成立，函数在查找前停止",
+      "miss 只用于有序列表里没有目标"
+    ],
+    "pitfalls": [
+      "在乱序分数上继续折半，再把 miss 当成数据里真的没有"
+    ]
+  },
+  {
+    "catalogId": "K16-05",
+    "sourceHeadingId": "pair",
+    "question": "1、2、4、7 找和为 6 时，为什么右端会先离开 7？",
+    "answerPoints": [
+      "下标 0 与 3 的和是 8，大于目标",
+      "有序时当前右端配更大的左端只会更大",
+      "所以右端减一，之后才比较 1 与 4"
+    ],
+    "pitfalls": [
+      "和已经太大时仍把左端向右移，漏掉更小的左端"
+    ]
+  },
+  {
+    "catalogId": "K16-05",
+    "sourceHeadingId": "window",
+    "question": "abca 得到 abc，为什么同样长度的 bca 没有替换它？",
+    "answerPoints": [
+      "第二个 a 把左端推到 b，新窗口是 bca",
+      "只有新片段更长时才写入 best",
+      "长度相同保留最先得到的 abc"
+    ],
+    "pitfalls": [
+      "为了试试更早的起点，把左端再减回去"
+    ]
+  },
+  {
+    "catalogId": "K16-05",
+    "sourceHeadingId": "boundaries",
+    "question": "数组有一处下降时，为什么不能继续用两端收拢？",
+    "answerPoints": [
+      "和太小就放弃左端，依赖更靠右的值更大",
+      "和太大就放弃右端，依赖更靠左的值更小",
+      "一旦下降，这两个放弃理由都不成立"
+    ],
+    "pitfalls": [
+      "先算出未排序数组两端的和，把它当成唯一候选"
+    ]
+  },
+  {
+    "catalogId": "K16-06",
+    "sourceHeadingId": "match",
+    "question": "([)] 的左右括号数量都平衡，为什么结果仍是 mismatch？",
+    "answerPoints": [
+      "右圆括号出现时栈顶是左方括号",
+      "右括号必须关掉栈顶，而不是任意一个左括号",
+      "数量相等没有检查这个嵌套顺序"
+    ],
+    "pitfalls": [
+      "只统计每种括号的个数，交叉也当成平衡"
+    ]
+  },
+  {
+    "catalogId": "K16-06",
+    "sourceHeadingId": "undo",
+    "question": "撤销到 a 之后又输入 c，为什么接着 redo 得到 blocked？",
+    "answerPoints": [
+      "type 在追加字符前清空重做栈",
+      "被撤销的 b 已经不在重做栈里",
+      "redo:blocked 表示当前分支没有可重做的文本"
+    ],
+    "pitfalls": [
+      "新输入之后仍能重做出已经放弃的 b"
+    ]
+  },
+  {
+    "catalogId": "K16-06",
+    "sourceHeadingId": "boundaries",
+    "question": "为什么 undo:blank 和 undo:blocked 不能写成同一句？",
+    "answerPoints": [
+      "blank 是恢复出来的空字符串，栈里刚才还有这份快照",
+      "blocked 是撤销栈已经空了，没有更早的文本",
+      "空文档本身可以是一次有效的撤销结果"
+    ],
+    "pitfalls": [
+      "看到空文本就认为撤销键已经按到底"
+    ]
+  },
+  {
+    "catalogId": "K16-07",
+    "sourceHeadingId": "frames",
+    "question": "4 条笔记的拆法是 5 种时，这个 5 是由哪两个状态相加的？",
+    "answerPoints": [
+      "最后一帧带走一条时，前面是 3 条的 3 种",
+      "最后一帧带走两条时，前面是 2 条的 2 种",
+      "5 是这两种互斥接法的和，不是方案列表"
+    ],
+    "pitfalls": [
+      "只记住数列的下一项，说不出最后一帧带走了几条"
+    ]
+  },
+  {
+    "catalogId": "K16-07",
+    "sourceHeadingId": "pick",
+    "question": "预算是 4 时为什么选 a 和 b，预算是 3 时却改成 c？",
+    "answerPoints": [
+      "a 与 b 的价值和是 5，耗时正好 4",
+      "预算 3 放不下这两条，c 的价值 4 更高",
+      "只有新价值严格更大才替换已有组合"
+    ],
+    "pitfalls": [
+      "预算变小之后仍返回 a,b"
+    ]
+  },
+  {
+    "catalogId": "K16-07",
+    "sourceHeadingId": "boundaries",
+    "question": "ways:5 为什么还不能拿来安排每一帧带走哪些笔记？",
+    "answerPoints": [
+      "这个状态只保存方法数",
+      "具体帧的切分没有写进返回值",
+      "要回答选了谁，状态里必须另存 id"
+    ],
+    "pitfalls": [
+      "把方法数直接当成一份调度表"
+    ]
+  },
+  {
+    "catalogId": "K16-08",
+    "sourceHeadingId": "list",
+    "question": "a、b、c 变成 a、c、d 时，为什么按键结果不是两处替换？",
+    "answerPoints": [
+      "按位置会把 b 换成 c、再把 c 换成 d",
+      "按键只看 id 是否还在",
+      "b 消失、d 出现，a 和 c 都保留"
+    ],
+    "pitfalls": [
+      "用下标对齐来复用行状态，移动一行就清掉后面的输入"
+    ]
+  },
+  {
+    "catalogId": "K16-08",
+    "sourceHeadingId": "work",
+    "question": "同样是 21 条笔记，为什么查一次是 scan，查两次变成 index？",
+    "answerPoints": [
+      "笔记数不超过 20 时始终扫描",
+      "查询次数不超过 1 时也不建索引",
+      "21 条且查询至少两次才返回 index"
+    ],
+    "pitfalls": [
+      "把 20 和 1 写成某次搜索测出来的耗时门槛"
+    ]
+  },
+  {
+    "catalogId": "K16-08",
+    "sourceHeadingId": "boundaries",
+    "question": "换位得到 keep 时，为什么还不能用它做移动动画？",
+    "answerPoints": [
+      "key 模式只报告消失和新出现的 id",
+      "两个 id 都在时结果是 keep",
+      "它没有写出每个 id 的新旧下标"
+    ],
+    "pitfalls": [
+      "看到 keep 就认为顺序没有变化"
+    ]
+  }
+]

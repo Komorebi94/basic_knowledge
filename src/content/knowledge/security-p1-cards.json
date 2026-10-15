@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K11-03",
+    "sourceHeadingId": "decision",
+    "question": "策略里已有 nonce 时，为什么没有 nonce 的内联脚本不能靠 unsafe-inline 运行？",
+    "answerPoints": [
+      "名单中的 nonce 或哈希使策略进入严格来源",
+      "unsafe-inline 在这种名单里被忽略",
+      "内联脚本必须带上匹配的 nonce 或哈希"
+    ],
+    "pitfalls": [
+      "同时写上 nonce 和 unsafe-inline，以为后者仍是兜底"
+    ]
+  },
+  {
+    "catalogId": "K11-03",
+    "sourceHeadingId": "report",
+    "question": "同一条 blocked 决定在 report-only 和 enforce 下有什么不同？",
+    "answerPoints": [
+      "report-only 返回 run-and-report，脚本仍运行",
+      "enforce 返回 block，脚本不运行",
+      "报告模式用来观察，不是已经生效的限制"
+    ],
+    "pitfalls": [
+      "只部署 Report-Only 就认为违规脚本不会执行"
+    ]
+  },
+  {
+    "catalogId": "K11-03",
+    "sourceHeadingId": "boundaries",
+    "question": "script-src 允许 self 时，为什么仍不能说明页面不会执行恶意脚本？",
+    "answerPoints": [
+      "本源上的脚本仍然允许执行",
+      "CSP 约束来源，不代替各输出上下文的编码",
+      "它也不检查订单是否属于当前用户"
+    ],
+    "pitfalls": [
+      "用一条 CSP 通过记录代替授权测试"
+    ]
+  },
+  {
+    "catalogId": "K11-04",
+    "sourceHeadingId": "install",
+    "question": "注册表和哈希都正确、但包带有 postinstall 时，模型为什么不返回 install？",
+    "answerPoints": [
+      "哈希只说明字节与锁文件一致",
+      "安装脚本会在安装环境中执行",
+      "结果是 needs-review，还要另做行为复核"
+    ],
+    "pitfalls": [
+      "把完整性匹配当成允许执行安装脚本"
+    ]
+  },
+  {
+    "catalogId": "K11-04",
+    "sourceHeadingId": "runtime",
+    "question": "经典脚本只声明需要 measure 时，为什么结果仍是 page-origin？",
+    "answerPoints": [
+      "经典脚本与页面共享文档和源",
+      "函数不按请求名单缩小这种加载方式",
+      "只有沙箱框架才会拒绝名单外的 document"
+    ],
+    "pitfalls": [
+      "在页面脚本旁边写一份能力数组，就认为浏览器会遵守"
+    ]
+  },
+  {
+    "catalogId": "K11-04",
+    "sourceHeadingId": "boundaries",
+    "question": "子资源完整性核对通过后，为什么第三方脚本仍可能读到页面数据？",
+    "answerPoints": [
+      "完整性回答字节是不是这一份",
+      "页面里的经典脚本仍共享文档",
+      "数据范围要由加载方式和发送内容单独限制"
+    ],
+    "pitfalls": [
+      "用哈希字段代替 CSP 和沙箱"
+    ]
+  },
+  {
+    "catalogId": "K11-05",
+    "sourceHeadingId": "fields",
+    "question": "Authorization 放在 headers 里面时，替换函数为什么仍能去掉它？",
+    "answerPoints": [
+      "函数会进入普通对象",
+      "键名不区分大小写，authorization 在名单里",
+      "命中后整值替换，不再保留原来的 Bearer 文本"
+    ],
+    "pitfalls": [
+      "只遍历顶层，认为嵌套头字段已经安全"
+    ]
+  },
+  {
+    "catalogId": "K11-05",
+    "sourceHeadingId": "urls",
+    "question": "记录回跳地址前，code 参数应变成什么？",
+    "answerPoints": [
+      "https 地址才进入替换",
+      "code 的值设为 [redacted]，再由 URL 序列化编码",
+      "http 地址直接 rejected，不输出原始查询"
+    ],
+    "pitfalls": [
+      "先把完整回调地址写进日志，之后再希望替换来得及"
+    ]
+  },
+  {
+    "catalogId": "K11-05",
+    "sourceHeadingId": "boundaries",
+    "question": "令牌字段被替换后，为什么订单正文仍不一定可以永久保存？",
+    "answerPoints": [
+      "替换只覆盖名单内的凭据形状",
+      "用户编号和订单内容是否可保存要另做分类",
+      "不同接收者的保留期限也不相同"
+    ],
+    "pitfalls": [
+      "键名不叫 token 时仍以为函数能认出令牌"
+    ]
+  },
+  {
+    "catalogId": "K11-06",
+    "sourceHeadingId": "next",
+    "question": "完整的本源订单地址通过校验后，导航函数拿到的是什么？",
+    "answerPoints": [
+      "origin 必须等于允许的 https 本源",
+      "返回值只保留路径和查询",
+      "主机不再交回后续导航"
+    ],
+    "pitfalls": [
+      "用主机字符串的前缀相同判断 notes.example.evil.example 属于本源"
+    ]
+  },
+  {
+    "catalogId": "K11-06",
+    "sourceHeadingId": "purpose",
+    "question": "同一个 //evil.example/docs 为什么在 next 和 reference 下结果不同？",
+    "answerPoints": [
+      "next 要求解析后的 origin 仍是本源",
+      "reference 接受其他 https 主机",
+      "未知用途即使属于本源也要拒绝"
+    ],
+    "pitfalls": [
+      "让登录后的自动跳转复用参考链接的判断"
+    ]
+  },
+  {
+    "catalogId": "K11-06",
+    "sourceHeadingId": "boundaries",
+    "question": "safeNext 返回本源订单路径时，为什么还不能打开那份订单？",
+    "answerPoints": [
+      "返回值只说明跳转没有离开本源",
+      "订单是否属于当前用户仍要服务端授权",
+      "外链即使允许，也不应携带会话或授权码"
+    ],
+    "pitfalls": [
+      "用跳转校验代替资源权限"
+    ]
+  },
+  {
+    "catalogId": "K11-07",
+    "sourceHeadingId": "origin",
+    "question": "https://notes.example/a 和带有 :443 的地址为什么是同一源？",
+    "answerPoints": [
+      "https 的默认端口是 443",
+      "URL 解析器比较的是规范后的 origin",
+      "子域或协议不同则不是同一源"
+    ],
+    "pitfalls": [
+      "把同一注册域或同一站点当成可以互相读取 DOM"
+    ]
+  },
+  {
+    "catalogId": "K11-07",
+    "sourceHeadingId": "sandbox",
+    "question": "同源框架同时带有 allow-scripts 和 allow-same-origin 时，sandbox 还隔离吗？",
+    "answerPoints": [
+      "两项同时授予且框架属于父源",
+      "模型结果是 not-a-boundary",
+      "需要隔离时应换源，或不要同时打开这两项"
+    ],
+    "pitfalls": [
+      "把这两个标记当成更安全的组合"
+    ]
+  },
+  {
+    "catalogId": "K11-07",
+    "sourceHeadingId": "message",
+    "question": "消息数据里的 orderId 正确，但 origin 不同，为什么仍要拒绝？",
+    "answerPoints": [
+      "先比较事件 origin 和预期源",
+      "来源不符时不接受其中的业务字段",
+      "来源正确但订单号不是非空字符串则是 invalid"
+    ],
+    "pitfalls": [
+      "改信 data 里面自报的来源"
+    ]
+  },
+  {
+    "catalogId": "K11-08",
+    "sourceHeadingId": "gate",
+    "question": "清单里只有一项已通过的 https、且没有威胁编号时，门禁返回什么？",
+    "answerPoints": [
+      "空的 threat 会被过滤掉",
+      "没有任何威胁项时返回 no-threat-tests",
+      "不能把填完的表当成 passed"
+    ],
+    "pitfalls": [
+      "一项失败时仍因为其他项通过而放行"
+    ]
+  },
+  {
+    "catalogId": "K11-08",
+    "sourceHeadingId": "case",
+    "question": "只留下 other-owner-rejected 时，订单页案例还缺什么？",
+    "answerPoints": [
+      "固定名单还有 redirect-rejected 和 token-redacted",
+      "函数返回这两项组成的 gap",
+      "三项名称都在才是 covered，且名称不等于断言已经正确"
+    ],
+    "pitfalls": [
+      "用测试名称代替对拒绝结果的断言"
+    ]
+  },
+  {
+    "catalogId": "K11-08",
+    "sourceHeadingId": "boundaries",
+    "question": "三份证据都标成 covered 时，为什么还不能说嵌入框架已经隔离？",
+    "answerPoints": [
+      "这个案例只列了授权、跳转和日志",
+      "CSP、第三方脚本和框架不在这三份证据里",
+      "报告要写明没有覆盖的边界"
+    ],
+    "pitfalls": [
+      "让旧的 covered 自动适用于新增的预览链接或日志接收者"
+    ]
+  }
+]

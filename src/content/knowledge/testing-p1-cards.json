@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K12-03",
+    "sourceHeadingId": "review",
+    "question": "主张是保存合同时，为什么记录了调用的 spy 仍返回 call-only？",
+    "answerPoints": [
+      "spy 没有执行对端的保存规则",
+      "调用次数不能证明字段和状态码",
+      "保存合同需要 fake 或真实交换，且响应形状是 status-id"
+    ],
+    "pitfalls": [
+      "断言 save 被调用过，就写成存储合同已经验证"
+    ]
+  },
+  {
+    "catalogId": "K12-03",
+    "sourceHeadingId": "fake",
+    "question": "固定成功替身遇到没有 id 的笔记时，为什么仍返回 201？",
+    "answerPoints": [
+      "cannedSave 不读取传入的笔记",
+      "内存假实现会先拒绝空 id，返回 400",
+      "替身因此藏住缺字段、冲突和超长"
+    ],
+    "pitfalls": [
+      "用始终成功的返回值检查保存规则"
+    ]
+  },
+  {
+    "catalogId": "K12-03",
+    "sourceHeadingId": "boundaries",
+    "question": "内存假实现返回 in-memory-contract 时，为什么还不能证明刷新后笔记还在？",
+    "answerPoints": [
+      "Map 没有持久化、配额和跨标签冲突",
+      "假实现只覆盖本篇写下的字段和状态码",
+      "刷新后的读回需要真实或足够接近的存储"
+    ],
+    "pitfalls": [
+      "把内存保存通过写成浏览器数据库已经验证"
+    ]
+  },
+  {
+    "catalogId": "K12-04",
+    "sourceHeadingId": "debounce",
+    "question": "防抖在 99 毫秒时改写成 b，为什么保存列表里没有 a？",
+    "answerPoints": [
+      "99 毫秒还没到第一次回调",
+      "改写会取消上一个计时器并重新计 100 毫秒",
+      "到期后只有 b 被写入"
+    ],
+    "pitfalls": [
+      "真实睡 100 毫秒后只断言保存了一次，不看边界前和改写"
+    ]
+  },
+  {
+    "catalogId": "K12-04",
+    "sourceHeadingId": "retry",
+    "question": "等待中的取消只把标记设为 true 时，为什么推进后仍返回 late？",
+    "answerPoints": [
+      "计时器还在时钟队列里",
+      "advance 到期后仍会调用回调",
+      "正确的取消还要从队列移除该 id"
+    ],
+    "pitfalls": [
+      "只断言取消标记，不检查之后的推进没有副作用"
+    ]
+  },
+  {
+    "catalogId": "K12-04",
+    "sourceHeadingId": "boundaries",
+    "question": "虚拟时钟把两个回调按 id 排好后，为什么还不能说明浏览器也会这样调度？",
+    "answerPoints": [
+      "模型在 advance 里同步运行回调",
+      "它没有微任务、渲染帧、最小延迟和后台节流",
+      "平台顺序需要目标浏览器上的证据"
+    ],
+    "pitfalls": [
+      "用 advance 的结果代替真实事件循环"
+    ]
+  },
+  {
+    "catalogId": "K12-05",
+    "sourceHeadingId": "query",
+    "question": "页面只有 class 为 btn 的 div 时，为什么类选择器找到了、按钮选择器找不到？",
+    "answerPoints": [
+      "类选择器匹配的是实现留下的 class",
+      "该 div 不是 button，也不能聚焦",
+      "查询应使用角色和可访问名称"
+    ],
+    "pitfalls": [
+      "querySelector('.btn') 能点到就认为键盘用户也能保存"
+    ]
+  },
+  {
+    "catalogId": "K12-05",
+    "sourceHeadingId": "keyboard",
+    "question": "aria-disabled 的角色按钮仍然可聚焦时，Enter 为什么还是 closed:ignored？",
+    "answerPoints": [
+      "aria-disabled 不移除 Tab 顺序",
+      "press 把 disabled 为 true 的激活忽略",
+      "测试要同时记录可聚焦和激活被拒绝"
+    ],
+    "pitfalls": [
+      "只断言元素禁用，不检查键盘是否还能停在上面"
+    ]
+  },
+  {
+    "catalogId": "K12-05",
+    "sourceHeadingId": "boundaries",
+    "question": "describeControl 返回 button|保存|enabled|focusable 时，为什么还不能说对话框的焦点顺序已经合格？",
+    "answerPoints": [
+      "函数只读角色、名称、禁用和一种可聚焦判断",
+      "它不计算完整的可访问名称，也不移动焦点",
+      "焦点顺序和朗读需要目标页面上的检查"
+    ],
+    "pitfalls": [
+      "用一行控件记录代替人工键盘走查"
+    ]
+  },
+  {
+    "catalogId": "K12-06",
+    "sourceHeadingId": "isolation",
+    "question": "用例 B 在断言之后才清空共享库，为什么记录仍是 B:n1？",
+    "answerPoints": [
+      "B 读取时 A 写入的 n1 还在",
+      "cleanup 发生在本次记录之后",
+      "清理要在上一个用例断言之后，或让 B 使用自己的库"
+    ],
+    "pitfalls": [
+      "在断言前清空，导致本次没检查到自己的数据；或在读到共享数据后才清空"
+    ]
+  },
+  {
+    "catalogId": "K12-06",
+    "sourceHeadingId": "flake",
+    "question": "第一次是共享状态失败、重试通过时，为什么结果不是 passed？",
+    "answerPoints": [
+      "分类先看第一次结果",
+      "重试通过只说明失败被盖住，返回 masked:shared-state",
+      "产品断言失败即使重试通过也仍是 product"
+    ],
+    "pitfalls": [
+      "重试变绿后丢掉第一次失败现场"
+    ]
+  },
+  {
+    "catalogId": "K12-06",
+    "sourceHeadingId": "boundaries",
+    "question": "runPlan 把两个用例隔离成 A:n1,B:empty 时，为什么还不能说浏览器上下文已经隔离？",
+    "answerPoints": [
+      "模型只换了一份新的 Map",
+      "它没有登录、网络和页面存储",
+      "真实隔离要确认下一个用例读不到上一个账号的数据"
+    ],
+    "pitfalls": [
+      "用内存计划的通过代替端到端环境证据"
+    ]
+  },
+  {
+    "catalogId": "K12-07",
+    "sourceHeadingId": "property",
+    "question": "去重结果为空数组时，为什么“没有重复”这个属性不够？",
+    "answerPoints": [
+      "空数组确实没有重复项",
+      "它丢掉了输入里的不同值，检查应返回 dropped",
+      "还要拒绝打乱首次顺序和发明新值"
+    ],
+    "pitfalls": [
+      "只断言输出项互异，就接受空结果"
+    ]
+  },
+  {
+    "catalogId": "K12-07",
+    "sourceHeadingId": "mutation",
+    "question": "目标只有 0、4 和 6 时，为什么把 >= 改成 > 仍然 survived？",
+    "answerPoints": [
+      "这三个目标上两种比较符返回同一下标",
+      "目标 3 的正确下界是 1，改成 > 后变成 3",
+      "suite 加入 3 才返回 killed"
+    ],
+    "pitfalls": [
+      "用没有重复值的目标认为比较符已经被测试覆盖"
+    ]
+  },
+  {
+    "catalogId": "K12-07",
+    "sourceHeadingId": "boundaries",
+    "question": "suite 返回 killed 时，为什么还不能说下界查找的参考实现已经正确？",
+    "answerPoints": [
+      "suite 只比较 >= 版本和 > 版本是否不同",
+      "两个版本可以一起写错并得到相同结果",
+      "小数组仍要用手工索引，例如目标 3 对应下标 1"
+    ],
+    "pitfalls": [
+      "把变异被杀死写成所有实现缺陷都已发现"
+    ]
+  },
+  {
+    "catalogId": "K12-08",
+    "sourceHeadingId": "gate",
+    "question": "类型已经失败、测试仍是 skipped 时，为什么摘要是 incomplete:tests？",
+    "answerPoints": [
+      "模型先收集没有运行的项目",
+      "有跳过项时不把同一份记录里的 fail 放进摘要",
+      "tests 有 pass 或 fail 之后，类型失败才会变成 failed:types"
+    ],
+    "pitfalls": [
+      "测试被跳过时，因为类型格子里有 fail 就把门禁说成已经完成"
+    ]
+  },
+  {
+    "catalogId": "K12-08",
+    "sourceHeadingId": "claim",
+    "question": "测试结果是 supports behavior 时，为什么 wrong-type 仍是 outside？",
+    "answerPoints": [
+      "测试只支持行为和已覆盖的边界",
+      "类型错误要由类型检查支持",
+      "一类检查的通过不能填到另一类结论上"
+    ],
+    "pitfalls": [
+      "测试全绿后把类型检查也写成已经证明"
+    ]
+  },
+  {
+    "catalogId": "K12-08",
+    "sourceHeadingId": "boundaries",
+    "question": "四格都填了 pass 时，为什么还不能说这次合并已经覆盖安全和性能？",
+    "answerPoints": [
+      "gate 不执行命令，pass 只是格子里的值",
+      "supports 的表没有安全和行为之外的性能结论",
+      "表外结论需要各自的证据，不能从四格通过推断"
+    ],
+    "pitfalls": [
+      "用门禁摘要代替原始日志和未列入的检查"
+    ]
+  }
+]

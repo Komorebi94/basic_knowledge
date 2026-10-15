@@ -4,11 +4,11 @@ import { Layout } from "./Layout";
 import { NotFoundPage } from "./pages";
 const KnowledgeMapPage = lazy(() => import("../features/knowledge/KnowledgePages").then((m) => ({default:m.KnowledgeMapPage})));
 const KnowledgeDomainPage = lazy(() => import("../features/knowledge/KnowledgePages").then((m) => ({default:m.KnowledgeDomainPage})));
-const KnowledgeArticlePage = lazy(() => import("../features/knowledge/KnowledgePages").then((m) => ({default:m.KnowledgeArticlePage})));
+const KnowledgeArticlePage = lazy(() => import("../content/ArticleRoute").then((m) => ({default:m.KnowledgeArticlePage})));
 const PracticeListPage = lazy(() => import("../features/practice/PracticePages").then((m) => ({default:m.PracticeListPage})));
 const PracticeWorkspacePage = lazy(() => import("../features/practice/PracticePages").then((m) => ({default:m.PracticeWorkspacePage})));
 const AiHomePage = lazy(() => import("../features/ai/AiPages").then((m) => ({default:m.AiHomePage})));
-const AiArticlePage = lazy(() => import("../features/ai/AiPages").then((m) => ({default:m.AiArticlePage})));
+const AiArticlePage = lazy(() => import("../content/ArticleRoute").then((m) => ({default:m.AiArticlePage})));
 const SearchPage = lazy(() => import("./SearchPage").then((m) => ({default:m.SearchPage})));
 function page(child:ReactNode) { return <Suspense fallback={<p role="status">正在载入页面……</p>}>{child}</Suspense>; }
 function RouteFailure() {

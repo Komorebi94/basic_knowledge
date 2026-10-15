@@ -1,0 +1,278 @@
+{
+  "verifiedAt": "2026-10-14T06:19:04.114Z",
+  "browser": "155.0.8059.40",
+  "articleIds": [
+    "K14-04",
+    "K14-01",
+    "K14-07",
+    "K14-02",
+    "K14-08",
+    "K14-06",
+    "K14-05",
+    "K14-03"
+  ],
+  "examples": 18,
+  "browserExamples": 18,
+  "nodeExamples": 0,
+  "strictTypeScriptExamples": 0,
+  "evidence": [
+    {
+      "articleId": "K14-04",
+      "sectionId": "aggregate",
+      "language": "javascript",
+      "codeSha256": "02e89d28996422cb6a165d4c496cab057d94ae6ffdbd481aef65e126f59fafd4",
+      "output": [
+        "别人:denied",
+        "转发令牌:token-not-forwarded",
+        "聚合:ok:草稿+订单",
+        "超时:timeout:草稿",
+        "部分:partial:草稿"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-04",
+      "sectionId": "shape",
+      "language": "javascript",
+      "codeSha256": "6647812ade22515605c2b6201c21025e23c415d43d17692474a6c296c1d0dcdc",
+      "output": [
+        "整形:{\"title\":\"草稿\",\"updated\":\"10-14\"}",
+        "缺标题:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-01",
+      "sectionId": "problem",
+      "language": "javascript",
+      "codeSha256": "4c35ecf53b72bee54c3d008b163a69912650b74f241d3c046cae2e1eabedbcfe",
+      "output": [
+        "object",
+        "object",
+        "object",
+        "undefined",
+        "function"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-01",
+      "sectionId": "pure",
+      "language": "javascript",
+      "codeSha256": "794eb187323473761795518b73a0511a4ee0b0ec03ebdbb84c3c8236259bf268",
+      "output": [
+        "闭包 · 知识",
+        "知识",
+        "TypeError"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-01",
+      "sectionId": "scheduling",
+      "language": "javascript",
+      "codeSha256": "2317b6136baea29e385536e5852fc2077114ce8ba3a7bc9c8296867cd93bc5a3",
+      "output": [
+        "sync,end,promise,microtask"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-07",
+      "sectionId": "capability",
+      "language": "javascript",
+      "codeSha256": "331ec9bfc1cf586bc1a9a180d37d838e967cc2b3069e1f6c1b33e17b6b37b1fc",
+      "output": [
+        "边缘文件:unsupported",
+        "节点文件:allowed",
+        "边缘长连接:unsupported",
+        "节点长连接:allowed",
+        "边缘跳转:allowed",
+        "边缘个性化:allowed",
+        "节点个性化:origin",
+        "未知:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-07",
+      "sectionId": "start",
+      "language": "javascript",
+      "codeSha256": "58b58c1ee76c12009faad7d741f86307097a5a98e8f09fef35b7287bdd619b90",
+      "output": [
+        "空闲边缘:cold-start",
+        "空闲节点:process-kept",
+        "正在用:warm",
+        "负数:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-02",
+      "sectionId": "timeline",
+      "language": "javascript",
+      "codeSha256": "78eda54d0f4d8750d28d937d16e29017bcc0a36b40c77f13bd2e29359b45a933",
+      "output": [
+        "8",
+        "5",
+        "3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-02",
+      "sectionId": "first-state",
+      "language": "javascript",
+      "codeSha256": "692b4e1aec54e42247ca585c7c33c520c5282c25270ba83e4dff52264ea7446e",
+      "output": [
+        "false",
+        "true",
+        "笔记:3"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-02",
+      "sectionId": "cache",
+      "language": "javascript",
+      "codeSha256": "d22f8651adae458f271929df819b429ae298d5cf9cc92e9c89fee7b64bf85af7",
+      "output": [
+        "notes-for-A",
+        "notes-for-A",
+        "false"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-08",
+      "sectionId": "record",
+      "language": "javascript",
+      "codeSha256": "41eb186a2a7943d0c46940e342fff1b15f913723e508998e015b71b9d8e9451c",
+      "output": [
+        "无编号:missing-id",
+        "令牌:secret",
+        "日志:log:req-1:saved",
+        "指标:metric:notes:req-1",
+        "跨度:span:req-1:bff",
+        "根跨度:span:req-1:root"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-08",
+      "sectionId": "trace",
+      "language": "javascript",
+      "codeSha256": "f1d5d81115b474ff3c4fefab61d63d44f68d91b54df67f218c303cb57fa28c6b",
+      "output": [
+        "同一条:linked:req-1",
+        "拆开:split",
+        "空:empty"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-06",
+      "sectionId": "private",
+      "language": "javascript",
+      "codeSha256": "b41f3d0796c88769ff84eed24246c70a99a463e6706120f5582f58a9759f3ba5",
+      "output": [
+        "私有写入:stored",
+        "本人:hit:草稿",
+        "他人:miss",
+        "无身份:refused",
+        "坏路径:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-06",
+      "sectionId": "public",
+      "language": "javascript",
+      "codeSha256": "a4ee672315bc5951ba23d2128e8ce10366d6e0d8e39a05457af8206234520e1d",
+      "output": [
+        "误公开:stored",
+        "公开命中:hit:草稿",
+        "样式:stored",
+        "样式命中:hit:body{}"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-05",
+      "sectionId": "slots",
+      "language": "javascript",
+      "codeSha256": "03e3c02e9f498d0ab1c0c3a43c29cbcdcc2dd73dba032ebc40978b30f6dd1837",
+      "output": [
+        "外壳失败:abort",
+        "部分:shell,notes,orders:hole",
+        "空列表:abort"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-05",
+      "sectionId": "resume",
+      "language": "javascript",
+      "codeSha256": "39c68fa891ea156cca06d47ffcecc339f562388aef195b9713464af721df604b",
+      "output": [
+        "只有壳:visible-only",
+        "脚本:interactive",
+        "接续:resumed",
+        "未知:invalid"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-03",
+      "sectionId": "queue",
+      "language": "javascript",
+      "codeSha256": "5afd094e21cae693f839e2e165ae1c1d4bde0ace4f030f047787f03307d12bf9",
+      "output": [
+        "入队:queued:1",
+        "再入:queued:2",
+        "堵住:backpressure",
+        "取出:data:aa",
+        "补入:queued:2",
+        "关闭:closing",
+        "继续:data:bb/data:cc/done",
+        "关闭后再写:closed",
+        "释放:released:0/released",
+        "未读释放:released:2/released"
+      ],
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "articleId": "K14-03",
+      "sectionId": "memory",
+      "language": "javascript",
+      "codeSha256": "3c44008786c6b0ff1dfb87b6bd74a2a22b43d6b8021fd2d0b6097797cf5300d7",
+      "output": [
+        "整段:exceeded:6",
+        "刚好:buffered:4",
+        "逐块:held:2/seen:6"
+      ],
+      "diagnostics": [],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Only author-maintained examples; no model API or live backend validation"
+  ]
+}

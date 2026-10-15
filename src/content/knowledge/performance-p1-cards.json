@@ -1,0 +1,236 @@
+[
+  {
+    "catalogId": "K10-03",
+    "sourceHeadingId": "discovery",
+    "question": "主图只出现在 CSS 背景里时，为什么检查 img 不够？",
+    "answerPoints": [
+      "DOM 里没有带 src 的 img",
+      "URL 写在样式文本中，选择器看不到它就是图像资源",
+      "要提前请求，需要单独的预加载或改成实际的 img"
+    ],
+    "pitfalls": [
+      "把 DOMParser 的元素结果当成流式发现时间"
+    ]
+  },
+  {
+    "catalogId": "K10-03",
+    "sourceHeadingId": "blocking",
+    "question": "阻塞脚本还在解析路径上时，预加载为什么仍能改变主图起点？",
+    "answerPoints": [
+      "预加载把下载起点定为解析开始",
+      "后续 img 不再用当前解析时钟覆盖已有起点",
+      "脚本成本仍然存在，只是不再推迟这张图"
+    ],
+    "pitfalls": [
+      "把模型单位直接写成浏览器毫秒"
+    ]
+  },
+  {
+    "catalogId": "K10-03",
+    "sourceHeadingId": "fonts",
+    "question": "font-display 为 block 且字体 400ms 才到，文字首次绘制发生在何时？",
+    "answerPoints": [
+      "块周期内不先画后备文字",
+      "字体到达时才绘制，结果是 paint:400",
+      "swap 则会在 0 先画后备字体"
+    ],
+    "pitfalls": [
+      "认为字体文件一到，所有 font-display 都会立刻替换"
+    ]
+  },
+  {
+    "catalogId": "K10-04",
+    "sourceHeadingId": "window",
+    "question": "视口高度为 0 或列表为空时，窗口函数应返回什么？",
+    "answerPoints": [
+      "在做除法前返回空窗口",
+      "起点、终点和偏移都是 0",
+      "非法行高要拒绝，而不是夹成一个可见行"
+    ],
+    "pitfalls": [
+      "用滚动超过末尾的原始 scrollTop 直接除行高"
+    ]
+  },
+  {
+    "catalogId": "K10-04",
+    "sourceHeadingId": "identity",
+    "question": "订单从 A、B 重排成 B、A 后，为什么下标 0 仍可能显示 A 的草稿？",
+    "answerPoints": [
+      "草稿存在位置 0，而不是订单 id",
+      "重排后位置 0 已经是 B",
+      "应按身份保存状态，节点下标只用于取复用节点"
+    ],
+    "pitfalls": [
+      "把节点数量变少当成状态跟随身份的证据"
+    ]
+  },
+  {
+    "catalogId": "K10-04",
+    "sourceHeadingId": "variable",
+    "question": "第 0 行实际高 40 时，固定行高 20 会把第 1 行放在哪里？",
+    "answerPoints": [
+      "固定公式给出偏移 20",
+      "真实起点是前面行高之和 40",
+      "高度变化后不能继续使用旧的固定行高"
+    ],
+    "pitfalls": [
+      "用平均行高掩盖已经测到的高度差"
+    ]
+  },
+  {
+    "catalogId": "K10-05",
+    "sourceHeadingId": "key",
+    "question": "同一订单 URL 只差一个片段时，为什么教学缓存键仍然相同？",
+    "answerPoints": [
+      "键使用去掉片段后的 URL",
+      "Vary 相关请求头的值不同才会分成两个键",
+      "未加密来源在本例中被拒绝"
+    ],
+    "pitfalls": [
+      "漏掉一个 Vary 头后仍认为两份响应可以共用"
+    ]
+  },
+  {
+    "catalogId": "K10-05",
+    "sourceHeadingId": "freshness",
+    "question": "年龄落在 stale-while-revalidate 窗口内时，可以做什么，不可以做什么？",
+    "answerPoints": [
+      "可以先使用旧响应",
+      "同时需要重新验证",
+      "没有该指令时，超过 max-age 就是 expired"
+    ],
+    "pitfalls": [
+      "把陈旧窗口理解成可以跳过验证或共享私有响应"
+    ]
+  },
+  {
+    "catalogId": "K10-05",
+    "sourceHeadingId": "budget",
+    "question": "预算为 100 时，为什么先接受两张 40 字节的预取会挡住 80 字节主图？",
+    "answerPoints": [
+      "预算按队列顺序占用",
+      "后来的主图放不下时被跳过",
+      "函数不会撤销已经接受的预取"
+    ],
+    "pitfalls": [
+      "认为只要单项不超过预算，关键资源最终都会被接受"
+    ]
+  },
+  {
+    "catalogId": "K10-06",
+    "sourceHeadingId": "measure",
+    "question": "左右模块各依赖一份格式化函数时，产物为什么比共享一份更大？",
+    "answerPoints": [
+      "两个模块 id 不同，标记会各出现一次",
+      "共享依赖时源码标记只保留一处",
+      "运行两次只说明调用次数，不说明复制了两份源码"
+    ],
+    "pitfalls": [
+      "用运行结果里出现两次前缀证明依赖被打包了两次"
+    ]
+  },
+  {
+    "catalogId": "K10-06",
+    "sourceHeadingId": "benefit",
+    "question": "传输从 200 降到 80、解析量仍是 200 时，应记录哪种收益？",
+    "answerPoints": [
+      "只有传输差为正",
+      "结果是 transfer-only",
+      "不能把未下降的解析也写成收益"
+    ],
+    "pitfalls": [
+      "用一个字节数同时代表下载时间和可交互时间"
+    ]
+  },
+  {
+    "catalogId": "K10-06",
+    "sourceHeadingId": "boundaries",
+    "question": "未压缩产物的字符数变小，为什么还不能宣布首屏变快？",
+    "answerPoints": [
+      "比较的不是 gzip 后的网络字节",
+      "也没有测量解析耗时",
+      "延后加载可能把成本移到下一次交互"
+    ],
+    "pitfalls": [
+      "把首页变小写成整次访问都变快"
+    ]
+  },
+  {
+    "catalogId": "K10-07",
+    "sourceHeadingId": "gate",
+    "question": "预算样本只有两次、最低要求四次时，门禁为什么不能通过？",
+    "answerPoints": [
+      "样本数没有达到下限",
+      "结果是 insufficient",
+      "只有 within 可以 pass，缺少数据必须 fail"
+    ],
+    "pitfalls": [
+      "采集失败时默认放行"
+    ]
+  },
+  {
+    "catalogId": "K10-07",
+    "sourceHeadingId": "noise",
+    "question": "75 分位从 100 升到 108，为什么本例不把它记为回归？",
+    "answerPoints": [
+      "绝对差是 8，相对差小于 10%",
+      "两条噪声阈值都没有越过",
+      "升到 130 时相对差已越过，记为 regressed"
+    ],
+    "pitfalls": [
+      "把一次从 100 到 90 的运行直接当成稳定改善"
+    ]
+  },
+  {
+    "catalogId": "K10-07",
+    "sourceHeadingId": "boundaries",
+    "question": "实验室四次运行落在预算内，为什么仍要看真实用户分组？",
+    "answerPoints": [
+      "固定环境不能代表移动网络和地区差异",
+      "字段数据可能按 K10-01 的分组变差",
+      "错误率预算也不能被性能通过覆盖"
+    ],
+    "pitfalls": [
+      "把作者规定的 10% 噪声带当成统计检验"
+    ]
+  },
+  {
+    "catalogId": "K10-08",
+    "sourceHeadingId": "segment",
+    "question": "桌面四次 LCP 的 75 分位是 1100 时，为什么移动端仍是 3200？",
+    "answerPoints": [
+      "两组分别排序取分位",
+      "桌面样本不会进入移动端的排序",
+      "每组只有四次，结论必须带上样本量"
+    ],
+    "pitfalls": [
+      "用全体平均数否定移动端变慢"
+    ]
+  },
+  {
+    "catalogId": "K10-08",
+    "sourceHeadingId": "hypothesis",
+    "question": "主图完成单位从 70 降到 40、INP 仍是 180 时，诊断结论是什么？",
+    "answerPoints": [
+      "错误数没有增加",
+      "LCP 变小且 INP 没有变差",
+      "结论是 lcp-only，交互问题仍然开放"
+    ],
+    "pitfalls": [
+      "页脚体积下降但发现时间不变时，仍宣称首屏假设成立"
+    ]
+  },
+  {
+    "catalogId": "K10-08",
+    "sourceHeadingId": "retest",
+    "question": "预加载复测为什么必须继续区分移动端和桌面？",
+    "answerPoints": [
+      "最初的慢出现在移动端分组",
+      "只复测桌面会回到另一组条件",
+      "一次更快的刷新也不能代替一组相同口径的分位"
+    ],
+    "pitfalls": [
+      "把 lcp-only 写成整个页面的性能已经修复"
+    ]
+  }
+]

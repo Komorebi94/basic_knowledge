@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router";
 import type { Article } from "./articles";
 import { CodeBlock } from "./CodeBlock";
@@ -10,7 +10,7 @@ export function ArticleView({ article, backTo, backLabel }: { article: Article; 
   const exercises = exercisesForContent(article.catalogId ?? article.id);
   const cases = reviewCases.filter((item) => item.catalogId === (article.catalogId ?? article.id));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let id: string;
     try {
       id = decodeURIComponent(location.hash.slice(1));
